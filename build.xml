@@ -1,23 +1,22 @@
-<project name="ufp-publisher" default="deploy-dev" basedir="./">
+<project name="ufp-umeng" default="deploy-dev" basedir="./">
 
 	<description>Builds, tests, and runs the project.</description>
  	
-	<property name="resin" location="../resin" />
+	<property name="resin" location="../resin-umeng" />
+	<property name="project" location="~/apps/ufp-umeng/"/>
 	<property name="lib" location="../umeng-core/lib" />
 	<property name="libdev" location="../umeng-core/lib-dev" />
-	<property name="src_engine" location="src_engine" />	
 	<property name="src" location="src" />	
 	<property name="dist" location="deploy/war" />
 	<property name="WebContent" location="WebContent" />
 	<property name="build" location="${WebContent}/WEB-INF/classes" />
 	<property name="umeng-core.jar" location="../umeng-core/deploy/umeng-core.jar" />
 
-	<property name="production" location="../ufp-deploy" />
+	<property name="production" location="../ufp-umeng-deploy" />
 	<property name="shared" location="${production}/shared" />
 	<property name="uploads" location="${shared}/uploads" />
 	<property name="config" location="${shared}/config" />
 	<property name="db_config" location="${config}/jdbc.properties" />
-	<property name="cache_config" location="${config}/cache.properties" />
 	<property name="rabbitmq_config" location="${config}/rabbitmq.properties" />
 
 	<path id="project.classpath">
@@ -51,17 +50,11 @@
 		<javac srcdir="${src}" destdir="${build}" encoding="utf-8" debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
 			<classpath refid="project.classpath"></classpath>
 		</javac>
-		<javac srcdir="${src_engine}" destdir="${build}" encoding="utf-8" debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
-			<classpath refid="project.classpath"></classpath>
-		</javac>
 		
 		<copy todir="${build}" overwrite="true">
 			<fileset dir="${src}" includes="**/*.properties" />
 			<fileset dir="${src}" includes="**/*.dat" />
 			<fileset dir="${src}" includes="**/*.xml" />
-			<fileset dir="${src_engine}" includes="**/*.properties" />
-			<fileset dir="${src_engine}" includes="**/*.dat" />
-			<fileset dir="${src_engine}" includes="**/*.xml" />
 		</copy>
 	</target>
 	
@@ -138,12 +131,7 @@
 			<arg value="${db_config}"/>	
 			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/jdbc.properties"/>
 		</exec>
-		<exec executable="ln">
-			<arg value="-s"/>
-			<arg value="${cache_config}"/>	
-			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/cache.properties"/>
-		</exec>
-	    <exec executable="ln">
+	    	<exec executable="ln">
 			<arg value="-s"/>
 			<arg value="${rabbitmq_config}"/>	
 			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/rabbitmq.properties"/>
@@ -182,7 +170,7 @@
 		<exec executable="ssh">
 			<arg value="deploy@211.151.139.230"/>
 			<arg value="-p18021"/>
-			<arg value="cd ~/apps/umeng-core/;ant ;cd ~/apps/ufp-publisher/;ant deploy-production;"/>
+			<arg value="cd ~/apps/umeng-core/;ant ;cd ${project};ant deploy-production;"/>
 		</exec>
 		<antcall target="deploy-nginx-web1" />
 		<antcall target="deploy-nginx-web2" />
@@ -192,7 +180,7 @@
 		<exec executable="ssh">
 			<arg value="deploy@211.151.139.231"/>
 			<arg value="-p18021"/>
-			<arg value="cd ~/apps/umeng-core/;ant ;cd ~/apps/ufp-publisher/;ant deploy-production;"/>
+			<arg value="cd ~/apps/umeng-core/;ant ;cd ${project};ant deploy-production;"/>
 		</exec>
 		<antcall target="deploy-nginx-web1" />
 		<antcall target="deploy-nginx-web2" />
@@ -202,7 +190,7 @@
 		<exec executable="ssh">
 			<arg value="deploy@211.151.139.251"/>
 			<arg value="-p18021"/>
-			<arg value="cd ~/apps/ufp-publisher/;git pull origin stable; "/>
+			<arg value="cd ${project};git pull origin stable; "/>
 		</exec>
 	</target>
 	<target name="deploy-nginx-web2">
@@ -210,7 +198,7 @@
 		<exec executable="ssh">
 			<arg value="deploy@211.151.139.208"/>
 			<arg value="-p18021"/>
-			<arg value="cd ~/apps/ufp-publisher/;git pull origin stable; "/>
+			<arg value="cd ${project};git pull origin stable; "/>
 		</exec>
 	</target>
 	
