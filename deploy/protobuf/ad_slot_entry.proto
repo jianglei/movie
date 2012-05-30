@@ -1,0 +1,33 @@
+package com.umeng.ufp.core.domain.protobuf;
+
+option java_package = "com.umeng.ufp.core.domain.protobuf";
+option java_outer_classname = "AdSlotProtos";
+
+message AdSlotEntry {
+    optional int32 id = 1;
+    optional int32 app_id = 2;
+    optional string name = 3;
+    optional string landing_type = 4;
+    optional string landing_size = 5;
+    optional string landing_images = 6;
+    optional string platform = 7;
+    optional string device = 8;
+    optional string channels = 9;
+    optional string areas = 10;
+    optional string text_size = 11;
+    optional string display_strategy = 12;
+    optional string timeslots = 13;
+    optional string template = 14;
+    optional string anim_in = 15;
+    optional string enable_preload = 16;
+    optional string enable_page = 17;
+    optional string status = 18;
+    optional string ad_network_strategy = 19;
+    optional bool xp_enable = 20;
+    optional int32 xp_percent = 21;
+    optional string appkey = 22;
+    optional bool uads_enable = 23;
+    optional int32 uads_percent = 24;
+    optional string uads_key = 25;
+    optional string uads_key2 = 26;
+}

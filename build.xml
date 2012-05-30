@@ -1,0 +1,217 @@
+<project name="ufp-publisher" default="deploy-dev" basedir="./">
+
+	<description>Builds, tests, and runs the project.</description>
+ 	
+	<property name="resin" location="../resin" />
+	<property name="lib" location="../umeng-core/lib" />
+	<property name="libdev" location="../umeng-core/lib-dev" />
+	<property name="src_engine" location="src_engine" />	
+	<property name="src" location="src" />	
+	<property name="dist" location="deploy/war" />
+	<property name="WebContent" location="WebContent" />
+	<property name="build" location="${WebContent}/WEB-INF/classes" />
+	<property name="umeng-core.jar" location="../umeng-core/deploy/umeng-core.jar" />
+
+	<property name="production" location="../ufp-deploy" />
+	<property name="shared" location="${production}/shared" />
+	<property name="uploads" location="${shared}/uploads" />
+	<property name="config" location="${shared}/config" />
+	<property name="db_config" location="${config}/jdbc.properties" />
+	<property name="cache_config" location="${config}/cache.properties" />
+	<property name="rabbitmq_config" location="${config}/rabbitmq.properties" />
+
+	<path id="project.classpath">
+		<fileset dir="${lib}">
+			<include name="*.jar"/>
+			<include name="*.zip"/>
+		</fileset>
+		<fileset dir="${libdev}">
+			<include name="*.jar"/>
+			<include name="*.zip"/>
+		</fileset>
+		<filelist files="${umeng-core.jar}"/>
+	</path>
+	
+	<target name="init">
+		<tstamp />
+		<echo message="init"/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+	<target name="pull">
+		<exec executable="git">
+			<arg value="pull"/>
+			<arg value="origin"/>
+			<arg value="stable"/>
+		</exec>	
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${build}" encoding="utf-8" debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
+			<classpath refid="project.classpath"></classpath>
+		</javac>
+		<javac srcdir="${src_engine}" destdir="${build}" encoding="utf-8" debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
+			<classpath refid="project.classpath"></classpath>
+		</javac>
+		
+		<copy todir="${build}" overwrite="true">
+			<fileset dir="${src}" includes="**/*.properties" />
+			<fileset dir="${src}" includes="**/*.dat" />
+			<fileset dir="${src}" includes="**/*.xml" />
+			<fileset dir="${src_engine}" includes="**/*.properties" />
+			<fileset dir="${src_engine}" includes="**/*.dat" />
+			<fileset dir="${src_engine}" includes="**/*.xml" />
+		</copy>
+	</target>
+	
+	<target name="deploy-dev" description="copy war to production folder" depends="compile">
+		<copy todir="${WebContent}/WEB-INF/classes" overwrite="true">
+			<fileset dir="${build}" />
+		</copy>
+		<copy todir="${WebContent}/WEB-INF/lib/" overwrite="true">
+			<fileset dir="${lib}" includes="**" />
+		</copy>
+		<copy todir="${WebContent}/WEB-INF/lib/" file="${umeng-core.jar}" overwrite="true"/>
+	</target>
+	<target name="deploy" depends="compile">
+		<antcall target="deploy-dev" />
+		
+		<copy todir="${dist}" overwrite="true">
+			<fileset dir="${WebContent}" >
+				<include name="**/**" />
+				<exclude name="**/*.properties*" />
+			</fileset>
+		</copy>
+		<exec executable="cp">
+			<arg value="-p"/>
+			<arg value="-f"/>
+			<arg value="${WebContent}/tools/aapt"/>
+			<arg value="${dist}/tools/"/>
+		</exec>
+	</target>
+	
+	<target name="deploy-production" description="copy war to production folder and restart resin server" depends="">
+		<antcall target="pull" />
+		<antcall target="deploy" />
+		
+		<mkdir dir="${shared}" />
+		<mkdir dir="${uploads}" />
+		<mkdir dir="${config}" />
+		
+		<echo message="create production directory and copy war"/>
+		<tstamp>
+			<format property="touch.time" pattern="yyyyMMddHHmmss"/>
+		</tstamp>		
+		<echo message="${touch.time}"/>
+		<mkdir dir="${production}/${touch.time}"/>
+		<copy todir="${production}/${touch.time}" overwrite="true">
+			<fileset dir="${dist}"/>
+		</copy>
+		<exec executable="cp">
+			<arg value="-p"/>
+			<arg value="-f"/>
+			<arg value="${dist}/tools/aapt"/>
+			<arg value="${production}/${touch.time}/tools/"/>
+		</exec>
+
+		<exec executable="rm">
+			<arg value="${resin}/webapps/ROOT"/>
+	   	</exec>
+		<exec executable="ln">
+			<arg value="-s"/>
+			<arg value="${production}/${touch.time}"/>	
+			<arg value="${resin}/webapps/ROOT"/>
+		</exec>
+	
+		<exec executable="rm">
+			<arg value="-rf"/>
+			<arg value="${resin}/webapps/ROOT/public/uploads"/>
+	   	</exec>		
+		<exec executable="ln">
+			<arg value="-s"/>
+			<arg value="${uploads}"/>	
+			<arg value="${resin}/webapps/ROOT/public/uploads"/>
+		</exec>
+		<exec executable="ln">
+			<arg value="-s"/>
+			<arg value="${db_config}"/>	
+			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/jdbc.properties"/>
+		</exec>
+		<exec executable="ln">
+			<arg value="-s"/>
+			<arg value="${cache_config}"/>	
+			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/cache.properties"/>
+		</exec>
+	    <exec executable="ln">
+			<arg value="-s"/>
+			<arg value="${rabbitmq_config}"/>	
+			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/rabbitmq.properties"/>
+		</exec>
+
+		<antcall target="stop" />
+		<antcall target="start" />
+	</target>
+
+	<target name="clean" description="clean up" >
+		<echo message="clean build. "/>
+		<delete dir="${build}" />
+	</target>
+
+	<target name="stop" >
+		<echo message="stop environment resin"/>
+		<exec executable="${resin}/bin/resin.sh">
+			<arg value="stop"/>
+		</exec>
+	</target>
+	<target name="start" >
+		<echo message="start resin"/>
+		<exec executable="${resin}/bin/resin.sh">
+			<arg value="start"/>
+		</exec>
+	</target>
+	<target name="restart" >
+		<echo message="restart resin"/>
+		<exec executable="${resin}/bin/resin.sh">
+			<arg value="restart"/>
+		</exec>
+	</target>
+	
+	<target name="deploy-10">
+		<echo message="start deploy to unode10-plog-db1 : 211.151.139.230"/>
+		<exec executable="ssh">
+			<arg value="deploy@211.151.139.230"/>
+			<arg value="-p18021"/>
+			<arg value="cd ~/apps/umeng-core/;ant ;cd ~/apps/ufp-publisher/;ant deploy-production;"/>
+		</exec>
+		<antcall target="deploy-nginx-web1" />
+		<antcall target="deploy-nginx-web2" />
+	</target>
+	<target name="deploy-11">
+		<echo message="start deploy to unode11-plog-db1 : 211.151.139.231"/>
+		<exec executable="ssh">
+			<arg value="deploy@211.151.139.231"/>
+			<arg value="-p18021"/>
+			<arg value="cd ~/apps/umeng-core/;ant ;cd ~/apps/ufp-publisher/;ant deploy-production;"/>
+		</exec>
+		<antcall target="deploy-nginx-web1" />
+		<antcall target="deploy-nginx-web2" />
+	</target>
+	<target name="deploy-nginx-web1">
+		<echo message="start deploy to nginx 211.151.139.251"/>
+		<exec executable="ssh">
+			<arg value="deploy@211.151.139.251"/>
+			<arg value="-p18021"/>
+			<arg value="cd ~/apps/ufp-publisher/;git pull origin stable; "/>
+		</exec>
+	</target>
+	<target name="deploy-nginx-web2">
+		<echo message="start deploy to nginx 211.151.139.208"/>
+		<exec executable="ssh">
+			<arg value="deploy@211.151.139.208"/>
+			<arg value="-p18021"/>
+			<arg value="cd ~/apps/ufp-publisher/;git pull origin stable; "/>
+		</exec>
+	</target>
+	
+</project>

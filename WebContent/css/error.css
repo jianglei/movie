@@ -1,0 +1,15 @@
+#main .errorReqBody{
+    color: #5A5A5A;
+    display: table-cell;
+    font-size: 20px;
+    font-weight: bold;
+    height: 400px;
+    text-shadow: 0 1px 1px white;
+    vertical-align: middle;
+    width: 940px;
+    text-align:center;
+}
+#main .errorReqBody img{
+  vertical-align: middle;
+  margin-right:40px;
+}

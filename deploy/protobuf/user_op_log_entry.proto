@@ -1,0 +1,13 @@
+package com.umeng.ufp.core.domain.protobuf;
+
+option java_package = "com.umeng.ufp.core.domain.protobuf";
+option java_outer_classname = "UserOpLogProtos";
+
+message UserOpLogEntry {
+    optional string op_date = 1;
+    optional string op_type = 2;
+    optional string object_type = 3;
+    optional string object_key = 4;
+    optional string object_value = 5;
+    optional int32 user_id = 6;
+}

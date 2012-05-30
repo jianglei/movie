@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umeng.ufp.core.domain.AdOrder">
+	<resultMap id="AdOrder-RESULT" type="com.umeng.ufp.core.domain.AdOrder">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column = "user_id" jdbcType="INTEGER" property="userId" />
+		
+		<result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+		<result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="contact" jdbcType="VARCHAR" property="contact" />
+		<result column="customer" jdbcType="VARCHAR" property="customer" />
+		<result column="comments" jdbcType="VARCHAR" property="comments" />
+		<result column="state" jdbcType="INTEGER" property="state" />
+	</resultMap>
+
+
+	<sql id="select">
+		select *
+		from
+		ad_order
+	</sql>
+
+	<select id="AdOrder.get" resultMap="AdOrder-RESULT"
+		parameterType="int">
+		<include refid="select" />
+		where id=#{id}
+	</select>
+	
+	<select id="AdOrder.getMapById" resultType="java.util.HashMap" parameterType="int">
+		<include refid="select" />
+		where id=#{id}
+	</select>
+
+	<select id="AdOrder.find" resultMap="AdOrder-RESULT"
+		parameterType="java.util.Map">
+		<include refid="select" />
+		<where>
+			<if test="id != null and id != ''">
+				id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				user_id = #{userId}
+			</if>
+		</where>
+	</select>	
+	<select id="AdOrder.listQueryPage" resultType="java.util.HashMap" parameterType="java.util.Map">
+		<include refid="select" />
+		<where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(state & 1)]]>
+			<if test="status != null and status != ''">
+		         and
+				 <foreach item="s" collection="status" open="(" close=")"
+		             separator=" or ">
+		             <!-- state & (state -1 ) means set lowest bit from 1 to 0 -->
+				     <!-- state ^ (state & (state -1 )) means get proir highest state -->
+		             <choose>
+			             <when test="s == 'normal'">
+			             	state = 0
+			             </when>
+			             <when test="s == 'pause'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 2)]]>
+			             </when>
+			             <when test="s == 'finish'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 256)]]>
+			             </when>
+			             <when test="s == 'ready'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 1024)]]>
+			             </when>
+		             </choose>
+		        </foreach>      
+		    </if>
+			<if test="userId != null and userId != ''">
+				and user_id = #{userId}
+			</if>
+		</where>
+		order by id desc
+		<if test="limit != null">
+			limit
+			<if test="offset != null">
+				#{offset},
+			</if>
+			#{limit}
+		</if>
+	</select>
+	
+	<select id="AdOrder.listQueryPagecount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+   		<![CDATA[
+        select count(id)
+        from ad_order
+        ]]>
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(state & 1)]]>
+        	<if test="userId != null and userId != ''">
+				and user_id = #{userId}
+			</if>
+	    	<if test="status != null and status != ''">
+		         and
+				 <foreach item="s" collection="status" open="(" close=")"
+		             separator=" or ">
+		             <!-- state & (state -1 ) means set lowest bit from 1 to 0 -->
+				     <!-- state ^ (state & (state -1 )) means get proir highest state -->
+		             <choose>
+			             <when test="s == 'normal'">
+			             	state = 0
+			             </when>
+			             <when test="s == 'pause'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 2)]]>
+			             </when>
+			             <when test="s == 'finish'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 256)]]>
+			             </when>
+			             <when test="s == 'ready'">
+				             <![CDATA[((state ^ (state & (state - 1))) & 1024)]]>
+			             </when>
+		             </choose>
+		        </foreach>      
+		    </if>
+        </where>
+	</select>
+
+	<insert id="AdOrder.insert" parameterType="com.umeng.ufp.core.domain.AdOrder"
+		useGeneratedKeys="true" keyProperty="id">
+	    insert into ad_order(user_id, created_time, updated_time, name
+	    	,customer, start_time, end_time, comments
+	    ) values(#{userId}, SYSDATE(), SYSDATE(), #{name}
+	    	,#{customer}, #{startTime}, #{endTime}, #{comments}
+	    )
+	</insert>
+	<update id="AdOrder.update" parameterType="com.umeng.ufp.core.domain.AdOrder">
+		update ad_order set updated_time = SYSDATE()
+		,name = #{name}, start_time= #{startTime}, end_time= #{endTime}
+	    ,name= #{name}, customer= #{customer}, comments= #{comments}
+		<where>
+			id = #{id}
+			<if test="userId != null and userId != ''">
+				and user_id = #{userId}
+			</if>
+		</where>
+	</update>
+	
+	<update id="AdOrder.updateByMap" parameterType="java.util.Map">
+        update ad_order
+        set updated_time = SYSDATE()
+        <if test="(andState != null and andState != '') 
+        	or (orState != null and orState != '')">
+        	,state = state
+       		<if test="andState != null and andState != ''">
+       			<![CDATA[ & #{andState}]]>
+       		</if>
+       		<if test="orState != null and orState != '' ">
+       			<![CDATA[ | #{orState}]]>
+       		</if>
+        </if>
+        <if test="name != null">
+            ,name = #{name}
+        </if>
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(state & 1)]]>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+				and user_id = #{userId}
+			</if>
+        </where>
+    </update>
+    <select id="AdOrder.findIds" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select id
+        from ad_order
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(state & 1)]]>
+	        <if test="userId != null and userId != ''">
+	            and user_id = #{userId}
+	        </if>
+       </where>     
+    </select> 
+
+</mapper>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umeng.ufp.core.domain.ReportCounter">
+  <resultMap id="ReportCounter-RESULT" type="com.umeng.ufp.core.domain.ReportCounter">
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="ad_id" jdbcType="INTEGER" property="adId" />
+    <result column="ad_slot_id" jdbcType="INTEGER" property="adSlotId" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="impression" jdbcType="INTEGER" property="impression" />
+    <result column="download" jdbcType="INTEGER" property="download" />
+    <result column="click" jdbcType="INTEGER" property="click" />
+    <result column="appstore_click" jdbcType="INTEGER" property="appstoreClick" />
+    <result column="click_rate" jdbcType="DOUBLE" property="clickRate" />
+    <result column="avg_price_click" jdbcType="INTEGER" property="avgPriceClick" />
+    <result column="revenue" jdbcType="DOUBLE" property="revenue" />
+    <result column="avg_price" jdbcType="DOUBLE" property="avgPrice"/>
+
+  </resultMap>
+  
+  	<sql id="select">
+		select *
+		from
+		ad_holder_counter
+	</sql>
+
+    <select id="ReportCounter.find" resultMap="ReportCounter-RESULT" parameterType="java.util.Map">
+        <![CDATA[
+        select date, sum(impression) as impression, sum(download) as download, 
+        	 		 sum(click) as click, sum(appstore_click) as appstore_click,
+        	 		 sum(revenue) as revenue, sum(avg_price_click) as avg_price_click, 
+        	 		 sum(click) / sum(impression) as click_rate,
+        	 		 sum(revenue)/sum(avg_price_click) as avg_price
+        from ad_holder_counter
+        ]]>
+        <where>
+        	<if test="category != null and category != ''">
+            	  and category = #{category}
+            </if>
+            <if test="adId != null and adId != ''">
+                  and ad_id = #{adId}
+            </if>
+            <if test="adSlotId != null and adSlotId != ''">
+                  and ad_slot_id = #{adSlotId}
+            </if>
+            <if test="adSlotIds != null and adSlotIds != ''">
+                and ad_slot_id in
+                <foreach item="id" collection="adSlotIds" open="(" close=")"
+                    separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="adIds != null and adIds != ''">
+                and ad_id in
+                <foreach item="id" collection="adIds" open="(" close=")"
+                    separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="startDate != null and startDate != ''">
+            	  <![CDATA[and date >= #{startDate}]]>
+            </if>
+            <if test="endDate != null and endDate != ''">
+            	  <![CDATA[and date <= #{endDate}]]>
+            </if>
+            <if test="appId != null and appId != ''">
+                  and ad_slot_id in (
+                  	select id from ad_slot where app_id = #{appId}
+                  	<if test="appIds != null and appIds != ''">
+	            	  	and app_id in
+	            	  	<foreach item="id" collection="appIds" open="(" close=")"
+		                    separator=",">
+		                    #{id}
+	                	</foreach>
+                	</if>
+                  )
+            </if>
+            <if test="adOrderId != null and adOrderId != ''">
+            	  and ad_id in (
+            	  	select id from ad where ad_order_id = #{adOrderId}
+            	  	<if test="adOrderIds != null and adOrderIds != ''">
+	            	  	and ad_order_id in
+	            	  	<foreach item="id" collection="adOrderIds" open="(" close=")"
+		                    separator=",">
+		                    #{id}
+	                	</foreach>
+                	</if>
+                  )
+            </if>
+            group by date
+            order by date desc
+        </where>
+    </select>
+
+</mapper>
+

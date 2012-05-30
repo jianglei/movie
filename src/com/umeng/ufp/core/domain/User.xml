@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umeng.ufp.core.domain.User">
+  <resultMap id="User-RESULT" type="com.umeng.ufp.core.domain.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="logo_name" jdbcType="VARCHAR" property="logoName" />
+    <result column="blacklist" jdbcType="VARCHAR" property="blacklist" />
+    
+    <result column="login_times" jdbcType="INTEGER" property="loginTimes" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+  </resultMap>
+
+	<sql id="select">
+		select *
+		from
+		user
+	</sql>
+
+	<select id="User.get" resultMap="User-RESULT" parameterType="int">
+		<include refid="select" />
+		where id = #{id}
+	</select>
+	
+	<select id="User.getMapById" resultType="java.util.HashMap" parameterType="int">
+		<include refid="select" />
+		where id=#{id}
+	</select>
+  
+  	<select id="User.find" resultMap="User-RESULT"
+        parameterType="java.util.Map">
+        <include refid="select" />
+        <where>
+            <if test="id != null and id != ''">
+                  id = #{id}
+            </if>
+            <if test="email != null and email != ''">
+                  and email = #{email}
+            </if>
+            <if test="password != null and password != ''">
+                  and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <insert id="User.insert" parameterType="com.umeng.ufp.core.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(created_time, updated_time
+        	<if test="email != '' and email != null'">,email</if>
+        	<if test="password != '' and password != null'">,password</if>
+        	<if test="logoName != '' and logoName != null'">,logo_name</if>
+        	<if test="logoUrl != '' and logoUrl != null'">,logo_url</if>
+        ) values(now(), now(), 
+        	<if test="email != '' and email != null'">,#{email}</if>
+        	<if test="password != '' and password != null'">,#{password}</if>
+        	<if test="logoName != '' and logoName != null'">,#{logoName}</if>
+        	<if test="logoUrl != '' and logoUrl != null'">,#{logoUrl}</if>
+        )
+    </insert>
+    
+    <update id="User.update" parameterType="com.umeng.ufp.core.domain.User">
+       update user set updated_time=now()
+       <if test="password != null and password != ''">
+               ,password = #{password}
+       </if>
+       <if test="name != null and name != ''">
+               ,name = #{name}
+       </if>
+       <if test="nickname != null and nickname != ''">
+               ,nickname = #{nickname}
+       </if>
+       <if test="phone != null and phone != ''">
+               ,phone = #{phone}
+       </if>    
+       <if test="logoUrl != null and logoUrl != ''">
+               ,logo_url = #{logoUrl}
+       </if>
+       <if test="logoName != null and logoName != ''">
+               ,logo_name = #{logoName}
+       </if>      
+       <if test="blacklist != null">
+       		   ,blacklist = #{blacklist} 
+       </if> 
+       where id=#{id}
+    </update>
+</mapper>

@@ -1,0 +1,12 @@
+package com.umeng.ufp.core.domain.protobuf;
+
+option java_package = "com.umeng.ufp.core.domain.protobuf";
+option java_outer_classname = "AppProtos";
+
+message AppEntry {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional string platform = 3;
+    optional string description = 4;
+    optional string status = 5;
+}

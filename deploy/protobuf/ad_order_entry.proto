@@ -1,0 +1,14 @@
+package com.umeng.ufp.core.domain.protobuf;
+
+option java_package = "com.umeng.ufp.core.domain.protobuf";
+option java_outer_classname = "AdOrderProtos";
+
+message AdOrderEntry {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional string comments = 3;
+    optional string customer = 4;
+    optional int64 start_time = 5;
+    optional int64 end_time = 6;
+    optional string status = 7;
+}

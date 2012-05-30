@@ -1,0 +1,32 @@
+package com.umeng.ufp.core.domain.protobuf;
+
+option java_package = "com.umeng.ufp.core.domain.protobuf";
+option java_outer_classname = "AdContentProtos";
+
+message AdContentEntry {
+    optional int32 id = 1;
+    optional string entry_type = 2;
+    optional string content_type = 3;
+    optional string display_type = 4;
+    optional string landing_type = 5;
+    optional string landing_size = 6;
+    optional string url = 7;
+    optional string icon = 8;
+    optional string img = 9;
+    optional string title = 10;
+    optional string text_font = 11;
+    optional string text_color = 12;
+    optional string text_size = 13;
+    optional string ad_words = 14;
+    optional string provider = 15;
+    optional string description = 16;
+    optional string price = 17;
+    optional string platform = 18;
+    optional string template = 19;
+    optional int32 size = 20;
+    optional string app_package_name = 21;
+    optional string app_version_code = 22;
+    optional string app_version_name = 23;
+    optional string app_store_id = 24;
+    optional string bundle_identifier = 25;
+}

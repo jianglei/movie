@@ -1,0 +1,494 @@
+GT-I9100;手机;三星GT-I9100;三星;800*480
+C8650;手机;华为C8650;华为;480*320
+GT-S5830;手机;三星GT-S5830;三星;480*320
+MB525;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+HTC Incredible S;手机;HTC Incredible S(G11);HTC;800*480
+HTC Desire S;手机;HTC Desire S（G12）;HTC;800*480
+Desire HD;手机;HTC Desire HD（G10）;HTC;800*480
+ZTE-U V880;手机;中兴V880;中兴;800*480
+HTC Wildfire S A510e;手机;HTC Wildfire S（G13）;HTC;480*320
+GT-I9000;手机;三星Galaxy S;三星;800*480
+HTC Desire;手机;HTC Desire;HTC;800*480
+GT-S5660;手机;三星GT-S5660;三星;480*320
+HTC Sensation Z710e;手机;HTC 灵感 Z710e;HTC;960*540
+ZTE-T U880;手机;中兴U880;中兴;800*480
+GT-S5570;手机;三星GT-S5570;三星;320*240
+GT-I9003;手机;三星GT-I9003;三星;800*480
+C8500;手机;华为C8500;华为;320*240
+ZTE-C N760;手机;中兴N760;中兴;480*320
+ME525;手机;摩托罗拉 ME525/Defy;摩托罗拉;854*480
+M9;手机;魅族 M9;魅族;960*640
+GT-P1000;平板;三星GT-P1000;三星;1024*600
+Lenovo A60;手机;联想A60;联想;480*320
+HTC Wildfire;手机;HTC Wildfire G8(野火);HTC;320*240
+X10i;手机;索爱X10i;索爱;854*480
+E15i;手机;索爱X8(E15i);索爱;480*320
+MT15i;手机;索爱MT15;索爱;854*480
+LT15i;手机;索爱Xperia Arc LT15;索爱;854*480
+Nexus S;手机;三星Nexus S;三星;800*480
+GT-I5508;手机;三星GT-I5508 ;三星;320*240
+A1_07;平板;联想（乐 Pad）A1-07;联想;1024*600
+HTC HD2;手机;HTC HD2(Leo);HTC;800*480
+ONDA MID;平板;昂达MID-VI10;昂达;800*480
+SCH-i559;手机;三星Galaxy i559;三星;320*240
+SCH-i909;手机;三星i909;三星;800*480
+HTC Magic;手机;HTC Magic G2(myTouch);HTC;480*320
+C8500S;手机;华为C8500;华为;320*240
+LG-P970;手机;LG P970;LG;800*480
+GT-I9001;手机;三星GT-I9001;三星;800*480
+GT-S5670;手机;三星 GT-S5670;三星;320*240
+Milestone;手机;摩托罗拉Milestone(里程碑);摩托罗拉;854*480
+XT800;手机;摩托罗拉xt800;摩托罗拉;854*480
+HTC Legend;手机;HTC Legend(G6);HTC;480*320
+LT18i;手机;索爱Xperia arc S LT18i;索爱;854*480
+GT-I9008L;手机;三星GT-I9008;三星;800*480
+Blade;手机;中兴V880;中兴;800*480
+ME860;手机;摩托罗拉 MB860;摩托罗拉;960*540
+GT-I9108;手机;三星GT-I9108;三星;800*480
+HTC A510e;手机;HTC A510e ;HTC;480*320
+3GW101;手机;联想乐Phone(3GW101);联想;800*480
+LG-P350;手机;LG-P350;LG;320*240
+E239;手机;酷派E239;酷派;480*320
+ME722;手机;摩托罗拉MileStone 2;摩托罗拉;854*480
+SCH-i809;手机;三星SCH-i809;三星;800*480
+ME811;手机;摩托罗拉DroidX;摩托罗拉;854*480
+HUAWEI T8300;手机;华为T8300;华为;480*320
+3GW100;手机;联想乐Phone(3GW100);联想;800*480
+HTC EVO 3D X515m;手机;HTC EVO 3D X515m;HTC;960*540
+E16i;手机;索爱E16i;索爱;480*320
+D530;手机;酷派D530;酷派;480*320
+ME525 ;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+XT702;手机;摩托罗拉XT702;摩托罗拉;854*480
+SCH-i579;手机;三星SCH-i579;三星;480*320
+Motorola-XT502;手机;摩托罗拉XT502;摩托罗拉;480*320
+PC36100;手机;HTC EVO 4G（PC36100）;HTC;800*480
+meizu_m9;手机;魅族 M9;魅族;960*640
+HTC ChaCha A810e;手机;HTC ChaCha(A810e);HTC;480*320
+GT-S5838;手机;三星GT-S5838;三星;480*320
+W700;手机;天语W700;天语;800*480
+ZTE-C N606;手机;中兴N606;中兴;320*240
+HTC S710d;手机;HTC S710d ;HTC;800*480
+LG-P503;手机;LG-P503;LG;480*320
+ME525+;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+HTC Desire HD;手机;HTC Desire HD（G10）;HTC;800*480
+MB860;手机;摩托罗拉 MB860;摩托罗拉;960*540
+C8600;手机;华为C8600;华为;480*320
+U8500;手机;华为U8500;华为;480*320
+ST18i;手机;索爱Xperia ray ST18i;索爱;854*480
+u8800;手机;华为U8800;华为;800*480
+HTC Hero;手机;HTC Hero(G3);HTC;480*320
+Novo7Advanced;平板;艾诺 Novo7 Advanced;艾诺;800*480
+XT882;手机;摩托罗拉XT882;摩托罗拉;960*540
+U2;手机;天语U2;天语;480*320
+X903;手机;OPPO X903;OPPO;800*480
+ZTE-C N600 ;手机;中兴N600;中兴;320*240
+HTC Salsa C510e;手机;HTC微客 C510e;HTC;480*320
+XT531;手机;摩托罗拉XT531(FIRE XT/SPICE XT);摩托罗拉;480*320
+HTC Dream;手机;HTC Dream(G1);HTC;480*320
+LG-P990;手机;LG P990;LG;800*480
+XT316;手机;摩托罗拉XT316;摩托罗拉;320*240
+SCH-i569;手机;三星SCH-i569;三星;480*320
+ZTE-C N600;手机;中兴N600;中兴;320*240
+MotoA953;手机;摩托罗拉MileStone 2;摩托罗拉;854*480
+C8800;手机;华为C8800;华为;800*480
+GT-P7500;平板;三星GT-P7500;三星;1280*800
+HTC Vision;手机;HTC Vision(G2);HTC;800*480
+HTC Aria A6380;手机;HTC Aria（A6380） G9;HTC;480*320
+SCH-W899;手机;三星SCH-W899;三星;800*480
+HTC C510e;手机;HTC微客 C510e;HTC;480*320
+Nexus One;手机;google Nexus One(G5);HTC;800*480
+lepad_001b;平板;联想乐pad;联想;1280*800
+Lenovo P70;手机;联想乐Phone P70;联想;480*320
+3GC101;手机;联想乐Phone(3GC101);联想;800*480
+ZTE-C N600+;手机;中兴N600;中兴;320*240
+XT701;手机;摩托罗拉XT701;摩托罗拉;854*480
+GT-S5820;手机;三星S5820;三星;480*320
+XT300;手机;摩托罗拉XT300;摩托罗拉;320*240
+HTC A9188;手机;HTC A9188;HTC;800*480
+GT-I5801;手机;三星GT-I5801;三星;240*400
+HTC Sensation XE with Beats Audio Z715e;手机;HTC Sensation (G14);HTC;960*540
+R800i;手机;索爱Xperia PLAY;索爱;854*480
+D539;手机;酷派D539;酷派;480*320
+MB200;手机;摩托罗拉MB200(CLIQ/DEXT);摩托罗拉;480*320
+Dell Streak;平板;戴尔Streak 5;戴尔;800*480
+Newpad P9;平板;纽曼Newpad NP711;纽曼;800*600
+GT-S5578;手机;三星GT-S5578;三星;320*240
+GT-P7510;手机;三星GT-P7510;三星;1280*800
+X8;手机;索爱X8(E15i);索爱;480*320
+WT19i;手机;索尼爱立信WT19i(Live with Walkman);索爱;480*320
+GT-I5700;手机;三星GT-I5700;三星;480*320
+SHW-M110S;手机;三星Galaxy S;三星;800*480
+GT-I9100G;手机;三星GT-I9100;三星;800*480
+U20i;手机;索爱U20i;索爱;320*240
+Transformer TF101;平板;华硕 Eee Pad Transformer TF101;华硕;1280*800
+SK17i;手机;Xperia mini pro / 索爱SK17i;索爱;480*320
+TCL A990;手机;TCL A990;TCL;480*320
+GT-I9088;手机;三星GT-I9088;三星;800*480
+Lenovo A68e;手机;联想A68e;联想;480*320
+HTC Z710e;手机;HTC 灵感 Z710e;HTC;960*540
+XT800 ;手机;摩托罗拉xt800;摩托罗拉;854*480
+HTC Glacier;手机;HTC Glacier;HTC;800*480
+SGH-T959;手机;三星Galaxy S;三星;800*480
+LG-P920;手机;LG P920;LG;800*480
+XT301;手机;摩托罗拉XT301;摩托罗拉;320*240
+P76;平板;台电P76;台电;800*480
+W711;手机;酷派W711;酷派;480*320
+MB300;手机;摩托罗拉MB300;摩托罗拉;480*320
+HERO200;手机;HTC Hero(G3);HTC;480*320
+ZTE-BLADE;手机;中兴V880;中兴;800*480
+GT-I9103;手机;三星GT-i9103;三星;800*480
+LG-P993;手机;LG P993;LG;800*480
+MT870;手机;摩托罗拉MT870;摩托罗拉;960*540
+MT620;手机;摩托罗拉MT620(Tahiti);摩托罗拉;320*240
+Google Nexus S;手机;Google Nexus S;谷歌;800*480
+GT-S5360;手机;三星GT-S5360;三星;320*240
+SCH-i589;手机;三星SCH-i589;三星;320*240
+ME600;手机;摩托罗拉ME600;摩托罗拉;480*320
+W606;手机;天语W606;天语;480*320
+Coolpad W706;手机;酷派W706;酷派;480*320
+one touch 906;手机;ALCATEL OT-906;阿尔卡特;320*240
+E10i;手机;索爱Xperia X1mini(E1i);索爱;320*240
+DROIDX;手机;摩托罗拉DroidX;摩托罗拉;854*480
+HTC Desire HD A9191;手机;HTC Desire HD（G10）;HTC;800*480
+ME501;手机;摩托罗拉ME501;摩托罗拉;480*320
+ZTE-C N880;手机;中兴N880;中兴;800*480
+MB525+;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+GT540;手机;LG GT540;LG;480*320
+Lenovo S1-37AH0;手机;联想S1-37AH0;联想;800*480
+LG-P500;手机;LG-P500;LG;480*320
+ME511;手机;摩托罗拉Flipout MB511;摩托罗拉;320*240
+A500;平板;宏碁Acer Iconia Tab A500;宏基;1280*800
+ZTE-T U830;手机;中兴U830;中兴; 480*320
+N12;平板;原道N12;原道;800*480
+ZTE-C N700;手机;中兴N700;中兴;240*400
+LG-P355;手机;LG-P355;LG;320*240
+HTC S610d;手机;HTC 纵横 S610d;HTC;800*480
+XT800+;手机;摩托罗拉xt800;摩托罗拉;854*480
+LG-C660;手机;LG Optimus pro C660;LG;320*240
+ST15i;手机;索爱 ST15i/Xperia mini ;索爱;480*320
+CLIQ;手机;摩托罗拉CLIQ（DEXT）;摩托罗拉;480*320
+LG-P690;手机;LG-P690;LG;480*320
+MB525 ;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+ZTE-C X920;手机;中兴X920;中兴;320*240
+U8500 HiQQ;手机;华为U8500;华为;480*320
+OMS1_6;手机;联想OPhone O1;联想;480*320
+Dell Streak 10 Pro;平板;戴尔Streak 10 Pro;戴尔;1280*800
+GT-I5800;手机;三星GT-i5800;三星;240*400
+MB502;手机;摩托罗拉Charm MB502;摩托罗拉;320*240
+ZTE-C R750;手机;中兴R750;中兴;480*320
+Motorola-XT500;手机;摩托罗拉Quench XT500;摩托罗拉;480*320
+HTC A810e;手机;HTC ChaCha(A810e);HTC;480*320
+GT-I9018;手机;三星GT-i9018 ;三星;800*480
+Optimus 2X;手机;LG Optimus 2X(P993);LG;800*480
+GN200;手机;金立GN200;金立;800*480
+HTC Flyer P510e;手机;HTC Flyer/p510e ;HTC;1024*600
+Milestone XT720;手机;摩托罗拉Milestone XT720;摩托罗拉;854*480
+MB501;手机;摩托罗拉Quench MB501;摩托罗拉;480*320
+MB855;手机;摩托罗拉MB855(Photon 4G);摩托罗拉;960*540
+TCL A906;手机;TCL A906;TCL;320*240
+Incredible S;手机;HTC Incredible S(G11);HTC;800*480
+ADR6400L;手机;HTC ThunderBolt;HTC;800*480
+W713;手机;酷派W713;酷派;320*240
+T3;平板;e人e本T3;e人e本;800*600
+T-Mobile myTouch 3G Slide;手机;T-Mobile MyTouch 3G Slide;HTC;480*320
+HUAWEI T8100;手机;华为T8100;华为;320*240
+XT319;手机;摩托罗拉XT319;摩托罗拉;480*320
+Desire S;手机;HTC Desire S（G12）;HTC;800*480
+N930;手机;酷派N930;酷派;800*480
+SHW-M250L;手机;三星Galaxy S2;三星;800*480
+CoolPad8809;手机;酷派8809;酷派;480*320
+GT-P1010;平板;三星GT-P1010 ;三星;1024*600
+K1;平板;联想 Lepad K1;联想;1280*800
+LG-C550;手机;LG C550;LG;320*240
+P7;平板;艾利和P7;艾利和;480*272
+SCH-I500;手机;三星Galaxy S/SCH-I500(Fascinate);三星;800*480
+XT883;手机;摩托罗拉XT883;摩托罗拉;960*540
+CL-M2;平板;本易CL-M2;本易;800*600
+Ideos;手机;华为U815(Ideos);华为;800*480
+SN10T2;平板;瀚斯宝丽HANNSPAD SN1OT2;瀚斯宝丽;1024*600
+E87;手机;海信HS-E87;海信;320*240
+w9;手机;索爱W9;索爱;800*480
+E89;手机;海信E89;海信;320*240
+SGH-I897;手机;三星Galaxy S/SGH-I897;三星;800*480
+PG86100;手机;HTC Shooter Evo3D PG86100;HTC;960*540
+SH8118U;手机;夏普SH8118U;夏普;480*320
+ViewPad7;平板;优派ViewPad7;优派;800*480
+U8110;手机;华为U8110;华为;320*240
+HTC Bee;手机;HTC Bee;HTC;320*240
+yusun W702;手机;语信W702;语信;480*320
+IS11S;手机;索爱ISllS;索爱;854*480
+ZTE-U X850;手机;中兴U X850;中兴;320*240
+XT720;手机;摩托罗拉XT720(Roi);摩托罗拉;854*480
+T11AD;平板;蓝魔T11AD;蓝魔;800*480
+Inspire 4G;手机;HTC Inspire 4G;HTC;800*480
+GT-P7300;平板;三星GT-P7300;三星;1280*800
+HTC Wildfire S;手机;HTC Wildfire S（G13）;HTC;480*320
+HTC Desire Z;手机;HTC Desire Z;HTC;800*480
+GN103;手机;金立GN103;金立;480*320
+GT-I6500U;手机;三星GT-I6500U;三星;480*320
+IS04;手机;东芝IS04;东芝;854*480
+XT711;手机;摩托罗拉XT711;摩托罗拉;854*480
+N100;手机;和信N100;和信;320*240
+HTC Tattoo;手机;HTC Tattoo(G4);HTC;320*240
+M8;手机;魅族 M8 ;魅族;480*720
+I897;手机;"三星i897";三星;800*480
+SGH-T959V;手机;三星Galaxy S;三星;800*480
+MT11i;手机;索爱Xperia neo V MT11i;索爱;854*480
+Sony Tablet S;平板;索尼Tablet S;索尼;1280*800
+8811;手机;酷派8811;酷派;480*320
+HP Touchpad;平板;惠普Touchpad;惠普;1024*768
+SAMSUNG-SGH-I897;手机;三星SCH-i897;三星;800*480
+LG-P999;手机;LG P999 G2x;LG;800*480
+VX610A;平板;昂达VX610A;昂达;800*480
+T-01C;手机;东芝T-01C;东芝;854*480
+SH8128U;手机;夏普SH8128U(点心);夏普;800*480
+LG-LU6800;手机;lg-lu6800;LG;800*480
+E800;手机;天语E800;天语;800*480
+MT716;手机;摩托罗拉MT716;摩托罗拉;854*480
+Droid;手机;摩托罗拉 Droid/Sholes ;摩托罗拉;854*480
+VX580W;MP4;昂达VX580W;昂达;800*480
+IDEOS X5;手机;华为IDEOS X5;华为;800*480
+T720 SE;平板;ZTE T720;中兴;800*480
+A100;手机;首派A100;首派;800*480
+A30t;手机;联想A30t;联想;320*240
+IS03;手机;夏普IS03;夏普;960*640
+CL-ARMM3;平板;本易CL-ARMM3;本易;800*600
+m9;手机;魅族 M9;魅族;960*640
+9930;手机;酷派9930;酷派;480*960
+A8;平板;爱国者A8;爱国者;800*480
+CHER A90;手机;CHER 卡奥斯A90;CHER;800*480
+8810;手机;酷派8810;酷派;480*320
+E310;手机;海信E310;海信;320*240
+Liquid;平板;宏碁Liquid A1(S1);宏基;800*480
+W3HD;平板;蓝魔W3HD;蓝魔;1024*600
+T959;手机;三星T959 Fascinate;三星;800*480
+A953;手机;摩托罗拉MileStone 2;摩托罗拉;854*480
+T760;平板;台电T760;台电;1024*600
+CUBE U8GT;平板;酷比魔方U8GT;CUBE（酷比魔方;800*480
+V9;手机;中兴 V9e;中兴;800*480
+pulid_F1;手机;普莱达F1;普莱达;800*480
+TCL A890;手机;TCL A890;TCL;320*240
+SH-12C;手机;夏普SH-12C;夏普;960*540
+SH8268U;手机;夏普SH8268U;夏普;800*480
+rk2818sdk;平板;安派APAD RK2818;安派;800*480
+Liberty;手机;HTC Liberty;HTC;480*320
+Dell Venue;平板;戴尔Venue;戴尔;800*480
+DROID2;手机;摩托罗拉Droid 2;摩托罗拉;800*480
+WT18i;手机;索爱WT18i;索爱;480*320
+MT810;手机;摩托罗拉MT810;摩托罗拉;854*480
+SBM003SH;手机;夏普003SH;夏普;800*480
+B63M;手机;普莱达B63M ;普莱达;800*480
+M860;手机;华为M860;华为;480*320
+XT806;手机;摩托罗拉XT806;摩托罗拉;854*480
+Ainol Novo8 Advanced;平板;艾诺 Novo8 Advanced;艾诺;1280*768
+VI30;MP4;昂达Vi30;昂达;1024*768
+S800;手机;华录S800;华录;320*240
+A3380;手机;HTC野火 A3380;HTC;320*240
+ZTE-U X876;手机;中兴U X876;中兴;240*400
+Android-for-Rockchip-2818;手机;RockChip2818轨迹球;天机;800*480
+SHW-M180S;平板;三星P1000;三星;1024*600
+A4 3G;手机;齐乐A4;齐乐;320*240
+MK16i;手机;索爱 Xperia Pro MK16i;索爱;854*480
+Z1i;手机;Xperia Play Z1i / R8i;索爱;854*480
+ST17i;手机;索爱Xperia active ST17i;索爱;480*320
+Newpad NP711;平板;纽曼Newpad P9;纽曼;800*600
+U8800;手机;华为U8800;华为;800*480
+MB200/CLIQ/DEXT/Morrison;手机;摩托罗拉Morrison(MB200);摩托罗拉;480*320
+MID_Serials;手机;海纳M7;海纳;800*480
+A1680;手机;摩托罗拉明A1680;摩托罗拉;800*480
+CUBE U9GT;平板;酷比魔方U9GT;CUBE（酷比魔方）;800*600
+LG-P509;手机;LG-P509;LG;480*320
+N-06C;手机;NEC MEDIAS N-06C;NEC;854*480
+HTC Gratia A6380;手机;HTC Gratia;HTC;480*320
+M70;MP5;纽曼M70;纽曼;800*480
+YP-G70;平板;三星YP-G70;三星;800*480
+N5PRO2;平板;原道N5PRO2;原道;800*480
+Garmin-Asus A50;手机;Garmin-Asus nuvifone A50;华硕;480*320
+I7500;手机;三星i7500;三星;480*320
+SHW-M190S;手机;三星Galaxy S Hoppin;三星; 800*480
+LG-E720;手机;LG E720;LG;480*320
+I04;手机;卓锋ZhuoPhone i04;卓锋;480*320
+MZ601;平板;摩托罗拉Xoom MZ601;摩托罗拉;1280*800
+M58;平板;纽曼M58;纽曼;800*480
+SHW-M130L;手机;三星Galaxy U;三星;800*480
+A6388;手机;多普达A6388(天姿);多普达;480*320
+IS05;手机;夏普IS05;夏普;854*480
+TL-C520TI;平板;台电TL-C520TI;台电;800*480
+N-04C;手机;NEC MEDIAS N-04C;NEC;854*480
+Behold II;手机;三星Behold II ;三星;640*360
+MI-ONE Plus;手机;小米 MI-ONE Plus;小米;854*480
+IS12SH;手机;夏普IS12SH;夏普;960*540
+F-12C;平板;富士通F-12C;富士通;854*480
+A1260;手机;摩托罗拉A1260;摩托罗拉;240*400
+Comet;手机;O2 XDA Comet;T-mobile;320*240
+N79;手机;诺基亚N79;诺基亚;320*240
+SCH-R720;手机;三星SCH-R720;三星;480*320
+M865;手机;奥克斯M865;奥克斯;320*240
+MB611;手机;摩托罗拉MB611 CLIQ2;摩托罗拉;854*480
+DROID3;手机;摩托罗拉Droid3;摩托罗拉;960*540
+SC-01C;平板;三星GALAXY Tab SC-01C;三星;800*480
+GT-I5510;手机;三星GT-i5510 ;三星;240*400
+IPHONE4;手机;苹果iphone4;苹果;960*640
+skyworth_MID;平板;创维MID M5;创维;800*600
+A501;手机;宇达电通A501;宇达电通;320*240
+SHW-M180L;手机;三星Galaxy Tab ;三星;1024*600
+SH-13C;手机;夏普SH-13C;夏普;960*540
+c8650;手机;华为C8650;华为;480*320
+IDEOS S7;手机;华为Ideos S7 Slim;华为;800*480
+INFOBAR A01;手机;INFOBAR A01;KDDI;960*540
+IS11SH;手机;夏普is11sh ;夏普;960*540
+AT100;平板;东芝AT100-T02B（天籁黑）;东芝;1280*800
+c8500;手机;华为C8500;华为;320*240
+DROID BIONIC;手机;摩托罗拉Droid Bionic;摩托罗拉;960*540
+SHW-M130K;手机;三星Galaxy K;三星;800*480
+Vortex;手机;LG Vortex;LG;480*640
+E700R;平板;爱国者E700R;爱国者;800*480
+LG-SU760;手机;LG-SU760;LG;800*480
+GT-I8000;手机;三星GT-I8000;三星;800*480
+IM-A760S;手机;泛泰IM-A760S;泛泰;800*480
+SPH-D710;手机;三星SPH-D710;三星;800*480
+LG-LU6200;手机;LG LU6200;LG;1280*720
+IS11CA;手机;卡西欧IS11CA;卡西欧;800*480
+TR718D;平板;易达通 TR718D ;易达通 ;800*480
+HTC_X515E;手机;HTC X515E;HTC;960*540
+SHW-M100S;手机;三星Galaxy Apollo;三星;800*480
+HTC Panache;手机;HTC Panache;HTC;800*480
+SCH-I510;手机;三星SCH-i510;三星;800*480
+IM-A710K;手机;泛泰IM-A710K;泛泰;800*480
+HTC Sensation;手机;HTC Sensation (G14);HTC;960*540
+Liquid Metal;平板;宏碁 Liquid Metal ;宏基;800*480
+GT-S5570L;手机;三星GT s5570;三星;320*240
+GT-B7510;手机;三星GT-B7510;三星;320*240
+X500;手机;飞利浦X500;飞利浦;176*220
+SBM006SH;手机;夏普006SH;夏普;960*540
+SGH-T759;手机;三星SGH-T759(Exhibit 4G);三星;800*480
+SAMSUNG-SGH-I777;手机;三星 SGH-i777;三星;800*480
+E15I;手机;索爱X8(E15i);索爱;480*320
+Garmin-Asus A10;手机;Garmin-Asus A10;华硕;480*320
+LG-LU3000;手机;LG LU3000;LG;800*480
+myTouch_4G_Slide;手机;HTC MyTouch 4G Slide;HTC;800*480
+SPH-M580;手机;三星SPH-m580 (Replenish);三星;320*240
+SGH-T839;手机;三星SGH-T839;三星;800*480
+SGH-T989;手机;三星Hercules(T989);三星;800*480
+MB511;手机;摩托罗拉Flipout MB511;摩托罗拉;320*240
+SHW-M240S;手机;三星Galaxy Ace;三星;480*320
+U8510;手机;华为U8510;华为;800*480
+A853;手机;摩托罗拉A853;摩托罗拉;854*480
+C771;手机;卡西欧C771;卡西欧;800*480
+SCH-I100;手机;三星Gem SCH-i100;三星;240*400
+SCH-M828C;手机;三星Galaxy Precedent M828C;三星;480*320
+WX445;手机;摩托罗拉WX445;摩托罗拉;320*240
+LG-P925;手机;LG P925 Thrill 4G ;LG;800*480
+Vodafone 858;手机;Vodafone 858;华为;320*240
+SCH-R910;手机;三星Galaxy IndulgeSCH-R910;三星;480*320
+Motorola_i1;手机;摩托罗拉 i1;摩托罗拉;480*320
+OKWAP i750;手机;OKWAP英华达i750;英华达;240*400
+P-07C;手机;松下P-07C;松下;854*480
+SPH-M920;手机;三星SPH-M920;三星;480*320
+SHW-M220L;手机;三星Galaxy Neo;三星;800*480
+SGH-T589;手机;三星SGH-T589;三星;320*240
+Eris;手机;HTC Droid Eris;HTC;480*320
+U8230;手机;华为U8230;华为;480*320
+MOTWX435KT;手机;摩托罗拉MOTWX435;摩托罗拉;800*480
+VS910 4G;手机;LG VS910 Revolution 4G;LG;800*480
+SPH-M900;手机;三星SPH-M900;三星;480*320
+DROID PRO;手机;摩托罗拉 Droid Pro;摩托罗拉;480*320
+KM-S200;手机;宏碁S200;宏基;800*480
+MB508;手机;摩托罗拉Sage MB508;摩托罗拉;480*320
+MB861;手机;摩托罗拉MB861;摩托罗拉;960*540
+SKY IM-A650S;手机;Pantech SKY Vega IM-A650S;泛泰;800*480
+GT-S5670L;手机;三星GT-S5670L;三星;320*240
+SGH-T499;手机;三星Dart SGH-T499;三星;320*240
+ADR6325;手机;HTC Qwerty;HTC;800*480
+LG-MS910;手机;LG-MS910;LG;800*480
+DROID Pro;手机;摩托罗拉 Droid Pro;摩托罗拉;480*320
+ALCATEL_one_touch_990;手机;阿尔卡特 OT-990;阿尔卡特;480*320
+KM-S120;手机;宏碁S120;宏基;800*480
+IM-T100K;手机;泛泰IM-T100K;泛泰;800*480
+Ideos S7;手机;华为Ideos S7 Slim;华为;800*480
+LU2300;手机;LG LU2300;LG;800*480
+Milestone Xt720;手机;摩托罗拉Milestone XT720;摩托罗拉;854*480
+HTC Raider X710e;手机;HTC Raider (X710e/Holiday);HTC;960*540
+HTC Aria;手机;HTC Aria（A6380） G9;HTC;480*320
+IM-A730S;手机;泛泰IM-A730S Vega S;泛泰;800*480
+U8180;手机;华为U8180 或 LG U8180;华为;320*240
+Origin7100HU;平板;微蜂Origin 7100;微蜂;800*480
+GT-I9003L;手机;三星i9003;三星;800*480
+c8800;手机;华为C8800;华为;800*480
+HTC magic;手机;HTC Magic G2(myTouch);HTC;480*320
+SK-S100;手机;三星SK-S100;三星;800*480
+Motorola Electrify;手机;摩托罗拉Electrify;摩托罗拉;960*540
+HTC glacier;手机;HTC Glacier;HTC;800*480
+DroidX;手机;摩托罗拉DroidX;摩托罗拉;854*480
+Xt720;手机;摩托罗拉XT720(Roi);摩托罗拉;854*480
+SCH-I559;手机;三星Galaxy i559;三星;320*240
+Motorola-xt502;手机;摩托罗拉XT502;摩托罗拉;480*320
+LG-SU880;手机;LG-SU880;LG;800*480
+Milestone;手机;摩托罗拉Milestone(里程碑);摩托罗拉;854*480
+IDEOS;手机;华为U815(Ideos);华为;800*480
+DROID;手机;摩托罗拉 Droid/Sholes ;摩托罗拉;854*480
+x10i;手机;索爱X10i;索爱;854*480
+ERIS;手机;HTC Droid Eris;HTC;480*320
+xt800;手机;摩托罗拉xt800;摩托罗拉;854*480
+GT-i9100;手机;三星GT-I9100;三星;800*480
+Htc Magic;手机;HTC Magic G2(myTouch);HTC;480*320
+iphone4;手机;苹果iphone4;苹果;960*640
+N5Pro2;平板;原道N5PRO2;原道;800*480
+desire hd;手机;HTC Desire HD（G10）;HTC;800*480
+u8500;手机;华为U8500;华为;480*320
+Me501;手机;摩托罗拉ME501;摩托罗拉;480*320
+blade;手机;中兴V880;中兴;800*480
+Me525;手机;摩托罗拉 ME525/Defy;摩托罗拉;854*480
+me525;手机;摩托罗拉 ME525/Defy;摩托罗拉;854*480
+m8;手机;魅族 M8 ;魅族;480*720
+desire HD;手机;HTC Desire HD（G10）;HTC;800*480
+HTC Flyer p510e;手机;HTC Flyer/p510e ;HTC;1024*600
+A30T;手机;联想A30t;联想;320*240
+lg-p990;手机;LG P990;LG;800*480
+xt702;手机;摩托罗拉XT702;摩托罗拉;854*480
+Mb525;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+htc sensation;手机;HTC Sensation (G14);HTC;960*540
+mb525;手机;摩托罗拉MB525 Defy;摩托罗拉;854*480
+Desire s;手机;HTC Desire S（G12）;HTC;800*480
+mb855;手机;摩托罗拉MB855(Photon 4G);摩托罗拉;960*540
+GT-i5700;手机;三星GT-I5700;三星;480*320
+HTC vision;手机;HTC Vision(G2);HTC;800*480
+Cliq;手机;摩托罗拉CLIQ（DEXT）;摩托罗拉;480*320
+DESIRE S;手机;HTC Desire S（G12）;HTC;800*480
+Nexus s;手机;三星Nexus S;三星;800*480
+Me600;手机;摩托罗拉ME600;摩托罗拉;480*320
+LG-p990;手机;LG P990;LG;800*480
+me501;手机;摩托罗拉ME501;摩托罗拉;480*320
+DELL VENUE;平板;戴尔Venue;戴尔;800*480
+MileStone;手机;摩托罗拉Milestone(里程碑);摩托罗拉;854*480
+Milestone xt720;手机;摩托罗拉Milestone XT720;摩托罗拉;854*480
+iPhone;手机;iPhone;苹果;320*480
+iPhone 1G;手机;iPhone;苹果;320*480
+iPhone1,1;手机;iPhone 2G;苹果;320*480
+iPhone1,2;手机;iPhone 3G;苹果;320*480
+iPhone2,1;手机;iPhone 3Gs;苹果;320*480
+iPhone3,1;手机;iPhone 4;苹果;640*960
+iPhone3,3;手机;iPhone 4 CDMA版本;苹果;640*960
+iPhone3G;手机;iPhone 3G;苹果;320*480
+iPhone 3G;手机;iPhone 3G;苹果;320*480
+iPhone 3GS;手机;iPhone 3GS;苹果;320*480
+iPhone 4;手机;iPhone 4;苹果;640*960
+Iphone4;手机;iPhone 4;苹果;640*960
+iPhone Verizon CDMA?;手机;iPhone 4 Verizon CDMA;苹果;640*960
+Apple iPhone 4;手机;iPhone 4;苹果;640*960
+iPhone 4G;手机;iPhone 4;苹果;640*960
+iPhone Simulator;手机;模拟器;苹果;NA
+iPod touch;手机;iPod touch;苹果;NA
+iPod1,1;手机;iPod touch 1代;苹果;320*480
+iPod touch 1G ;手机;iPod touch 1代;苹果;320*480
+iPod2,1;手机;iPod touch 2代;苹果;320*480
+iPod touch 2G ;手机;iPod touch 2代;苹果;320*480
+iPod3,1;手机;iPod touch 3代;苹果;320*480
+iPod4,1;手机;iPod touch 4代;苹果;640*960
+iPod touch 4G;手机;iPod touch 4代;苹果;640*960
+iPad;平板;iPad 1;苹果;1024*768
+iPad1,1;平板;iPad 1 WiFi;苹果;1024*768
+iPad2,1;平板;iPad 2 WiFi;苹果;1024*768
+iPad2,2;平板;iPad 2 3G;苹果;1024*768
+iPad2,3;平板;iPad 2 Verizon CDMA;苹果;1024*768
+iPhone 4,1;手机;iPhone 4S;苹果;640*960

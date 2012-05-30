@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umeng.ufp.core.domain.Role">
+  <resultMap id="Role-RESULT" type="com.umeng.ufp.core.domain.Role">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    
+    <result column="utype" jdbcType="VARCHAR" property="utype" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <select id="Role.find" resultMap="Role-RESULT"
+        parameterType="java.util.Map">
+        <![CDATA[
+        select *
+        from role
+        ]]>
+        <where>
+            <if test="id != null and id != ''">
+                  id = #{id}
+            </if>
+            <if test="utype != null and utype != ''">
+                  and utype = #{utype}
+            </if>
+        </where>
+    </select>
+</mapper>

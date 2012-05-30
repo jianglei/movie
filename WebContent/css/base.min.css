@@ -1,0 +1,16 @@
+html{_height:100%}body{height:100%;font-family:Microsoft Yahei,Arial,Verdana;background:#fff}body,h1,h2,h3,h4,h5,h6{font-size:12px}html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{padding:0;margin:0}
+a{text-decoration:none;color:#039;cursor:pointer}a:hover{text-decoration:underline}ol,dl,ul,li,dl,dd,dt{list-style:none}table{border-collapse:collapse;border-spacing:0}
+img{border:0;vertical-align:top}button,a,button{cursor:pointer}select option{padding-right:3px}input,button,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;resize:none}
+.tb{font-size:12px;color:#000;border-collapse:separate;*border-spacing:expression(this.cellSpacing="18px");border-spacing:18px}
+.tb td.tit{text-align:right}.tb td{vertical-align:top;line-height:22px}hr{border-bottom:1px solid gray;height:1px}.f_req{color:red;padding:0 2px}.blue{color:#3e69b7}
+.green{color:#017139}.clear{clear:both}.hidden{display:none}.error{color:red;margin-left:5px}.btn_save_continue{display:block;width:116px;height:28px;background:url(../images/btn_save_continue.png) no-repeat;border:0;cursor:pointer;text-indent:-10000px}
+.btn_save,.btn_input{display:block;width:69px;height:28px;background:url('../images/btn_save.png') right 50% no-repeat;border:0;cursor:pointer;text-indent:-10000px}
+.btn_input{background:url('../images/btn_input.png') no-repeat}.btn_add_ad,.btn_add_order,.btn_add_admin,.btn_add_app,.btn_add_pos,.btn_add_code{display:block;width:95px;height:23px;border:0;cursor:pointer;text-indent:-10000px}
+.btn_add_ad{background:url('../images/btn_add_ad.png') right 50% no-repeat}.btn_add_order{background:url('../images/btn_add_order.png') right 50% no-repeat}
+.btn_add_admin{background:url('../images/btn_add_admin.png') right 50% no-repeat}.btn_add_app{background:url('../images/btn_add_app.png') right 50% no-repeat}
+.btn_add_pos{background:url('../images/btn_add.png') no-repeat}.btn_add_code{background:url('../images/btn_add.png') -95px 0 no-repeat}
+.btn_use_pastad{display:block;width:121px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_mag_ad.png') 0 0 no-repeat}
+.btn_continue_ad{display:block;width:115px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_mag_ad.png') -121px 0 no-repeat}
+.btn_inner_table_new{display:block;width:79px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_table_inner.png') 0 0 no-repeat}
+.btn_inner_table_has{display:block;width:104px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_table_inner.png') -79px 0 no-repeat}
+.fr{float:right}.fl{float:left}.align_l{text-align:left}.pos_rel{position:relative}.err{padding-left:5px;color:red}

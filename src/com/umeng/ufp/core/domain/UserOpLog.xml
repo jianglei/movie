@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.umeng.ufp.core.domain.UserOpLog">
+  <resultMap id="UserOpLog-RESULT" type="com.umeng.ufp.core.domain.UserOpLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    
+    <result column="op_date" jdbcType="TIMESTAMP" property="opDate" />
+    <result column="op_type" jdbcType="VARCHAR" property="opType" />
+    <result column="object_type" jdbcType="VARCHAR" property="objectType" />
+    <result column="object_key" jdbcType="VARCHAR" property="objectKey" />
+    <result column="object_value" jdbcType="VARCHAR" property="objectValue" />
+    
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+  </resultMap>
+  <select id="UserOpLog.find" resultMap="UserOpLog-RESULT"
+        parameterType="java.util.Map">
+        select *
+        from user_op_log
+        <where>
+            <if test="userId != null and userId != ''">
+                  and user_id = #{userId}
+            </if>
+            <if test="startDate != null and startDate != ''">
+            	  <![CDATA[and op_date >= #{startDate} ]]>
+            </if>
+            <if test="endDate != null and endDate != ''">
+            	  <![CDATA[and op_date <= #{endDate} ]]>
+            </if>
+          	<if test="opType != null and opType != ''">
+          		  and op_type = #{opType}
+          	</if>
+          	<if test="objectType != null and objectType != ''">
+          		  and object_type = #{objectType}
+          	</if>
+        </where>
+    </select>
+</mapper>
