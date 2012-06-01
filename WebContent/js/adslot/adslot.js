@@ -41,7 +41,7 @@ $(function() {
     //删除入口图片
     $('a.delete_pic').click(function(){
 
-        $('#pic'+ ($(this).parent().index()+1) +'_show').attr('src', '/images/img_upload.gif').siblings('.err').remove();;
+        $('#pic'+ ($(this).parent().index()+1) +'_show').attr('src', '/images/img_upload.gif').siblings('.err').remove();
         updateImagesPath();
     });
     //上传入口图片
@@ -100,7 +100,7 @@ $(function() {
             }else if($('.ui_radio_device').filter('.ui_radio_checked[platform=android]').length>0){
                 $('.ui_radio_device[platform=iOS]').addClass('ui_radio_disabled');
             }else{
-                $('.ui_radio_device').removeClass('ui_radio_disabled')
+                $('.ui_radio_device').removeClass('ui_radio_disabled');
             }
             var platform,device = $('.ui_radio_device').map(function(){
                 if($(this).hasClass('ui_radio_checked')){
@@ -209,15 +209,14 @@ function initCodeList(){
         data:"rnd="+Math.random(),
         beforeSend: function(XMLHttpRequest){
             $('#get_code #choose_adslot_item tr').remove();
-                     
-            $('#get_code #choose_adslot_item').append('<tr id="loading_row_init"><td colspan="4">加载中请稍等!</td></tr>')
+            $('#get_code #choose_adslot_item').append('<tr id="loading_row_init"><td colspan="4">加载中请稍等!</td></tr>');
         },
         success: function(data, textStatus){
             if(!data.adSlotPage){$('#loading_row_init td').text('没有记录！');return;}
             var list = data.adSlotPage.result,elem="";
             for(var i = 0,len = list.length;i<len;i++){
-                elem += '<tr class="border_bottom"><td width="100" title="'+ list[i].name +'">'+ list[i].name +'</td><td width="105" title="'+ 
-                    (list[i].app_name?list[i].app_name:'-') +'">'+ (list[i].app_name?list[i].app_name:'-') +'</td><td width="105">' + 
+                elem += '<tr class="border_bottom"><td width="140" title="'+ list[i].name +'">'+ list[i].name +'</td><td width="85" title="'+
+                    (list[i].app_name?list[i].app_name:'-') +'">'+ (list[i].app_name?list[i].app_name:'-') +'</td><td width="85">' +
                     (list[i].landing_size?list[i].landing_size:'-') +'</td>';
                 elem += '<td width="120"><input landingType='+ list[i].landing_type +' adslot_id="'+list[i].id+'" class="get_code_btn green_btn" type="button" value="获取代码>>"/></td></tr>';
             }
@@ -226,7 +225,7 @@ function initCodeList(){
             //                                 $('#choose_adslot .c_ad_page_detail span').eq(0).text('1-'+ data.adSlotPage.totalItems +'条').end().eq(1).text('(共'+ data.adSlotPage.totalItems +'条)');
         },
         error: function(){
-            $('#loading_row_init td').text('加载失败！')
+            $('#loading_row_init td').text('加载失败！');
         }
     });
 }
@@ -236,9 +235,9 @@ function initCodeList(){
  */
 function landingTypeChange(){
     var platform =$('input[name=platform]').val(),
-    template = $('#template').val()!=''? $('#template').val():'applist',
-    landingType =$('input[name=landingType]').val() ;
-    if(landingType!=''&&platform!=''){
+    template = $('#template').val()!==''? $('#template').val():'applist',
+    landingType = $('input[name=landingType]').val() ;
+    if(landingType!==''&&platform!==''){
         var landingTypeCol = {
             android:{
                 banner:{size:'202x55'},
@@ -709,8 +708,8 @@ function loadList(page, status) {
             var pageNo = list.adSlotPage.pageNo;
             var len = adSlots.length;
             var odd = true;
-            pageAnchorsGenerate(totalPages,pageNo,'',loadList); 
-            if(!list.adSlotPage || list.adSlotPage.result.length == 0){
+            pageAnchorsGenerate(totalPages,pageNo,'',loadList);
+            if(!list.adSlotPage || list.adSlotPage.result.length === 0){
                 $('#tb_list tr').not(':first').remove();
                 $('#tb_list').append('<tr id="loading_row_init"><td colspan="4">没有记录!</td></tr>');
                 return;
@@ -718,19 +717,19 @@ function loadList(page, status) {
             clearList();
             for (i = 0; i < len; i++) {
                 var elem = "";
-                elem += '<tr class="' + (odd == true ? "" : "transbg") + '" id="tr_' + adSlots[i].id + '">';
+                elem += '<tr class="' + (odd === true ? "" : "transbg") + '" id="tr_' + adSlots[i].id + '">';
                 odd = !odd;
                 elem += '<td class="chk pos_rel" style="display:block;"><input type="checkbox" name="record_ch" value="' + adSlots[i].id + '"/></td>';
                 elem += '<td><a href="javascript:void(0)" onclick="editAdSlot(' + adSlots[i].id + ',event)" class="tb_name">' + adSlots[i].name + '</a></td>';
-                elem += '<td id="td_status_' + adSlots[i].id + '" class="center status" status="'+ adSlots[i].status +'">';
-                if (adSlots[i].status=="normal") 
+                elem += '<td id="td_status_' + adSlots[i].id + '" class=" status" status="'+ adSlots[i].status +'">';
+                if (adSlots[i].status=="normal")
                     elem += '<img src="images/icon_state_normal.gif" width="16" height="16" alt="正常" />正常';
                 else if(adSlots[i].status=="app_pause")
                     elem += '<img src="images/icon_state_pause.gif" width="16" height="16" alt="应用暂停" />应用暂停';
-                else  
+                else
                     elem += '<img src="images/icon_state_pause.gif" width="16" height="16" alt="暂停" />暂停';
                 elem += '</td>';
-                elem += '<td class="center tb_appName">' + ((adSlots[i].app_name&&adSlots[i].app_name!='')?adSlots[i].app_name:'-') + '</td>';
+                elem += '<td class="center tb_appName">' + ((adSlots[i].app_name&&adSlots[i].app_name!=='')?adSlots[i].app_name:'-') + '</td>';
                 switch(adSlots[i].landing_type){
                     case "embed":elem += '<td class="center tb_landingType">内嵌入口</td>';break;
                     case "custom":elem += '<td class="center tb_landingType">自定义入口</td>';break;
@@ -773,7 +772,7 @@ function hideMask() {
 function updateImagesPath(){
     $('#landing_images').val($("img.landingImagesimg").map(function(){
         var index =  $("img.landingImagesimg").index($(this));
-        if($(this).attr('src')!='/images/img_upload.gif'&&$(this).attr('src')!=""&&$(this).attr('src')!=null){
+        if($(this).attr('src')!=='/images/img_upload.gif'&&$(this).attr('src')!==""&&$(this).attr('src')!==null){
             $('a.delete_pic').closest('tr').show();
             $('a.delete_pic').eq(index).css('visibility','visible');
                 
@@ -782,7 +781,7 @@ function updateImagesPath(){
             $('a.delete_pic').eq(index).css('visibility','hidden');
         }
     }).get().join(","));
-    if($('#landing_images').val()==''){
+    if($('#landing_images').val()===''){
         $('a.delete_pic').closest('tr').hide();
     }
 }

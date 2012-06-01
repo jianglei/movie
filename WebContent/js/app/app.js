@@ -6,7 +6,7 @@ $(function() {
     //添加应用
     $('.btn_add_app').click(function() {
         appDialogId = getToken();
-        initMsg("", "", ""); 
+        initMsg("", "", "");
         $(".btn_save").unbind("click").click(function() {
             if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
                 verify_null($("input[name='platform']"), "平台不能为空！", true)) {
