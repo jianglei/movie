@@ -411,7 +411,7 @@
                 <tbody>
                     <tr><td class="thead" colspan="4">选择广告位</td></tr>
                     <tr class="border_bottom">
-                        <th width="100">广告位名称</th>
+                        <th width="140">广告位名称</th>
                         <th class="border_left">应用</th>
                         <th class="border_left">尺寸</th>
                         <th width="130" class="border_left"></th>

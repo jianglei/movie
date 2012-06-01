@@ -5,7 +5,7 @@ function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
         if (i == pageNo) pager += '<span>' + i + '</span>';
         else pager += '<a page="'+ i +'" class="pageChange">' + i  + '</a>';
     }
-    pagerContainer = (pagerContainer&&pagerContainer!='')?pagerContainer:'#pager'; 
+    pagerContainer = (pagerContainer&&pagerContainer!=='')?pagerContainer:'#pager';
     $(pagerContainer).html("").append(pager).find('.pageChange').unbind('click').click(function(){
         callback($(this).attr('page'),url_status);
     });
@@ -25,7 +25,7 @@ function checkAll(check_button, name){
 function checkAllAdSlot(check_button, name){
      if($(check_button).prop("checked")){
          if($("input[name="+name+"]:checked").length>0){
-           $("input[name="+name+"]").not(':disabled').prop("checked", true);  
+           $("input[name="+name+"]").not(':disabled').prop("checked", true);
          }else{
              $(check_button).prop("checked",false);
              alert('操作错误!不能全选所有广告位!请先选择一个广告位!');

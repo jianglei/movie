@@ -281,7 +281,7 @@
                     <tr class="01010 01100 type_switch android">
                         <th><span class="f_req">*</span>上传apk：</th>
                         <td style="display:block">
-                            <input title="不能为空!类型(.apk)"  rule="apk" type="file" feedback="url" name="apkFile" id="apkFile" filesize="10000"  filetype="apk"   /> 
+                            <input title="不能为空!类型(.apk)"  rule="apk" type="file" feedback="url" name="apkFile" id="apkFile" filesize="50000"  filetype="apk"   /> 
                             <a  class="changeIcon">( 更改 )</a>
                             <span class="comment"></span>
                             <input title="不能为空!类型(.apk)"  rule="apk" class="sub"  name="url" id="url" value="" type="hidden" verify="file"/>
