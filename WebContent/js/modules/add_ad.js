@@ -615,6 +615,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
         //渠道
         if (ad.channels) $("input[name='channels']").val(ad.channels);
         else $("input[name='channels']").val("");
+
         if (ad.fixedRank) $("#fixedRank").val(ad.fixedRank);
         else $("#fixedRank").val("");
 
@@ -1065,7 +1066,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                 //编辑
                                 $.ajax({
                                         type: "get",
-                                        url: "/ad/edit2/" + $("input[name='adid']").val(), 
+                                        url: "/ad/edit2/" + $("input[name='adid']").val(),
                                         data:{rnd:Math.random()},
                                         beforeSend: function(XMLHttpRequest){
                                         },
@@ -1213,8 +1214,9 @@ editAD:function (id,event) {
                         for (i = 0; i < data.adHolderList.length; i++) {
                             arr_adSlotId.push(data.adHolderList[i].adSlotId);
                         }
-                        var ad1 = new that.AD1(data.ad.adOrderId, data.ad.name, data.ad.budget, data.ad.budgetLimit, data.ad.priceType, data.ad.costPrice, data.ad.areas, data.ad.networks, data.ad.channels, arr_adSlotId, data.ad.startTime, data.ad.endTime);
-                        that.showMsg(ad1, function() {
+                        // var ad1 = new that.AD1(data.ad.adOrderId, data.ad.name, data.ad.budget, data.ad.budgetLimit, data.ad.priceType, data.ad.costPrice, data.ad.areas, data.ad.networks, data.ad.channels, arr_adSlotId, data.ad.startTime, data.ad.endTime,data.ad.fixedRank);
+                        
+                        that.showMsg(data.ad, function() {
                                 //that.updateItem(evenObj.parent().parent(), $("input[name='adname']").val(), $("input[name='contentType']").val(),$('#list_order option:selected').text());
                                 $.unblockUI({onUnblock:function(){
                                     that.adDialogId = '';
