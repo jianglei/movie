@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="ufp-publisher">
+    <wb-module deploy-name="ufp-umeng">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <dependent-module archiveName="umeng-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/umeng-core/umeng-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="java-output-path" value="/ufp-publisher/build/classes"/>
+        <property name="java-output-path" value="/ufp-umeng/build/classes"/>
         <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>
