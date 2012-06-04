@@ -299,7 +299,7 @@ window.AddAd.prototype={
 	});
         
     },
-    AD1:function (adOrderId, name, budget, budgetLimit, priceType, costPrice, areas, networks, channels, adSlotId, startTime, endTime, landingSize, platform) {
+    AD1:function (adOrderId, name, budget, budgetLimit, priceType, costPrice, areas, networks, channels, adSlotId, startTime, endTime, landingSize, platform,fixedRank) {
             this.adOrderId = adOrderId;
             this.name = name;
             this.budget = budget;
@@ -308,6 +308,7 @@ window.AddAd.prototype={
                 this.priceType = priceType;
                 this.costPrice = costPrice;
             }
+            this.fixedRank = fixedRank;
             this.areas = areas;
             this.networks = networks;
             this.channels = channels;
@@ -336,6 +337,7 @@ window.AddAd.prototype={
            &&($('a.ui_radio_pre').filter('.ui_radio_checked').length ==0||verify_null($("input[name='costPrice']"), "计价不能为空",false,$('a.ui_radio_pre').filter('.ui_radio_checked').parent().next(),{num:true}))
            &&verify_null($("input[name='adareas']"), "投放区域不能为空")
            &&verify_null($("input[name='networks']"), "网络不能为空")
+           &&($('#fixedRank').val()===""||$('#fixedRank').val()!==""&&verify_null($('#fixedRank'),"",false,null,{digits:true}))
     },
     getAD1:function () {
         var adSlotId = [],that = this;
@@ -359,11 +361,12 @@ window.AddAd.prototype={
              channels = $("input[name='channels']").val(),
              platform = that.platform,
              landingSize = that.landingSize,
+             fixedRank = $('#fixedRank').val(),
              // template = that.template,
              // entryType = that.entryType,
              startTime =($.trim($("input[name='startTime']").val())+' 00:00').replace(/(\d{2}:\d{2})\s?(00:00)?\s?/,'$1:00'), //formatdate(new Date($("input[name='startTime']").val().replace('-','/')), "yyyy-MM-dd HH:mm:ss");
              endTime = ($.trim($("input[name='endTime']").val())+' 00:00').replace(/(\d{2}:\d{2})\s?(00:00)?\s?/,'$1:00');//formatdate(new Date($("input[name='endTime']").val().replace('-','/')),"yyyy-MM-dd HH:mm:ss");
-            return new that.AD1(adOrderId, name, budget, budgetLimit, priceType, costPrice, areas, networks, channels, adSlotId, startTime, endTime,landingSize,platform);
+            return new that.AD1(adOrderId, name, budget, budgetLimit, priceType, costPrice, areas, networks, channels, adSlotId, startTime, endTime,landingSize,platform,fixedRank);
         }else{
             return;
         }
@@ -507,7 +510,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
             }
             $("#list_order").html("").append('<option value="0">请选择订单</option>'+orders);
             
-        })()
+        })();
         
         if (ad.adOrderId) $("#list_order option[value='" + ad.adOrderId + "']").attr("selected", true);
         //所属广告位
@@ -546,10 +549,10 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
                     }
                 }
             }else{
-                $("#list_adslot").html('<tr><td>请先创建广告位...</td></tr>')
+                $("#list_adslot").html('<tr><td>请先创建广告位...</td></tr>');
             }
             that.changeAdslotCheck();
-        })()
+        })();
         // 开始时间
         if (ad.startTime ) $("input[name='startTime']").val(formatdate(new Date(ad.startTime), "yyyy-MM-dd HH:mm"));
         else $("input[name='startTime']").val(formatdate(new Date(), "yyyy-MM-dd HH:mm"));
@@ -612,6 +615,9 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
         //渠道
         if (ad.channels) $("input[name='channels']").val(ad.channels);
         else $("input[name='channels']").val("");
+        if (ad.fixedRank) $("#fixedRank").val(ad.fixedRank);
+        else $("#fixedRank").val("");
+
 },
 
 /*
