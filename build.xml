@@ -172,7 +172,7 @@
 			<arg value="-p16021"/>
 			<arg value="cd ~/apps/umeng-core/;ant ;cd ${project};ant deploy-production;"/>
 		</exec>
-		<antcall target="deploy-nginx-web1" />
+		<antcall target="deploy-nginx-ad6" />
 	</target>
 	<target name="deploy-ad5">
 		<echo message="start deploy to ad5"/>
