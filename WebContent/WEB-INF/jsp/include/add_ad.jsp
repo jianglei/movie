@@ -330,10 +330,10 @@
                 </tr>
 
 
-                <tr class="10100 10010 type_switch">
+               <!--  <tr class="10100 10010 type_switch">
                     <th><span class="f_req">*</span>网站简介：</th> 
                     <td class="f_req"><textarea placeholder="不能多于20字" title="不能多于20字" style="width: 310px; height: 50px;" rows=" " verify="adWords"  forshow="des_show"  cols=" " name="webdes" id="webdes" class="input_textarea previewDes"></textarea></td>
-                </tr>
+                </tr> -->
                 <tr class="01100 01010 10001 type_switch">
                     <th><span class="f_req">*</span>软件名称：</th>
                     <td><input type="text" class="input_text sub previewName" name="appname" title="请填写软件名称!"  forshow="name_show"
@@ -387,8 +387,8 @@
                         <input type="hidden" name="textColor" value="" />
                     </td>
                 </tr>
-                <tr class="01100 01010 type_switch">
-                    <th><span class="f_req">*</span>推广文字：</th>
+                <tr class="01100 01010 10100 10010 type_switch">
+                    <th><span class="f_req">*</span><span class="adwords_toggle_title">推广文字：</span></th>
                     <td><input type="text" class="input_text sub previewDes" name="adWords" title="不多于20字" placeholder="不多于20字" verify="adWords"  forshow="des_show" style="width: 300px;" /></td>
                 </tr>
                 <tr class="01100 01010 type_switch">
@@ -397,11 +397,11 @@
                                style="width: 300px;" /></td>
                 </tr>
                 <tr class="01100 01010 type_switch">
-                    <th>详细描述：</th>
+                    <th><span class="f_req">*</span>详细描述：</th>
                     <td class="f_req"><textarea placeholder="不能多于500字" title="不能多于500字" style="width: 310px; height: 50px;" rows=" " verify="area" cols=" " name="description" class="input_textarea"></textarea></td>
                 </tr>
                 <tr class="">
-                    <th><span class="f_req">*</span>样式预览：</th>
+                    <th>样式预览：</th>
                     <td>
                         <span class="preview" title="类型为WAP的模板2的预览为原图的50%;其他类型预览是原比例">  
                             <img src="/images/no_img.gif" id="icon_show" class="icon_show weblogo_show" width="48" height="48" style="margin:2px;"/>

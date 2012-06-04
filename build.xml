@@ -165,41 +165,32 @@
 		</exec>
 	</target>
 	
-	<target name="deploy-10">
-		<echo message="start deploy to unode10-plog-db1 : 211.151.139.230"/>
+	<target name="deploy-ad8">
+		<echo message="start deploy to ad8"/>
 		<exec executable="ssh">
-			<arg value="deploy@211.151.139.230"/>
-			<arg value="-p18021"/>
+			<arg value="ad@59.151.81.25"/>
+			<arg value="-p16021"/>
 			<arg value="cd ~/apps/umeng-core/;ant ;cd ${project};ant deploy-production;"/>
 		</exec>
 		<antcall target="deploy-nginx-web1" />
-		<antcall target="deploy-nginx-web2" />
 	</target>
-	<target name="deploy-11">
-		<echo message="start deploy to unode11-plog-db1 : 211.151.139.231"/>
+	<target name="deploy-ad5">
+		<echo message="start deploy to ad5"/>
 		<exec executable="ssh">
-			<arg value="deploy@211.151.139.231"/>
-			<arg value="-p18021"/>
+			<arg value="ad@259.151.81.25"/>
+			<arg value="-p16021"/>
 			<arg value="cd ~/apps/umeng-core/;ant ;cd ${project};ant deploy-production;"/>
 		</exec>
-		<antcall target="deploy-nginx-web1" />
-		<antcall target="deploy-nginx-web2" />
+		<antcall target="deploy-nginx-ad6" />
 	</target>
-	<target name="deploy-nginx-web1">
-		<echo message="start deploy to nginx 211.151.139.251"/>
+	<target name="deploy-nginx-ad6">
+		<echo message="start deploy to nginx ad6"/>
 		<exec executable="ssh">
-			<arg value="deploy@211.151.139.251"/>
-			<arg value="-p18021"/>
+			<arg value="ad@59.151.81.21"/>
+			<arg value="-p16021"/>
 			<arg value="cd ${project};git pull origin stable; "/>
 		</exec>
 	</target>
-	<target name="deploy-nginx-web2">
-		<echo message="start deploy to nginx 211.151.139.208"/>
-		<exec executable="ssh">
-			<arg value="deploy@211.151.139.208"/>
-			<arg value="-p18021"/>
-			<arg value="cd ${project};git pull origin stable; "/>
-		</exec>
-	</target>
+
 	
 </project>
