@@ -140,6 +140,13 @@ public final class AdProtos {
     public boolean hasStatus() { return hasStatus; }
     public java.lang.String getStatus() { return status_; }
     
+    // optional int32 fixed_rank = 16;
+    public static final int FIXED_RANK_FIELD_NUMBER = 16;
+    private boolean hasFixedRank;
+    private int fixedRank_ = 0;
+    public boolean hasFixedRank() { return hasFixedRank; }
+    public int getFixedRank() { return fixedRank_; }
+    
     private void initFields() {
     }
     public final boolean isInitialized() {
@@ -193,6 +200,9 @@ public final class AdProtos {
       }
       if (hasStatus()) {
         output.writeString(15, getStatus());
+      }
+      if (hasFixedRank()) {
+        output.writeInt32(16, getFixedRank());
       }
       getUnknownFields().writeTo(output);
     }
@@ -262,6 +272,10 @@ public final class AdProtos {
       if (hasStatus()) {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(15, getStatus());
+      }
+      if (hasFixedRank()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, getFixedRank());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -466,6 +480,9 @@ public final class AdProtos {
         if (other.hasStatus()) {
           setStatus(other.getStatus());
         }
+        if (other.hasFixedRank()) {
+          setFixedRank(other.getFixedRank());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -549,6 +566,10 @@ public final class AdProtos {
             }
             case 122: {
               setStatus(input.readString());
+              break;
+            }
+            case 128: {
+              setFixedRank(input.readInt32());
               break;
             }
           }
@@ -850,6 +871,24 @@ public final class AdProtos {
         return this;
       }
       
+      // optional int32 fixed_rank = 16;
+      public boolean hasFixedRank() {
+        return result.hasFixedRank();
+      }
+      public int getFixedRank() {
+        return result.getFixedRank();
+      }
+      public Builder setFixedRank(int value) {
+        result.hasFixedRank = true;
+        result.fixedRank_ = value;
+        return this;
+      }
+      public Builder clearFixedRank() {
+        result.hasFixedRank = false;
+        result.fixedRank_ = 0;
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:com.umeng.ufp.core.domain.protobuf.AdEntry)
     }
     
@@ -877,15 +916,15 @@ public final class AdProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\016ad_entry.proto\022\"com.umeng.ufp.core.dom" +
-      "ain.protobuf\"\220\002\n\007AdEntry\022\n\n\002id\030\001 \001(\005\022\023\n\013" +
+      "ain.protobuf\"\244\002\n\007AdEntry\022\n\n\002id\030\001 \001(\005\022\023\n\013" +
       "ad_order_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\020\n\010platf" +
       "orm\030\004 \001(\t\022\r\n\005prior\030\005 \001(\005\022\016\n\006budget\030\006 \001(\t" +
       "\022\024\n\014budget_limit\030\007 \001(\001\022\022\n\nprice_type\030\010 \001" +
       "(\t\022\022\n\ncost_price\030\t \001(\001\022\022\n\nstart_time\030\n \001" +
       "(\003\022\020\n\010end_time\030\013 \001(\003\022\020\n\010channels\030\014 \001(\t\022\r" +
       "\n\005areas\030\r \001(\t\022\020\n\010networks\030\016 \001(\t\022\016\n\006statu" +
-      "s\030\017 \001(\tB.\n\"com.umeng.ufp.core.domain.pro" +
-      "tobufB\010AdProtos"
+      "s\030\017 \001(\t\022\022\n\nfixed_rank\030\020 \001(\005B.\n\"com.umeng" +
+      ".ufp.core.domain.protobufB\010AdProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -897,7 +936,7 @@ public final class AdProtos {
           internal_static_com_umeng_ufp_core_domain_protobuf_AdEntry_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_umeng_ufp_core_domain_protobuf_AdEntry_descriptor,
-              new java.lang.String[] { "Id", "AdOrderId", "Name", "Platform", "Prior", "Budget", "BudgetLimit", "PriceType", "CostPrice", "StartTime", "EndTime", "Channels", "Areas", "Networks", "Status", },
+              new java.lang.String[] { "Id", "AdOrderId", "Name", "Platform", "Prior", "Budget", "BudgetLimit", "PriceType", "CostPrice", "StartTime", "EndTime", "Channels", "Areas", "Networks", "Status", "FixedRank", },
               com.umeng.ufp.core.domain.protobuf.AdProtos.AdEntry.class,
               com.umeng.ufp.core.domain.protobuf.AdProtos.AdEntry.Builder.class);
           return null;

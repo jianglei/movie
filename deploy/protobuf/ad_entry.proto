@@ -19,4 +19,5 @@ message AdEntry {
     optional string areas = 13;
     optional string networks = 14;
     optional string status = 15;
+    optional int32 fixed_rank = 16;
 }
