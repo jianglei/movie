@@ -442,7 +442,7 @@ window.AddAd.prototype={
              textFont = '',//$('input[name="textFont"]'),
              textSize= $('input[name="textSize"]'),
              textColor = $('input[name="textColor"]'),
-             description = $("textarea[name='description']").parents('tr.type_switch').hasClass(that.ad_type)?$("textarea[name='description']"):$("#webdes");
+             description = $("textarea[name='description']");
             if(that.platform == 'iOS'){
                 url = $("input[name='weburl']");
             }
@@ -637,7 +637,7 @@ initMsgAd2:function (data) {
         $("input[name='adWords']").val('');
         $("input[name='provider']").val('');
         $("input[name='weburl']").val('http://');
-        $("textarea[name='webdes']").val('');
+        // $("textarea[name='webdes']").val('');
         $("input[name='webname']").val('');
         $("input[name='icon']").val('');
         $("input[name='url']").val('');
@@ -769,8 +769,8 @@ initMsgAd2:function (data) {
             if(data.adContent.description &&$("textarea[name='description']").parents('tr.type_switch').hasClass(that.ad_type))
                 {$("textarea[name='description']").val(data.adContent.description);}
             //网站介绍
-            if(data.adContent.description &&$("#webdes").parents('tr.type_switch').hasClass(that.ad_type))
-                {$("#webdes").val(data.adContent.description);$('#des_show').text(data.adContent.description);}
+            // if(data.adContent.description &&$("#webdes").parents('tr.type_switch').hasClass(that.ad_type))
+            //     {$("#webdes").val(data.adContent.description);$('#des_show').text(data.adContent.description);}
              //文字链样式初始化
              if(data.adContent.textFont){
                  $('input[name="textFont"]').val(data.adContent.textFont);
@@ -830,6 +830,12 @@ initStep2:function(){
             $('#inputiTunes').removeClass('hidden');
          }else{
             $('#inputiTunes').addClass('hidden');
+         }
+         //显示推广文字或网站简介
+         if(contentType==="app"){
+            $('.adwords_toggle_title').text('推广文字：');
+         }else{
+            $('.adwords_toggle_title').text('网站简介：');
          }
         //元素切换
         that.ad_type =  $(".tb_form .ui_radio_type,.tb_form .ui_radio_form").map(function(){
