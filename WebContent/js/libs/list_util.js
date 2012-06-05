@@ -299,7 +299,7 @@ function verify_null(obj, msg, newline,errPrevObj,params) {
             return parseFloat(value) == value?{pass:true}:{pass:false,msg:'输入数字格式'};
         },
         isDigit : function(value){
-            return parseInt(value) == value?{pass:true}:{pass:false,msg:'输入整数'};
+            return (parseInt(value) == value&&value>0)?{pass:true}:{pass:false,msg:'输入正整数'};
         },
         maxV: function(value,maxV){
             return parseInt(value) <= parseInt(maxV)?{pass:true}:{pass:false,msg:'不能大于 ' + maxV};
