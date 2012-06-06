@@ -152,6 +152,12 @@
                            <!-- <span style="padding-left: 10px; color: gray;"></span> -->
                     </td>
                 </tr>
+                <tr>
+                    <th>固定排序：</th>
+                    <td>
+                        <input type="text" class="input_text" name="fixedRank" id="fixedRank" placeholder="请输入正整数" style="width: 260px;" /> 
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="msg_content_bottom">
