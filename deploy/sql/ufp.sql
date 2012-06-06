@@ -92,6 +92,7 @@ CREATE TABLE `ad` (
   `areas` varchar(2048) DEFAULT NULL COMMENT '地域',
   `networks` varchar(64) DEFAULT 'all' COMMENT '适用网络',
   `channels` varchar(32) DEFAULT NULL COMMENT '适用渠道',
+  `fixed_rank` int(10) DEFAULT NULL COMMENT '固定排序',  
   `budget` enum('none','limit') NOT NULL DEFAULT 'none' COMMENT '是否有预算',
   `budget_limit` double DEFAULT NULL COMMENT '预算',
   `price_type` enum('none','impression','click','download') DEFAULT 'none' COMMENT '计费方式',
