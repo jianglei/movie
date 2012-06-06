@@ -27,6 +27,7 @@ public class Ad {
     private String networks;
     
     private Integer state;
+    private Integer fixedRank;
 
     public ByteString serialize() {
 		AdEntry.Builder adEntry = AdEntry.newBuilder();
@@ -45,7 +46,8 @@ public class Ad {
         if(channels != null) adEntry.setChannels(channels);
         if(areas != null) adEntry.setAreas(areas);
         if(networks != null) adEntry.setNetworks(networks);
-		
+        if(fixedRank != null) adEntry.setFixedRank(fixedRank);
+        
 		return adEntry.build().toByteString();
 	}
     
@@ -58,7 +60,7 @@ public class Ad {
 				+ budgetLimit + ", priceType=" + priceType + ", costPrice="
 				+ costPrice + ", startTime=" + startTime + ", endTime="
 				+ endTime + ", channels=" + channels + ", areas=" + areas
-				+ ", networks=" + networks + ", state=" + state + "]";
+				+ ", networks=" + networks + ", fixedRank=" + fixedRank + ", state=" + state + "]";
 	}
 
 
@@ -160,5 +162,13 @@ public class Ad {
 
 	public void setState(Integer state) {
 		this.state = state;
+	}
+	
+	public Integer getFixedRank() {
+		return fixedRank;
+	}
+	
+	public void setFixedRank(Integer fixedRank){
+		this.fixedRank = fixedRank;
 	}
 }

@@ -33,6 +33,7 @@
     <result column="timeslots" jdbcType="VARCHAR" property="timeslots" />
     
 	<result column="state" jdbcType="INTEGER" property="state" />
+    <result column="fixed_rank" jdbcType="INTEGER" property="fixedRank" />
   </resultMap>
 
   
@@ -69,7 +70,7 @@
 	
 	<select id="Ad.listQueryPage" resultType="java.util.HashMap" parameterType="java.util.Map">
 		select id, ad_order_id, name, start_time, end_time, platform, areas, networks, channels, budget, 
-			budget_limit, price_type, cost_price, prior, state,
+			budget_limit, price_type, cost_price, prior, state, fixed_rank,
 			(select content_type from ad_content where ad_content.id = ad.id) as content_type,
 			(select name from ad_order where ad_order.id = ad.ad_order_id) as ad_order_name
 		from ad
@@ -193,11 +194,13 @@
 	    insert into ad(user_id, created_time, updated_time, name, 
 	    	<if test="platform != null and platform != ''">platform</if>
 	    	,ad_order_id, networks, areas, channels
+	    	<if test="fixedRank != null">,fixed_rank</if>
 	    	<if test="budget != null and budget != ''">,budget</if>
 	    	,budget_limit, price_type, cost_price, start_time, end_time
 	    ) values(#{userId}, SYSDATE(), SYSDATE(), #{name}
 	        <if test="platform != null and platform != ''">,#{platform}</if>
 	        ,#{adOrderId}, #{networks}, #{areas}, #{channels}
+	        <if test="fixedRank != null">,#{fixedRank}</if>
 	        <if test="budget != null and budget != ''">,#{budget}</if>
 	        ,#{budgetLimit}, #{priceType}, #{costPrice}, #{startTime},#{endTime}
 	    )
@@ -205,6 +208,7 @@
 	<update id="Ad.update" parameterType="com.umeng.ufp.core.domain.Ad">
 	    update ad set updated_time = SYSDATE(), name = #{name}
 	    ,ad_order_id= #{adOrderId}, networks= #{networks}, channels= #{channels}
+	    <if test="fixedRank != null">,fixed_rank= #{fixedRank}</if>
 	    <if test="budget != null and budget != ''">,budget= #{budget}</if>
 	    ,budget_limit= #{budgetLimit}, areas = #{areas}, price_type= #{priceType}
 	    ,cost_price= #{costPrice}, start_time= #{startTime}, end_time= #{endTime}
