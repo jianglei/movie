@@ -208,7 +208,7 @@
 	<update id="Ad.update" parameterType="com.umeng.ufp.core.domain.Ad">
 	    update ad set updated_time = SYSDATE(), name = #{name}
 	    ,ad_order_id= #{adOrderId}, networks= #{networks}, channels= #{channels}
-	    <if test="fixedRank != null">,fixed_rank= #{fixedRank}</if>
+	    ,fixed_rank= #{fixedRank}
 	    <if test="budget != null and budget != ''">,budget= #{budget}</if>
 	    ,budget_limit= #{budgetLimit}, areas = #{areas}, price_type= #{priceType}
 	    ,cost_price= #{costPrice}, start_time= #{startTime}, end_time= #{endTime}
