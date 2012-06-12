@@ -243,7 +243,7 @@ function landingTypeChange(){
                 banner:{size:'202x55'},
                 wap:{size:{applist:'202x55',horizon_bigimage:'424x380'}},
                 embed:{size:'202x55'},
-                bigimage:{size:'640x340'},
+                bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
             },
@@ -251,7 +251,7 @@ function landingTypeChange(){
                 banner:{size:'320x50'},
                 wap:{size:{applist:'320x50',horizon_bigimage:'480x320'}},
                 embed:{size:'320x50'},
-                bigimage:{size:'640x340'},
+                bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
             }

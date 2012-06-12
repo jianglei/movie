@@ -891,7 +891,7 @@ changeFormStyle:function (){
                 banner:{size:'202x55'},
                 wap:{size:{standard:'202x55',image:'424x380'}},
                 embed:{size:'202x55'},
-                bigimage:{size:'640x340'},
+                bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
             },
@@ -899,7 +899,7 @@ changeFormStyle:function (){
                 banner:{size:'320x50'},
                 wap:{size:{standard:'320x50',image:'480x320'}},
                 embed:{size:'320x50'},
-                bigimage:{size:'640x340'},
+                bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
             }
