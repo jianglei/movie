@@ -1140,9 +1140,9 @@ changeAdPreviewSize:function(value){
         var widthP= that.landingSize.split('x')[0],
         heightP= that.landingSize.split('x')[1];
         $('.preview').width(widthP/(1+(parseInt(widthP)>400)));
-        $('.preview').height(heightP/(1+(parseInt(heightP)>300)));
+        $('.preview').height(heightP/(1+(parseInt(heightP)>200)));
         // if(nowEntryType == 'wap'){
-            if(that.landingSize == '480x320'||that.landingSize=='640x340'){
+            if(that.landingSize == '480x320'||that.landingSize=='640x320'||that.landingSize=='800x250'){
                 $('#bannerOrBigImg').text('大图图片');
             }else{
                 $('#bannerOrBigImg').text('横幅图片');
