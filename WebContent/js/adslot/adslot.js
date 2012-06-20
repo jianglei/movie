@@ -737,7 +737,7 @@ function loadList(page, status) {
                     case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
                     case "bigimage":elem += '<td class="center tb_landingType">大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
-                                
+                    default : "-";
                 }
 		
                 elem += '<td class="center tb_landingSize">' + adSlots[i].landing_size + '</td>';
