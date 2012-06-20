@@ -25,7 +25,7 @@
                     今日目前效果数据：
                 </div>
                 <div class="clear"></div>
-                <div class="panel_dashboard" style="display:none;">
+                <!-- <div class="panel_dashboard" style="display:none;">
                     <div class="item first">
                         <h3>平均点击价格</h3>
                         <span>￥0.2</span>
@@ -46,7 +46,7 @@
                         <h3>收益</h3>
                         <span>￥72.7</span>
                     </div>
-                </div>
+                </div> -->
 
                 <div style="height:23px; margin:17px 0  10px 0;">
                     <input type="button" class="btn_add_pos" value="添加广告位" style="float:left;" />
@@ -64,7 +64,7 @@
                     </div>
                     <div class="part_operation" >
                         <div class="state">
-                            <a href="#" class="state_filter">状态筛选</a><span class="state_info"><span class="none">未筛选</span></span>
+                            <a  class="state_filter">状态筛选</a><span class="state_info"><span class="none">未筛选</span></span>
                             <div class="state_panel" style="display:none;">
                                 <ul>
                                     <li><input type="checkbox" value="0" id="status_normal"/><label for="status_normal" class="filter normal">正常</label></li>
@@ -73,7 +73,7 @@
                                     <!--								<li><input type="checkbox" value="3" id="status_complete"/><label for="status_complete" class="filter complete">订单完成</label></li>-->
                                     <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
-                                <div class="opr"><span class="btn_change_state"><a href="#">确定</a></span></div>
+                                <div class="opr"><span class="btn_change_state"><a >确定</a></span></div>
                             </div>
                         </div>
                         <dl>
@@ -138,7 +138,8 @@
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="bigimage" class='bigimage'>轮播大图</span></a><br /> 
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="embed" class='embed'>内嵌入口</span></a>
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="wap" class='wap'>WAP</span></a>
-                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="text" class='text'>文字链</span></a>
+                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="text" class='text'>文字链</span></a><br />
+                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="push" class='push'>推送</span></a>
                                 <input type="hidden" name="landingType" value="" /><br />
                                 <a href="support/docs/landingtype" target="_blank">点击查看类型介绍&nbsp;&gt;&gt;</a>
                             </td>
@@ -172,7 +173,16 @@
                                 <input type="hidden" name="platform" value=""/>
                             </td>
                         </tr>
-
+                        <tr class="hidden push_options">
+                            <th><span class="f_req">*</span>弹窗大小：</th>
+                            <td>
+                                <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
+                                <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
+                                <a class="ui_radio ui_radio_push" ><span val="60">40%屏幕</span></a>
+                                <a href="">点击查看介绍&nbsp;&gt;&gt;</a>
+                                <input type="hidden" name="opensize" id="opensize" value=""/>
+                            </td>
+                        </tr>
                     </table>
 
 
@@ -182,7 +192,7 @@
                         <input type="button" class="btn_save_continue" value="保存并继续" />
                     </span>
                     <!--
-                    <a href="#" class="icon_return">返回订单管理页面</a>
+                    <a  class="icon_return">返回订单管理页面</a>
                     -->
                 </div>
             </div>
@@ -190,8 +200,8 @@
                 <div class="msg_content_top" style="padding-left:10px; padding-top:10px;">
                     <div class="flow step2" style="width:680px;">
                         <ul>
-                            <li><a href="#">1.&nbsp;选择类型和设备</a></li>
-                            <li><a href="#">2.&nbsp;选择策略</a></li>
+                            <li><a >1.&nbsp;选择类型和设备</a></li>
+                            <li><a >2.&nbsp;选择策略</a></li>
                         </ul>
                         <span class="fr close"></span>
                     </div>
@@ -232,10 +242,10 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align:center"><a class="delete_pic" href="javascript:void(0)" >删除</a></td>
-                                            <td style="text-align:center"><a class="delete_pic" href="javascript:void(0)" >删除</a></td>
-                                            <td style="text-align:center"><a class="delete_pic" href="javascript:void(0)" >删除</a></td>
-                                            <td style="text-align:center"><a class="delete_pic" href="javascript:void(0)" >删除</a></td>
+                                            <td style="text-align:center"><a class="delete_pic"  >删除</a></td>
+                                            <td style="text-align:center"><a class="delete_pic"  >删除</a></td>
+                                            <td style="text-align:center"><a class="delete_pic"  >删除</a></td>
+                                            <td style="text-align:center"><a class="delete_pic"  >删除</a></td>
                                         </tr>
                                         <input name="landingImages" id="landing_images" value="" type="hidden" />
 
@@ -278,6 +288,22 @@
                                 <input type="hidden" name="landingSize" id="landingSize" value=""/>
                             </td>
                         </tr>
+                        <tr class="hidden push_options">
+                            <th><span class="f_req">*</span>推送策略：</th>
+                            <td>
+                                <div class="ui_select" id="pushStrategy" style="z-index:2;"> 
+                                    <a  class="btn_pulldown"></a> <span class="text">请选择推送策略</span>
+                                    <div class="pop_menu">
+                                        <ul>
+                                            <li><a  pointto="pushStrategy" content="onceperday" >一天仅推送一次</a></li>
+                                            <li><a  pointto="pushStrategy" content="whenadchange" >广告替换时推送</a></li>
+                                            <li><a  pointto="pushStrategy" content="nolimit" >无限制</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <input name="pushStrategy" type="hidden" value=""/>
+                            </td>
+                        </tr>
                         <tr>
                             <th><span class="f_req">*</span>投放方式：</th>
                             <td>
@@ -285,8 +311,8 @@
                                     <a  class="btn_pulldown"></a> <span class="text">请选择投放方式</span>
                                     <div class="pop_menu">
                                         <ul>
-                                            <li><a href='javascript:void(0)' pointto="displayStrategy" content="rotate" >多条广告轮播</a></li>
-                                            <li><a href='javascript:void(0)' pointto="displayStrategy" content="prior" >仅显示优先级最高广告</a></li>
+                                            <li><a  pointto="displayStrategy" content="rotate" >多条广告轮播</a></li>
+                                            <li><a  pointto="displayStrategy" content="prior" >仅显示优先级最高广告</a></li>
                                         </ul>
                                     </div>
                                 </div>
