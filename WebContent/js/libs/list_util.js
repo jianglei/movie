@@ -362,7 +362,7 @@ function verify_null(obj, msg, newline,errPrevObj,params) {
     }
 }
 function verify_file(obj,msg,type,newline,noerror){
-    var patt=new RegExp(type,"g");
+    var patt=new RegExp(type,"gi");
        
     if (!patt.test(obj.val())) {
         // console.log(obj.val());
