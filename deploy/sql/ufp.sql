@@ -50,7 +50,7 @@ CREATE TABLE `ad_slot` (
   `app_id` int(11) DEFAULT NULL,
   `name` varchar(32) NOT NULL COMMENT '广告位名称',
   `landing_size` varchar(128) DEFAULT NULL COMMENT '入口尺寸',
-  `landing_type` enum('banner','custom','bigimage','embed','wap','text') DEFAULT NULL COMMENT '入口类型',
+  `landing_type` enum('banner','custom','bigimage','embed','wap','text','push') DEFAULT NULL COMMENT '入口类型',
   `landing_images` varchar(1024) DEFAULT NULL COMMENT '入口图片，用,分割',
   `platform` enum('android','iOS') NOT NULL,
   `style` varchar(32) DEFAULT NULL COMMENT '样式',
@@ -76,6 +76,8 @@ CREATE TABLE `ad_slot` (
   `display_strategy` varchar(32) DEFAULT NULL,
   `anim_in` varchar(32) DEFAULT '0',
   `template` varchar(64) DEFAULT 'applist',
+  `opensize` enum('none','100','80','60') DEFAULT 'none',
+  `push_strategy` enum('none','onceperday','whenadchange','nolimit') DEFAULT 'none',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40336 DEFAULT CHARSET=utf8
 

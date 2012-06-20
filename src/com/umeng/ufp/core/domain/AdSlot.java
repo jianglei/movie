@@ -34,6 +34,10 @@ public class AdSlot {
     private Integer uadsPercent;
     private String uadsKey;
 	private String uadsKey2;
+	
+	private String opensize;
+	private String pushStrategy;
+	
     
     public ByteString serialize() {
 		AdSlotEntry.Builder adSlotEntry = AdSlotEntry.newBuilder();
@@ -63,7 +67,8 @@ public class AdSlot {
 		if(uadsPercent != null) adSlotEntry.setUadsPercent(uadsPercent);
 		if(uadsKey != null) adSlotEntry.setUadsKey(uadsKey);
 		if(uadsKey2 != null) adSlotEntry.setUadsKey2(uadsKey2);
-		
+		if(opensize != null) adSlotEntry.setOpensize(opensize);
+		if(pushStrategy != null) adSlotEntry.setPushStrategy(pushStrategy);
 		return adSlotEntry.build().toByteString();
 	}
     
@@ -83,7 +88,8 @@ public class AdSlot {
 				+ ", xpEnable=" + xpEnable + ", xpPercent=" + xpPercent
 				+ ", appkey=" + appkey + ", uadsEnable=" + uadsEnable
 				+ ", uadsPercent=" + uadsPercent + ", uadsKey=" + uadsKey
-				+ ", uadsKey2=" + uadsKey2 + "]";
+				+ ", uadsKey2=" + uadsKey2 + ", opensize=" + opensize 
+				+ ", pushStrategy=" + pushStrategy + "]";
 	}
 
 
@@ -254,5 +260,17 @@ public class AdSlot {
 		this.state = state;
 	}
 
-
+	public String getOpensize() {
+		return opensize;
+	}
+	public void setOpensize(String opensize) {
+		this.opensize = opensize;
+	}
+	
+	public String getPushStrategy() {
+		return pushStrategy;
+	}
+	public void setPushStrategy(String pushStrategy) {
+		this.pushStrategy = pushStrategy;
+	}	
 }
