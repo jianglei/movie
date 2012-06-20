@@ -206,7 +206,7 @@
 	    ,name = #{name}, platform = #{platform}, landing_images = #{landingImages}, landing_size = #{landingSize}
 	    ,landing_type = #{landingType}, device = #{device}, channels = #{channels}, areas = #{areas}, text_size = #{textSize}
 	    ,display_strategy = #{displayStrategy}, enable_preload = #{enablePreload},
-	    enable_page = #{enablePage}, timeslots = #{timeslots}, opensize = #{opensize}, push_strategy = #{pushStrategy},
+	    enable_page = #{enablePage}, timeslots = #{timeslots}, opensize = #{opensize}, push_strategy = #{pushStrategy}
 	    <if test="template != null and template != ''">,template = #{template}</if>
 	    <if test="animIn != null and animIn != ''">,anim_in= #{animIn}</if>
 	    ,ad_network_strategy = #{adNetworkStrategy}
