@@ -173,12 +173,12 @@
                                 <input type="hidden" name="platform" value=""/>
                             </td>
                         </tr>
-                        <tr class="hidden push_options">
+                        <tr class="push_options">
                             <th><span class="f_req">*</span>弹窗大小：</th>
                             <td>
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
                                 <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
-                                <a class="ui_radio ui_radio_push" ><span val="60">40%屏幕</span></a>
+                                <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
                                 <a href="">点击查看介绍&nbsp;&gt;&gt;</a>
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>

@@ -253,6 +253,7 @@ function landingTypeChange(){
                 embed:{size:'202x55'},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
+                push:{size:'202x55'},
                 text:{size:'-'}
             },
             iOS:{
@@ -261,6 +262,7 @@ function landingTypeChange(){
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
+                push:{size:'320x50'},
                 text:{size:'-'}
             }
             
@@ -309,7 +311,7 @@ function getADSlot() {
         adslot.textSize = $("input[name='textSizeAdSlot']").val();
     }else if(adslot.landingType == 'push'){
         adslot.opensize = $('#opensize').val();
-        adslot.pushStrategy = $('#pushStrategy').val();
+        adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
     if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
@@ -351,6 +353,7 @@ function getADSlot() {
 function initMsg(adslot) {
     $(".step2").hide();
     $(".step1").show();
+    $('.push_options').hide();
     //		$(".special").hide();
     if ($("table.pnl_pro").is(':visible')) {
         $("table.pnl_pro").closest('td').hide();
@@ -375,6 +378,14 @@ function initMsg(adslot) {
     }else{
         $('.ui_radio_push').removeClass('ui_radio_checked');
         $('#opensize').val('');
+    }
+    //推广策略
+    if(adslot.pushStrategy&&adslot.pushStrategy!='none'){
+        $('#pushStrategy .text').text($('#pushStrategy li a[content="'+adslot.pushStrategy+'"]').text());
+        $('input[name="pushStrategy"]').val(adslot.pushStrategy);
+    }else{
+        $('#pushStrategy .text').text('请选择推送策略');
+        $('input[name="pushStrategy"]').val('');
     }
     //入口尺寸
     if (adslot.landingSize ) {
@@ -603,6 +614,8 @@ function showMsg(adslot, callback) {
                 success: function(data, textStatus,xhr){
                     if (data["status"] == "ok") {
                         callback();
+                    }else{
+                        alert('保存失败');
                     }
                 },
                 complete: function(XMLHttpRequest, textStatus){
@@ -627,7 +640,7 @@ function validateStepTwo(){
      return verify_null($("input[name='timeslots']"), "",true)&&
             //($("input[name='landingType']").val()!='wap'||($("input[name='landingType']").val()=='wap'&&verify_null($('#template'),'',true)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
-            ($("input[name='landingType']").val()!="push"||verify_null($('#pushStrategy').val(),true))&&
+            ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{digits:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
             ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{digits:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
             ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))))
@@ -683,12 +696,13 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         banner:'横幅',
         custom:'自定义入口',
         wap:'WAP',
-        text:'文字链'
-    }
+        text:'文字链',
+        push:'推送'
+    };
     setTimeout(function() {
 
         obj.find(".tb_name").text(name);
-        obj.find(".tb_appName").text((appName!=''&&appName!='不设置')?appName:'-');
+        obj.find(".tb_appName").text((appName!==''&&appName!=='不设置')?appName:'-');
         obj.find(".tb_landingType").text(landingArray[landingType]);
         obj.find(".tb_landingSize").text(landingSize);
         $(".loading_row").remove();
@@ -696,7 +710,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
 }
 
 
-/* 
+/*
  *自适应浮动层高度
  */
 function adjustMsg() {
@@ -704,7 +718,7 @@ function adjustMsg() {
     $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
 }
 /* 加载列表
- * page 页码	
+ * page 页码
  */
 function loadList(page, status) {
     $.ajax({
@@ -718,8 +732,6 @@ function loadList(page, status) {
         },
         success: function(data, textStatus){
             var list = data;
-                  
-            
             var adSlots = list.adSlotPage.result;
             //apps = list.appPage.result;
             var totalPages = list.adSlotPage.totalPages;
@@ -755,7 +767,8 @@ function loadList(page, status) {
                     case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
                     case "bigimage":elem += '<td class="center tb_landingType">大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
-                    default : "-";
+                    case "push":elem += '<td class="center tb_landingType">推送</td>';break;
+                    default : elem += '<td class="center tb_landingType">-</td>';
                 }
 		
                 elem += '<td class="center tb_landingSize">' + adSlots[i].landing_size + '</td>';

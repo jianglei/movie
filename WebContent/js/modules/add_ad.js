@@ -523,6 +523,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
                     banner:'横幅',
                     custom:'自定义入口',
                     wap:'WAP',
+                    push:'推送',
                     text:'文字链'
                 };
                 $(".tb_inner_wrap th input").prop('checked',false);
@@ -684,6 +685,7 @@ initMsgAd2:function (data) {
              'bigimage':{adType:[true,true],adStyle:[false,true,false]},
              'embed':{adType:[true,true],adStyle:[true,false,false]},
              'wap':{adType:[true,true],adStyle:[true,true,false]},
+             'push':{adType:[true,true],adStyle:[true,true,false]},
              'text':{adType:[true,false],adStyle:[false,false,true]}
          };
          that.isTextLandingType = false;
@@ -891,6 +893,7 @@ changeFormStyle:function (){
                 banner:{size:'202x55'},
                 wap:{size:{standard:'202x55',image:'424x380'}},
                 embed:{size:'202x55'},
+                push:{size:'202x55'},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
@@ -899,21 +902,11 @@ changeFormStyle:function (){
                 banner:{size:'320x50'},
                 wap:{size:{standard:'320x50',image:'480x320'}},
                 embed:{size:'320x50'},
+                push:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
             }
-            // android:{
-
-            //     standard:{size:'202x55'},
-            //     image:{size:'202x55',wap:{applist:'202x55',horizon_bigimage:'480x320',vertial_bigimage:'640x340'}},
-            //     text:{size:'-'}
-            // },
-            // iOS:{
-            //     standard:{size:'320x50'},
-            //     image:{size:'320x50',wap:{applist:'320x50',horizon_bigimage:'480x320',vertial_bigimage:'640x340'}},
-            //     text:{size:'-'}
-            // }
             
         } ,
          displayType = $("input[name='displayType']").val();
