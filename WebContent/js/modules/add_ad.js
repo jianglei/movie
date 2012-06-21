@@ -893,7 +893,7 @@ changeFormStyle:function (){
                 banner:{size:'202x55'},
                 wap:{size:{standard:'202x55',image:'424x380'}},
                 embed:{size:'202x55'},
-                push:{size:'202x55'},
+                push:{size:{standard:'202x55',image:'424x380'}},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
@@ -902,7 +902,7 @@ changeFormStyle:function (){
                 banner:{size:'320x50'},
                 wap:{size:{standard:'320x50',image:'480x320'}},
                 embed:{size:'320x50'},
-                push:{size:'320x50'},
+                push:{size:{standard:'320x50',image:'480x320'}},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
@@ -912,7 +912,7 @@ changeFormStyle:function (){
          displayType = $("input[name='displayType']").val();
          // entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType'),
          // template = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.platform').attr('template');
-        if(that.entryType=='wap'){
+        if(that.entryType=='wap'||that.entryType=='push'){
             var nowSize = adLandingSizeMap[that.platform][that.entryType].size[displayType];
             $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
             $('#adLandingSize').val(nowSize);

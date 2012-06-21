@@ -253,7 +253,7 @@ function landingTypeChange(){
                 embed:{size:'202x55'},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
-                push:{size:'202x55'},
+                push:{size:{applist:'202x55',horizon_bigimage:'424x380'}},
                 text:{size:'-'}
             },
             iOS:{
@@ -262,13 +262,13 @@ function landingTypeChange(){
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
-                push:{size:'320x50'},
+                push:{size:{applist:'320x50',horizon_bigimage:'480x320'}},
                 text:{size:'-'}
             }
             
         };
 
-        if(landingType!='wap'){
+        if(landingType!='wap'&&landingType!='push'){
             $('.ui_noselect span').text(landingTypeCol[platform][landingType].size);
             $('#landingSize').val(landingTypeCol[platform][landingType].size);
 
@@ -310,6 +310,7 @@ function getADSlot() {
     } else if(adslot.landingType =='text'){
         adslot.textSize = $("input[name='textSizeAdSlot']").val();
     }else if(adslot.landingType == 'push'){
+        adslot.template = $('#template').val();
         adslot.opensize = $('#opensize').val();
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
@@ -573,12 +574,12 @@ function showMsg(adslot, callback) {
             $(".step1").hide();
             $(".step2").show();
             $('.ui_radio_wapTemplate').closest('tr').hide();
-            if (landingType!='custom'&&landingType!='wap'){
+            if (landingType!='custom'&&landingType!='wap'&&landingType!='push'){
                 $('#upload_rukou_pic').hide();
             }else{
                 $('#upload_rukou_pic').show();
 
-                if(landingType=='wap'){
+                if(landingType=='wap'||landingType=='push'){
                     $('.ui_radio_wapTemplate').closest('tr').show();
                 }
             }
