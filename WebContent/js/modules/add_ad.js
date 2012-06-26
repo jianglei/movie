@@ -518,12 +518,12 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
             var len = that.adSlotPage.length;
             if(len >0 ){
                 var  adSlotLandingTypeMap = {
-                    bigimage:'大图',
+                    bigimage:'轮播大图',
                     embed:'内嵌入口',
                     banner:'横幅',
                     custom:'自定义入口',
                     wap:'WAP',
-                    push:'推送',
+                    push:'全屏广告',
                     text:'文字链'
                 };
                 $(".tb_inner_wrap th input").prop('checked',false);

@@ -5,7 +5,8 @@ a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select
 .icon_return{background:url(../images/umengADsystem_icon.gif) 0 -200px no-repeat;padding-left:15px;margin:0 10px}.icon_modify{background:url(../images/icon_modify.png) 0 0 no-repeat;padding-left:20px;color:#000}
 .icon_expend,.icon_expend_rev{background:url(../images/icon_expend.png) 0 0 no-repeat;padding-left:20px;color:#000;margin-left:15px}.icon_expend_rev{background:url(../images/icon_expend+.png) 0 0 no-repeat}
 .icon_report{background:url(../images/icon_report.png) 0 0 no-repeat;padding-left:20px;color:#000;margin-left:15px}.ui_radio{width:127px;height:25px;display:inline-block;cursor:pointer;border:0;margin-right:10px;color:#333;display:inline-block;margin-bottom:5px;vertical-align:middle;background:url(../images/umengADsystem_btn.gif) 0 -200px no-repeat}
-.ui_radio_checked{background-position:0 -250px}.ui_radio_disabled{color:grey;cursor:not-allowed}.ui_radio span{width:106px;height:22px;line-height:22px;text-align:center;float:right}
+.ui_radio_short{width:80px;background-position:0 -662px}.ui_radio_checked{background-position:0 -250px}.ui_radio_short.ui_radio_checked{background-position:0 -712px}
+.ui_radio_disabled{color:grey;cursor:not-allowed}.ui_radio span{width:106px;height:22px;line-height:22px;text-align:center;float:right}.ui_radio_short span{width:59px}
 .ui_radio .ios{text-align:left;text-indent:35px;background:url(../images/umengADsystem_btn.gif) right -297px no-repeat}.ui_radio .android{background:url(../images/umengADsystem_btn.gif) right -347px no-repeat}
 .input_text{height:18px;background:#fff url(../images/input_text_bg.gif) 0 0 repeat-x;border:1px solid #999;border-bottom-color:#ccc;border-right-color:#ccc;padding:0 5px;box-shadow:0 1px 3px #ccc;border-radius:3px}
 .input_textarea{background:url(../images/input_text_bg.gif) 0 0 repeat-x;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 3px #ccc}.input_text:focus,.input_textarea:focus,.input_text_focus{border-color:#FC0}
@@ -88,7 +89,7 @@ a.code_href{display:block;position:relative;top:80px}#choose_adslot,#adslot_code
 .thead{background:#6cbf0a;height:29px;color:white;text-align:left;font-weight:bold}.tfoot{background:#e6e6e6;width:100%}#choose_adslot_item td,#choose_adslot th,#choose_ad th,#choose_ad_item td{height:29px;text-indent:1em}
 #choose_adslot th,#choose_ad th{background:#e6e6e6;color:black}.border_left{border-left:1px solid #ccc}.border_top{border-top:1px solid #ccc}.border_bottom{border-bottom:1px solid #ccc}
 #choose_adslot,#choose_ad{width:455px;left:20px}#choose_ad{width:640px}#adslot_code{width:400px;right:20px}td.c_adslot_body{vertical-align:top}#choose_adslot_item,#choose_ad_item{width:100%}
-#choose_adslot_item td,#choose_ad_item td{display:block;overflow:hidden;text-overflow:ellipsis;float:left;line-height:39px}.middle_ico{position:absolute;right:426px;top:200px;color:#ccc}
+#choose_adslot_item td,#choose_ad_item td{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;float:left;line-height:39px}.middle_ico{position:absolute;right:426px;top:200px;color:#ccc}
 .green_btn{border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border:1px solid #46970b;background:url(../images/green_btn_bg.png) repeat-x;padding:0;text-align:center;color:white;cursor:pointer}
 .green_btn:active{background:#78c319}.c_ad_page li{display:inline-block;float:left}.c_ad_page li a{color:#787878;text-decoration:underline}.c_ad_page_detail{float:left;margin-right:10px}
 .c_adslot_body .code_body{max-height:302px;display:block;width:400px;overflow-y:auto;overflow-x:auto;display:none;line-height:1.6em}.c_adslot_body .code_body h1{margin:10px 0 2px}

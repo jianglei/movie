@@ -249,20 +249,20 @@ function landingTypeChange(){
         var landingTypeCol = {
             android:{
                 banner:{size:'202x55'},
-                wap:{size:{applist:'202x55',horizon_bigimage:'424x380'}},
+                wap:{size:{applist:'202x55',horizon_bigimage:'424x380',vertical_bigimage:'380x424',allimage:'560x380'}},
                 embed:{size:'202x55'},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
-                push:{size:{applist:'202x55',horizon_bigimage:'424x380'}},
+                push:{size:{applist:'202x55',horizon_bigimage:'424x380',vertical_bigimage:'380x424',allimage:'560x380'}},
                 text:{size:'-'}
             },
             iOS:{
                 banner:{size:'320x50'},
-                wap:{size:{applist:'320x50',horizon_bigimage:'480x320'}},
+                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
-                push:{size:{applist:'320x50',horizon_bigimage:'480x320'}},
+                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
                 text:{size:'-'}
             }
             
@@ -385,7 +385,7 @@ function initMsg(adslot) {
         $('#pushStrategy .text').text($('#pushStrategy li a[content="'+adslot.pushStrategy+'"]').text());
         $('input[name="pushStrategy"]').val(adslot.pushStrategy);
     }else{
-        $('#pushStrategy .text').text('请选择推送策略');
+        $('#pushStrategy .text').text('请选择全屏广告策略');
         $('input[name="pushStrategy"]').val('');
     }
     //入口尺寸
@@ -574,14 +574,14 @@ function showMsg(adslot, callback) {
             $(".step1").hide();
             $(".step2").show();
             $('.ui_radio_wapTemplate').closest('tr').hide();
-            if (landingType!='custom'&&landingType!='wap'&&landingType!='push'){
+            if (landingType!='custom'&&landingType!='wap'){
                 $('#upload_rukou_pic').hide();
             }else{
                 $('#upload_rukou_pic').show();
 
-                if(landingType=='wap'||landingType=='push'){
-                    $('.ui_radio_wapTemplate').closest('tr').show();
-                }
+            }
+            if(landingType=='wap'||landingType=='push'){
+                $('.ui_radio_wapTemplate').closest('tr').show();
             }
             if(landingType=='text'){
                 $('.landingSize').closest('tr').hide();
@@ -639,7 +639,7 @@ function validateStepTwo(){
      //((landingType!="custom"&&landingType!="wap")||((landingType=="custom"||landingType=="wap")&&
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
-            //($("input[name='landingType']").val()!='wap'||($("input[name='landingType']").val()=='wap'&&verify_null($('#template'),'',true)))&&
+            (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{digits:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
@@ -698,7 +698,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         custom:'自定义入口',
         wap:'WAP',
         text:'文字链',
-        push:'推送'
+        push:'全屏广告'
     };
     setTimeout(function() {
 
@@ -766,9 +766,9 @@ function loadList(page, status) {
                     case "custom":elem += '<td class="center tb_landingType">自定义入口</td>';break;
                     case "banner":elem += '<td class="center tb_landingType">横幅</td>';break;
                     case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
-                    case "bigimage":elem += '<td class="center tb_landingType">大图</td>';break;
+                    case "bigimage":elem += '<td class="center tb_landingType">轮播大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
-                    case "push":elem += '<td class="center tb_landingType">推送</td>';break;
+                    case "push":elem += '<td class="center tb_landingType">全屏广告</td>';break;
                     default : elem += '<td class="center tb_landingType">-</td>';
                 }
 		
