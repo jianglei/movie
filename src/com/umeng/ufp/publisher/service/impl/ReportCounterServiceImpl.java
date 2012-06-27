@@ -39,7 +39,9 @@ public class ReportCounterServiceImpl extends EntityDaoImpl<ReportCounter, Integ
 		// TODO Auto-generated method stub
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("adIds", adIds);
-		param.put("adId", adId + "");
+		if (null != adId){
+			param.put("adId", adId + "");
+		}
 		param.put("startDate", startDate);
 		param.put("endDate", endDate);
 		return super.find(param);
