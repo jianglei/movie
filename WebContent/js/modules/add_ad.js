@@ -1086,11 +1086,11 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                 }
         });
         //保存
-        $(".btn_save_ad").unbind("click").click(function() {
-                // that.entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType');
-                model2 = that.getAD2();
+        function saveAd(){
+            model2 = that.getAD2();
                 if(model2 ){
-                    if ($("input[name='adid']").val() != "") {
+                    $(this).unbind('click');
+                    if ($("input[name='adid']").val() !== "") {
                         model2.id = that.curId;
                     }
                     model2.rnd = Math.random();
@@ -1114,12 +1114,18 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                             },
                             error: function(){
                                 alert('保存失败!');
+                                $(".btn_save_ad").unbind("click").click(function() {
+                                    saveAd.apply(this);
+                                });
                             }
                     });
                 }
+        }
+        $(".btn_save_ad").unbind("click").click(function() {
+            saveAd.apply(this);
         });
 },
-/* 
+/*
  *自适应浮动层高度
  */
 adjustMsg:function() {
