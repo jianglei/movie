@@ -12,6 +12,7 @@ window.Report.prototype = {
         var selTitle = {list:'',adorder:'选择订单:',adslot:'选择广告位:',ad:'选择广告:',app:'选择应用:'};
         
         if(that.param.name=='list'){$('div.sel_wrap,div.sel_title').hide();}
+        if(that.param.name=='ad'){$('.output_csv').show();}
 
         if(selTitle[that.param.name]){$('div.sel_title1').text(selTitle[that.param.name]);}
         $('.sel_wrap').click(function(){
@@ -64,7 +65,8 @@ window.Report.prototype = {
             $(this).addClass('current').siblings().removeClass('current');
             $(this).parent().toggleClass('toggle_choice_time');
             $(".panel_choice_time").toggle();
-               
+            $('.output_csv').toggleClass('cl');
+          
         });
         $('#cus_start_time').datepicker({
             dateFormat: 'yy-mm-dd',

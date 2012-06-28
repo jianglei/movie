@@ -271,11 +271,10 @@ function showMsg(adorder, callback) {
             }
         });
     });
-
-    //保存
-    $(".btn_save_order").unbind("click").click(function() {
-        
+    function saveOrder(){
         if (verify_null($("input[name='name']"), "订单名称不能为空！")&&verify_null($('#datepicker_start_adorder'), "开始时间不能为空",false,$('#datepicker_end_adorder'))) {
+            var _self = this;
+            $(_self).unbind('click');
             var model = getADOrder();
             var url = "/adorder/save";
             model.rnd = Math.random(),
@@ -296,9 +295,16 @@ function showMsg(adorder, callback) {
                 },
                 error: function(){
                     alert('保存出错!');
+                    $(_self).unbind("click").click(function() {
+                        saveOrder.apply(_self);
+                    });
                 }
             });
         }
+    }
+    //保存
+    $(".btn_save_order").unbind("click").click(function() {
+        saveOrder.apply(this);
     });
 }
 

@@ -6,37 +6,39 @@ $(function() {
     //添加应用
     $('.btn_add_app').click(function() {
         appDialogId = getToken();
-        initMsg("", "", "");
-        $(".btn_save").unbind("click").click(function() {
-            if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
-                verify_null($("input[name='platform']"), "平台不能为空！", true)) {
-                var name = $("input[name='name']").val();
-                var platform = $("input[name='platform']").val();
-                var description = $("textarea[name='description']").val();
-                $.ajax({
-                    type: "get",
-                    url: "/app/save?name=" + name + "&platform=" + platform + "&description=" + description,
-                    data:"rnd="+Math.random(),
-                    dataType: "json",
-                    beforeSend: function(XMLHttpRequest){
-                    },
-                    success: function(data, textStatus){
-                        if (data["status"] == "ok") {
-                            $.unblockUI({
-                                onUnblock:function(){
-                                    appDialogId = '';
-                                }
-                            });
-                            loadList(1);
-                        }
-                    },
-                    complete: function(XMLHttpRequest, textStatus){
-                    },
-                    error: function(){
-                    }
-                });
-            }
+        initMsg({}, function(){
+            $.unblockUI({
+                onUnblock:function(){
+                    appDialogId = '';
+                }
+            });
+            loadList(1);
         });
+        // $(".btn_save").unbind("click").click(function() {
+        //     if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
+        //         verify_null($("input[name='platform']"), "平台不能为空！", true)) {
+        //         var name = $("input[name='name']").val();
+        //         var platform = $("input[name='platform']").val();
+        //         var description = $("textarea[name='description']").val();
+        //         $.ajax({
+        //             type: "get",
+        //             url: "/app/save?name=" + name + "&platform=" + platform + "&description=" + description,
+        //             data:"rnd="+Math.random(),
+        //             dataType: "json",
+        //             beforeSend: function(XMLHttpRequest){
+        //             },
+        //             success: function(data, textStatus){
+        //                 if (data["status"] == "ok") {
+                            
+        //                 }
+        //             },
+        //             complete: function(XMLHttpRequest, textStatus){
+        //             },
+        //             error: function(){
+        //             }
+        //         });
+        //     }
+        // });
     });
     
     $(window).resize(function(){
@@ -50,7 +52,7 @@ function clearList() {
         if ($(this).attr("class") != "tit") {
             $(this).remove();
         }
-    })
+    });
     //$("#tb_list").append('<tr id="loading_row_init"><td colspan="7">加载中...</td></tr>');
 }
 
@@ -75,19 +77,19 @@ function loadList(page, status) {
             var odd = true;
             clearList();
             pageAnchorsGenerate(totalPages,pageNo,'',loadList);
-            if(!list.appPage || list.appPage.result.length == 0){
+            if(!list.appPage || list.appPage.result.length === 0){
                 $('#tb_list tr').not(':first').remove();
                 $('#tb_list').append('<tr id="loading_row_init"><td colspan="4">没有记录!</td></tr>');
                 return;
             }
             for (i = 0; i < len; i++) {
                 var elem = "";
-                elem += '<tr class=' + (odd == true ? "" : "transbg") + ' id="tr_' + apps[i].id + '">';
+                elem += '<tr class=' + (odd === true ? "" : "transbg") + ' id="tr_' + apps[i].id + '">';
                 odd = !odd;
                 elem += '<td class="pos_rel chk" style="display:block"><input type="checkbox" name="record_ch" value="' + apps[i].id + '"></td>';
                 elem += '<td><a href="javascript:void(0)" onclick="editApp(' + apps[i].id + ',event)" class="tb_name">' + apps[i].name + '</a></td>';
                 elem += '<td id="td_status_' + apps[i].id + '" style="text-align:left; padding:0 30px;">';
-                if (apps[i].status.indexOf("normal")>-1) 
+                if (apps[i].status.indexOf("normal")>-1)
                     elem += '<img src="images/icon_state_normal.gif" width="16" height="16" alt="正常" />正常';
                 else
                     elem += '<img src="images/icon_state_pause.gif" width="16" height="16" alt="暂停" />暂停';
@@ -122,23 +124,24 @@ function updateItem(obj, name, platform) {
 }
 
 /* 初始化浮出层 */
-function initMsg(name, platform, description) {
+function initMsg(app,callback,id) {
     //初始化数据
     $('.err').remove();
-    if(name&&name!=""){
+    if(app.name&&app.name!==""){
         $('.msg_content_top .title span').eq(0).text('编辑应用');
     }else{
         $('.msg_content_top .title span').eq(0).text('新建应用');
     }
-    $("input[name='name']").val(name);
+    $("input[name='name']").val(app.name);
     $(".ui_radio").removeClass("ui_radio_checked");
-    if (platform == "android") {
+    if (app.platform&&app.platform == "android") {
         $(".android").parent().addClass("ui_radio_checked");
-    } else if (platform == "iOS"){
+        $("input[name='platform']").val(app.platform);
+    } else if (app.platform&&app.platform == "iOS"){
         $(".ios").parent().addClass("ui_radio_checked");
+        $("input[name='platform']").val(app.platform);
     }
-    $("input[name='platform']").val(platform);
-    $("textarea[name='description']").val(description);
+    $("textarea[name='description']").val(app.description?app.description:"");
     
     //弹出浮出层
     var msg = $('.msg_app');
@@ -146,7 +149,7 @@ function initMsg(name, platform, description) {
     var width = $(document).width();
     $.blockUI({
         css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-        message: $('.msg_app'),
+        message: $('.msg_app')
         //onBlock:function(){$('.blockMsg').draggable()}
     });
     
@@ -161,6 +164,41 @@ function initMsg(name, platform, description) {
     $('.ui_radio_os').click(function(){
         $('.ui_radio_os').removeClass('ui_radio_checked');
         $(this).addClass('ui_radio_checked');
+    });
+    function saveApp(){
+        if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
+            verify_null($("input[name='platform']"), "平台不能为空！", true)) {
+            var _self = this;
+            $(_self).unbind('click');
+            var name = $("input[name='name']").val();
+            var platform = $("input[name='platform']").val();
+            var description = $("textarea[name='description']").val();
+            // if (description === "") description = " ";
+            $.ajax({
+                type: "get",
+                url: "/app/save?name=" + name + "&platform=" + platform + "&description=" + description +(id?("&id=" + id):""),
+                dataType: "json",
+                data:"rnd="+Math.random(),
+                beforeSend: function(XMLHttpRequest){
+                },
+                success: function(data, textStatus){
+                    if (data["status"] == "ok") {
+                        callback();
+                    }
+                },
+                complete: function(XMLHttpRequest, textStatus){
+                },
+                error: function(){
+                    alert('保存失败!');
+                    $(".btn_save").unbind('click').click(function() {
+                        saveApp.apply(this);
+                    });
+                }
+            });
+        }
+    }
+    $(".btn_save").unbind('click').click(function() {
+        saveApp.apply(this);
     });
 }
 
@@ -181,40 +219,19 @@ function editApp(id,event) {
         },
         success: function(data, textStatus){
             if(currentDialogId != appDialogId) return;
-            initMsg(data.app.name, data.app.platform, data.app.description);
-            $(".btn_save").unbind('click').click(function() {
-                if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
-                    verify_null($("input[name='platform']"), "平台不能为空！", true)) {
-                    var name = $("input[name='name']").val();
-                    var platform = $("input[name='platform']").val();
-                    var description = $("textarea[name='description']").val(); 
-                    if (description == "") description = " ";
-                    $.ajax({
-                        type: "get",
-                        url: "/app/save?name=" + name + "&platform=" + platform + "&description=" + description + "&id=" + id,
-                        dataType: "json",
-                        data:"rnd="+Math.random(),
-                        beforeSend: function(XMLHttpRequest){
-                        },
-                        success: function(data, textStatus){
-                            if (data["status"] == "ok") {
-                                var obj = evenObj.parent().parent().find("td:eq(0)");
-                                obj.append("<div class='loading_row'><div class='txt'>正在刷新数据&nbsp;&nbsp;&nbsp;<img src='images/loading_m.gif' /></div></div>");
-                                updateItem(evenObj.parent().parent(), name, platform);
-                                $.unblockUI({
-                                    onUnblock:function(){
-                                         appDialogId ='';
-                                    }
-                                });
-                            }
-                        },
-                        complete: function(XMLHttpRequest, textStatus){
-                        },
-                        error: function(){
-                        }
-                    });
-                }
+            initMsg(data.app,function(){
+                var name = $("input[name='name']").val();
+                var platform = $("input[name='platform']").val();
+                var obj = evenObj.parent().parent().find("td:eq(0)");
+                obj.append("<div class='loading_row'><div class='txt'>正在刷新数据&nbsp;&nbsp;&nbsp;<img src='images/loading_m.gif' /></div></div>");
+                updateItem(evenObj.parent().parent(), name, platform);
+                $.unblockUI({
+                    onUnblock:function(){
+                         appDialogId ='';
+                    }
+                },id);
             });
+            
         },
         complete: function(XMLHttpRequest, textStatus){
             

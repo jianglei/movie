@@ -1,6 +1,7 @@
 package com.umeng.ufp.publisher.controller;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -20,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.umeng.core.utils.DateUtil;
+import com.umeng.core.utils.ExportUtil;
 import com.umeng.ufp.core.domain.AdSlot;
+import com.umeng.ufp.core.domain.Ad;
 import com.umeng.ufp.core.domain.ReportCounter;
 import com.umeng.ufp.core.domain.User;
 import com.umeng.ufp.publisher.utils.Constants;
@@ -142,6 +145,44 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
     		}
     	}
         return resultParams;
+    }
+
+    @RequestMapping(value = "ad_export/{exportType}")
+    @ResponseBody
+    public void exportAd(@PathVariable String exportType, HttpServletRequest request, 
+    		HttpServletResponse response, 
+    		@RequestParam(value="period", required = false) String period,
+    		@RequestParam(value="startDate", required = false) String startDate,
+    		@RequestParam(value="endDate", required = false) String endDate,
+    		Model model) {
+    	User user = getLoginUser(request);
+    	Map<String, List<Object>> resultList = new HashMap<String, List<Object>>(0);
+    	List<String> dateList = new ArrayList<String>(0);
+    	
+    	if(user != null) {
+    		try {
+	    		List<Integer> adIds = adService.getAdIdListByUserId(user.getId());
+	    		if(adIds.size() > 0) {
+			    	Map<String, Object> date = getDate(startDate, endDate, period);
+					startDate = (String)date.get("startDate");
+					endDate = (String)date.get("endDate");
+					for (Integer adId: adIds){
+						List<ReportCounter> currentReportList = null;
+						currentReportList = reportCounterService.findByAdId(adIds, adId, startDate, endDate);
+						currentReportList = autoPadding(currentReportList, startDate, endDate);
+						List<Object> exportList = generateInfo(currentReportList, exportType);
+						Ad ad = adService.getById(adId);
+						String adName = ad.getName();
+						resultList.put(adName, exportList);	
+					}
+					dateList = getDateList(endDate, startDate);
+					String fileName = exportType + "_" + startDate + "_" + endDate + ".csv";
+					ExportUtil.writeCsv(response, dateList, resultList, fileName);
+	    		}
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
     }
     
     @RequestMapping(value = "adslot/{adSlotId}")
@@ -447,6 +488,42 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 		
 		return reportList;
     }
- 
 
+    private List<Object> generateInfo(List<ReportCounter> list, String exportType){
+    	List<Object> result = new ArrayList<Object>(0);
+    	for(ReportCounter rc: list){
+    		if (exportType.equals("click")){
+    			result.add(rc.getClick());
+    		}
+    		if (exportType.equals("impression")){
+    			result.add(rc.getImpression());
+    		}
+    		if (exportType.equals("download")){
+    			result.add(rc.getDownload());
+    		}
+    		if (exportType.equals("clickRate")){
+    			result.add(rc.getClickRate() * 100);
+    		}
+    		if (exportType.equals("revenue")){
+    			result.add(rc.getRevenue());
+    		}
+    		if (exportType.equals("conversionRate")){
+    			Integer click = rc.getClick();
+    			Integer download = rc.getDownload();
+    			// TODO: format the conversionRate, X.XX would be acceptable.
+    			Double conversionRate = (click == 0) ? 0.00 : (double)download * 100 / click;
+    			String formatResult = String.format("%.2f", conversionRate);
+    			result.add(formatResult);
+    		}
+    	}
+    	return result;
+    }
+    
+    private List<String> getDateList(String endDate, String startDate){
+    	List<String> dateList = new ArrayList<String>(0);
+    	for(String date = endDate; date.compareTo(startDate) >= 0; date = DateUtil.dateplus(date, 1)){
+    		dateList.add(date);
+    	}
+    	return dateList;
+    }
 }

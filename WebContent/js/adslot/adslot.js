@@ -196,10 +196,10 @@ $(function() {
     $(window).resize(function(){
         adjustMsg();
     });
-})
+});
 /*
  * 获取代码部分的广告位列表
- * 
+ *
  */
 function initCodeList(){
     $.ajax({
@@ -569,8 +569,10 @@ function showMsg(adslot, callback) {
     });
 
     //保存
-    $(".btn_save_adslot").unbind("click").click(function() {
+    function saveAdslot() {
+        var _self = this;
         if(validateStepTwo()){
+            $(_self).unbind('click');
             var model = getADSlot();
             var url = "/adslot/save";
             model.rnd = Math.random();
@@ -583,6 +585,7 @@ function showMsg(adslot, callback) {
                 data:model,
                 dataType: "json",
                 beforeSend: function(XMLHttpRequest){
+                   
                 },
                 success: function(data, textStatus,xhr){
                     if (data["status"] == "ok") {
@@ -590,11 +593,20 @@ function showMsg(adslot, callback) {
                     }
                 },
                 complete: function(XMLHttpRequest, textStatus){
+
                 },
                 error: function(){
+                    $(_self).unbind("click").click(function(){
+                        saveAdslot.apply(_self);
+                    });
                 }
             });
         }
+    }
+    $(".btn_save_adslot").unbind("click").click(function(){
+        // $(this).unbind('click');
+         // console.log(1);
+        saveAdslot.apply(this);
     });
 }
 function validateStepOne(){
@@ -610,9 +622,9 @@ function validateStepTwo(){
      return verify_null($("input[name='timeslots']"), "",true)&&
             //($("input[name='landingType']").val()!='wap'||($("input[name='landingType']").val()=='wap'&&verify_null($('#template'),'',true)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
-            ($('#ui_radio_jiaohuan').prop('checked')==false||(verify_null($("#xppercent"), "",false,$("#appkey"),{digits:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
-            ($('#ui_radio_uads').prop('checked')==false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{digits:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
-            ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))))
+            ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
+            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
+            ($("input[name='landingType']").val()!=='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))));
 }
 /* 编辑广告位
  * id 编号
@@ -666,11 +678,11 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         custom:'自定义入口',
         wap:'WAP',
         text:'文字链'
-    }
+    };
     setTimeout(function() {
 
         obj.find(".tb_name").text(name);
-        obj.find(".tb_appName").text((appName!=''&&appName!='不设置')?appName:'-');
+        obj.find(".tb_appName").text((appName!==''&&appName!=='不设置')?appName:'-');
         obj.find(".tb_landingType").text(landingArray[landingType]);
         obj.find(".tb_landingSize").text(landingSize);
         $(".loading_row").remove();
@@ -678,15 +690,16 @@ function updateItem(obj, name, appName, landingType, landingSize) {
 }
 
 
-/* 
+/*
  *自适应浮动层高度
  */
 function adjustMsg() {
     var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
     $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
 }
 /* 加载列表
- * page 页码	
+ * page 页码
  */
 function loadList(page, status) {
     $.ajax({
@@ -700,8 +713,6 @@ function loadList(page, status) {
         },
         success: function(data, textStatus){
             var list = data;
-                  
-            
             var adSlots = list.adSlotPage.result;
             //apps = list.appPage.result;
             var totalPages = list.adSlotPage.totalPages;
@@ -737,7 +748,7 @@ function loadList(page, status) {
                     case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
                     case "bigimage":elem += '<td class="center tb_landingType">大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
-                    default : "-";
+                    default : elem += '<td class="center tb_landingType">-</td>';
                 }
 		
                 elem += '<td class="center tb_landingSize">' + adSlots[i].landing_size + '</td>';
