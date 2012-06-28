@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.umeng.core.utils.DateUtil;
 import com.umeng.core.utils.ExportUtil;
 import com.umeng.ufp.core.domain.AdSlot;
+import com.umeng.ufp.core.domain.Ad;
 import com.umeng.ufp.core.domain.ReportCounter;
 import com.umeng.ufp.core.domain.User;
 import com.umeng.ufp.publisher.utils.Constants;
@@ -155,7 +156,7 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
     		@RequestParam(value="endDate", required = false) String endDate,
     		Model model) {
     	User user = getLoginUser(request);
-    	Map<Integer, List<Object>> resultList = new HashMap<Integer, List<Object>>(0);
+    	Map<String, List<Object>> resultList = new HashMap<String, List<Object>>(0);
     	List<String> dateList = new ArrayList<String>(0);
     	
     	if(user != null) {
@@ -170,7 +171,9 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 						currentReportList = reportCounterService.findByAdId(adIds, adId, startDate, endDate);
 						currentReportList = autoPadding(currentReportList, startDate, endDate);
 						List<Object> exportList = generateInfo(currentReportList, exportType);
-						resultList.put(adId, exportList);	
+						Ad ad = adService.getById(adId);
+						String adName = ad.getName();
+						resultList.put(adName, exportList);	
 					}
 					dateList = getDateList(endDate, startDate);
 					String fileName = exportType + "_" + startDate + "_" + endDate + ".csv";
@@ -508,8 +511,9 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
     			Integer click = rc.getClick();
     			Integer download = rc.getDownload();
     			// TODO: format the conversionRate, X.XX would be acceptable.
-    			Double conversionRate = (click == 0) ? 0.0 : (double)download * 100 / click;
-    			result.add(conversionRate);
+    			Double conversionRate = (click == 0) ? 0.00 : (double)download * 100 / click;
+    			String formatResult = String.format("%.2f", conversionRate);
+    			result.add(formatResult);
     		}
     	}
     	return result;
