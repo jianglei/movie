@@ -1,11 +1,23 @@
 body{
     overflow-y:auto;
 }
+/*----report  begin----*/
 #chart1{
-
     height:100%;
     width:100%;
 }
+.output_csv{
+    margin:10px 5px 0 0;
+}
+.output_csv a{
+    text-decoration: underline;
+}
+.csv_choose li{
+    float:left;
+    line-height:2em;
+    /*padding-left:1em;*/
+}
+/*----report  end----*/
 #blacklist{
     border:1px solid #999999;
     padding: 10px;
@@ -762,7 +774,7 @@ a.view_icon:hover{
 .choice_time {
     position:relative;
     float:left; 
-    padding-top:12px;
+    padding-top:3px;
     padding-left:6px;
 }
 .toggle_choice_time{

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <div id="main" style="padding-top:7px;">
-    <div class="panel_choicelnk" style="float:left; padding-top:17px;min-height:25px;">
-        <a href="javascript:void(0);" period="today" class="">今天</a>
-        <a href="javascript:void(0);" period="yesterday" class="">昨天</a>
-        <a href="javascript:void(0);" period="day_-7" class="current">过去7天</a>
-        <a href="javascript:void(0);" period="lastWeek">上周</a>
-        <a href="javascript:void(0);" period="lastMonth">上月</a>
-        <a href="javascript:void(0);" period="lastQuarter">上季度</a>
-        <a href="javascript:void(0);" class="btn_choice_time" style="cursor:pointer;">自定义时间</a>
+    <div class="panel_choicelnk" style="float:left; padding-top:8px;min-height:25px;">
+        <a href="###" period="today" class="">今天</a>
+        <a href="###" period="yesterday" class="">昨天</a>
+        <a href="###" period="day_-7" class="current">过去7天</a>
+        <a href="###" period="lastWeek">上周</a>
+        <a href="###" period="lastMonth">上月</a>
+        <a href="###" period="lastQuarter">上季度</a>
+        <a href="###" class="btn_choice_time" style="cursor:pointer;">自定义时间</a>
     </div>
     <div class="choice_time">
          <div class="panel_choice_time" style="display:none;">  
@@ -42,6 +42,7 @@
         </div>
     </div>
     <div class="sel_title sel_title2" style="display:none">选择接入网络：</div>
+    <div class="output_csv fr hd"><a>导出所有广告数据</a></div>
     <div class="clear"></div>
     <div class="panel_dashboard panel_dashboard1" style="">
         <div class="item first">
