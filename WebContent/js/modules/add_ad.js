@@ -171,17 +171,17 @@ window.AddAd.prototype={
                 currentText:'现在',
                 closeText:'确定',
 		onClose: function(dateText, inst) {
-			var endDateTextBox = $('#datepicker_ad_end');
-			if (endDateTextBox.val() !== '') {
-				var testStartDate = new Date(dateText);
-				var testEndDate = new Date(endDateTextBox.val());
-				if (testStartDate > testEndDate)
-					endDateTextBox.val(dateText);
-			}
-			else {
-				endDateTextBox.val(dateText);
-			}
-                        $(this).blur();
+			// var endDateTextBox = $('#datepicker_ad_end');
+			// if (endDateTextBox.val() !== '') {
+			// 	var testStartDate = new Date(dateText);
+			// 	var testEndDate = new Date(endDateTextBox.val());
+			// 	if (testStartDate > testEndDate)
+			// 		endDateTextBox.val(dateText);
+			// }
+			// else {
+			// 	endDateTextBox.val(dateText);
+			// }
+                $(this).blur();
 		},
 		onSelect: function (selectedDateTime){
 			var start = $(this).datetimepicker('getDate');
