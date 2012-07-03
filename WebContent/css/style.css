@@ -104,8 +104,15 @@ a.view_icon:hover{
     vertical-align:middle;
     background:url(../images/umengADsystem_btn.gif) 0 -200px no-repeat;
 }
+.ui_radio_short{
+    width:80px;
+    background-position:0 -662px;
+}
 .ui_radio_checked {
     background-position:0 -250px;
+}
+.ui_radio_short.ui_radio_checked{
+    background-position:0 -712px;
 }
 .ui_radio_disabled {
     color:grey;
@@ -117,6 +124,9 @@ a.view_icon:hover{
     line-height:22px;
     text-align:center;
     float:right;
+}
+.ui_radio_short span{
+    width:59px;
 }
 .ui_radio .ios {
     text-align:left;

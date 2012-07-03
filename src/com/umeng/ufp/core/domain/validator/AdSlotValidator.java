@@ -122,6 +122,20 @@ public class AdSlotValidator {
 			return validation;
 	    }
 	    
+		String opensize = adSlot.getOpensize();
+		if(StringUtil.isNotEmpty(opensize) && !AdSlotConstants.opensizeSet.contains(opensize)) {
+			validation.put("isValid", false);
+			validation.put("message", "enablePage参数不合法");
+			return validation;
+		}
+		
+		String pushStrategy = adSlot.getPushStrategy();
+		if(StringUtil.isNotEmpty(pushStrategy) && !AdSlotConstants.pushStrategySet.contains(pushStrategy)) {
+			validation.put("isValid", false);
+			validation.put("message", "enablePage参数不合法");
+			return validation;
+		}
+		
 	    validation.put("isValid", true);
 		return validation;
 		

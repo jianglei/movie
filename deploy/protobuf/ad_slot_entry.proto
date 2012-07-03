@@ -30,4 +30,6 @@ message AdSlotEntry {
     optional int32 uads_percent = 24;
     optional string uads_key = 25;
     optional string uads_key2 = 26;
+    optional string opensize = 27;
+    optional string push_strategy = 28;
 }

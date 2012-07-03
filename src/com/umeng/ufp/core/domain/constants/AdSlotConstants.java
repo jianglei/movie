@@ -20,6 +20,7 @@ public class AdSlotConstants {
 	    public final static String EMBED = "embed";
 	    public final static String WAP = "wap";
 	    public final static String TEXT = "text";
+	    public final static String PUSH = "push";
 	}
     
 	public class DisplayStrategy {
@@ -48,8 +49,21 @@ public class AdSlotConstants {
 	    public final static String HORIZON_BIGIMAGE = "horizon_bigimage";
 	    public final static String VERTICAL_BIGIMAGE = "vertical_bigimage";
 	}
+	
+	public class PushStrategy {
+		public final static String NONE = "none";
+		public final static String ONCE_PER_DAY = "onceperday";
+		public final static String WHEN_AD_CHANGE = "whenadchange";
+		public final static String NO_LIMIT = "nolimit"; 
+	}
     
-
+	public class Opensize {
+		public final static String NONE = "none";
+		public final static String HUNDRED = "100";
+		public final static String EIGHTY = "80";
+		public final static String SIXTY = "60";
+	}
+	
     public static Set<String> landingTypeSet = new HashSet<String>();
     static {
     	landingTypeSet.add(AdSlotConstants.LandingType.BANNER);
@@ -58,6 +72,7 @@ public class AdSlotConstants {
     	landingTypeSet.add(AdSlotConstants.LandingType.EMBED);
     	landingTypeSet.add(AdSlotConstants.LandingType.TEXT);
     	landingTypeSet.add(AdSlotConstants.LandingType.WAP);
+    	landingTypeSet.add(AdSlotConstants.LandingType.PUSH);
     }
     
     public static Set<String> displayStrategySet = new HashSet<String>();
@@ -92,5 +107,19 @@ public class AdSlotConstants {
     	adNetworkStrategySet.add(AdSlotConstants.AdNetworkStrategy.PERCENT);
     }
     
+    public static Set<String> opensizeSet = new HashSet<String>();
+    static {
+    	opensizeSet.add(AdSlotConstants.Opensize.NONE);
+    	opensizeSet.add(AdSlotConstants.Opensize.HUNDRED);
+    	opensizeSet.add(AdSlotConstants.Opensize.EIGHTY);
+    	opensizeSet.add(AdSlotConstants.Opensize.SIXTY);
+    }
     
+    public static Set<String> pushStrategySet = new HashSet<String>();
+    static {
+    	pushStrategySet.add(AdSlotConstants.PushStrategy.NONE);
+    	pushStrategySet.add(AdSlotConstants.PushStrategy.ONCE_PER_DAY);
+    	pushStrategySet.add(AdSlotConstants.PushStrategy.WHEN_AD_CHANGE);
+    	pushStrategySet.add(AdSlotConstants.PushStrategy.NO_LIMIT);
+    }
 }

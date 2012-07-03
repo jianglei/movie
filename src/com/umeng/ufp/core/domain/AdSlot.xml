@@ -37,6 +37,8 @@
     <result column="uads_percent" jdbcType="INTEGER" property="uadsPercent" />
     <result column="uads_key" jdbcType="VARCHAR" property="uadsKey" />
     <result column="uads_key2" jdbcType="VARCHAR" property="uadsKey2" />
+    <result column="opensize" jdbcType="VARCHAR" property="opensize" />
+    <result column="push_strategy" jdbcType="VARCHAR" property="pushStrategy" />
 
   </resultMap>
   <resultMap id="AdSlot-RESULT-MAP" type="java.util.HashMap" extends="AdSlot-RESULT-BASIC">
@@ -181,7 +183,8 @@
 		    <if test="uadsEnable != null">,uads_enable</if>
 		    <if test="uadsPercent != null">,uads_percent</if>
 		    <if test="uadsKey != null and uadsKey != ''">,uads_key</if>	
-		   	   
+		    <if test="opensize != null and opensize != 'none'">,opensize</if>	
+		    <if test="pushStrategy != null and pushStrategy != 'none'">,push_strategy</if>			   	   
 		) values(#{userId}, SYSDATE(), SYSDATE(), #{name}, #{platform}, #{enablePreload}, #{enablePage}, #{appId}
 			,#{landingImages}, #{landingSize}, #{landingType}, #{device}, #{areas}, #{textSize}, #{displayStrategy}, #{channels}, #{timeslots}
 		    <if test="template != null and template != ''">,#{template}</if>
@@ -193,6 +196,8 @@
 		    <if test="uadsEnable != null">,#{uadsEnable}</if> 
 		    <if test="uadsPercent != null">,#{uadsPercent}</if>
 		    <if test="uadsKey != null and uadsKey != ''">,#{uadsKey}</if>
+		    <if test="opensize != null and opensize != 'none'">,#{opensize}</if>
+		    <if test="pushStrategy != null and pushStrategy != 'none'">,#{pushStrategy}</if>  
 	    )
 	</insert>
 	<insert id="AdSlot.update" parameterType="com.umeng.ufp.core.domain.AdSlot">
@@ -201,7 +206,7 @@
 	    ,name = #{name}, platform = #{platform}, landing_images = #{landingImages}, landing_size = #{landingSize}
 	    ,landing_type = #{landingType}, device = #{device}, channels = #{channels}, areas = #{areas}, text_size = #{textSize}
 	    ,display_strategy = #{displayStrategy}, enable_preload = #{enablePreload},
-	    enable_page = #{enablePage}, timeslots = #{timeslots}
+	    enable_page = #{enablePage}, timeslots = #{timeslots}, opensize = #{opensize}, push_strategy = #{pushStrategy}
 	    <if test="template != null and template != ''">,template = #{template}</if>
 	    <if test="animIn != null and animIn != ''">,anim_in= #{animIn}</if>
 	    ,ad_network_strategy = #{adNetworkStrategy}

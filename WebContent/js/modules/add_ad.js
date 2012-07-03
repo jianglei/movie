@@ -171,17 +171,17 @@ window.AddAd.prototype={
                 currentText:'现在',
                 closeText:'确定',
 		onClose: function(dateText, inst) {
-			var endDateTextBox = $('#datepicker_ad_end');
-			if (endDateTextBox.val() !== '') {
-				var testStartDate = new Date(dateText);
-				var testEndDate = new Date(endDateTextBox.val());
-				if (testStartDate > testEndDate)
-					endDateTextBox.val(dateText);
-			}
-			else {
-				endDateTextBox.val(dateText);
-			}
-                        $(this).blur();
+			// var endDateTextBox = $('#datepicker_ad_end');
+			// if (endDateTextBox.val() !== '') {
+			// 	var testStartDate = new Date(dateText);
+			// 	var testEndDate = new Date(endDateTextBox.val());
+			// 	if (testStartDate > testEndDate)
+			// 		endDateTextBox.val(dateText);
+			// }
+			// else {
+			// 	endDateTextBox.val(dateText);
+			// }
+                $(this).blur();
 		},
 		onSelect: function (selectedDateTime){
 			var start = $(this).datetimepicker('getDate');
@@ -518,11 +518,12 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
             var len = that.adSlotPage.length;
             if(len >0 ){
                 var  adSlotLandingTypeMap = {
-                    bigimage:'大图',
+                    bigimage:'轮播大图',
                     embed:'内嵌入口',
                     banner:'横幅',
                     custom:'自定义入口',
                     wap:'WAP',
+                    push:'全屏广告',
                     text:'文字链'
                 };
                 $(".tb_inner_wrap th input").prop('checked',false);
@@ -684,6 +685,7 @@ initMsgAd2:function (data) {
              'bigimage':{adType:[true,true],adStyle:[false,true,false]},
              'embed':{adType:[true,true],adStyle:[true,false,false]},
              'wap':{adType:[true,true],adStyle:[true,true,false]},
+             'push':{adType:[true,true],adStyle:[true,true,false]},
              'text':{adType:[true,false],adStyle:[false,false,true]}
          };
          that.isTextLandingType = false;
@@ -891,6 +893,7 @@ changeFormStyle:function (){
                 banner:{size:'202x55'},
                 wap:{size:{standard:'202x55',image:'424x380'}},
                 embed:{size:'202x55'},
+                push:{size:{standard:'202x55',image:'424x380'}},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
@@ -899,27 +902,17 @@ changeFormStyle:function (){
                 banner:{size:'320x50'},
                 wap:{size:{standard:'320x50',image:'480x320'}},
                 embed:{size:'320x50'},
+                push:{size:{standard:'320x50',image:'480x320'}},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
             }
-            // android:{
-
-            //     standard:{size:'202x55'},
-            //     image:{size:'202x55',wap:{applist:'202x55',horizon_bigimage:'480x320',vertial_bigimage:'640x340'}},
-            //     text:{size:'-'}
-            // },
-            // iOS:{
-            //     standard:{size:'320x50'},
-            //     image:{size:'320x50',wap:{applist:'320x50',horizon_bigimage:'480x320',vertial_bigimage:'640x340'}},
-            //     text:{size:'-'}
-            // }
             
         } ,
          displayType = $("input[name='displayType']").val();
          // entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType'),
          // template = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.platform').attr('template');
-        if(that.entryType=='wap'){
+        if(that.entryType=='wap'||that.entryType=='push'){
             var nowSize = adLandingSizeMap[that.platform][that.entryType].size[displayType];
             $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
             $('#adLandingSize').val(nowSize);

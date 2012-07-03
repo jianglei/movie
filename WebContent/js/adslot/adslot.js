@@ -121,11 +121,14 @@ $(function() {
         $('#template').val($(this).attr('tpType'));
         landingTypeChange();
     });
+    //弹窗大小设置
+    $('.ui_radio_push').click(function(){
+        $(this).addClass('ui_radio_checked').siblings().removeClass('ui_radio_checked');
+        $('#opensize').val($(this).find('span').attr('val'));
+    });
     //radio 切换
     $('.ui_radio_entrance').click(function(){
-        $('.ui_radio_entrance').removeClass('ui_radio_checked');
-        $(this).addClass('ui_radio_checked');
-        
+        $(this).addClass('ui_radio_checked').siblings().removeClass('ui_radio_checked');
         $('input[name=landingType]').val($(this).find('span').attr('adSlotLandingType'));
         landingTypeChange();
     });
@@ -237,27 +240,35 @@ function landingTypeChange(){
     var platform =$('input[name=platform]').val(),
     template = $('#template').val()!==''? $('#template').val():'applist',
     landingType = $('input[name=landingType]').val() ;
+    if(landingType == 'push'){
+        $('.push_options').show();
+    }else{
+        $('.push_options').hide();
+    }
     if(landingType!==''&&platform!==''){
         var landingTypeCol = {
             android:{
                 banner:{size:'202x55'},
-                wap:{size:{applist:'202x55',horizon_bigimage:'424x380'}},
+                wap:{size:{applist:'202x55',horizon_bigimage:'424x380',vertical_bigimage:'380x424',allimage:'560x380'}},
                 embed:{size:'202x55'},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
+                push:{size:{applist:'202x55',horizon_bigimage:'424x380',vertical_bigimage:'380x424',allimage:'560x380'}},
                 text:{size:'-'}
             },
             iOS:{
                 banner:{size:'320x50'},
-                wap:{size:{applist:'320x50',horizon_bigimage:'480x320'}},
+                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
+                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
                 text:{size:'-'}
             }
             
-        }
-        if(landingType!='wap'){
+        };
+
+        if(landingType!='wap'&&landingType!='push'){
             $('.ui_noselect span').text(landingTypeCol[platform][landingType].size);
             $('#landingSize').val(landingTypeCol[platform][landingType].size);
 
@@ -298,11 +309,15 @@ function getADSlot() {
         adslot.template = 'vertical_bigimage';
     } else if(adslot.landingType =='text'){
         adslot.textSize = $("input[name='textSizeAdSlot']").val();
+    }else if(adslot.landingType == 'push'){
+        adslot.template = $('#template').val();
+        adslot.opensize = $('#opensize').val();
+        adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
-    if ($("input[name='enablePreload']:checked").index() == 0) adslot.enablePreload = "yes";
+    if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
     else adslot.enablePreload = "no";
-    if ($("input[name='enablePage']:checked").index() == 0) adslot.enablePage = "yes";
+    if ($("input[name='enablePage']:checked").index() === 0) adslot.enablePage = "yes";
     else adslot.enablePage = "no";
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
@@ -339,6 +354,7 @@ function getADSlot() {
 function initMsg(adslot) {
     $(".step2").hide();
     $(".step1").show();
+    $('.push_options').hide();
     //		$(".special").hide();
     if ($("table.pnl_pro").is(':visible')) {
         $("table.pnl_pro").closest('td').hide();
@@ -352,14 +368,26 @@ function initMsg(adslot) {
 
     //入口类型
     if (adslot.landingType ) {
-        $("input[name='landingType']").val(adslot.landingType);
-        $(".ui_radio_entrance").removeClass("ui_radio_checked")
-        .has("."+adslot.landingType).addClass('ui_radio_checked');
+        $(".ui_radio_entrance:has(."+adslot.landingType+")").trigger("click");
     } else {
         $(".ui_radio_entrance").removeClass("ui_radio_checked");
         $("input[name='landingType']").val("");
     }
-
+    //弹窗大小
+    if(adslot.opensize){
+        $('.ui_radio_push:has(span[val='+adslot.opensize+'])').trigger('click');
+    }else{
+        $('.ui_radio_push').removeClass('ui_radio_checked');
+        $('#opensize').val('');
+    }
+    //推广策略
+    if(adslot.pushStrategy&&adslot.pushStrategy!='none'){
+        $('#pushStrategy .text').text($('#pushStrategy li a[content="'+adslot.pushStrategy+'"]').text());
+        $('input[name="pushStrategy"]').val(adslot.pushStrategy);
+    }else{
+        $('#pushStrategy .text').text('请选择全屏广告策略');
+        $('input[name="pushStrategy"]').val('');
+    }
     //入口尺寸
     if (adslot.landingSize ) {
         $(".landingSize .text").html(adslot.landingSize);
@@ -454,7 +482,7 @@ function initMsg(adslot) {
         var displayStrategyMap = {
             prior:'仅显示优先级最高广告',
             rotate:'多条广告轮播'
-        }
+        };
         $("#displayStrategy span").text(displayStrategyMap[adslot.displayStrategy]);
         $('input[name="displayStrategy"]').val(adslot.displayStrategy);
     }
@@ -470,15 +498,15 @@ function initMsg(adslot) {
     var deleteBtns = $('a.delete_pic');
     var images = $("img.landingImagesimg");
     deleteBtns.css('visibility','hidden');
-    if (adslot.landingImages && adslot.landingImages != "") {
+    if (adslot.landingImages && adslot.landingImages !== "") {
         var ss = adslot.landingImages.split(",");
         $('#landing_images').val(adslot.landingImages);
         for(var index=0; index< ss.length; index++){
             var s = ss[index];
-            if (s == ''||s=='/images/img_upload.gif'){
+            if (s === ''||s=='/images/img_upload.gif'){
                 continue;
             }
-            deleteBtns.eq(index).css('visibility','visible'); 
+            deleteBtns.eq(index).css('visibility','visible');
             $(images[index]).attr('src', s);
         }
     }else{
@@ -528,10 +556,10 @@ function initMsg(adslot) {
         $('#ui_radio_uads').nextAll('input').prop('disabled',false);
     }
     
-}   
+}
 
 
-/* 
+/*
  * 显示浮出层
  * adslot ADSlot数据对象
  * callback 回调方法
@@ -551,9 +579,9 @@ function showMsg(adslot, callback) {
             }else{
                 $('#upload_rukou_pic').show();
 
-                if(landingType=='wap'){
-                    $('.ui_radio_wapTemplate').closest('tr').show();
-                }
+            }
+            if(landingType=='wap'||landingType=='push'){
+                $('.ui_radio_wapTemplate').closest('tr').show();
             }
             if(landingType=='text'){
                 $('.landingSize').closest('tr').hide();
@@ -590,6 +618,8 @@ function showMsg(adslot, callback) {
                 success: function(data, textStatus,xhr){
                     if (data["status"] == "ok") {
                         callback();
+                    }else{
+                        alert('保存失败');
                     }
                 },
                 complete: function(XMLHttpRequest, textStatus){
@@ -611,8 +641,9 @@ function showMsg(adslot, callback) {
 }
 function validateStepOne(){
     return verify_null($("input[name='name']"))&&
-            verify_null($("input[name='landingType']"), "",true) &&
-           verify_null($("input[name='platform']"), "",true);
+        verify_null($("input[name='landingType']"), "",true) &&
+        ($("input[name='landingType']").val()!="push"||verify_null($("#opensize"), "",true)) &&
+        verify_null($("input[name='platform']"), "",true);
             
 }
 function validateStepTwo(){
@@ -620,11 +651,13 @@ function validateStepTwo(){
      //((landingType!="custom"&&landingType!="wap")||((landingType=="custom"||landingType=="wap")&&
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
-            //($("input[name='landingType']").val()!='wap'||($("input[name='landingType']").val()=='wap'&&verify_null($('#template'),'',true)))&&
+            (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
+            ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
             ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
-            ($("input[name='landingType']").val()!=='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))));
+            ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))));
+
 }
 /* 编辑广告位
  * id 编号
@@ -672,12 +705,14 @@ function editAdSlot(id,event) {
  */
 function updateItem(obj, name, appName, landingType, landingSize) {
     var landingArray = {
-        bigimage:'大图',
+        bigimage:'轮播大图',
         embed:'内嵌入口',
         banner:'横幅',
         custom:'自定义入口',
         wap:'WAP',
-        text:'文字链'
+        text:'文字链',
+        push:'全屏广告'
+
     };
     setTimeout(function() {
 
@@ -746,8 +781,9 @@ function loadList(page, status) {
                     case "custom":elem += '<td class="center tb_landingType">自定义入口</td>';break;
                     case "banner":elem += '<td class="center tb_landingType">横幅</td>';break;
                     case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
-                    case "bigimage":elem += '<td class="center tb_landingType">大图</td>';break;
+                    case "bigimage":elem += '<td class="center tb_landingType">轮播大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
+                    case "push":elem += '<td class="center tb_landingType">全屏广告</td>';break;
                     default : elem += '<td class="center tb_landingType">-</td>';
                 }
 		
