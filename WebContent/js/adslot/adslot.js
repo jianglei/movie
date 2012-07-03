@@ -692,7 +692,7 @@ function editAdSlot(id,event) {
  */
 function updateItem(obj, name, appName, landingType, landingSize) {
     var landingArray = {
-        bigimage:'大图',
+        bigimage:'轮播大图',
         embed:'内嵌入口',
         banner:'横幅',
         custom:'自定义入口',

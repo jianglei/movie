@@ -139,7 +139,7 @@
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="embed" class='embed'>内嵌入口</span></a>
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="wap" class='wap'>WAP</span></a>
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="text" class='text'>文字链</span></a><br />
-                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="push" class='push'>推送</span></a>
+                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="push" class='push'>全屏广告</span></a>
                                 <input type="hidden" name="landingType" value="" /><br />
                                 <a href="support/docs/landingtype" target="_blank">点击查看类型介绍&nbsp;&gt;&gt;</a>
                             </td>
@@ -179,7 +179,7 @@
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
                                 <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
                                 <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
-                                <a href="">点击查看介绍&nbsp;&gt;&gt;</a>
+                                <!-- <a href="">点击查看介绍&nbsp;&gt;&gt;</a> -->
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>
                         </tr>
