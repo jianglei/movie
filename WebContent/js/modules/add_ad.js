@@ -1122,7 +1122,8 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
  *自适应浮动层高度
  */
 adjustMsg:function() {
-    $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
+    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
 },
 /*
 *尺寸更改时候的预览

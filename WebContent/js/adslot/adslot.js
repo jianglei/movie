@@ -730,7 +730,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
  */
 function adjustMsg() {
     var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
-    $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
     $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
 }
 /* 加载列表

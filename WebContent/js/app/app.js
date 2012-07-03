@@ -253,5 +253,6 @@ function hideMask() {
 }
  function adjustMsg() {
     var body = $('.msg_app').is(':visible')?$('.msg_app'):$('.msg_ad');
-    $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
+    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
 }
