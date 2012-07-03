@@ -522,7 +522,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
                     embed:'内嵌入口',
                     banner:'横幅',
                     custom:'自定义入口',
-                    wap:'WAP',
+                    wap:'网页',
                     push:'全屏广告',
                     text:'文字链'
                 };
