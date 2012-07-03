@@ -137,7 +137,7 @@
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="custom" class='custom'>自定义入口</span></a>
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="bigimage" class='bigimage'>轮播大图</span></a><br /> 
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="embed" class='embed'>内嵌入口</span></a>
-                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="wap" class='wap'>WAP</span></a>
+                                <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="wap" class='wap'>网页</span></a>
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="text" class='text'>文字链</span></a><br />
                                 <a class="ui_radio ui_radio_entrance"  ><span adSlotLandingType="push" class='push'>全屏广告</span></a>
                                 <input type="hidden" name="landingType" value="" /><br />

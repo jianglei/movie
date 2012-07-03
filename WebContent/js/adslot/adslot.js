@@ -709,7 +709,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         embed:'内嵌入口',
         banner:'横幅',
         custom:'自定义入口',
-        wap:'WAP',
+        wap:'网页',
         text:'文字链',
         push:'全屏广告'
 
@@ -780,7 +780,7 @@ function loadList(page, status) {
                     case "embed":elem += '<td class="center tb_landingType">内嵌入口</td>';break;
                     case "custom":elem += '<td class="center tb_landingType">自定义入口</td>';break;
                     case "banner":elem += '<td class="center tb_landingType">横幅</td>';break;
-                    case "wap":elem += '<td class="center tb_landingType">WAP</td>';break;
+                    case "wap":elem += '<td class="center tb_landingType">网页</td>';break;
                     case "bigimage":elem += '<td class="center tb_landingType">轮播大图</td>';break;
                     case "text":elem += '<td class="center tb_landingType">文字链</td>';break;
                     case "push":elem += '<td class="center tb_landingType">全屏广告</td>';break;
