@@ -13,4 +13,4 @@ img{border:0;vertical-align:top}button,a,button{cursor:pointer}select option{pad
 .btn_continue_ad{display:block;width:115px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_mag_ad.png') -121px 0 no-repeat}
 .btn_inner_table_new{display:block;width:79px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_table_inner.png') 0 0 no-repeat}
 .btn_inner_table_has{display:block;width:104px;height:27px;border:0;cursor:pointer;text-indent:-10000px;background:url('../images/btn_table_inner.png') -79px 0 no-repeat}
-.fr{float:right}.fl{float:left}.align_l{text-align:left}.pos_rel{position:relative}.err{padding-left:5px;color:red}
+.fr{float:right}.fl{float:left}.cl{clear:both}.hd{display:none}.align_l{text-align:left}.pos_rel{position:relative}.err{padding-left:5px;color:red}

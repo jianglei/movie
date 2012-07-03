@@ -25,7 +25,7 @@
             report.initUI();
 //            report.loadList();
             report.loadData();
-	})
+	});
 </script>
 </body>
 </html>

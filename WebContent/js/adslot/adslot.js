@@ -597,8 +597,10 @@ function showMsg(adslot, callback) {
     });
 
     //保存
-    $(".btn_save_adslot").unbind("click").click(function() {
+    function saveAdslot() {
+        var _self = this;
         if(validateStepTwo()){
+            $(_self).unbind('click');
             var model = getADSlot();
             var url = "/adslot/save";
             model.rnd = Math.random();
@@ -611,6 +613,7 @@ function showMsg(adslot, callback) {
                 data:model,
                 dataType: "json",
                 beforeSend: function(XMLHttpRequest){
+                   
                 },
                 success: function(data, textStatus,xhr){
                     if (data["status"] == "ok") {
@@ -620,11 +623,20 @@ function showMsg(adslot, callback) {
                     }
                 },
                 complete: function(XMLHttpRequest, textStatus){
+
                 },
                 error: function(){
+                    $(_self).unbind("click").click(function(){
+                        saveAdslot.apply(_self);
+                    });
                 }
             });
         }
+    }
+    $(".btn_save_adslot").unbind("click").click(function(){
+        // $(this).unbind('click');
+         // console.log(1);
+        saveAdslot.apply(this);
     });
 }
 function validateStepOne(){
@@ -642,9 +654,10 @@ function validateStepTwo(){
             (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
-            ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{digits:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
-            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{digits:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
-            ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))))
+            ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
+            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
+            ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))));
+
 }
 /* 编辑广告位
  * id 编号
@@ -699,6 +712,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         wap:'WAP',
         text:'文字链',
         push:'全屏广告'
+
     };
     setTimeout(function() {
 
@@ -717,6 +731,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
 function adjustMsg() {
     var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
     $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
 }
 /* 加载列表
  * page 页码

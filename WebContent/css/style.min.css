@@ -1,7 +1,7 @@
-body{overflow-y:auto}#chart1{height:100%;width:100%}#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}
-.adList tr td:nth-child(2),.adList tr td:nth-child(3){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}*:focus{outline:0}a.changeIcon{margin-right:10px}
-a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select_textColor img{width:25px;height:20px}.list_order{margin-right:24px;float:right}
-.ui-datepicker-title{font-weight:normal}.ui-widget-header{background:#6cbf0a;border:0}.ui-datepicker .ui-datepicker-title select.ui-datepicker-month{font-size:.86em}
+body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 0 0}.output_csv a{text-decoration:underline}.csv_choose li{float:left;line-height:2em;padding-left:1em}
+#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td:nth-child(2),.adList tr td:nth-child(3){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+*:focus{outline:0}a.changeIcon{margin-right:10px}a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select_textColor img{width:25px;height:20px}
+.list_order{margin-right:24px;float:right}.ui-datepicker-title{font-weight:normal}.ui-widget-header{background:#6cbf0a;border:0}.ui-datepicker .ui-datepicker-title select.ui-datepicker-month{font-size:.86em}
 .icon_return{background:url(../images/umengADsystem_icon.gif) 0 -200px no-repeat;padding-left:15px;margin:0 10px}.icon_modify{background:url(../images/icon_modify.png) 0 0 no-repeat;padding-left:20px;color:#000}
 .icon_expend,.icon_expend_rev{background:url(../images/icon_expend.png) 0 0 no-repeat;padding-left:20px;color:#000;margin-left:15px}.icon_expend_rev{background:url(../images/icon_expend+.png) 0 0 no-repeat}
 .icon_report{background:url(../images/icon_report.png) 0 0 no-repeat;padding-left:20px;color:#000;margin-left:15px}.ui_radio{width:127px;height:25px;display:inline-block;cursor:pointer;border:0;margin-right:10px;color:#333;display:inline-block;margin-bottom:5px;vertical-align:middle;background:url(../images/umengADsystem_btn.gif) 0 -200px no-repeat}

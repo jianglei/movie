@@ -318,7 +318,7 @@ function verify_null(obj, msg, newline,errPrevObj,params) {
         },
         url:function(value){
             var reg =/^(http:|https:|telephone:|sdk:)\/\//ig;
-            if(reg.test(value) && $.trim(value.replace(reg,''))==''){
+            if(reg.test(value) && $.trim(value.replace(reg,''))===''){
                 return {pass:false,msg:'请输入正确的url'};
             }else{
                 return {pass:true};

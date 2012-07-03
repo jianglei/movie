@@ -204,7 +204,12 @@ hr {
 .fl {
 	float:left;
 }
-
+.cl{
+	clear: both;
+}
+.hd{
+	display: none;
+}
 .align_l {
 	text-align:left;
 }
