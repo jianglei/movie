@@ -266,8 +266,8 @@
                             <td>
                                 <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="applist"  ><span class="">模板一</span></a> 
                                 <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="horizon_bigimage"  ><span class="">模板二</span></a>  
-                                <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="allimage"  ><span class="">模板四</span></a> -->  
+                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  
+                                <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="allimage"  ><span class="">模板四</span></a> -->  
                                 <!-- <a class="ui_radio ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  -->
                                 <a href="support/docs/template" target="_blank">查看模版介绍&gt;&gt;</a>
                                 <input type="hidden" name="template"  id="template" value=""/>

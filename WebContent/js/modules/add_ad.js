@@ -891,18 +891,19 @@ changeFormStyle:function (){
         adLandingSizeMap = {
             android:{
                 banner:{size:'202x55'},
-                wap:{size:{standard:'202x55',image:'424x380'}},
+                wap:{standard:'202x55',image:{applist:'424x380',horizon_bigimage:'424x380',vertical_bigimage:'380x424'}},
                 embed:{size:'202x55'},
-                push:{size:{standard:'202x55',image:'424x380'}},
+                push:{standard:'202x55',image:{applist:'424x380',horizon_bigimage:'424x380',vertical_bigimage:'380x424'}},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
             },
             iOS:{
                 banner:{size:'320x50'},
-                wap:{size:{standard:'320x50',image:'480x320'}},
+                // wap:{size:{standard:'320x50',image:'480x320'}},
+                wap:{standard:'320x50',image:{applist:'480x320',horizon_bigimage:'480x320',vertical_bigimage:'320x480'}},
                 embed:{size:'320x50'},
-                push:{size:{standard:'320x50',image:'480x320'}},
+                push:{standard:'320x50',image:{applist:'480x320',horizon_bigimage:'480x320',vertical_bigimage:'320x480'}},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
@@ -913,11 +914,17 @@ changeFormStyle:function (){
          // entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType'),
          // template = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.platform').attr('template');
         if(that.entryType=='wap'||that.entryType=='push'){
-            var nowSize = adLandingSizeMap[that.platform][that.entryType].size[displayType];
-            $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
-            $('#adLandingSize').val(nowSize);
+            if(displayType == 'image'){
+                var nowSize = adLandingSizeMap[that.platform][that.entryType][displayType][that.template];
+                $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
+                $('#adLandingSize').val(nowSize);
+            }else{
+                var nowSize = adLandingSizeMap[that.platform][that.entryType][displayType];
+                $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
+                $('#adLandingSize').val(nowSize);
+            }
         }else{
-            var nowSize =adLandingSizeMap[that.platform][that.entryType].size;
+            var nowSize = adLandingSizeMap[that.platform][that.entryType].size;
             $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
             $('#adLandingSize').val(nowSize);
         }
@@ -966,9 +973,9 @@ changeFormStyle:function (){
             $('#choose_ad_item').html(elem);
         } else{
             $('#choose_ad_item .loadingStatus').text('没有匹配广告位!');
-        }    
+        }
     },
-/* 
+/*
  * 显示浮出层
  * ad AD数据对象
  * callback 回调方法
@@ -1053,7 +1060,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                              that.adjustMsg();
                             return ;
                          }
-                        if ($("input[name='adid']").val() == "") {
+                        if ($("input[name='adid']").val() === "") {
                             that.initMsgAd2({});
                         } else {
                                 //编辑
@@ -1122,7 +1129,8 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
  *自适应浮动层高度
  */
 adjustMsg:function() {
-    $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"});
+    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
 },
 /*
 *尺寸更改时候的预览
@@ -1138,10 +1146,10 @@ changeAdPreviewSize:function(value){
     if(that.landingSize!='-'){
         var widthP= that.landingSize.split('x')[0],
         heightP= that.landingSize.split('x')[1];
-        $('.preview').width(widthP/(1+(parseInt(widthP)>400)));
-        $('.preview').height(heightP/(1+(parseInt(heightP)>200)));
+        $('.preview').width(widthP/(1+(parseInt(widthP)>400||parseInt(heightP)>200)));
+        $('.preview').height(heightP/(1+(parseInt(heightP)>200||parseInt(widthP)>400)));
         // if(nowEntryType == 'wap'){
-            if(that.landingSize == '480x320'||that.landingSize=='424x380'||that.landingSize=='800x250'||that.landingSize=='640x320'){
+            if($.inArray(that.landingSize,['480x320','424x380','800x250','640x320','380x424','320x480'])>-1){
                 $('#bannerOrBigImg').text('大图图片');
             }else{
                 $('#bannerOrBigImg').text('横幅图片');

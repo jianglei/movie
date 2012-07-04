@@ -180,7 +180,8 @@ function hideMask() {
  */
 function adjustMsg() {
     var body = $('.msg_order').is(':visible')?$('.msg_order'):$('.msg_ad');
-    $(".blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
+    // $(".blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
 }
 
 /*
