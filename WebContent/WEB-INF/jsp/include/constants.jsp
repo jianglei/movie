@@ -2,4 +2,4 @@
 <%@ taglib uri="/WEB-INF/tlds/c.tld" prefix="c"%>
 <%@ taglib prefix="fn" uri="/WEB-INF/tlds/fn.tld"%>
 <c:set var ="constantVersion" value="v20120703"/>
-<c:set var ="build" value=".min"/>
+<c:set var ="build" value=""/>

@@ -257,10 +257,12 @@
                             <span class="text"></span>
                             <div class="pop_menu">
                                 <ul>
-                                    <li class="android standard banner wap custom embed"><a pointto="adLandingSize" content="202x55" >202x55</a></li>
-                                    <li class="iOS standard banner wap custom embed"><a pointto="adLandingSize" content="320x50" >320x50</a></li>
-                                    <li class="iOS image wap"><a pointto="adLandingSize" content="480x320" >480x320</a></li>
-                                    <li class="android image wap"><a pointto="adLandingSize" content="424x380" >424x380</a></li>
+                                    <li class="android standard banner wap custom embed push"><a pointto="adLandingSize" content="202x55" >202x55</a></li>
+                                    <li class="iOS standard banner wap custom embed push"><a pointto="adLandingSize" content="320x50" >320x50</a></li>
+                                    <li class="iOS image wap push"><a pointto="adLandingSize" content="480x320" >480x320</a></li>
+                                    <li class="iOS image wap push"><a pointto="adLandingSize" content="320x480" >320x480</a></li>
+                                    <li class="android image wap push"><a pointto="adLandingSize" content="424x380" >424x380</a></li>
+                                    <li class="android image wap push"><a pointto="adLandingSize" content="380x424" >380x424</a></li>
                                     <li class="iOS  image bigimage"><a pointto="adLandingSize" content="640x320" >640x320</a></li>
                                     <li class=" android image bigimage"><a pointto="adLandingSize" content="800x250" >800x250</a></li>
                                     <li class="text iOS android"><a pointto="adLandingSize" content="-" >-</a></li>
