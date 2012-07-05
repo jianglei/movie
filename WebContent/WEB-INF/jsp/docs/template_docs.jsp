@@ -17,12 +17,18 @@
             <li>
                 <h4>模板一：</h4>
                 <p>为list样式，可支持推应用和推网页。</p>
-                <img src="/imgs/doc/template1.jpg" alt="" />
+                <img src="/imgs/doc/template1.jpg" alt="" width="250"/>
             </li>
             <li>
                 <h4>模板二：</h4>
-                <p>为左侧一个大图，右侧介绍的形式，较为适合品牌的推广，同样支持推应用和推网页。</p>
-                <img src="/imgs/doc/template2.jpg" alt="" />
+                <p>为左侧一个大图，右侧介绍的形式，较为适合品牌的推广，同样支持推应用和推网页。比较适合横屏的应用。</p>
+                <img src="/imgs/doc/template2.jpg" alt=""  width="400"/>
+                
+            </li>
+            <li>
+                <h4>模板三：</h4>
+                <p>做上方一个大图，下方的左侧是title和介绍，右侧为下载的按钮，支持应用和网页，比较适合竖屏的应用。</p>
+                <img src="/imgs/doc/template3.jpg" alt="" />
                 
             </li>
         </ul>
