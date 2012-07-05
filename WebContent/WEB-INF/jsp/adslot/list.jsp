@@ -433,7 +433,7 @@
         </div>
         <!-- 广告位管理弹出层 end-->  
         <!-- 获取代码弹出层 begin-->   
-        <div id="get_code" class="box_shadow10px " style="display:none;">
+        <div id="get_code" class="box_shadow10px msgForm" style="display:none;">
             <span class="fr close"><img src="/images/get_code_close.png" alt=""></span>
             <table id="choose_adslot">
                 <tbody>
