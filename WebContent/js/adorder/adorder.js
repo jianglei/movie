@@ -1,9 +1,9 @@
  var adOrderDialogId = '',adList = {};
 $(function() {
     $(".local_date"). each(function (i) {
-        var date = new Date($(this).text());			
+        var date = new Date($(this).text());
         $(this).text(date.getFullYear()+ "-"+ date.getMonth() + "-" + date.getDay());
-    })
+    });
     loadList(1);
     adList = new window.AdList();
     adList.initUI();
@@ -79,15 +79,16 @@ $(function() {
             $.unblockUI({
                 onUnblock:function(){
                      adOrderDialogId = '';
+                     $('body').css({'overflow-y':'auto'});
                 }
             });
             loadList(1);
         });
     });
 
-    $(window).resize(function(){
-        adjustMsg();
-    });
+    // $(window).resize(function(){
+    //     adjustMsg();
+    // });
 });
 
 /*
@@ -178,11 +179,11 @@ function hideMask() {
 /*
  *自适应浮动层高度
  */
-function adjustMsg() {
-    var body = $('.msg_order').is(':visible')?$('.msg_order'):$('.msg_ad');
-    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
-    // $(".blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
-}
+// function adjustMsg() {
+//     var body = $('.msg_order').is(':visible')?$('.msg_order'):$('.msg_ad');
+//     $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
+//     // $(".blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+// }
 
 /*
  * ADOrder对象
@@ -256,19 +257,14 @@ function showMsg(adorder, callback) {
 
     //弹出浮出层
     var msg = $('.msg_order');
-    var height = $(window).height();
-    var width = $(document).width();
-    $.blockUI({
-        css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-        message: $('.msg_order')
-        //onBlock:function(){$('.blockMsg').draggable()}
-    });
+    popBox(msg);
 
     /* 事件处理部分 */
     $(".close").unbind('click').click(function() {
         $.unblockUI({
             onUnblock:function(){
                 adOrderDialogId = '';
+                $('body').css({'overflow-y':'auto'});
             }
         });
     });
@@ -334,6 +330,7 @@ function editAdOrder(id,event) {
                 $.unblockUI({
                     onUnblock:function(){
                         adOrderDialogId='';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
             });
