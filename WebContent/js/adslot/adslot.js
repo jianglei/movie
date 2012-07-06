@@ -154,6 +154,7 @@ $(function() {
                 $.unblockUI({
                     onUnblock:function(){
                         adSlotDialogId = '';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
                 loadList(1);
@@ -196,9 +197,9 @@ $(function() {
         setTimeout($.unblockUI, 50);
     });
 
-    $(window).resize(function(){
-        adjustMsg();
-    });
+    // $(window).resize(function(){
+    //     adjustMsg();
+    // });
 });
 /*
  * 获取代码部分的广告位列表
@@ -459,19 +460,34 @@ function initMsg(adslot) {
    
     //弹出浮出层
     var msg = $('.msg_pos');
-    var height = $(window).height();
-    var width = $(document).width();
-    $.blockUI({
-        css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-        message: $('.msg_pos')
-        //onBlock:function(){$('.blockMsg').draggable()}
-    });
+    popBox(msg);
+    // var height = $(window).height();
+    // var width = $(document).width();
+    // var nowTop = height/2 - (msg.height() / 2);
+    //     nowTop = nowTop<0?0:nowTop;
+    //     $.blockUI({
+    //             css: {overflow:'hidden',height:0,position:'relative',color: '#cccccc',border:'0',width:'722px','left' : width/2 - (msg.width() / 2),'top' :nowTop ,background:'none',padding:'0px'},
+    //             // css: {width:'722px',position:'relative',color: '#cccccc',border:'0','margin':(height/2 - (msg.height() / 2)) +'px auto ',background:'none',padding:'0px'},
+    //             overlayCSS:  {
+    //                 backgroundColor:' rgba(0,0,0,.5)',
+    //                 opacity:1,
+    //                 overflow:'auto'
+    //             },
+    //             allowBodyStretch: true,
+    //             message: msg,
+    //             onBlock:function(){
+    //                 $('.blockOverlay').append($('.blockMsg'));
+    //                 $('body').css({'overflow-y':'hidden'});
+    //                 $('.blockMsg').css({height:'auto',overflow:'auto'});
+    //             }
+    //     });
 
     /* 事件处理部分 */
     $(".close").unbind('click').click(function() {
         $.unblockUI({
             onUnblock:function(){
                 adSlotDialogId = '';
+                $('body').css({'overflow-y':'auto'});
             }
         });
     });
@@ -686,6 +702,7 @@ function editAdSlot(id,event) {
                 $.unblockUI({
                     onUnblock:function(){
                         adSlotDialogId ='';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
             });
@@ -725,14 +742,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
 }
 
 
-/*
- *自适应浮动层高度
- */
-function adjustMsg() {
-    var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
-    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
-    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
-}
+
 /* 加载列表
  * page 页码
  */

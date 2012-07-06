@@ -25,7 +25,7 @@ margin-left: auto;">
 			<img class="logoUrl_show" src='<c:out value="${logoUrl}"/>' style="width:120px; height:45px;"/>
 			<a href="http://ufp.umeng.com"
 				style="height: 32px;  display: inline-block; margin-left:10px;">
-			${logoName}广告管理平台
+			${user.logoName}广告管理平台
 				</a>
 		</div>
 

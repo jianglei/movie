@@ -84,7 +84,7 @@
             <%@include file="../include/footer.jsp"%>
 
         </div>
-        <div id="msg_wrap_form" class="msg_order" style="display: none;">
+        <div id="msg_wrap_form" class="msg_order msgForm" style="display: none;">
             <input type="hidden" name="id" />
             <div class="msg_content_top">
                 <h3 class="title">
