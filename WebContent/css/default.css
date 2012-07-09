@@ -1326,6 +1326,7 @@ marquee p {
 .umengadsystem_login .btn_login {
     width:90px;
     height:38px;
+    line-height:30px;
     border:none;
     background:url(../images/umengADsystem_login_btn.gif) no-repeat;
     background-size:contain;
