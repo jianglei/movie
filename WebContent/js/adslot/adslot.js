@@ -409,7 +409,7 @@ function initMsg(adslot) {
     };
     if(adslot.template){
         $('#template').val(adslot.template);
-        if($.inArray(adslot.template,tmpl.v>-1)){
+        if($.inArray(adslot.template,tmpl.v)>-1){
             $('.ui_radio_wapTemplate:eq(0)').trigger('click');
         }else{
             $('.ui_radio_wapTemplate:eq(1)').trigger('click');
