@@ -264,13 +264,28 @@
                         <tr>
                             <th><span class="f_req">*</span>选择模板：</th>
                             <td>
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="applist"  ><span class="">模板一</span></a> 
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="horizon_bigimage"  ><span class="">模板二</span></a>  
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  
+                                <a class="ui_radio  ui_radio_wapTemplate"  fortab=".v_tmpl_list" ><span class="">竖屏模板</span></a> 
+                                <a class="ui_radio  ui_radio_wapTemplate"  fortab=".h_tmpl_list" ><span class="">横屏模板</span></a>  
+                                <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate"  ><span class="">模板三</span></a>   -->
                                 <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="allimage"  ><span class="">模板四</span></a> -->  
                                 <!-- <a class="ui_radio ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  -->
                                 <a href="support/docs/template" target="_blank">查看模版介绍&gt;&gt;</a>
                                 <input type="hidden" name="template"  id="template" value=""/>
+                                <div class="v_tmpl_list tmpl_list ">
+                                    <ul>
+                                        <li>
+                                            <label for="t1"><input id="t1" type="radio" name="tmpl_list" tpType="applist"/>竖屏列表</label>
+                                        </li>
+                                        <li>
+                                            <label for="t2"><input id="t2" type="radio" name="tmpl_list" tpType="vertical_bigimage" />竖屏大图</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="h_tmpl_list tmpl_list hidden">
+                                    <ul>
+                                        <li><label for="t3"><input id="t3" type="radio" name="tmpl_list" tpType="horizon_bigimage"/>横屏大图</label></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         <tr>

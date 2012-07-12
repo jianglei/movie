@@ -1,4 +1,7 @@
-
+.tmpl_list ul li{
+    float:left;
+    margin-right:5px;
+}
 
 #list_order{
     width:120px;
