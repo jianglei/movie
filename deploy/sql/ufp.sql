@@ -78,6 +78,7 @@ CREATE TABLE `ad_slot` (
   `template` varchar(64) DEFAULT 'applist',
   `opensize` enum('none','100','80','60') DEFAULT 'none',
   `push_strategy` enum('none','onceperday','whenadchange','nolimit') DEFAULT 'none',
+  `enable_page` enum('yes','no') DEFAULT 'no',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40336 DEFAULT CHARSET=utf8
 

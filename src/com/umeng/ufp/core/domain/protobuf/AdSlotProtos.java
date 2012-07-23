@@ -231,6 +231,13 @@ public final class AdSlotProtos {
     public boolean hasPushStrategy() { return hasPushStrategy; }
     public java.lang.String getPushStrategy() { return pushStrategy_; }
     
+    // optional string enable_new = 29;
+    public static final int ENABLE_NEW_FIELD_NUMBER = 29;
+    private boolean hasEnableNew;
+    private java.lang.String enableNew_ = "";
+    public boolean hasEnableNew() { return hasEnableNew; }
+    public java.lang.String getEnableNew() { return enableNew_; }
+    
     private void initFields() {
     }
     public final boolean isInitialized() {
@@ -323,6 +330,9 @@ public final class AdSlotProtos {
       }
       if (hasPushStrategy()) {
         output.writeString(28, getPushStrategy());
+      }
+      if (hasEnableNew()) {
+        output.writeString(29, getEnableNew());
       }
       getUnknownFields().writeTo(output);
     }
@@ -444,6 +454,10 @@ public final class AdSlotProtos {
       if (hasPushStrategy()) {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(28, getPushStrategy());
+      }
+      if (hasEnableNew()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(29, getEnableNew());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -687,6 +701,9 @@ public final class AdSlotProtos {
         if (other.hasPushStrategy()) {
           setPushStrategy(other.getPushStrategy());
         }
+        if (other.hasEnableNew()) {
+          setEnableNew(other.getEnableNew());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -822,6 +839,10 @@ public final class AdSlotProtos {
             }
             case 226: {
               setPushStrategy(input.readString());
+              break;
+            }
+            case 234: {
+              setEnableNew(input.readString());
               break;
             }
           }
@@ -1399,6 +1420,27 @@ public final class AdSlotProtos {
         return this;
       }
       
+      // optional string enable_new = 29;
+      public boolean hasEnableNew() {
+        return result.hasEnableNew();
+      }
+      public java.lang.String getEnableNew() {
+        return result.getEnableNew();
+      }
+      public Builder setEnableNew(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasEnableNew = true;
+        result.enableNew_ = value;
+        return this;
+      }
+      public Builder clearEnableNew() {
+        result.hasEnableNew = false;
+        result.enableNew_ = getDefaultInstance().getEnableNew();
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:com.umeng.ufp.core.domain.protobuf.AdSlotEntry)
     }
     
@@ -1426,7 +1468,7 @@ public final class AdSlotProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\023ad_slot_entry.proto\022\"com.umeng.ufp.cor" +
-      "e.domain.protobuf\"\253\004\n\013AdSlotEntry\022\n\n\002id\030" +
+      "e.domain.protobuf\"\277\004\n\013AdSlotEntry\022\n\n\002id\030" +
       "\001 \001(\005\022\016\n\006app_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\024\n\014l" +
       "anding_type\030\004 \001(\t\022\024\n\014landing_size\030\005 \001(\t\022" +
       "\026\n\016landing_images\030\006 \001(\t\022\020\n\010platform\030\007 \001(" +
@@ -1440,8 +1482,9 @@ public final class AdSlotProtos {
       "\n\006appkey\030\026 \001(\t\022\023\n\013uads_enable\030\027 \001(\010\022\024\n\014u" +
       "ads_percent\030\030 \001(\005\022\020\n\010uads_key\030\031 \001(\t\022\021\n\tu" +
       "ads_key2\030\032 \001(\t\022\020\n\010opensize\030\033 \001(\t\022\025\n\rpush" +
-      "_strategy\030\034 \001(\tB2\n\"com.umeng.ufp.core.do" +
-      "main.protobufB\014AdSlotProtos"
+      "_strategy\030\034 \001(\t\022\022\n\nenable_new\030\035 \001(\tB2\n\"c" +
+      "om.umeng.ufp.core.domain.protobufB\014AdSlo" +
+      "tProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1453,7 +1496,7 @@ public final class AdSlotProtos {
           internal_static_com_umeng_ufp_core_domain_protobuf_AdSlotEntry_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_umeng_ufp_core_domain_protobuf_AdSlotEntry_descriptor,
-              new java.lang.String[] { "Id", "AppId", "Name", "LandingType", "LandingSize", "LandingImages", "Platform", "Device", "Channels", "Areas", "TextSize", "DisplayStrategy", "Timeslots", "Template", "AnimIn", "EnablePreload", "EnablePage", "Status", "AdNetworkStrategy", "XpEnable", "XpPercent", "Appkey", "UadsEnable", "UadsPercent", "UadsKey", "UadsKey2", "Opensize", "PushStrategy", },
+              new java.lang.String[] { "Id", "AppId", "Name", "LandingType", "LandingSize", "LandingImages", "Platform", "Device", "Channels", "Areas", "TextSize", "DisplayStrategy", "Timeslots", "Template", "AnimIn", "EnablePreload", "EnablePage", "Status", "AdNetworkStrategy", "XpEnable", "XpPercent", "Appkey", "UadsEnable", "UadsPercent", "UadsKey", "UadsKey2", "Opensize", "PushStrategy", "EnableNew", },
               com.umeng.ufp.core.domain.protobuf.AdSlotProtos.AdSlotEntry.class,
               com.umeng.ufp.core.domain.protobuf.AdSlotProtos.AdSlotEntry.Builder.class);
           return null;
