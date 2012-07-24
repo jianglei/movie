@@ -316,10 +316,11 @@ function getADSlot() {
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
+
     if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
     else adslot.enablePreload = "no";
-    if ($("input[name='enablePage']:checked").index() === 0) adslot.enablePage = "yes";
-    else adslot.enablePage = "no";
+    adslot.enablePage = $("input[name='enablePage']:checked").attr('val');
+    adslot.enableNew = $("input[name='enableNew']:checked").attr('val');
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
@@ -443,17 +444,22 @@ function initMsg(adslot) {
     region.initAreas(adslot.areas);
     //是否缓存广告
     if (adslot.enablePreload == "no") {
-        $("input[name='enablePreload']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePreload']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(0)").prop("checked", true);
     }
     //广告可否翻页
     if (adslot.enablePage == "no") {
-        $("input[name='enablePage']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePage']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(0)").prop("checked", true);
     }
-
+    //新广告是否提示
+    if (adslot.enableNew == "yes") {
+        $("input[name='enableNew']:eq(0)").prop("checked", true);
+    } else {
+        $("input[name='enableNew']:eq(1)").prop("checked", true);
+    }
     //更新渠道
     if (adslot.channels) $("input[name='adslotChannels']").val(adslot.channels);
     else $("input[name='adslotChannels']").val("");
