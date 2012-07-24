@@ -77,7 +77,7 @@
     
     </div>
     
-    <div id="msg_wrap_form" class="msg_app" style="display:none;">
+    <div id="msg_wrap_form" class="msg_app msgForm" style="display:none;">
         <div class="msg_content_top">
             <h3 class="title">
                 <span class="fl label" style="padding-left:8px;">新建应用</span>

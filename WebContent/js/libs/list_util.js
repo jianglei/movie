@@ -12,6 +12,42 @@ function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
 
     $("#loading_row_init").remove();
 }
+/*
+ *自适应浮动层高度
+ */
+function adjustMsg() {
+    // var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
+    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+    var nowTop = $(window).height()/2 - ($('.blockMsg .msgForm').height() / 2);
+    nowTop = nowTop<0?0:nowTop;
+    $(".blockMsg").css({top:nowTop + "px"});
+}
+/**
+ * 弹窗
+ * @param  {[msg]} msg [弹窗内容]
+ */
+function popBox(msg){
+    var height = $(window).height(),
+        width = $(document).width(),
+        nowTop = height/2 - (msg.height() / 2);
+        nowTop = nowTop<0?0:nowTop;
+        $.blockUI({
+                css: {overflow:'hidden',height:0,position:'relative',color: '#cccccc',border:'0',width:'722px','left' : width/2 - (msg.width() / 2),'top' :nowTop ,background:'none',padding:'0px'},
+                // css: {width:'722px',position:'relative',color: '#cccccc',border:'0','margin':(height/2 - (msg.height() / 2)) +'px auto ',background:'none',padding:'0px'},
+                overlayCSS:  {
+                    backgroundColor:' rgba(0,0,0,.5)',
+                    opacity:1,
+                    overflow:'auto'
+                },
+                allowBodyStretch: true,
+                message: msg,
+                onBlock:function(){
+                    $('.blockOverlay').append($('.blockMsg'));
+                    $('body').css({'overflow-y':'hidden'});
+                    $('.blockMsg').css({height:'auto',overflow:'auto'});
+                }
+        });
+}
 function set_date_param(dateType, startDate, endDate){
     $("#dateType").val(dateType);
     $("#startDate").val(startDate);
@@ -412,6 +448,9 @@ $(function() {
     initUISelect();
     umengRadioImitate();//radio_imitate
     umengSelectIitate_withoutValue();//select_imitate
+    $(window).resize(function(){
+        adjustMsg();
+    });
    //状态切换
     $('.part_operation dd a').click(function(){
         change('record_ch', $(this).attr('action')+'/changes?','status',$(this).attr('status'));

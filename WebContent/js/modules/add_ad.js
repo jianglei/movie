@@ -39,6 +39,7 @@ window.AddAd.prototype={
             //$('#adListForUseContainer').fadeOut(200); 
             $('.msg_ad').unblock({onUnblock:function(){
                 that.adSlotExistDialogId = '';
+                $('body').css({'overflow-y':'auto'});
             }});
         });
         
@@ -97,7 +98,7 @@ window.AddAd.prototype={
         $('a.ad_icon_return').click(function(){
             $('.step2').hide();
             $('.step1').show();
-            that.adjustMsg();
+            adjustMsg();
             that.stepTwoRequest =false;
         });
         //尺寸更改
@@ -281,6 +282,7 @@ window.AddAd.prototype={
                         onUnblock:function(){
                             that.adDialogId = '';
                             that.updateItem($(event.target));
+                            $('body').css({'overflow-y':'auto'});
                         }
                     });
                    
@@ -294,9 +296,10 @@ window.AddAd.prototype={
 	$(that.data.editButtonLisner).delegate('td.edit_btn a','click',function(event){
                 that.editAD($(this).attr('adpage_id'),event);
         });
-        $(window).resize(function(){
-		that.adjustMsg();
-	});
+  //       $(window).resize(function(){
+		// that.adjustMsg();
+
+	 //   });
         
     },
     AD1:function (adOrderId, name, budget, budgetLimit, priceType, costPrice, areas, networks, channels, adSlotId, startTime, endTime, landingSize, platform,fixedRank) {
@@ -630,11 +633,12 @@ initMsgAd2:function (data) {
          var that = this;
         $('.msg_ad').unblock({onUnblock:function(){
             that.adSlotExistDialogId = '';
+            // $('body').css({'overflow-y':'auto'});
         }});
         $(".step1").hide();
         $(".step2").show();
        
-        that.adjustMsg();
+        adjustMsg();
         
         $(".err").remove();
         $(".ui_radio_type").removeClass('ui_radio_checked');
@@ -878,7 +882,7 @@ initStep2:function(){
              }
          }
          
-        that.adjustMsg();
+        adjustMsg();
         that.previewChange();
         changeUploadStyle();
 },
@@ -929,7 +933,7 @@ changeFormStyle:function (){
             $('#adLandingSize').val(nowSize);
         }
         that.initStep2();
-        that.adjustMsg();
+        adjustMsg();
         that.previewChange();
         changeUploadStyle();
     },
@@ -938,16 +942,16 @@ changeFormStyle:function (){
         var result = data.adPage.result,elem='',odd = true;
         if(result.length > 0){
             for(var i = 0;i < result.length ;i++){
-                elem += '<tr class=' + (odd == true ? "" : "transbg") + ' id="tr_' + result[i].id + '">';
+                elem += '<tr class=' + (odd === true ? "" : "transbg") + ' id="tr_' + result[i].id + '">';
                 odd = !odd;
                 elem += '<td width="140"  class="chk pos_rel" style="display:block"><input id="input_'+ result[i].id +'" type="checkbox" name="record_ch" value="' + result[i].id + '"/>';
                 elem += '<a class="edit_btn" href="javascript:void(0)" adpage_id="'+ result[i].id +'" class="tb_adname"><label title="'+ result[i].name +'" for="input_' + result[i].id+ '">'+ result[i].name + '</label></a></td>';
-                if (result[i].content_type == "app") 
+                if (result[i].content_type == "app")
                     elem += '<td width="100" class="tb_adtype">应用推广</td>';
                 else
                     elem += '<td width="100" class="tb_adtype">网站推广</td>';
-                elem += '<td width="130">' + (result[i].start_time!=undefined? formatdate(new Date(result[i].start_time), "yyyy-MM-dd HH:mm"):"-") + '</td>';
-                elem += '<td width="130">' + (result[i].end_time!=undefined? formatdate(new Date(result[i].end_time), "yyyy-MM-dd HH:mm"):"-") + '</td>';
+                elem += '<td width="130">' + (result[i].start_time!==undefined? formatdate(new Date(result[i].start_time), "yyyy-MM-dd HH:mm"):"-") + '</td>';
+                elem += '<td width="130">' + (result[i].end_time!==undefined? formatdate(new Date(result[i].end_time), "yyyy-MM-dd HH:mm"):"-") + '</td>';
                 elem += '<td width="" id="td_status_' + result[i].id + '" style="text-align:left; " class="status">';
                 if (result[i].status=="normal")
                     elem += '<img style="vertical-align:text-bottom;margin-right:3px;" src="images/icon_state_normal.gif" width="16" height="16" alt="正常" />正常';
@@ -985,17 +989,27 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
         that.initMsgAd1(ad1,hasAdSlot,adOrderId,event);
         //弹出浮出层
         var msg = $('.msg_ad'),
-        height = $(window).height(),
-         width = $(document).width(),model1 = null,
-         model2 = null;
-        $.blockUI({
-                css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-                message: msg
-                // onBlock:function(){
-                //     that.adDialogId = getToken();
-                //     console.log(that.adDialogId);
-                // }
-        });
+        model1 = null,
+        model2 = null;
+        popBox(msg);
+        // var nowTop = height/2 - (msg.height() / 2);
+        // nowTop = nowTop<0?0:nowTop;
+        // $.blockUI({
+        //         css: {overflow:'hidden',height:0,position:'relative',color: '#cccccc',border:'0',width:'722px','left' : width/2 - (msg.width() / 2),'top' :nowTop ,background:'none',padding:'0px'},
+        //         // css: {width:'722px',position:'relative',color: '#cccccc',border:'0','margin':(height/2 - (msg.height() / 2)) +'px auto ',background:'none',padding:'0px'},
+        //         overlayCSS:  {
+        //             backgroundColor:' rgba(0,0,0,.5)',
+        //             opacity:1,
+        //             overflow:'auto'
+        //         },
+        //         allowBodyStretch: true,
+        //         message: msg,
+        //         onBlock:function(){
+        //             $('.blockOverlay').append($('.blockMsg'));
+        //             $('body').css({'overflow-y':'hidden'});
+        //             $('.blockMsg').css({height:'auto',overflow:'auto'});
+        //         }
+        // });
         $("input[name='adname']").blur().focus();
         /* 事件处理部分 */
         $(".close").unbind("click").click(function() {
@@ -1003,16 +1017,17 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
 
                     onUnblock:function(){
                         that.adDialogId = '';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
         });
         $('.btn_use_pastad').unbind('click').click(function(){
                 model1 = that.getAD1();
                 var currentDialogId = '';
-                if (model1 != null) {
+                if (model1 !== null) {
                     $.ajax({
                             type: "get",
-                            url: "/ad/add2" , 
+                            url: "/ad/add2" ,
                             data:{platform:that.platform,landingSize:that.landingSize},
                             dataType: "json",
                             beforeSend: function(XMLHttpRequest){
@@ -1024,7 +1039,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                         background:'none',
                                         
                                         height:'430px',
-                                        width:'680px',
+                                        width:'680px'
                                        
                                     },
                                     onBlock:function(){
@@ -1057,7 +1072,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                         if(!that.stepTwoRequest){
                             $(".step1").hide();
                             $(".step2").show();
-                             that.adjustMsg();
+                             adjustMsg();
                             return ;
                          }
                         if ($("input[name='adid']").val() === "") {
@@ -1082,7 +1097,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                         }
                                 });
                         }
-                         that.adjustMsg();
+                         adjustMsg();
                 }
         });
         //保存
@@ -1128,10 +1143,12 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
 /*
  *自适应浮动层高度
  */
-adjustMsg:function() {
-    $("body>.blockMsg").css({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"});
-    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
-},
+// adjustMsg:function() {
+//     var nowTop = $(window).height()/2 - ($('.msg_ad').height() / 2);
+//     nowTop = nowTop<0?0:nowTop;
+//     $(".blockMsg").css({top:nowTop + "px"});
+//     // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - ($('.msg_ad').height() / 2) + "px"},300);
+// },
 /*
 *尺寸更改时候的预览
 **/
@@ -1162,7 +1179,7 @@ changeAdPreviewSize:function(value){
         $('#name_show,#des_show').css('max-width',standardSize[that.platform].width+'px');
        
     }
-    that.adjustMsg();
+    adjustMsg();
 },
 /*
  *入口类型为'文字链'的时候的样式实时预览
@@ -1172,13 +1189,13 @@ textPreviewChange:function(){
        'font-family':$('input[name="textFont"]').val(),
        'font-size':fontSizes[$('input[name="textSize"]').val()],
        'color':$('input[name="textColor"]').val()
-   }
+   };
    $('#name_show').css(cssStyle);
 },
 previewChange : function(){
     $('.previewBannerImg,.previewLogo').each(function(){
         if($(this).closest('.type_switch').is(':visible')){
-            if($(this).val()!=''){
+            if($(this).val()!==''){
                 $('#'+$(this).attr('forshow')).attr('src',$(this).val()+'?'+Math.random());
             }else{
                 $('#'+$(this).attr('forshow')).attr('src','/images/no_img.gif'+'?'+Math.random());
@@ -1217,7 +1234,7 @@ editAD:function (id,event) {
                         that.adOrderPage = data.adOrderPage.result;
                         //alert(data.ad.areas);
                         //alert(data.adHolderList);
-                        var arr_adSlotId = new Array()
+                        var arr_adSlotId = [];
                         for (i = 0; i < data.adHolderList.length; i++) {
                             arr_adSlotId.push(data.adHolderList[i].adSlotId);
                         }
@@ -1228,6 +1245,7 @@ editAD:function (id,event) {
                                 $.unblockUI({onUnblock:function(){
                                     that.adDialogId = '';
                                     that.updateItem(evenObj);
+                                    $('body').css({'overflow-y':'auto'});
                                 }});
                         },-1,'',event);
                 },
@@ -1241,30 +1259,18 @@ editAD:function (id,event) {
     },
 /*
 *从appstore 链接地址抓取数据
-*/ 
+*/
     getDataFromiTunes : function(appUrl){
         $.getJSON(
             'http://itunes.apple.com/lookup?jsoncallback=?',
             {
-            id:appUrl.replace(/.*id(\d{9})/g,'$1'),
+            id:appUrl.replace(/.*id(\d{9})/g,'$1')
              // rnd:Math.random()
             },
             function(data){
                 alert(data);
             }
         );
-        // $.ajax({
-        //     type : 'get',
-        //     url : 'http://itunes.apple.com/lookup',//'/service/grabAppStoreInfo' ,
-        //     data:{
-        //         id:appUrl.replace(/.*id(\d{9})/g,'$1'),
-        //          // rnd:Math.random()
-        //     },
-        //     dataType:"json",
-        //     success: function(data){
-        //         alert(data);
-        //     }
-        // });
     },
 /* 更新单独一项
  * obj 需要刷新的行
@@ -1279,13 +1285,5 @@ editAD:function (id,event) {
                 adList.param.listUrl = adList.param.baseUrl+ id;
                 adList.loadList(adList.param.data.pageNo,$('tr.expend_panel').prev(),true);
         }
-    //     setTimeout(function() {
-    //         $(".loading_row").remove();
-    //         obj.find(".tb_adname").text(name);
-    //         obj.find(".tb_adorder").text(adorder);
-    //         if (type == "web") {obj.find(".tb_adtype").text("网站推广");}
-    //         else {obj.find(".tb_adtype").html("应用推广");}
-    // //                    if($('.tb_adorder').size()>0){$('.tb_adorder').text(adorder);}
-    //     }, 1000);
     }
 }
