@@ -374,18 +374,25 @@
                             <!--						<th></th>-->
                             <td colspan="2" style="border: 1px dashed #5A9EE6;display:none;padding-bottom:10px; border-collapse: separate;">
                                 <table class="pnl_pro" style="border-collapse: separate;">
-                                    <!--								<tr>
-                                                                                                            <th>是否缓存广告：</th>
-                                                                                                            <td>
-                                                                                                                <input type="radio" name="enablePreload" checked="checked" id="adcache_yes"/><label for="adcache_yes">是</label>
-                                                                                                                    <input type="radio" name="enablePreload" id="adcache_no"/><label for="adcache_no">否</label>
-                                                                                                            </td>
-                                                                                                    </tr>-->
+    								<!-- <tr>
+                                        <th>是否缓存广告：</th>
+                                        <td>
+                                            <input type="radio" name="enablePreload" checked="checked" val="yes" id="adcache_yes"/><label for="adcache_yes">是</label>
+                                            <input type="radio" name="enablePreload" id="adcache_no" val="no"/><label for="adcache_no">否</label>
+                                        </td>
+                                    </tr> -->
                                     <tr>
                                         <th>广告可否翻页：</th>
                                         <td>
-                                            <input type="radio" name="enablePage" checked="checked" id="adpage_yes"/><label for="adpage_yes">是</label>
-                                            <input type="radio" name="enablePage" id="adpage_no"/><label for="adpage_no">否</label>
+                                            <input type="radio" name="enablePage" checked="checked" val="yes" id="adpage_yes"/><label for="adpage_yes">是</label>
+                                            <input type="radio" name="enablePage" id="adpage_no" val="no"/><label for="adpage_no">否</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>新广告提示：</th>
+                                        <td>
+                                            <input type="radio" name="enableNew"  id="adNew_yes" val="yes"/><label for="adNew_yes">是</label>
+                                            <input type="radio" name="enableNew" checked="checked" id="adNew_no" val="no"/><label for="adNew_no">否</label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -433,7 +440,7 @@
         </div>
         <!-- 广告位管理弹出层 end-->  
         <!-- 获取代码弹出层 begin-->   
-        <div id="get_code" class="box_shadow10px " style="display:none;">
+        <div id="get_code" class="box_shadow10px msgForm" style="display:none;">
             <span class="fr close"><img src="/images/get_code_close.png" alt=""></span>
             <table id="choose_adslot">
                 <tbody>

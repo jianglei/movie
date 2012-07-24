@@ -154,6 +154,7 @@ $(function() {
                 $.unblockUI({
                     onUnblock:function(){
                         adSlotDialogId = '';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
                 loadList(1);
@@ -196,9 +197,9 @@ $(function() {
         setTimeout($.unblockUI, 50);
     });
 
-    $(window).resize(function(){
-        adjustMsg();
-    });
+    // $(window).resize(function(){
+    //     adjustMsg();
+    // });
 });
 /*
  * 获取代码部分的广告位列表
@@ -315,10 +316,11 @@ function getADSlot() {
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
+
     if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
     else adslot.enablePreload = "no";
-    if ($("input[name='enablePage']:checked").index() === 0) adslot.enablePage = "yes";
-    else adslot.enablePage = "no";
+    adslot.enablePage = $("input[name='enablePage']:checked").attr('val');
+    adslot.enableNew = $("input[name='enableNew']:checked").attr('val');
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
@@ -442,36 +444,56 @@ function initMsg(adslot) {
     region.initAreas(adslot.areas);
     //是否缓存广告
     if (adslot.enablePreload == "no") {
-        $("input[name='enablePreload']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePreload']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(0)").prop("checked", true);
     }
     //广告可否翻页
     if (adslot.enablePage == "no") {
-        $("input[name='enablePage']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePage']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(0)").prop("checked", true);
     }
-
+    //新广告是否提示
+    if (adslot.enableNew == "yes") {
+        $("input[name='enableNew']:eq(0)").prop("checked", true);
+    } else {
+        $("input[name='enableNew']:eq(1)").prop("checked", true);
+    }
     //更新渠道
     if (adslot.channels) $("input[name='adslotChannels']").val(adslot.channels);
     else $("input[name='adslotChannels']").val("");
    
     //弹出浮出层
     var msg = $('.msg_pos');
-    var height = $(window).height();
-    var width = $(document).width();
-    $.blockUI({
-        css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-        message: $('.msg_pos')
-        //onBlock:function(){$('.blockMsg').draggable()}
-    });
+    popBox(msg);
+    // var height = $(window).height();
+    // var width = $(document).width();
+    // var nowTop = height/2 - (msg.height() / 2);
+    //     nowTop = nowTop<0?0:nowTop;
+    //     $.blockUI({
+    //             css: {overflow:'hidden',height:0,position:'relative',color: '#cccccc',border:'0',width:'722px','left' : width/2 - (msg.width() / 2),'top' :nowTop ,background:'none',padding:'0px'},
+    //             // css: {width:'722px',position:'relative',color: '#cccccc',border:'0','margin':(height/2 - (msg.height() / 2)) +'px auto ',background:'none',padding:'0px'},
+    //             overlayCSS:  {
+    //                 backgroundColor:' rgba(0,0,0,.5)',
+    //                 opacity:1,
+    //                 overflow:'auto'
+    //             },
+    //             allowBodyStretch: true,
+    //             message: msg,
+    //             onBlock:function(){
+    //                 $('.blockOverlay').append($('.blockMsg'));
+    //                 $('body').css({'overflow-y':'hidden'});
+    //                 $('.blockMsg').css({height:'auto',overflow:'auto'});
+    //             }
+    //     });
 
     /* 事件处理部分 */
     $(".close").unbind('click').click(function() {
         $.unblockUI({
             onUnblock:function(){
                 adSlotDialogId = '';
+                $('body').css({'overflow-y':'auto'});
             }
         });
     });
@@ -686,6 +708,7 @@ function editAdSlot(id,event) {
                 $.unblockUI({
                     onUnblock:function(){
                         adSlotDialogId ='';
+                        $('body').css({'overflow-y':'auto'});
                     }
                 });
             });
@@ -725,14 +748,7 @@ function updateItem(obj, name, appName, landingType, landingSize) {
 }
 
 
-/*
- *自适应浮动层高度
- */
-function adjustMsg() {
-    var body = $('.msg_pos').is(':visible')?$('.msg_pos'):($('.msg_ad').is(':visible')?$('.msg_ad'):$('#get_code'));
-    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
-    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
-}
+
 /* 加载列表
  * page 页码
  */

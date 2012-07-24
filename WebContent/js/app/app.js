@@ -10,6 +10,7 @@ $(function() {
             $.unblockUI({
                 onUnblock:function(){
                     appDialogId = '';
+                    $('body').css({'overflow-y':'auto'});
                 }
             });
             loadList(1);
@@ -41,9 +42,9 @@ $(function() {
         // });
     });
     
-    $(window).resize(function(){
-        adjustMsg();
-    });
+    // $(window).resize(function(){
+    //     adjustMsg();
+    // });
 });
     
 /* 清除列表项 */
@@ -145,19 +146,21 @@ function initMsg(app,callback,id) {
     
     //弹出浮出层
     var msg = $('.msg_app');
-    var height = $(window).height();
-    var width = $(document).width();
-    $.blockUI({
-        css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
-        message: $('.msg_app')
-        //onBlock:function(){$('.blockMsg').draggable()}
-    });
+    popBox(msg);
+    // var height = $(window).height();
+    // var width = $(document).width();
+    // $.blockUI({
+    //     css: {color: '#cccccc',border:'0',width:'818px','left' : width/2 - (msg.width() / 2),'top' : height/2 - (msg.height() / 2),background:'none',padding:'0px'},
+    //     message: $('.msg_app')
+    //     //onBlock:function(){$('.blockMsg').draggable()}
+    // });
     
     //事件处理
     $(".close").unbind('click').click(function() {
         $.unblockUI({
             onUnblock:function(){
                  appDialogId = '';
+                 $('body').css({'overflow-y':'auto'});
             }
         });
     });
@@ -228,6 +231,7 @@ function editApp(id,event) {
                 $.unblockUI({
                     onUnblock:function(){
                          appDialogId ='';
+                         $('body').css({'overflow-y':'auto'});
                     }
                 },id);
             });
@@ -251,8 +255,8 @@ function showMask() {
 function hideMask() {
     $('.loading').css('display', 'none');
 }
- function adjustMsg() {
-    var body = $('.msg_app').is(':visible')?$('.msg_app'):$('.msg_ad');
-    $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
-    // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
-}
+//  function adjustMsg() {
+//     var body = $('.msg_app').is(':visible')?$('.msg_app'):$('.msg_ad');
+//     $("body>.blockMsg").css({top:$(window).height()/2 - (body.height() / 2) + "px"});
+//     // $("body>.blockMsg").stop(true).animate({top:$(window).height()/2 - (body.height() / 2) + "px"},300);
+// }
