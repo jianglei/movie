@@ -8,5 +8,9 @@
 /src/jdbc.properties
 /src/cache.properties
 /src/rabbitmq.properties
+<<<<<<< Updated upstream
 
+=======
+/tags
+>>>>>>> Stashed changes
 /.idea/*
