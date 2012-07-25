@@ -9,4 +9,5 @@
 /src/cache.properties
 /src/rabbitmq.properties
 /tags
+/.tags*
 /.idea/*
