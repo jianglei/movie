@@ -91,6 +91,7 @@
             </p>
             <div class="img_galary">
                 <img src="/images/doc/image017.jpg"/>
+                <img src="/imgs/doc/image019.jpg"/>
             </div>
             
         </li>
