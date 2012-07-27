@@ -781,6 +781,9 @@ a.view_icon:hover{
     color:white;
 }
 /* 自定义时间 */
+.weekday{
+    color:green;
+}
 .choice_time {
     position:relative;
     float:left; 
@@ -796,6 +799,7 @@ a.view_icon:hover{
 }
 .panel_choice_time{
     display: inline-block;
+    margin-bottom: 10px;
 }
 /*.choice_time .btn_choice_time {
         cursor:pointer;

@@ -1,11 +1,11 @@
 window.Report = function(param){
     this.param = {type:"get",data:{pageSize:100000},dataUrl:"",listUrl:"",dataContainer:".part_table table",listContainer:".sel_wrap1 .pop_menu ul",dataTmpl:"#tmplData",dataPromotionTmpl:'#tmplPromotionData',listTmpl:"#tmplList"};
-     $.extend(this.param,param);
-     this.period = "day_-7";
- 	 this.promotionOpen = false;
-     this.currentToken = '';
+    $.extend(this.param,param);
+    this.period = "day_-7";
+    this.promotionOpen = false;
+    this.currentToken = '';
      
-}
+};
 window.Report.prototype = {
     initUI : function(){
         var that = this;
@@ -29,8 +29,8 @@ window.Report.prototype = {
         });
         if(that.param.name=='app'|| that.param.name == 'adslot'){
 
-        	$('div.sel_wrap2,div.sel_title2').show();
-        	$(".sel_wrap2").delegate("li","click",function() {
+          $('div.sel_wrap2,div.sel_title2').show();
+          $(".sel_wrap2").delegate("li","click",function() {
 	            $(".sel_wrap2 .con").text($(this).text()).attr('title',$(this).text()).attr('category',$(this).find("a").attr('category'));
 	            that.currentToken = that.getToken();
 	            that.getPostData();
@@ -44,6 +44,10 @@ window.Report.prototype = {
             if($(this).hasClass('current')){return false};
             that.param.data.period = that.period = $(this).attr('period');
             $(".panel_choice_time").hide();
+            // delete that.param.data.startDate;
+            // delete that.param.data.endDate;
+            $(this).addClass('current').siblings().removeClass('current');
+            that.getPostData();
             if( that.period!='today'&& that.period!='yesterday'){
                 $('.panel_chart').show();
                 
@@ -55,7 +59,6 @@ window.Report.prototype = {
             that.currentToken = that.getToken();
             
             that.loadData(that.param.dataUrl=="/report/total"?"":$(".sel_wrap1 .con").attr('a_id'),that.param.data);
-            $(this).addClass('current').siblings().removeClass('current');
 
             return false;
                 
@@ -85,34 +88,54 @@ window.Report.prototype = {
             dayNamesMin:['日','一','二','三','四','五','六']
         });
         $('.panel_choice_time button').click(function(){
-        	that.currentToken = that.getToken();
-        	that.getPostData();
+          that.currentToken = that.getToken();
+          delete that.period;
+          that.getPostData();
+          $('.panel_chart').show();
             that.loadData(that.param.dataUrl=="/report/total"?"":$(".sel_wrap1 .con").attr('a_id'),that.param.data);
         });
 
     },
+    dataFilter:{
+        round: function(data){
+          var dataDec=data.toString().split('.')[1];
+          if(dataDec!==undefined && dataDec.length > 2){
+            return data.toFixed(2);
+          }else{
+            return data;
+          }
+        },
+        getClass : function(){
+          var day = new Date(this.data.date.replace(/-/g,'/')).getDay();
+          if(!!~$.inArray(day,[0,6])){
+            return 'weekday';
+          }else{
+            return '';
+          }
+        }
+    },
     getToken:function(){
-    	return Math.random().toString(16).substring(2);
+      return Math.random().toString(16).substring(2);
     },
     getPostData :function(){
-    	var that = this;
-    	delete that.param.data.period;
-    	delete that.param.data.startDate;
+      var that = this;
+      delete that.param.data.period;
+      delete that.param.data.startDate;
       delete that.param.data.endDate;
+      delete that.param.data.category;
       that.promotionOpen = false;
-		  delete that.param.data.category;
       that.param.data.category = $(".sel_wrap2 .con").attr('category');
-    	if($('div.panel_choicelnk a.current').index() < 6){
+      if($('div.panel_choicelnk a.current').index() < 6){
           that.param.data.period = that.period;
       }else{
-        if($('#cus_start_time').val()!='' && $('#cus_end_time').val()!=''){
+      if($('#cus_start_time').val()!=='' && $('#cus_end_time').val()!==''){
            
            that.param.data.startDate = $('#cus_start_time').val();
            that.param.data.endDate = $('#cus_end_time').val();
         }
       }
       if($(".sel_wrap2 .con").attr('category') == '0'){
-      	that.promotionOpen = true;
+        that.promotionOpen = true;
       }
         
     },
@@ -131,29 +154,19 @@ window.Report.prototype = {
     tmplData : function(data){
        
         if(this.param.dataTmpl.length>0){
-             $(this.param.dataContainer).find("tr:gt(1)").remove();
-             if(this.promotionOpen){
-             	$('tr.normalReportTitle').hide();
-             	$('tr.promotionReportTitle').show().parent().addClass('promotionTable');
-             	$(this.param.dataPromotionTmpl).tmpl(data.reportList).appendTo(this.param.dataContainer);
-             	if(this.period!='today'&&this.period!='yesterday'){
-                  this.drawGraph(data.reportList);
-	            }
-	            this.dashPromotionBoard(data.summary);
+            $(this.param.dataContainer).find("tr:gt(1)").remove();
+            if(this.promotionOpen){
+            $('tr.normalReportTitle').hide();
+            $('tr.promotionReportTitle').show().parent().addClass('promotionTable');
+            $(this.param.dataPromotionTmpl).tmpl(data.reportList).appendTo(this.param.dataContainer);
+            if(this.period!='today'&&this.period!='yesterday'){
+                this.drawGraph(data.reportList);
+	          }
+	           this.dashPromotionBoard(data.summary);
              }else{
-             	$('tr.normalReportTitle').show();
-             	$('tr.promotionReportTitle').hide();
-             	$(this.param.dataTmpl).tmpl(data.reportList,{
-                  round: function(data){
-                    var dataDec=data.toString().split('.')[1];
-                    if(dataDec!=undefined && dataDec.length > 2){
-                      return data.toFixed(2);
-                    }else{
-                      return data;
-                    }
-                  }
-                
-              }).appendTo(this.param.dataContainer);
+              $('tr.normalReportTitle').show();
+              $('tr.promotionReportTitle').hide();
+              $(this.param.dataTmpl).tmpl(data.reportList,this.dataFilter).appendTo(this.param.dataContainer);
              	if(this.period!='today'&&this.period!='yesterday'){
                   this.drawGraph(data.reportList);
 	            }
@@ -179,7 +192,7 @@ window.Report.prototype = {
                     
                 },
                 success: function(data, textStatus){
-                    if(data[that.param.resultInterface]!=undefined&&data[that.param.resultInterface].result.length > 0){
+                    if(data[that.param.resultInterface]!==undefined&&data[that.param.resultInterface].result.length > 0){
                         that.tmplList(data[that.param.resultInterface].result);
                     }else{
                         $(".sel_wrap1 span.con").text("无记录!");
@@ -201,7 +214,7 @@ window.Report.prototype = {
     loadData : function(id,data){
         var that = this;
         var nowToken = that.currentToken;
-        if(data==undefined) data ={};
+        if(data===undefined) data ={};
         data.rnd = Math.random();
             $.ajax({
                 type: that.param.type,
@@ -210,27 +223,24 @@ window.Report.prototype = {
 //                dataType: that.param.dataType || "",
                 data:data,
                 beforeSend : function(){
-                    $(that.param.dataContainer).find("tr:gt(1)").remove().end().append('<tr><td class="wait">加载中请稍等！</td></tr>');
-                    $('#chart1').text('加载中！');
+                  $(that.param.dataContainer).find("tr:gt(1)").remove().end().append('<tr><td class="wait">加载中请稍等！</td></tr>');
+                  $('#chart1').text('加载中！');
                 },
                 success: function(data, textStatus){
-                	if(nowToken!=that.currentToken) return;
-                	if(data.status == 'failed'){
-                		$(that.param.dataContainer).find("td.wait").html("加载失败！");
-               			$('#chart1').text('加载失败！');
-                		return false;
-                	}
-                    if (data.reportList!=null&&data.reportList.length>0){
-                        that.tmplData(data);
-                    }else{
-                        $(that.param.dataContainer).find("td.wait").html("没有记录！");
-                        $('#chart1').text('无记录!');
-                    }
-                    
-                        
+                  if(nowToken!=that.currentToken) return;
+                  if(data.status == 'failed'){
+                    $(that.param.dataContainer).find("td.wait").html("加载失败！");
+                    $('#chart1').text('加载失败！');
+                    return false;
+                  }
+                  if (data&&data.reportList!==null&&data.reportList.length>0){
+                      that.tmplData(data);
+                  }else{
+                      $(that.param.dataContainer).find("td.wait").html("没有记录！");
+                      $('#chart1').text('无记录!');
+                  }
                 },
                 complete: function(XMLHttpRequest, textStatus){
-
                 },
                 error: function(){
                    $(that.param.dataContainer).find("td.wait").html("加载失败！");

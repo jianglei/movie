@@ -1,4 +1,4 @@
-body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 0 0}.output_csv a{text-decoration:underline}.csv_choose li{float:left;line-height:2em;padding-left:1em}
+body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 0 0}.output_csv a{text-decoration:underline}.csv_choose li{float:left;line-height:2em}
 #blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td:nth-child(2),.adList tr td:nth-child(3){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 *:focus{outline:0}a.changeIcon{margin-right:10px}a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select_textColor img{width:25px;height:20px}
 .list_order{margin-right:24px;float:right}.ui-datepicker-title{font-weight:normal}.ui-widget-header{background:#6cbf0a;border:0}.ui-datepicker .ui-datepicker-title select.ui-datepicker-month{font-size:.86em}
@@ -59,10 +59,10 @@ body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 
 .sel_wrap .arrow_down{background-position:-5px 0}.sel_wrap .arrow_up{background-position:right}.sel_wrap .con{display:inline-block;float:left;height:inherit;line-height:34px;padding:0 10px;font-size:16px;background:url('../images/sel_bg.jpg') repeat-x;color:#fff;z-index:2;cursor:pointer;min-width:100px;max-width:150px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .sel_wrap .pop_menu{width:97%;background-color:#fff;z-index:999;top:32px;left:1px;position:absolute;border:1px solid #ccc;border-radius:0 0 5px 5px;box-shadow:0 0 2px #ccc;display:none;overflow-y:auto;overflow-x:hidden;max-height:250px}
 .sel_wrap .pop_menu li{padding:5px 5px 10px 15px;font-size:15px}.sel_wrap .pop_menu li:hover{background:#718ccf}.sel_wrap .pop_menu li a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sel_wrap .pop_menu li:hover a{text-decoration:none;color:white}.choice_time{position:relative;float:left;padding-top:12px;padding-left:6px}.toggle_choice_time{padding-top:13px}
-.choice_time .btn_choice_time{cursor:pointer;text-decoration:underline}.panel_choice_time{display:inline-block}.tb_form th{padding:4px 8px 1px;text-align:right;vertical-align:top}
-.tb_form td{padding:5px 8px 1px;text-align:left}.pickerTable td{padding:0}.tb_form span.tip{padding-left:10px;color:#6e6e6e}.tb_form .tb_inner_wrap{padding:3px;box-shadow:0 1px 3px #ccc;border-radius:2px;background-color:#fff;width:500px}
-.tb_form .tb_inner{width:100%}.tb_form .tb_inner th{background:url('../images/tb_head_bg.png');color:#fff;text-shadow:0 0 #ccc;text-align:center}
+.sel_wrap .pop_menu li:hover a{text-decoration:none;color:white}.weekday{color:green}.choice_time{position:relative;float:left;padding-top:3px;padding-left:6px}
+.toggle_choice_time{padding-top:13px}.choice_time .btn_choice_time{cursor:pointer;text-decoration:underline}.panel_choice_time{display:inline-block;margin-bottom:10px}
+.tb_form th{padding:4px 8px 1px;text-align:right;vertical-align:top}.tb_form td{padding:5px 8px 1px;text-align:left}.pickerTable td{padding:0}.tb_form span.tip{padding-left:10px;color:#6e6e6e}
+.tb_form .tb_inner_wrap{padding:3px;box-shadow:0 1px 3px #ccc;border-radius:2px;background-color:#fff;width:500px}.tb_form .tb_inner{width:100%}.tb_form .tb_inner th{background:url('../images/tb_head_bg.png');color:#fff;text-shadow:0 0 #ccc;text-align:center}
 .tb_form .tb_inner td{text-align:center;background-color:#fff}.tb_form .tb_inner td,.tb_form .tb_inner th{border-bottom:1px solid #d9e6f6}.tb_form .tb_inner .transbg td{background-color:#f8fcf1}
 .tb_form .tb_inner .opr{background-color:#fff;padding:2px 0;text-align:left;padding-left:10px;padding-right:15px;border-bottom:0;background-color:#8cc63e;color:#fff}
 .tb_form .tb_inner .opr .pager{float:right}.tb_form .tb_inner .opr .expend_all{margin-left:15px;width:15px;height:9px;padding-left:20px;background:url("../images/icon_arrow_down.png") 0 4px no-repeat}
