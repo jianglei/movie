@@ -259,11 +259,11 @@ function landingTypeChange(){
             },
             iOS:{
                 banner:{size:'320x50'},
-                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
+                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'320x480',allimage:'640x320'}},
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
-                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
+                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'320x480',allimage:'640x320'}},
                 text:{size:'-'}
             }
             
