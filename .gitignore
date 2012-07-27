@@ -8,3 +8,5 @@
 /src/jdbc.properties
 /src/cache.properties
 /src/rabbitmq.properties
+/.idea/
+.tags*
