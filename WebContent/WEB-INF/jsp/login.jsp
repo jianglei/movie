@@ -12,6 +12,7 @@
 <link href="/css/base${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
 <link href="/css/layout${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
 <link href="/css/style${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
+<link href="/js/plugin/myCarousel/jMyCarousel.css?${constantVersion}" type="text/css" rel="stylesheet" />
 </head>
 <body class="login" style="overflow:auto;"  onload="document.getElementById('name').focus();">
 <!-- 独立头部 start -->
@@ -94,14 +95,16 @@
     <!-- login end -->
     <div class="cooperation">
         <h2 class="c_title">合作伙伴</h2>
-        <ul>
-            <li class="qiyi"><a href="####"></a></li>
-            <li class="dianxin"><a href="####"></a></li>
-            <li class="moji"><a href="####"></a></li>
-            <li class="meituxiuxiu"><a href="####"></a></li>
-            <li class="jianwang"><a href="####"></a></li>
-            <li class="camera360"><a href="####"></a></li>
-        </ul>
+        <div class="jMyCarousel">
+            <ul>
+                <li class="qiyi"><a href="####"></a></li>
+                <li class="dianxin"><a href="####"></a></li>
+                <li class="moji"><a href="####"></a></li>
+                <li class="meituxiuxiu"><a href="####"></a></li>
+                <li class="jianwang"><a href="####"></a></li>
+                <li class="camera360"><a href="####"></a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <!-- 正文end -->
@@ -110,6 +113,7 @@
 <script type="text/javascript" src="/js/libs/base64${build}.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/jquery.md5${build}.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/flux.min.js?${constantVersion}"></script> 
+<script type="text/javascript" src="/js/plugin/myCarousel/jMyCarousel.pack.js?${constantVersion}"></script> 
 <script type="text/javascript" src="/js/libs/util${build}.js?${constantVersion}"></script> 
 <script type="text/javascript">
 function beforeSubmit(){
@@ -134,7 +138,10 @@ function beforeSubmit(){
     }
 }
 $(document).ready(function(){
-    window.myFlux = new flux.slider('.banner_slider');
+    window.myFlux = new flux.slider('.banner_slider',{transitions:[flux.browser.supports3d?'blinds3d':'blinds','tiles3d'],delay:6000});
+    $(".jMyCarousel").jMyCarousel({
+        visible: '100%'
+    });
 	var logincookie = GetCookie('cas_login_name');
 	var pwdcookie = GetCookie('cas_login_pwd');
 	if(logincookie!=null){
