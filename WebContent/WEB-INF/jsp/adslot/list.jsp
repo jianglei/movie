@@ -388,7 +388,7 @@
                                             <input type="radio" name="enablePage" id="adpage_no" val="no"/><label for="adpage_no">否</label>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="new_ad_tips">
                                         <th>新广告提示：</th>
                                         <td>
                                             <input type="radio" name="enableNew"  id="adNew_yes" val="yes"/><label for="adNew_yes">是</label>

@@ -246,6 +246,7 @@ function landingTypeChange(){
     }else{
         $('.push_options').hide();
     }
+    $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
         var landingTypeCol = {
             android:{
