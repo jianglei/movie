@@ -48,8 +48,14 @@
 <!-- 独立头部 end -->
 <!-- 正文 start -->
 <div class="umengadsystem_container">
-    <!-- login start -->
     <div id="message_div" class="umengadsystem_notice notice_wrong" <c:if test="${error==null}">style="display:none;"</c:if>/> <a href="#" class="btn_close" title="关闭" onclick="closeNotice(this);"></a> <span id="message_span">${error}</span> </div>
+    <div class="banner_slider">
+        <img src="../imgs/banner-1.jpg" alt="" />
+        <img src="../imgs/banner-2.jpg" alt="" />
+        <img src="../imgs/banner-3.jpg" alt="" />
+    </div>
+    <!-- login start -->
+    
     <div class="login_banner">
         <div class="umengadsystem_login">
             <form action="/login/doLogin" method="post" name="form1" id="form1">
@@ -59,14 +65,14 @@
                     <td>用户名</td>
                 </tr>
                 <tr class="content">
-                    <td><input type="text" name="loginName" id="name" class="input_text" style="width:265px;" autofocus /></td>
+                    <td><input type="text" name="loginName" id="name" class="input_text" style="width:225px;" autofocus /></td>
                 </tr>
                 <tr class="title">
                     <td>密码</td>
                 </tr>
                 <tr class="content2">
                     <td>
-                        <input type="password" id="passwd_in" name="passwd_in" class="input_text" style="width:265px;" />
+                        <input type="password" id="passwd_in" name="passwd_in" class="input_text" style="width:225px;" />
                     </td>
                 </tr>
                 <tr class="content2">
@@ -77,21 +83,33 @@
                 </tr>
             </table>
             <div class="btn_panel">
-                <span class="middle">
+                <span >
                     <input id="btn_login" type="button" value="登   录"  class="btn_login"  onclick="beforeSubmit();return false;"/>
                 </span>
                 
             </div>
             </form>
         </div>
-    </div>     
+    </div>
     <!-- login end -->
+    <div class="cooperation">
+        <h2 class="c_title">合作伙伴</h2>
+        <ul>
+            <li class="qiyi"><a href="####"></a></li>
+            <li class="dianxin"><a href="####"></a></li>
+            <li class="moji"><a href="####"></a></li>
+            <li class="meituxiuxiu"><a href="####"></a></li>
+            <li class="jianwang"><a href="####"></a></li>
+            <li class="camera360"><a href="####"></a></li>
+        </ul>
+    </div>
 </div>
 <!-- 正文end -->
 <%@include file="include/footer.jsp"%>
 <script type="text/javascript" src="/js/libs/jquery-1.6.1.min.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/base64${build}.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/jquery.md5${build}.js?${constantVersion}"></script>
+<script type="text/javascript" src="/js/libs/flux.min.js?${constantVersion}"></script> 
 <script type="text/javascript" src="/js/libs/util${build}.js?${constantVersion}"></script> 
 <script type="text/javascript">
 function beforeSubmit(){
@@ -116,6 +134,7 @@ function beforeSubmit(){
     }
 }
 $(document).ready(function(){
+    window.myFlux = new flux.slider('.banner_slider');
 	var logincookie = GetCookie('cas_login_name');
 	var pwdcookie = GetCookie('cas_login_pwd');
 	if(logincookie!=null){
