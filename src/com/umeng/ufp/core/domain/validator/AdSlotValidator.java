@@ -101,6 +101,18 @@ public class AdSlotValidator {
 			return validation;
 		}
 	    
+		String enableNew = adSlot.getEnableNew();
+		if(StringUtil.isEmpty(enableNew) || !AdSlotConstants.enableNewSet.contains(enableNew)) {
+			validation.put("isValid", false);
+			validation.put("message", "enableNew can't be null");
+			return validation;
+		}
+		if (enableNew.equals(AdSlotConstants.EnableNew.YES) && enablePreload.equals(AdSlotConstants.EnablePreload.YES)){
+			validation.put("isValid", false);
+			validation.put("message", "enableNew and enablePreload can't be true at the same time");
+			return validation;
+		}
+		
 		String adNetworkStrategy = adSlot.getAdNetworkStrategy();
 		if(StringUtil.isNotEmpty(adNetworkStrategy) && !AdSlotConstants.adNetworkStrategySet.contains(adNetworkStrategy)) {
 			validation.put("isValid", false);

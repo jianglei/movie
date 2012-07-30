@@ -1513,8 +1513,8 @@ marquee p {
 /* ==region start== */
 /* header start */
 .umengadsystem_header {
-    height:97px;
-    margin-bottom:20px;
+    height:90px;
+    /*margin-bottom:20px;*/
     background:url(../images/umengADsystem_body_bg.gif) 0 0 repeat-x;
 }
 .umengadsystem_header_main {
@@ -1753,8 +1753,13 @@ marquee p {
 /* ==region end== */
 /* ==layout start== */
 .umengadsystem_container {
-    width:1000px;
+    width:940px;
     margin:0 auto 20px;
+}
+.login_banner{
+    width:100%;
+    height:300px;
+    background:url(../imgs/background.png) repeat-y;
 }
 /* umengADsystem_two_col start */
 .umengadsystem_two_col .col_l {

@@ -1351,7 +1351,7 @@ a.code_href{
     overflow: visible;
 }
 
-#adcache_no,#adpage_no{
+#adcache_no,#adpage_no,#adNew_no{
     margin-left:20px;
 }
 /*getcode end*/

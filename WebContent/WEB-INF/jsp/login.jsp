@@ -49,42 +49,42 @@
 <!-- 正文 start -->
 <div class="umengadsystem_container">
     <!-- login start -->
-    
-        <div id="message_div" class="umengadsystem_notice notice_wrong" <c:if test="${error==null}">style="display:none;"</c:if>/> <a href="#" class="btn_close" title="关闭" onclick="closeNotice(this);"></a> <span id="message_span">${error}</span> </div>
-        
-    <div class="umengadsystem_login">
-        <form action="/login/doLogin" method="post" name="form1" id="form1">
-        <input type="hidden" name="returl" id="returl" value="${returl }"/>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
-            <tr class="title">
-                <td>用户名</td>
-            </tr>
-            <tr class="content">
-                <td><input type="text" name="loginName" id="name" class="input_text" style="width:265px;" autofocus /></td>
-            </tr>
-            <tr class="title">
-                <td>密码</td>
-            </tr>
-            <tr class="content2">
-                <td>
-                    <input type="password" id="passwd_in" name="passwd_in" class="input_text" style="width:265px;" />
-                </td>
-            </tr>
-            <tr class="content2">
-                <td>
-                    <input type="checkbox" name="rmb_passwd" checked id="rmb_passwd"/><label for="remember_pwd">记住密码</label>
-                    <a href="mailto:appnetwork@umeng.com" class="right">&gt;&gt;忘记密码？  </a>
-                </td>
-            </tr>
-        </table>
-        <div class="btn_panel">
-            <span class="middle">
-                <input id="btn_login" type="button" value="登   录"  class="btn_login"  onclick="beforeSubmit();return false;"/>
-            </span>
-            
+    <div id="message_div" class="umengadsystem_notice notice_wrong" <c:if test="${error==null}">style="display:none;"</c:if>/> <a href="#" class="btn_close" title="关闭" onclick="closeNotice(this);"></a> <span id="message_span">${error}</span> </div>
+    <div class="login_banner">
+        <div class="umengadsystem_login">
+            <form action="/login/doLogin" method="post" name="form1" id="form1">
+            <input type="hidden" name="returl" id="returl" value="${returl }"/>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                <tr class="title">
+                    <td>用户名</td>
+                </tr>
+                <tr class="content">
+                    <td><input type="text" name="loginName" id="name" class="input_text" style="width:265px;" autofocus /></td>
+                </tr>
+                <tr class="title">
+                    <td>密码</td>
+                </tr>
+                <tr class="content2">
+                    <td>
+                        <input type="password" id="passwd_in" name="passwd_in" class="input_text" style="width:265px;" />
+                    </td>
+                </tr>
+                <tr class="content2">
+                    <td>
+                        <input type="checkbox" name="rmb_passwd" checked id="rmb_passwd"/><label for="remember_pwd">记住密码</label>
+                        <a href="mailto:appnetwork@umeng.com" class="right">&gt;&gt;忘记密码？  </a>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn_panel">
+                <span class="middle">
+                    <input id="btn_login" type="button" value="登   录"  class="btn_login"  onclick="beforeSubmit();return false;"/>
+                </span>
+                
+            </div>
+            </form>
         </div>
-        </form>
-    </div>
+    </div>     
     <!-- login end -->
 </div>
 <!-- 正文end -->
