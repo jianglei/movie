@@ -27,7 +27,7 @@ window.Report.prototype = {
             that.getPostData();
             that.loadData($(this).find("a").attr('id'),that.param.data);
         });
-        if(that.param.name=='app'|| that.param.name == 'adslot'){
+        if(!!~$.inArray(that.param.name,['app','adslot','list'])){
 
           $('div.sel_wrap2,div.sel_title2').show();
           $(".sel_wrap2").delegate("li","click",function() {

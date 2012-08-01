@@ -1401,7 +1401,14 @@ marquee p {
 }
 .cooperation .c_title{
     color:#6367AA;
+    margin-bottom:10px;
     font-size:16px;
+}
+.jMyCarousel{
+    margin-bottom:10px;
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.8);
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
 }
 .umengadsystem_login table td {
     padding:10px 8px;

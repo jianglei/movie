@@ -6,6 +6,7 @@
 <head>
 <%@include file="include/constants.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9">
 <title>友盟广告管理平台</title>
 <link rel="shortcut icon" href="http://www.umeng.com/images/favicon.ico" />
 <link  href="/css/default${build}.css?${constantVersion}" type="text/css" rel="stylesheet"/>
@@ -97,12 +98,12 @@
         <h2 class="c_title">合作伙伴</h2>
         <div class="jMyCarousel">
             <ul>
-                <li class="qiyi"><a href="####"></a></li>
-                <li class="dianxin"><a href="####"></a></li>
-                <li class="moji"><a href="####"></a></li>
-                <li class="meituxiuxiu"><a href="####"></a></li>
-                <li class="jianwang"><a href="####"></a></li>
-                <li class="camera360"><a href="####"></a></li>
+                <li class="qiyi" title="爱奇艺视频"><a target="_blank" href="http://www.iqiyi.com/"></a></li>
+                <li class="dianxin" title="点心"><a target="_blank" href="http://www.dianxinos.com/"></a></li>
+                <li class="moji" title="墨迹天气"><a target="_blank" href="http://www.mojichina.com/"></a></li>
+                <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
+                <li class="jianwang" title="指阅"><a target="_blank" href="http://www.zhiyue.me/"></a></li>
+                <li class="camera360" title="camara269"><a target="_blank" href="http://www.camera360.us/"></a></li>
             </ul>
         </div>
     </div>
@@ -138,9 +139,13 @@ function beforeSubmit(){
     }
 }
 $(document).ready(function(){
-    window.myFlux = new flux.slider('.banner_slider',{transitions:[flux.browser.supports3d?'blinds3d':'blinds','tiles3d'],delay:6000});
+  
+    window.myFlux = new flux.slider('.banner_slider',{transitions:[flux.browser.supports3d?'blinds3d':'blinds','blocks','blocks2','blinds','tiles3d'],delay:6000});
     $(".jMyCarousel").jMyCarousel({
-        visible: '100%'
+        visible: '100%',
+        auto:true,
+        speed:800,
+        evtStop:'mouseup'
     });
 	var logincookie = GetCookie('cas_login_name');
 	var pwdcookie = GetCookie('cas_login_pwd');
