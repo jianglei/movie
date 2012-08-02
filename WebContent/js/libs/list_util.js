@@ -44,7 +44,7 @@ function popBox(msg){
                 onBlock:function(){
                     $('.blockOverlay').append($('.blockMsg'));
                     $('body').css({'overflow-y':'hidden'});
-                    $('.blockMsg').css({height:'auto',overflow:'auto'});
+                    $('.blockMsg').css({height:'auto',overflow:'visible'});
                 }
         });
 }

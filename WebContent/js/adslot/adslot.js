@@ -118,7 +118,10 @@ $(function() {
     // wap 模板
     $('a.ui_radio_wapTemplate').click(function(){
         $(this).addClass('ui_radio_checked').siblings('.ui_radio').removeClass('ui_radio_checked');
-        $('#template').val($(this).attr('tpType'));
+        $($(this).attr('fortab')).show().siblings('.tmpl_list').hide();
+    });
+    $('.tmpl_list label').click(function(){
+        $('#template').val($('input',this).attr('tpType'));
         landingTypeChange();
     });
     //弹窗大小设置
@@ -260,11 +263,11 @@ function landingTypeChange(){
             },
             iOS:{
                 banner:{size:'320x50'},
-                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
+                wap:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'320x480',allimage:'640x320'}},
                 embed:{size:'320x50'},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
-                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'380x424',allimage:'640x320'}},
+                push:{size:{applist:'320x50',horizon_bigimage:'480x320',vertical_bigimage:'320x480',allimage:'640x320'}},
                 text:{size:'-'}
             }
             
@@ -402,9 +405,18 @@ function initMsg(adslot) {
     //wap 模板
     $('#template').val('');
     $('.ui_radio_wapTemplate').removeClass('ui_radio_checked');
+    var tmpl = {
+        v:['applist','vertical_bigimage'],
+        h:['horizon_bigimage']
+    };
     if(adslot.template){
         $('#template').val(adslot.template);
-        $('.ui_radio_wapTemplate').filter('[tpType="'+adslot.template +'"]').addClass('ui_radio_checked');
+        if($.inArray(adslot.template,tmpl.v)>-1){
+            $('.ui_radio_wapTemplate:eq(0)').trigger('click');
+        }else{
+            $('.ui_radio_wapTemplate:eq(1)').trigger('click');
+        }
+        $('.tmpl_list input').filter('[tpType="'+adslot.template +'"]').prop('checked',true);
     }
     //所属应用
     if(apps){

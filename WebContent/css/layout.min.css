@@ -23,7 +23,7 @@
 #main .content .top,#main .content .bottom{height:6px;width:100%;background:url('../images/content_bg.png') no-repeat;overflow:hidden}#main .content .top{background-position:0 0}
 #main .content .center{width:920px;background:url('../images/content_center_bg.png') repeat-y;padding:10px}#main .content .bottom{background-position:0 -6px}
 #main .content .center .opr{border-top:1px solid #ccc;margin:0 10px;padding:10px 0}#main .content .center .opr .back{float:left;width:200px}#main .content .center .opr .btn{float:right;height:28px;margin-right:10px}
-.flow{height:29px;width:506px;margin:10px}.flow.step1{background:url('../images/innertab_2.png') 0 0 no-repeat}.flow.step2{background:url('../images/innertab_2.png') 0 -29px no-repeat}
+.flow{height:29px;width:506px;margin:10px;*margin-top:20px}.flow.step1{background:url('../images/innertab_2.png') 0 0 no-repeat}.flow.step2{background:url('../images/innertab_2.png') 0 -29px no-repeat}
 .flow ul li{display:block;float:left;padding-left:50px;line-height:29px}.flow ul li a,.flow ul li a:hover{display:block;width:203px;height:29px;color:#fff;text-decoration:none}
 #main .panel_main{margin-top:21px;border:1px solid #ccc;border-radius:5px;box-shadow:0 2px 2px #ccc;padding:10px 20px;background-color:#fafafa}#main .panel_main .con{border-bottom:1px solid #ccc;padding-bottom:10px}
 #main .panel_dashboard{margin-top:5px;border:1px solid #ccc;border-radius:5px;box-shadow:0 2px 2px #ccc;padding:10px 20px;background-color:#fafafa;height:85px;padding:5px;margin-bottom:20px}

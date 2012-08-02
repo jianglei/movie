@@ -985,14 +985,14 @@ marquee p {
 /* flow end */
 /* tips start */
 .umengadsystem_notice {
-    width:965px;
+    width:905px;
     padding-left:35px;
-    margin-bottom:20px;
-    height:40px;
+    margin:10px 0;
+    height:36px;
     font-weight:bold;
     font-size:12px;
-    line-height:35px;
-    background:url(../images/umengADsystem_notice.png) no-repeat;
+    line-height:32px;
+    background:url(../imgs/umengADsystem_notice.png) no-repeat;
     text-shadow:1px 1px #fff;
 }
 .umengadsystem_notice a.btn_close {
@@ -1015,11 +1015,11 @@ marquee p {
     color:#363;
 }
 .notice_warning {
-    background-position:0 -50px;
+    background-position:0 -46px;
     color:#330
 }
 .notice_wrong {
-    background-position:0 -100px;
+    background-position:0 -94px;
     color:#600;
 }
 .tips_week_warning {
@@ -1314,28 +1314,101 @@ marquee p {
 /* umengADsystem_table_form end */
 /*umengADsystem_login start  */
 .umengadsystem_login {
-    width:300px;
+    /*width:300px;*/
     height:205px;
-    padding:20px 30px;
-    margin:0 auto 20px;
+    padding:10px 30px 30px;
     background:#F5F5F5;
-    border:1px solid #ccc;
-    box-shadow:0 2px 5px #ccc;
+    border:1px solid #86B3E5;
+    /*box-shadow:0 2px 5px #ccc;*/
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
     border-radius:5px;
+    position: absolute;
+    right:15px;
+    bottom:15px;
+    font-size:14px;
+}
+.banner_slider{
+    position:absolute;
+}
+.pagination{
+    z-index:999;
+    position: absolute;
+    bottom:40px;
+    left:15px;
+}
+.pagination li{
+    padding:0px 5px;
+    color:white;
+    background:#8895A4;
+}
+.pagination li.current{
+    background:#52A2ED;
+}
+#rmb_passwd{
+    margin:2px 5px 0 0;
+}
+.umengadsystem_login .input_text{
+    height:28px;
 }
 .umengadsystem_login .btn_login {
     width:90px;
-    height:38px;
+    /*height:38px;*/
+    line-height:30px;
     border:none;
-    background:url(../images/umengADsystem_login_btn.gif) no-repeat;
-    background-size:contain;
+    margin-left:8px;
+    color:white;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #2756AD;
+    background:url(../imgs/btn_sign_in.png) repeat-x;
+   /* background-size:contain;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/umengADsystem_login_btn.gif', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/umengADsystem_login_btn.gif', sizingMethod='scale')";
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../images/umengADsystem_login_btn.gif', sizingMethod='scale')";*/
     font-size:16px;
-    padding-bottom:8px;
-    margin:0 auto;
+    /*padding-bottom:8px;*/
+    /*margin:0 auto;*/
     cursor:pointer;
-    
+}
+.umengadsystem_login .btn_login:active{
+    background:#2756AD;
+}
+.cooperation{
+    margin:30px 0;
+    overflow: hidden;
+}
+.cooperation ul li a{
+    float:left;
+    background:url(../imgs/cooperation.png) no-repeat;
+    width:156px;
+    height:72px;
+}
+.cooperation ul li.dianxin a{
+    background-position:-156px 0;
+}
+.cooperation ul li.moji a{
+    background-position:-312px 0;
+}
+.cooperation ul li.meituxiuxiu a{
+    background-position:-468px 0;
+}
+.cooperation ul li.jianwang a{
+    background-position:-635px 0;
+}
+.cooperation ul li.camera360 a{
+    background-position:-800px 0;
+}
+.cooperation .c_title{
+    color:#6367AA;
+    margin-bottom:10px;
+    font-size:16px;
+}
+.jMyCarousel{
+    margin-bottom:10px;
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.8);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.8);
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
 }
 .umengadsystem_login table td {
     padding:10px 8px;
@@ -1352,7 +1425,7 @@ marquee p {
     padding-bottom:5px;
 }
 .umengadsystem_login .btn_panel {
-    padding:5px 0;
+    /*padding:5px 0;*/
     line-height:42px;
     margin-top:10px;
 }
@@ -1512,8 +1585,8 @@ marquee p {
 /* ==region start== */
 /* header start */
 .umengadsystem_header {
-    height:97px;
-    margin-bottom:20px;
+    height:90px;
+    /*margin-bottom:20px;*/
     background:url(../images/umengADsystem_body_bg.gif) 0 0 repeat-x;
 }
 .umengadsystem_header_main {
@@ -1752,8 +1825,14 @@ marquee p {
 /* ==region end== */
 /* ==layout start== */
 .umengadsystem_container {
-    width:1000px;
+    width:940px;
     margin:0 auto 20px;
+}
+.login_banner{
+    width:100%;
+    height:300px;
+    background:url(../imgs/background.png) repeat-x;
+    position: relative;
 }
 /* umengADsystem_two_col start */
 .umengadsystem_two_col .col_l {
