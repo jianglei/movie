@@ -1021,10 +1021,11 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                     }
                 });
         });
+        //使用已有广告
         $('.btn_use_pastad').unbind('click').click(function(){
                 model1 = that.getAD1();
                 var currentDialogId = '';
-                if (model1 !== null) {
+                if (model1) {
                     $.ajax({
                             type: "get",
                             url: "/ad/add2" ,
