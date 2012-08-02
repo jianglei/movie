@@ -1353,8 +1353,8 @@ marquee p {
 }
 .umengadsystem_login .btn_login {
     width:90px;
-    /*height:38px;*/
     line-height:30px;
+    height:30px;
     border:none;
     margin-left:8px;
     color:white;
