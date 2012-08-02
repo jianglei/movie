@@ -38,6 +38,11 @@ public class AdSlotConstants {
 	    public final static String NO = "no";
 	}
 	
+	public class EnableNew {
+	    public final static String YES = "yes";
+	    public final static String NO = "no";
+	}
+	
 	public class AdNetworkStrategy {
 	    public final static String NONE = "none";
 	    public final static String FILL = "fill";
@@ -92,6 +97,12 @@ public class AdSlotConstants {
     static {
     	enablePreloadSet.add(AdSlotConstants.EnablePreload.YES);
     	enablePreloadSet.add(AdSlotConstants.EnablePreload.NO);
+    }
+    
+    public static Set<String> enableNewSet = new HashSet<String>();
+    static {
+    	enableNewSet.add(AdSlotConstants.EnableNew.YES);
+    	enableNewSet.add(AdSlotConstants.EnableNew.NO);
     }
     
     public static Set<String> enablePageSet = new HashSet<String>();

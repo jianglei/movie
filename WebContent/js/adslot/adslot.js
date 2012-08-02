@@ -118,7 +118,10 @@ $(function() {
     // wap 模板
     $('a.ui_radio_wapTemplate').click(function(){
         $(this).addClass('ui_radio_checked').siblings('.ui_radio').removeClass('ui_radio_checked');
-        $('#template').val($(this).attr('tpType'));
+        $($(this).attr('fortab')).show().siblings('.tmpl_list').hide();
+    });
+    $('.tmpl_list label').click(function(){
+        $('#template').val($('input',this).attr('tpType'));
         landingTypeChange();
     });
     //弹窗大小设置
@@ -246,6 +249,7 @@ function landingTypeChange(){
     }else{
         $('.push_options').hide();
     }
+    $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
         var landingTypeCol = {
             android:{
@@ -316,10 +320,11 @@ function getADSlot() {
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
+
     if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
     else adslot.enablePreload = "no";
-    if ($("input[name='enablePage']:checked").index() === 0) adslot.enablePage = "yes";
-    else adslot.enablePage = "no";
+    adslot.enablePage = $("input[name='enablePage']:checked").attr('val');
+    adslot.enableNew = $("input[name='enableNew']:checked").attr('val');
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
@@ -400,9 +405,18 @@ function initMsg(adslot) {
     //wap 模板
     $('#template').val('');
     $('.ui_radio_wapTemplate').removeClass('ui_radio_checked');
+    var tmpl = {
+        v:['applist','vertical_bigimage'],
+        h:['horizon_bigimage']
+    };
     if(adslot.template){
         $('#template').val(adslot.template);
-        $('.ui_radio_wapTemplate').filter('[tpType="'+adslot.template +'"]').addClass('ui_radio_checked');
+        if($.inArray(adslot.template,tmpl.v)>-1){
+            $('.ui_radio_wapTemplate:eq(0)').trigger('click');
+        }else{
+            $('.ui_radio_wapTemplate:eq(1)').trigger('click');
+        }
+        $('.tmpl_list input').filter('[tpType="'+adslot.template +'"]').prop('checked',true);
     }
     //所属应用
     if(apps){
@@ -443,17 +457,22 @@ function initMsg(adslot) {
     region.initAreas(adslot.areas);
     //是否缓存广告
     if (adslot.enablePreload == "no") {
-        $("input[name='enablePreload']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePreload']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePreload']:eq(0)").prop("checked", true);
     }
     //广告可否翻页
     if (adslot.enablePage == "no") {
-        $("input[name='enablePage']:eq(1)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(1)").prop("checked", true);
     } else {
-        $("input[name='enablePage']:eq(0)").attr("checked", "checked");
+        $("input[name='enablePage']:eq(0)").prop("checked", true);
     }
-
+    //新广告是否提示
+    if (adslot.enableNew == "yes") {
+        $("input[name='enableNew']:eq(0)").prop("checked", true);
+    } else {
+        $("input[name='enableNew']:eq(1)").prop("checked", true);
+    }
     //更新渠道
     if (adslot.channels) $("input[name='adslotChannels']").val(adslot.channels);
     else $("input[name='adslotChannels']").val("");

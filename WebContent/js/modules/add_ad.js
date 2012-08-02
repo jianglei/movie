@@ -333,7 +333,7 @@ window.AddAd.prototype={
     },
     verifyAD1 : function(){
         $('.err').remove();
-      return   verify_null($("input[name='adname']"),'名称不能为空',true)
+      return   verify_null($("input[name='adname']"),'',true,null,{'maxLength':16})
           &&verify_null($("input[name='li_adslot']"),'所属广告位不能为空',true)
            &&verify_null($("input[name='startTime']"), "时间不能为空")
            &&($("input[name='budget']").eq(0).prop('checked')||$("input[name='budget']").eq(1).prop('checked')&&verify_null($("input[name='budgetLimit']"),'不能为空',false))
@@ -1021,10 +1021,11 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                     }
                 });
         });
+        //使用已有广告
         $('.btn_use_pastad').unbind('click').click(function(){
                 model1 = that.getAD1();
                 var currentDialogId = '';
-                if (model1 !== null) {
+                if (model1) {
                     $.ajax({
                             type: "get",
                             url: "/ad/add2" ,
@@ -1123,15 +1124,18 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                         callback();
                                     }else{
                                         alert('保存失败!');
+                                        $(".btn_save_ad").unbind("click").click(function() {
+                                            saveAd.apply(this);
+                                        });
                                     }
                             },
                             complete: function(XMLHttpRequest, textStatus){
                             },
                             error: function(){
-                                alert('保存失败!');
                                 $(".btn_save_ad").unbind("click").click(function() {
                                     saveAd.apply(this);
                                 });
+                                alert('保存失败!');
                             }
                     });
                 }

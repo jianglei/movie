@@ -38,6 +38,8 @@ public class AdSlot {
 	private String opensize;
 	private String pushStrategy;
 	
+	private String enableNew;
+	
     
     public ByteString serialize() {
 		AdSlotEntry.Builder adSlotEntry = AdSlotEntry.newBuilder();
@@ -69,6 +71,7 @@ public class AdSlot {
 		if(uadsKey2 != null) adSlotEntry.setUadsKey2(uadsKey2);
 		if(opensize != null) adSlotEntry.setOpensize(opensize);
 		if(pushStrategy != null) adSlotEntry.setPushStrategy(pushStrategy);
+		if(enableNew != null) adSlotEntry.setPushStrategy(enableNew);
 		return adSlotEntry.build().toByteString();
 	}
     
@@ -89,7 +92,8 @@ public class AdSlot {
 				+ ", appkey=" + appkey + ", uadsEnable=" + uadsEnable
 				+ ", uadsPercent=" + uadsPercent + ", uadsKey=" + uadsKey
 				+ ", uadsKey2=" + uadsKey2 + ", opensize=" + opensize 
-				+ ", pushStrategy=" + pushStrategy + "]";
+				+ ", pushStrategy=" + pushStrategy 
+				+ ", enableNew=" + enableNew + "]";
 	}
 
 
@@ -273,4 +277,12 @@ public class AdSlot {
 	public void setPushStrategy(String pushStrategy) {
 		this.pushStrategy = pushStrategy;
 	}	
+	
+	public String getEnableNew() {
+		return enableNew;
+	}
+	public void setEnableNew(String enableNew) {
+		this.enableNew = enableNew;
+	}
+	
 }

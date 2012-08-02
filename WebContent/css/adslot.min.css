@@ -1,5 +1,5 @@
-#list_order{width:120px}#uploadpic td a.choosefile{position:relative;display:block;height:64px;width:64px;overflow:hidden}#uploadpic td a.choosefile #loadingStatus{position:absolute;left:20px;top:20px;pointer-events:none}
-#file1,#file2,#file3,#file4{background:none repeat scroll 0 0 transparent;border:medium none;height:84px;left:0;top:-19px;opacity:0;position:absolute;width:64px;cursor:pointer}
+.tmpl_list ul li{float:left;margin-right:5px}#list_order{width:120px}#uploadpic td a.choosefile{position:relative;display:block;height:64px;width:64px;overflow:hidden}
+#uploadpic td a.choosefile #loadingStatus{position:absolute;left:20px;top:20px;pointer-events:none}#file1,#file2,#file3,#file4{background:none repeat scroll 0 0 transparent;border:medium none;height:84px;left:0;top:-19px;opacity:0;position:absolute;width:64px;cursor:pointer}
 a.get_code{margin-left:15px}#get_code{height:410px;width:930px;font-size:13px;color:black;background:white;border-radius:5px 20px 5px 5px;-moz-border-radius:5px 20px 5px 5px;-webkit-border-radius:5px 20px 5px 5px;-ms-border-radius:5px 20px 5px 5px;-o-border-radius:5px 20px 5px 5px}
 #get_code .close{text-align:right;cursor:pointer}a.code_href{display:block;position:relative;top:80px}#choose_adslot,#adslot_code{height:340px;position:absolute;top:40px;border:#ccc 1px solid;text-align:left;text-indent:1em;background:white}
 .thead{background:#6cbf0a;height:29px;color:white;text-align:left;font-weight:bold}.tfoot{background:#e6e6e6;width:100%}#choose_adslot_item td,#choose_adslot th{height:29px;text-indent:1em}

@@ -354,6 +354,7 @@
 		height:29px;
 		width:506px;
 		margin:10px;
+		*margin-top:20px;
 	}
 	
 	.flow.step1 {

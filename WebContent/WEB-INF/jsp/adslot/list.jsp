@@ -264,13 +264,28 @@
                         <tr>
                             <th><span class="f_req">*</span>选择模板：</th>
                             <td>
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="applist"  ><span class="">模板一</span></a> 
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="horizon_bigimage"  ><span class="">模板二</span></a>  
-                                <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  
+                                <a class="ui_radio  ui_radio_wapTemplate"  fortab=".v_tmpl_list" ><span class="">竖屏模板</span></a> 
+                                <a class="ui_radio  ui_radio_wapTemplate"  fortab=".h_tmpl_list" ><span class="">横屏模板</span></a>  
+                                <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate"  ><span class="">模板三</span></a>   -->
                                 <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="allimage"  ><span class="">模板四</span></a> -->  
                                 <!-- <a class="ui_radio ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  -->
                                 <a href="support/docs/template" target="_blank">查看模版介绍&gt;&gt;</a>
                                 <input type="hidden" name="template"  id="template" value=""/>
+                                <div class="v_tmpl_list tmpl_list ">
+                                    <ul>
+                                        <li>
+                                            <label for="t1"><input id="t1" type="radio" name="tmpl_list" tpType="applist"/>竖屏列表</label>
+                                        </li>
+                                        <li>
+                                            <label for="t2"><input id="t2" type="radio" name="tmpl_list" tpType="vertical_bigimage" />竖屏大图</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="h_tmpl_list tmpl_list hidden">
+                                    <ul>
+                                        <li><label for="t3"><input id="t3" type="radio" name="tmpl_list" tpType="horizon_bigimage"/>横屏大图</label></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -374,18 +389,25 @@
                             <!--						<th></th>-->
                             <td colspan="2" style="border: 1px dashed #5A9EE6;display:none;padding-bottom:10px; border-collapse: separate;">
                                 <table class="pnl_pro" style="border-collapse: separate;">
-                                    <!--								<tr>
-                                                                                                            <th>是否缓存广告：</th>
-                                                                                                            <td>
-                                                                                                                <input type="radio" name="enablePreload" checked="checked" id="adcache_yes"/><label for="adcache_yes">是</label>
-                                                                                                                    <input type="radio" name="enablePreload" id="adcache_no"/><label for="adcache_no">否</label>
-                                                                                                            </td>
-                                                                                                    </tr>-->
+    								<!-- <tr>
+                                        <th>是否缓存广告：</th>
+                                        <td>
+                                            <input type="radio" name="enablePreload" checked="checked" val="yes" id="adcache_yes"/><label for="adcache_yes">是</label>
+                                            <input type="radio" name="enablePreload" id="adcache_no" val="no"/><label for="adcache_no">否</label>
+                                        </td>
+                                    </tr> -->
                                     <tr>
                                         <th>广告可否翻页：</th>
                                         <td>
-                                            <input type="radio" name="enablePage" checked="checked" id="adpage_yes"/><label for="adpage_yes">是</label>
-                                            <input type="radio" name="enablePage" id="adpage_no"/><label for="adpage_no">否</label>
+                                            <input type="radio" name="enablePage" checked="checked" val="yes" id="adpage_yes"/><label for="adpage_yes">是</label>
+                                            <input type="radio" name="enablePage" id="adpage_no" val="no"/><label for="adpage_no">否</label>
+                                        </td>
+                                    </tr>
+                                    <tr class="new_ad_tips">
+                                        <th>新广告提示：</th>
+                                        <td>
+                                            <input type="radio" name="enableNew"  id="adNew_yes" val="yes"/><label for="adNew_yes">是</label>
+                                            <input type="radio" name="enableNew" checked="checked" id="adNew_no" val="no"/><label for="adNew_no">否</label>
                                         </td>
                                     </tr>
                                     <tr>
