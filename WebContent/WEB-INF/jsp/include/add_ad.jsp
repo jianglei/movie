@@ -20,8 +20,7 @@
                 <tr>
                     <th width="100"><span class="f_req">*</span>广告名称：</th>
                     <td><div class="list_order "><strong tabindex="2">所属订单：</strong><select id="list_order"></select></div>
-                        <input type="text" class="input_text" name="adname"
-                               style="width: 300px;" tabindex="1"/></td>
+                        <input type="text" class="input_text" name="adname"  placeholder="不能多于16个字符" title="不能多于16个字符"   style="width: 300px;" tabindex="1"/></td>
 
                 </tr>
                 <tr>
@@ -334,7 +333,7 @@
                 <tr class="10100 10010 type_switch">
                     <th><span class="f_req">*</span>网站名称：</th>
                     <td>
-                        <input type="text" class="input_text sub previewName" name="webname" title="请填写网站名称!"     forshow="name_show"  style="width: 300px;" />
+                        <input type="text" class="input_text sub previewName" name="webname"  placeholder="不能多于20字" title="不能多于20字" verify="adWords"    forshow="name_show"  style="width: 300px;" />
                     </td>
                 </tr>
 
@@ -345,8 +344,7 @@
                 </tr> -->
                 <tr class="01100 01010 10001 type_switch">
                     <th><span class="f_req">*</span>软件名称：</th>
-                    <td><input type="text" class="input_text sub previewName" name="appname" title="请填写软件名称!"  forshow="name_show"
-                               style="width: 300px;" /></td>
+                    <td><input type="text" class="input_text sub previewName" name="appname"  placeholder="不能多于20字" title="不能多于20字" verify="adWords"  forshow="name_show" style="width: 300px;" /></td>
                 </tr>
 <!--                <tr class="10001 type_switch" >
                     <th><span class="f_req">*</span>字体：</th>
@@ -402,8 +400,7 @@
                 </tr>
                 <tr class="01100 01010 type_switch">
                     <th><span class="f_req">*</span>开发商：</th>
-                    <td><input type="text" class="input_text sub" name="provider" title="请填写开发商!"  
-                               style="width: 300px;" /></td>
+                    <td><input type="text" class="input_text sub" name="provider" title="请填写开发商!"  placeholder="不能多于20字" title="不能多于20字" verify="adWords" style="width: 300px;" /></td>
                 </tr>
                 <tr class="01100 01010 type_switch">
                     <th><span class="f_req">*</span>详细描述：</th>
