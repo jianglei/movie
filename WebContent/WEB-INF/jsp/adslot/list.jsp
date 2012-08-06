@@ -25,29 +25,6 @@
                     今日目前效果数据：
                 </div>
                 <div class="clear"></div>
-                <!-- <div class="panel_dashboard" style="display:none;">
-                    <div class="item first">
-                        <h3>平均点击价格</h3>
-                        <span>￥0.2</span>
-                    </div>
-                    <div class="item">
-                        <h3>广告展示次数</h3>
-                        <span>119148</span>
-                    </div>
-                    <div class="item">
-                        <h3>点击量</h3>
-                        <span>370</span>
-                    </div>
-                    <div class="item">
-                        <h3>点击率</h3>
-                        <span>0.34%</span>
-                    </div>
-                    <div class="item last">
-                        <h3>收益</h3>
-                        <span>￥72.7</span>
-                    </div>
-                </div> -->
-
                 <div style="height:23px; margin:17px 0  10px 0;">
                     <input type="button" class="btn_add_pos" value="添加广告位" style="float:left;" />
                     <input type="button" class="btn_add_code" value="获取代码" style="float:left; margin-left:10px;" />
@@ -179,6 +156,7 @@
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
                                 <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
                                 <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
+                                <!-- <a class="ui_radio ui_radio_push" ><span val="60">信息提示框</span></a> -->
                                 <!-- <a href="">点击查看介绍&nbsp;&gt;&gt;</a> -->
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>
@@ -389,13 +367,13 @@
                             <!--						<th></th>-->
                             <td colspan="2" style="border: 1px dashed #5A9EE6;display:none;padding-bottom:10px; border-collapse: separate;">
                                 <table class="pnl_pro" style="border-collapse: separate;">
-    								<!-- <tr>
+    								<tr>
                                         <th>是否缓存广告：</th>
                                         <td>
                                             <input type="radio" name="enablePreload" checked="checked" val="yes" id="adcache_yes"/><label for="adcache_yes">是</label>
                                             <input type="radio" name="enablePreload" id="adcache_no" val="no"/><label for="adcache_no">否</label>
                                         </td>
-                                    </tr> -->
+                                    </tr> 
                                     <tr>
                                         <th>广告可否翻页：</th>
                                         <td>

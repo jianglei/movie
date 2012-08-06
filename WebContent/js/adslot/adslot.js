@@ -90,6 +90,19 @@ $(function() {
         }
             
     });
+    //广告提示和缓存广告
+    $('input[name="enablePreload"]').click(function(){
+        if($(this).index()===0&&$('input[name="enableNew"]:checked').index()===0){
+            alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            return false;
+        }
+    });
+    $('input[name="enableNew"]').click(function(){
+        if($(this).index()===0&&$('input[name="enablePreload"]:checked').index()===0){
+            alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            return false;
+        }
+    });
     //设备切换
     $('.ui_radio_device').click(function(){
         
@@ -320,9 +333,7 @@ function getADSlot() {
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
-
-    if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
-    else adslot.enablePreload = "no";
+    adslot.enablePreload = $("input[name='enablePreload']:checked").attr('val');
     adslot.enablePage = $("input[name='enablePage']:checked").attr('val');
     adslot.enableNew = $("input[name='enableNew']:checked").attr('val');
     adslot.channels = $("input[name='adslotChannels']").val();
