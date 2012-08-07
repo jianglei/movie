@@ -40,6 +40,7 @@
     <result column="opensize" jdbcType="VARCHAR" property="opensize" />
     <result column="push_strategy" jdbcType="VARCHAR" property="pushStrategy" />
     <result column="enable_new" jdbcType="VARCHAR" property="enableNew" />
+    <result column="interval" jdbcType="INTEGER" property="interval" />
 
   </resultMap>
   <resultMap id="AdSlot-RESULT-MAP" type="java.util.HashMap" extends="AdSlot-RESULT-BASIC">
@@ -186,6 +187,7 @@
 		    <if test="uadsKey != null and uadsKey != ''">,uads_key</if>	
 		    <if test="opensize != null and opensize != 'none'">,opensize</if>	
 		    <if test="pushStrategy != null and pushStrategy != 'none'">,push_strategy</if>
+		    <if test="interval != null">,interval</if>
 		    , enable_new			   	   
 		) values(#{userId}, SYSDATE(), SYSDATE(), #{name}, #{platform}, #{enablePreload}, #{enablePage}, #{appId}
 			,#{landingImages}, #{landingSize}, #{landingType}, #{device}, #{areas}, #{textSize}, #{displayStrategy}, #{channels}, #{timeslots}
@@ -200,6 +202,7 @@
 		    <if test="uadsKey != null and uadsKey != ''">,#{uadsKey}</if>
 		    <if test="opensize != null and opensize != 'none'">,#{opensize}</if>
 		    <if test="pushStrategy != null and pushStrategy != 'none'">,#{pushStrategy}</if>  
+		    <if test="interval != null">,#{interval}</if>
 		    ,#{enableNew}
 	    )
 	</insert>
