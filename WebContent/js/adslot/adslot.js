@@ -244,10 +244,12 @@ function landingTypeChange(){
     var platform =$('input[name=platform]').val(),
     template = $('#template').val()!==''? $('#template').val():'applist',
     landingType = $('input[name=landingType]').val() ;
+    $('.push_options').hide();
+    $('.banner_options').hide();
     if(landingType == 'push'){
         $('.push_options').show();
-    }else{
-        $('.push_options').hide();
+    }else if(landingType == 'banner'){
+        $('.banner_options').show();
     }
     $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
@@ -298,6 +300,7 @@ function getADSlot() {
         platform : $("input[name='platform']").val(),
         landingSize : $("input[name='landingSize']").val(),
         displayStrategy:$("input[name='displayStrategy']").val(),
+        
         // textSize:$("input[name='textSizeAdSlot']").val(),
         appName : $("input[name='appName']").val()!='不设置'?$("input[name='appName']").val():'',
         timeslots : $("input[name='timeslots']").val()};
@@ -318,6 +321,9 @@ function getADSlot() {
         adslot.template = $('#template').val();
         adslot.opensize = $('#opensize').val();
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
+    }else if(adslot.landingType == 'banner'){
+        adslot.interval = $('#interval').val();
+        adslot.animIn = $('input[name="anim_in"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
 
@@ -393,6 +399,15 @@ function initMsg(adslot) {
     }else{
         $('#pushStrategy .text').text('请选择全屏广告策略');
         $('input[name="pushStrategy"]').val('');
+    }
+    //banner 展示间隔
+    $('#interval').val(adslot.interval?adslot.interval:15);
+    if(adslot.animIn&&adslot.animIn!='none'){
+        $('#anim_in .text').text($('#anim_in li a[content="'+adslot.animIn+'"]').text());
+        $('input[name="anim_in"]').val(adslot.animIn);
+    }else{
+        $('#anim_in .text').text('请选择动画方式');
+        $('input[name="anim_in"]').val('');
     }
     //入口尺寸
     if (adslot.landingSize ) {
@@ -687,6 +702,7 @@ function validateStepTwo(){
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
             (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
+            (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&

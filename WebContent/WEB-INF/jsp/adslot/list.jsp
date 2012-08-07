@@ -291,7 +291,7 @@
                         <tr>
                             <th><span class="f_req">*</span>内容尺寸：</th>
                             <td>
-                                <div class="ui_noselect landingSize" style="z-index:2;"> <span class="text">请选择尺寸</span>
+                                <div class="ui_noselect landingSize" style="z-index:5;"> <span class="text">请选择尺寸</span>
                                     <!--                                                            <a  class="btn_pulldown"></a> -->
                                     <!--								<div class="pop_menu">
                                                                                                             <ul>
@@ -305,10 +305,38 @@
                                 <input type="hidden" name="landingSize" id="landingSize" value=""/>
                             </td>
                         </tr>
+                        <tr class="banner_options">
+                            <th><span class="f_req">*</span>展示间隔：</th>
+                            <td>
+                                <input type="text" placeholder="输入1到100之间的整数" class="input_text" id="interval" name="interval"  style="width:190px;"/>
+                                <!-- <input type="hidden" name="interval" id="interval" value="15"/> -->
+                            </td>
+                        </tr>
+                        <tr class="banner_options">
+                            <th><span class="f_req">*</span>动画方式：</th>
+                            <td>
+                                <div class="ui_select" id="anim_in" style="z-index:4;"> 
+                                    <a  class="btn_pulldown"></a> <span class="text">请选择动画方式</span>
+                                    <div class="pop_menu">
+                                        <ul>
+                                            <li class="android ios"><a  pointto="anim_in" content="0" >随机</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="1" >从左侧切入</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="2" >从右侧切入</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="3" >从上切入</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="4" >从下切入</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="6" >缩放</a></li>
+                                            <li class="android ios"><a  pointto="anim_in" content="7" >旋转</a></li>
+                                            <li class="ios"><a  pointto="anim_in" content="9" >翻书</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <input name="anim_in" type="hidden" value=""/>
+                            </td>
+                        </tr>
                         <tr class="hidden push_options">
                             <th><span class="f_req">*</span>推送策略：</th>
                             <td>
-                                <div class="ui_select" id="pushStrategy" style="z-index:2;"> 
+                                <div class="ui_select" id="pushStrategy" style="z-index:3;"> 
                                     <a  class="btn_pulldown"></a> <span class="text">请选择推送策略</span>
                                     <div class="pop_menu">
                                         <ul>
