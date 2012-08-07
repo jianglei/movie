@@ -41,6 +41,7 @@ public class AdSlot {
 	private String enableNew;
 	
 	private Integer interval;
+	private Integer filter;
 	
     
     public ByteString serialize() {
@@ -75,6 +76,7 @@ public class AdSlot {
 		if(pushStrategy != null) adSlotEntry.setPushStrategy(pushStrategy);
 		if(enableNew != null) adSlotEntry.setPushStrategy(enableNew);
 		if(interval != null) adSlotEntry.setInterval(interval);
+		if(filter != null) adSlotEntry.setFilter(filter);
 		return adSlotEntry.build().toByteString();
 	}
     
@@ -96,7 +98,8 @@ public class AdSlot {
 				+ ", uadsPercent=" + uadsPercent + ", uadsKey=" + uadsKey
 				+ ", uadsKey2=" + uadsKey2 + ", opensize=" + opensize 
 				+ ", pushStrategy=" + pushStrategy 
-				+ ", enableNew=" + enableNew +", interval="+ interval +"]";
+				+ ", enableNew=" + enableNew +", interval="+ interval 
+				+ ", filter="+ filter+"]";
 	}
 
 
@@ -293,5 +296,12 @@ public class AdSlot {
 	}
 	public void setInterval(Integer interval) {
 		this.interval = interval;
+	}
+	
+	public Integer getFilter() {
+		return filter;
+	}
+	public void setFilter(Integer filter) {
+		this.filter = filter;
 	}
 }
