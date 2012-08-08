@@ -93,14 +93,18 @@ $(function() {
     //广告提示和缓存广告
     $('input[name="enablePreload"]').click(function(){
         if($(this).index()===0&&$('input[name="enableNew"]:checked').index()===0){
-            alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
-            return false;
+            $('input[name="enableNew"]:eq(1)').prop('checked',true);
+            $('input[name="enableNew"]:eq(0)').prop('checked',false);
+            // alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            // return false;
         }
     });
     $('input[name="enableNew"]').click(function(){
         if($(this).index()===0&&$('input[name="enablePreload"]:checked').index()===0){
-            alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
-            return false;
+            $('input[name="enablePreload"]:eq(1)').prop('checked',true);
+            $('input[name="enablePreload"]:eq(0)').prop('checked',false);
+            // alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            // return false;
         }
     });
     //设备切换
