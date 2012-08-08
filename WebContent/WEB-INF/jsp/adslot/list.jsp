@@ -293,6 +293,7 @@
                             <th><span class="f_req">*</span>展示间隔：</th>
                             <td>
                                 <input type="text" placeholder="输入1到100之间的整数" class="input_text" id="interval" name="interval"  style="width:190px;"/>
+                                <span class="tips">(iOS用户请选择3.5及以上SDK版本)</span>
                                 <!-- <input type="hidden" name="interval" id="interval" value="15"/> -->
                             </td>
                         </tr>
@@ -314,7 +315,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <span>(iOS用户请选择3.5及以上SDK版本)</span>
+                                <span class="tips">(iOS用户请选择3.5及以上SDK版本)</span>
                                 <input name="anim_in" type="hidden" value=""/>
                             </td>
                         </tr>
