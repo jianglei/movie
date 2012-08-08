@@ -410,13 +410,13 @@
                                             <input type="radio" name="enablePreload" checked="checked" id="adcache_no" val="no"/><label for="adcache_no">否</label>
                                         </td>
                                     </tr> 
-                                    <tr>
+                                    <!-- <tr>
                                         <th>广告可否翻页：</th>
                                         <td>
                                             <input type="radio" name="enablePage" checked="checked" val="yes" id="adpage_yes"/><label for="adpage_yes">是</label>
                                             <input type="radio" name="enablePage" id="adpage_no" val="no"/><label for="adpage_no">否</label>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr class="new_ad_tips">
                                         <th>新广告提示：</th>
                                         <td>
