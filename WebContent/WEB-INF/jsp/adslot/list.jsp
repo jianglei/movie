@@ -25,29 +25,6 @@
                     今日目前效果数据：
                 </div>
                 <div class="clear"></div>
-                <!-- <div class="panel_dashboard" style="display:none;">
-                    <div class="item first">
-                        <h3>平均点击价格</h3>
-                        <span>￥0.2</span>
-                    </div>
-                    <div class="item">
-                        <h3>广告展示次数</h3>
-                        <span>119148</span>
-                    </div>
-                    <div class="item">
-                        <h3>点击量</h3>
-                        <span>370</span>
-                    </div>
-                    <div class="item">
-                        <h3>点击率</h3>
-                        <span>0.34%</span>
-                    </div>
-                    <div class="item last">
-                        <h3>收益</h3>
-                        <span>￥72.7</span>
-                    </div>
-                </div> -->
-
                 <div style="height:23px; margin:17px 0  10px 0;">
                     <input type="button" class="btn_add_pos" value="添加广告位" style="float:left;" />
                     <input type="button" class="btn_add_code" value="获取代码" style="float:left; margin-left:10px;" />
@@ -179,6 +156,7 @@
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
                                 <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
                                 <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
+                                <!-- <a class="ui_radio ui_radio_push" ><span val="60">信息提示框</span></a> -->
                                 <!-- <a href="">点击查看介绍&nbsp;&gt;&gt;</a> -->
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>
@@ -266,6 +244,7 @@
                             <td>
                                 <a class="ui_radio  ui_radio_wapTemplate"  fortab=".v_tmpl_list" ><span class="">竖屏模板</span></a> 
                                 <a class="ui_radio  ui_radio_wapTemplate"  fortab=".h_tmpl_list" ><span class="">横屏模板</span></a>  
+                                <!-- <a class="ui_radio  ui_radio_wapTemplate"  fortab=".vh_tmpl_list" ><span class="">通用模板</span></a>   -->
                                 <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate"  ><span class="">模板三</span></a>   -->
                                 <!-- <a class="ui_radio ui_radio_short ui_radio_wapTemplate" tpType="allimage"  ><span class="">模板四</span></a> -->  
                                 <!-- <a class="ui_radio ui_radio_wapTemplate" tpType="vertical_bigimage"  ><span class="">模板三</span></a>  -->
@@ -284,6 +263,11 @@
                                 <div class="h_tmpl_list tmpl_list hidden">
                                     <ul>
                                         <li><label for="t3"><input id="t3" type="radio" name="tmpl_list" tpType="horizon_bigimage"/>横屏大图</label></li>
+                                    </ul>
+                                </div>
+                                <div class="vh_tmpl_list tmpl_list hidden">
+                                    <ul>
+                                        <li><label for="t4"><input id="t4" type="radio" name="tmpl_list" tpType="iconlist"/>通用模板一</label></li>
                                     </ul>
                                 </div>
                             </td>
@@ -319,14 +303,14 @@
                                     <a  class="btn_pulldown"></a> <span class="text">请选择动画方式</span>
                                     <div class="pop_menu">
                                         <ul>
-                                            <li class="android ios"><a  pointto="anim_in" content="0" >随机</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="1" >从左侧切入</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="2" >从右侧切入</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="3" >从上切入</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="4" >从下切入</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="6" >缩放</a></li>
-                                            <li class="android ios"><a  pointto="anim_in" content="7" >旋转</a></li>
-                                            <li class="ios"><a  pointto="anim_in" content="9" >翻书</a></li>
+                                            <li><a  pointto="anim_in" content="0" >随机</a></li>
+                                            <li><a  pointto="anim_in" content="1" >从左侧切入</a></li>
+                                            <li><a  pointto="anim_in" content="2" >从右侧切入</a></li>
+                                            <li><a  pointto="anim_in" content="3" >从上切入</a></li>
+                                            <li><a  pointto="anim_in" content="4" >从下切入</a></li>
+                                            <li><a  pointto="anim_in" content="6" >缩放</a></li>
+                                            <li><a  pointto="anim_in" content="7" >旋转</a></li>
+                                            <li class="ios_only"><a  pointto="anim_in" content="9" >翻书</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -417,13 +401,13 @@
                             <!--						<th></th>-->
                             <td colspan="2" style="border: 1px dashed #5A9EE6;display:none;padding-bottom:10px; border-collapse: separate;">
                                 <table class="pnl_pro" style="border-collapse: separate;">
-    								<!-- <tr>
+    								<tr>
                                         <th>是否缓存广告：</th>
                                         <td>
                                             <input type="radio" name="enablePreload" checked="checked" val="yes" id="adcache_yes"/><label for="adcache_yes">是</label>
                                             <input type="radio" name="enablePreload" id="adcache_no" val="no"/><label for="adcache_no">否</label>
                                         </td>
-                                    </tr> -->
+                                    </tr> 
                                     <tr>
                                         <th>广告可否翻页：</th>
                                         <td>
@@ -436,6 +420,13 @@
                                         <td>
                                             <input type="radio" name="enableNew"  id="adNew_yes" val="yes"/><label for="adNew_yes">是</label>
                                             <input type="radio" name="enableNew" checked="checked" id="adNew_no" val="no"/><label for="adNew_no">否</label>
+                                        </td>
+                                    </tr>
+                                    <tr class="filter_app">
+                                        <th>是否过滤已安装的app：</th>
+                                        <td>
+                                            <input type="radio" name="filter" checked="checked" id="filter_yes" val="1"/><label for="filter_yes">是</label>
+                                            <input type="radio" name="filter"  id="filter_no" val="0"/><label for="filter_no">否</label>
                                         </td>
                                     </tr>
                                     <tr>

@@ -94,7 +94,7 @@ a.code_href{display:block;position:relative;top:80px}#choose_adslot,#adslot_code
 .green_btn:active{background:#78c319}.c_ad_page li{display:inline-block;float:left}.c_ad_page li a{color:#787878;text-decoration:underline}.c_ad_page_detail{float:left;margin-right:10px}
 .c_adslot_body .code_body{max-height:302px;display:block;width:400px;overflow-y:auto;overflow-x:auto;display:none;line-height:1.6em}.c_adslot_body .code_body h1{margin:10px 0 2px}
 #code_review{white-space:nowrap}#adslot_code h1{color:#039;font-size:14px;font-weight:normal}#adslot_code pre{text-indent:0}.syntaxhighlighter{overflow:visible}
-#adcache_no,#adpage_no,#adNew_no{margin-left:20px}.border_radius5px{border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px}
+#adcache_no,#adpage_no,#adNew_no,#filter_nochecked="checked"{margin-left:20px}.border_radius5px{border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px}
 .box_shadow10px{box-shadow:0 0 10px black;-moz-box-shadow:0 0 10px black;-ms-box-shadow:0 0 10px black;-o-box-shadow:0 0 10px black;-webkit-box-shadow:0 0 10px black}
 .box_inset_shadow{box-shadow:0 0 8px rgba(0,0,0,0.3) inset;-moz-box-shadow:0 0 8px rgba(0,0,0,0.3) inset;-ms-box-shadow:0 0 8px rgba(0,0,0,0.3) inset;-o-box-shadow:0 0 8px rgba(0,0,0,0.3) inset;-webkit-box-shadow:0 0 8px rgba(0,0,0,0.3) inset}
 .ui-timepicker-div .ui-widget-header{margin-bottom:8px}.ui-timepicker-div dl{text-align:left}.ui-timepicker-div dl dt{height:25px;margin-bottom:-25px}

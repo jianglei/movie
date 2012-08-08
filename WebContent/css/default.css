@@ -1380,7 +1380,7 @@ marquee p {
 }
 .cooperation ul li a{
     float:left;
-    background:url(../imgs/cooperation.png) no-repeat;
+    background:url(../imgs/cooperation.jpg) no-repeat;
     width:156px;
     height:72px;
 }
@@ -1394,10 +1394,16 @@ marquee p {
     background-position:-468px 0;
 }
 .cooperation ul li.jianwang a{
-    background-position:-635px 0;
+    background-position:-630px 0;
 }
 .cooperation ul li.camera360 a{
-    background-position:-800px 0;
+    background-position:-785px 0;
+}
+.cooperation ul li.x1518 a{
+    background-position:-940px 0;
+}
+.cooperation ul li.baofeng a{
+    background-position:-1095px 0;
 }
 .cooperation .c_title{
     color:#6367AA;
@@ -1406,9 +1412,9 @@ marquee p {
 }
 .jMyCarousel{
     margin-bottom:10px;
-    -moz-box-shadow: 0 0 5px rgba(0,0,0,.8);
+    /*-moz-box-shadow: 0 0 5px rgba(0,0,0,.8);
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,.8);
-    box-shadow: 0 0 5px rgba(0,0,0,.8);
+    box-shadow: 0 0 5px rgba(0,0,0,.8);*/
 }
 .umengadsystem_login table td {
     padding:10px 8px;
