@@ -487,11 +487,11 @@ function initMsg(adslot) {
     //投放地域
     region.initAreas(adslot.areas);
     //是否缓存广告
-    $("input[name='enablePreload']:eq("+~~(adslot.enablePreload == "no")+")").prop("checked", true);
+    $("input[name='enablePreload']:eq("+~~(adslot.enableNew==undefined||adslot.enablePreload == "no")+")").prop("checked", true);
     //广告可否翻页
     $("input[name='enablePage']:eq("+~~(adslot.enablePage == "no")+")").prop("checked", true);
     //新广告是否提示
-    $("input[name='enableNew']:eq("+~~(adslot.enableNew == "no")+")").prop("checked", true);
+    $("input[name='enableNew']:eq("+~~(adslot.enableNew==undefined||adslot.enableNew == "no")+")").prop("checked", true);
     //是否过滤已安装的app
     $("input[name='filter']:eq("+~~(adslot.filter == "0")+")").prop("checked", true);
     //更新渠道
