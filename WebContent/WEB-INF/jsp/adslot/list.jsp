@@ -314,6 +314,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <span>(iOS用户请选择3.5及以上SDK版本)</span>
                                 <input name="anim_in" type="hidden" value=""/>
                             </td>
                         </tr>
