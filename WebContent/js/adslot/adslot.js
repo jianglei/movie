@@ -263,13 +263,14 @@ function landingTypeChange(){
     landingType = $('input[name=landingType]').val() ;
     //根据平台显示不同的选项(基于所有landingType);
     
-    $('.push_options').hide();
-    $('.banner_options').hide();
+    $('.push_options').addClass('hd');
+    $('.banner_options').addClass('hd');
     if(landingType == 'push'){
-        $('.push_options').show();
+        $('.push_options').removeClass('hd');
     }else if(landingType == 'banner'){
-        $('.banner_options').show();
+        // $('.banner_options').removeClass('hd');
         $('#anim_in li.ios_only').toggleClass('hd',platform=='android');
+        $('.banner_options,.preload_ad').toggleClass('hd',platform=='iOS');
     }
     $('.filter_app').toggleClass('hd',platform=='iOS');
     $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
