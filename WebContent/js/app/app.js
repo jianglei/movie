@@ -147,6 +147,7 @@ function initMsg(app,callback,id) {
     //弹出浮出层
     var msg = $('.msg_app');
     popBox(msg);
+    console.log(id);
     // var height = $(window).height();
     // var width = $(document).width();
     // $.blockUI({
@@ -176,6 +177,7 @@ function initMsg(app,callback,id) {
             var name = $("input[name='name']").val();
             var platform = $("input[name='platform']").val();
             var description = $("textarea[name='description']").val();
+            // console.log(id);
             // if (description === "") description = " ";
             $.ajax({
                 type: "get",
@@ -211,7 +213,9 @@ function initMsg(app,callback,id) {
 function editApp(id,event) {
     var evenObj = null;
     evenObj = $(event.target);
-    var currentDialogId = appDialogId = getToken();
+    var appDialogId;
+    var currentDialogId = getToken();
+    appDialogId = currentDialogId;
     $.ajax({
         type: "get",
         url: "/app/edit/" + id,
@@ -222,6 +226,8 @@ function editApp(id,event) {
         },
         success: function(data, textStatus){
             if(currentDialogId != appDialogId) return;
+            
+
             initMsg(data.app,function(){
                 var name = $("input[name='name']").val();
                 var platform = $("input[name='platform']").val();
@@ -233,8 +239,8 @@ function editApp(id,event) {
                          appDialogId ='';
                          $('body').css({'overflow-y':'auto'});
                     }
-                },id);
-            });
+                });
+            },id);
             
         },
         complete: function(XMLHttpRequest, textStatus){
