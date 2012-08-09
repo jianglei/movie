@@ -210,6 +210,9 @@ hr {
 .hd{
 	display: none;
 }
+.tips{
+	color:grey;
+}
 .align_l {
 	text-align:left;
 }

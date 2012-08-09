@@ -130,7 +130,7 @@ public class AdSlotValidator {
 	    Integer xpPercent = adSlot.getXpPercent();
 	    if(xpPercent != null && !(xpPercent.intValue() >= 0 && xpPercent.intValue() <= 100)) {
 	    	validation.put("isValid", false);
-			validation.put("message", "uadsPercent参数不合法");
+			validation.put("message", "xpPercent参数不合法");
 			return validation;
 	    }
 	    
@@ -145,6 +145,13 @@ public class AdSlotValidator {
 		if(StringUtil.isNotEmpty(pushStrategy) && !AdSlotConstants.pushStrategySet.contains(pushStrategy)) {
 			validation.put("isValid", false);
 			validation.put("message", "enablePage参数不合法");
+			return validation;
+		}
+		
+		Integer interval = adSlot.getInterval();
+		if(interval != null && interval < 0) {
+			validation.put("isValid", false);
+			validation.put("message", "interval参数不合法");
 			return validation;
 		}
 		

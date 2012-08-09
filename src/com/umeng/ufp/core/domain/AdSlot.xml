@@ -40,6 +40,8 @@
     <result column="opensize" jdbcType="VARCHAR" property="opensize" />
     <result column="push_strategy" jdbcType="VARCHAR" property="pushStrategy" />
     <result column="enable_new" jdbcType="VARCHAR" property="enableNew" />
+    <result column="interval" jdbcType="INTEGER" property="interval" />
+    <result column="filter" jdbcType="INTEGER" property="filter" />
 
   </resultMap>
   <resultMap id="AdSlot-RESULT-MAP" type="java.util.HashMap" extends="AdSlot-RESULT-BASIC">
@@ -186,6 +188,8 @@
 		    <if test="uadsKey != null and uadsKey != ''">,uads_key</if>	
 		    <if test="opensize != null and opensize != 'none'">,opensize</if>	
 		    <if test="pushStrategy != null and pushStrategy != 'none'">,push_strategy</if>
+		    <if test="interval != null">,`interval`</if>
+		    <if test="filter != null">,`filter`</if>
 		    , enable_new			   	   
 		) values(#{userId}, SYSDATE(), SYSDATE(), #{name}, #{platform}, #{enablePreload}, #{enablePage}, #{appId}
 			,#{landingImages}, #{landingSize}, #{landingType}, #{device}, #{areas}, #{textSize}, #{displayStrategy}, #{channels}, #{timeslots}
@@ -200,6 +204,8 @@
 		    <if test="uadsKey != null and uadsKey != ''">,#{uadsKey}</if>
 		    <if test="opensize != null and opensize != 'none'">,#{opensize}</if>
 		    <if test="pushStrategy != null and pushStrategy != 'none'">,#{pushStrategy}</if>  
+		    <if test="interval != null">,#{interval}</if>
+		    <if test="filter != null">,#{filter}</if>
 		    ,#{enableNew}
 	    )
 	</insert>
@@ -217,8 +223,10 @@
 	    <if test="xpPercent != null">,xp_percent = #{xpPercent}</if>	    
 	    <if test="appkey != null and appkey != ''">,appkey = #{appkey}</if>  
 		<if test="uadsEnable != null">,uads_enable = #{uadsEnable}  </if>  
-	    <if test="uadsPercent != null">,uads_percent = #{uadsPercent}</if>	    
-	    <if test="uadsKey!= null and appkey != ''">,uads_key = #{uadsKey}</if>
+	    <if test="uadsPercent != null">,uads_percent = #{uadsPercent} </if>	    
+	    <if test="uadsKey!= null and appkey != ''">,uads_key = #{uadsKey} </if>	  
+	    <if test="interval != null">,`interval` = #{interval}</if>  
+	    <if test="filter != null">,`filter` = #{filter}</if>  
 	    <where>
 	    	id = #{id} 
 			<!-- !(state & 1( means that not delete -->

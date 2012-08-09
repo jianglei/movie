@@ -11,4 +11,6 @@
 /tags
 /.tags*
 /.idea/*
-
+.classpath
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.gitignore

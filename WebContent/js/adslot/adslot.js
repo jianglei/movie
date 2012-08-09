@@ -90,6 +90,23 @@ $(function() {
         }
             
     });
+    //广告提示和缓存广告
+    $('input[name="enablePreload"]').click(function(){
+        if($(this).index()===0&&$('input[name="enableNew"]:checked').index()===0){
+            $('input[name="enableNew"]:eq(1)').prop('checked',true);
+            $('input[name="enableNew"]:eq(0)').prop('checked',false);
+            // alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            // return false;
+        }
+    });
+    $('input[name="enableNew"]').click(function(){
+        if($(this).index()===0&&$('input[name="enablePreload"]:checked').index()===0){
+            $('input[name="enablePreload"]:eq(1)').prop('checked',true);
+            $('input[name="enablePreload"]:eq(0)').prop('checked',false);
+            // alert('提醒:"新广告提示"和"缓存广告"不能同时开启!');
+            // return false;
+        }
+    });
     //设备切换
     $('.ui_radio_device').click(function(){
         
@@ -244,11 +261,17 @@ function landingTypeChange(){
     var platform =$('input[name=platform]').val(),
     template = $('#template').val()!==''? $('#template').val():'applist',
     landingType = $('input[name=landingType]').val() ;
+    //根据平台显示不同的选项(基于所有landingType);
+    
+    $('.push_options').hide();
+    $('.banner_options').hide();
     if(landingType == 'push'){
         $('.push_options').show();
-    }else{
-        $('.push_options').hide();
+    }else if(landingType == 'banner'){
+        $('.banner_options').show();
+        $('#anim_in li.ios_only').toggleClass('hd',platform=='android');
     }
+    $('.filter_app').toggleClass('hd',platform=='iOS');
     $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
         var landingTypeCol = {
@@ -298,6 +321,7 @@ function getADSlot() {
         platform : $("input[name='platform']").val(),
         landingSize : $("input[name='landingSize']").val(),
         displayStrategy:$("input[name='displayStrategy']").val(),
+        
         // textSize:$("input[name='textSizeAdSlot']").val(),
         appName : $("input[name='appName']").val()!='不设置'?$("input[name='appName']").val():'',
         timeslots : $("input[name='timeslots']").val()};
@@ -318,13 +342,15 @@ function getADSlot() {
         adslot.template = $('#template').val();
         adslot.opensize = $('#opensize').val();
         adslot.pushStrategy = $('input[name="pushStrategy"]').val();
+    }else if(adslot.landingType == 'banner'){
+        adslot.interval = $('#interval').val();
+        adslot.animIn = $('input[name="anim_in"]').val();
     }
     adslot.areas = $("input[name='adslotareas']").val();
-
-    if ($("input[name='enablePreload']:checked").index() === 0) adslot.enablePreload = "yes";
-    else adslot.enablePreload = "no";
+    adslot.enablePreload = $("input[name='enablePreload']:checked").attr('val');
     adslot.enablePage = $("input[name='enablePage']:checked").attr('val');
     adslot.enableNew = $("input[name='enableNew']:checked").attr('val');
+    adslot.filter = $("input[name='filter']:checked").attr('val');
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
@@ -347,9 +373,6 @@ function getADSlot() {
         adslot.uadsEnable = 0;
         adslot.xpEnable = 0;
     }
-    
-    
-    
     return adslot;
 }
 
@@ -394,6 +417,15 @@ function initMsg(adslot) {
         $('#pushStrategy .text').text('请选择全屏广告策略');
         $('input[name="pushStrategy"]').val('');
     }
+    //banner 展示间隔
+    $('#interval').val(adslot.interval?adslot.interval:15);
+    if(adslot.animIn&&adslot.animIn!='none'){
+        $('#anim_in .text').text($('#anim_in li a[content="'+adslot.animIn+'"]').text());
+        $('input[name="anim_in"]').val(adslot.animIn);
+    }else{
+        $('#anim_in .text').text('请选择动画方式');
+        $('input[name="anim_in"]').val('');
+    }
     //入口尺寸
     if (adslot.landingSize ) {
         $(".landingSize .text").html(adslot.landingSize);
@@ -407,14 +439,17 @@ function initMsg(adslot) {
     $('.ui_radio_wapTemplate').removeClass('ui_radio_checked');
     var tmpl = {
         v:['applist','vertical_bigimage'],
-        h:['horizon_bigimage']
+        h:['horizon_bigimage'],
+        vh:['iconlist']
     };
     if(adslot.template){
         $('#template').val(adslot.template);
-        if($.inArray(adslot.template,tmpl.v)>-1){
+        if(!!~$.inArray(adslot.template,tmpl.v)){
             $('.ui_radio_wapTemplate:eq(0)').trigger('click');
-        }else{
+        }else if(!!~$.inArray(adslot.template,tmpl.h)){
             $('.ui_radio_wapTemplate:eq(1)').trigger('click');
+        }else{
+            $('.ui_radio_wapTemplate:eq(2)').trigger('click');
         }
         $('.tmpl_list input').filter('[tpType="'+adslot.template +'"]').prop('checked',true);
     }
@@ -456,23 +491,13 @@ function initMsg(adslot) {
     //投放地域
     region.initAreas(adslot.areas);
     //是否缓存广告
-    if (adslot.enablePreload == "no") {
-        $("input[name='enablePreload']:eq(1)").prop("checked", true);
-    } else {
-        $("input[name='enablePreload']:eq(0)").prop("checked", true);
-    }
+    $("input[name='enablePreload']:eq("+~~(adslot.enableNew==undefined||adslot.enablePreload == "no")+")").prop("checked", true);
     //广告可否翻页
-    if (adslot.enablePage == "no") {
-        $("input[name='enablePage']:eq(1)").prop("checked", true);
-    } else {
-        $("input[name='enablePage']:eq(0)").prop("checked", true);
-    }
+    $("input[name='enablePage']:eq("+~~(adslot.enablePage == "no")+")").prop("checked", true);
     //新广告是否提示
-    if (adslot.enableNew == "yes") {
-        $("input[name='enableNew']:eq(0)").prop("checked", true);
-    } else {
-        $("input[name='enableNew']:eq(1)").prop("checked", true);
-    }
+    $("input[name='enableNew']:eq("+~~(adslot.enableNew==undefined||adslot.enableNew == "no")+")").prop("checked", true);
+    //是否过滤已安装的app
+    $("input[name='filter']:eq("+~~(adslot.filter == "0")+")").prop("checked", true);
     //更新渠道
     if (adslot.channels) $("input[name='adslotChannels']").val(adslot.channels);
     else $("input[name='adslotChannels']").val("");
@@ -480,26 +505,6 @@ function initMsg(adslot) {
     //弹出浮出层
     var msg = $('.msg_pos');
     popBox(msg);
-    // var height = $(window).height();
-    // var width = $(document).width();
-    // var nowTop = height/2 - (msg.height() / 2);
-    //     nowTop = nowTop<0?0:nowTop;
-    //     $.blockUI({
-    //             css: {overflow:'hidden',height:0,position:'relative',color: '#cccccc',border:'0',width:'722px','left' : width/2 - (msg.width() / 2),'top' :nowTop ,background:'none',padding:'0px'},
-    //             // css: {width:'722px',position:'relative',color: '#cccccc',border:'0','margin':(height/2 - (msg.height() / 2)) +'px auto ',background:'none',padding:'0px'},
-    //             overlayCSS:  {
-    //                 backgroundColor:' rgba(0,0,0,.5)',
-    //                 opacity:1,
-    //                 overflow:'auto'
-    //             },
-    //             allowBodyStretch: true,
-    //             message: msg,
-    //             onBlock:function(){
-    //                 $('.blockOverlay').append($('.blockMsg'));
-    //                 $('body').css({'overflow-y':'hidden'});
-    //                 $('.blockMsg').css({height:'auto',overflow:'auto'});
-    //             }
-    //     });
 
     /* 事件处理部分 */
     $(".close").unbind('click').click(function() {
@@ -687,6 +692,7 @@ function validateStepTwo(){
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
             (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
+            (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
@@ -699,7 +705,8 @@ function validateStepTwo(){
  */
 function editAdSlot(id,event) {
     $("input[name='id']").val(id);
-    var currentDialogId = adSlotDialogId = getToken();
+    var currentDialogId , adSlotDialogId;
+    currentDialogId=adSlotDialogId= getToken();
     var evenObj = null;
     evenObj = $(event.target);
     $.ajax({

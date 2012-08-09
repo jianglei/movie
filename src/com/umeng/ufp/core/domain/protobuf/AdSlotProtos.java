@@ -238,6 +238,20 @@ public final class AdSlotProtos {
     public boolean hasEnableNew() { return hasEnableNew; }
     public java.lang.String getEnableNew() { return enableNew_; }
     
+    // optional int32 interval = 30;
+    public static final int INTERVAL_FIELD_NUMBER = 30;
+    private boolean hasInterval;
+    private int interval_ = 0;
+    public boolean hasInterval() { return hasInterval; }
+    public int getInterval() { return interval_; }
+    
+    // optional int32 filter = 31;
+    public static final int FILTER_FIELD_NUMBER = 31;
+    private boolean hasFilter;
+    private int filter_ = 0;
+    public boolean hasFilter() { return hasFilter; }
+    public int getFilter() { return filter_; }
+    
     private void initFields() {
     }
     public final boolean isInitialized() {
@@ -333,6 +347,12 @@ public final class AdSlotProtos {
       }
       if (hasEnableNew()) {
         output.writeString(29, getEnableNew());
+      }
+      if (hasInterval()) {
+        output.writeInt32(30, getInterval());
+      }
+      if (hasFilter()) {
+        output.writeInt32(31, getFilter());
       }
       getUnknownFields().writeTo(output);
     }
@@ -458,6 +478,14 @@ public final class AdSlotProtos {
       if (hasEnableNew()) {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(29, getEnableNew());
+      }
+      if (hasInterval()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(30, getInterval());
+      }
+      if (hasFilter()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(31, getFilter());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -704,6 +732,12 @@ public final class AdSlotProtos {
         if (other.hasEnableNew()) {
           setEnableNew(other.getEnableNew());
         }
+        if (other.hasInterval()) {
+          setInterval(other.getInterval());
+        }
+        if (other.hasFilter()) {
+          setFilter(other.getFilter());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -843,6 +877,14 @@ public final class AdSlotProtos {
             }
             case 234: {
               setEnableNew(input.readString());
+              break;
+            }
+            case 240: {
+              setInterval(input.readInt32());
+              break;
+            }
+            case 248: {
+              setFilter(input.readInt32());
               break;
             }
           }
@@ -1441,6 +1483,42 @@ public final class AdSlotProtos {
         return this;
       }
       
+      // optional int32 interval = 30;
+      public boolean hasInterval() {
+        return result.hasInterval();
+      }
+      public int getInterval() {
+        return result.getInterval();
+      }
+      public Builder setInterval(int value) {
+        result.hasInterval = true;
+        result.interval_ = value;
+        return this;
+      }
+      public Builder clearInterval() {
+        result.hasInterval = false;
+        result.interval_ = 0;
+        return this;
+      }
+      
+      // optional int32 filter = 31;
+      public boolean hasFilter() {
+        return result.hasFilter();
+      }
+      public int getFilter() {
+        return result.getFilter();
+      }
+      public Builder setFilter(int value) {
+        result.hasFilter = true;
+        result.filter_ = value;
+        return this;
+      }
+      public Builder clearFilter() {
+        result.hasFilter = false;
+        result.filter_ = 0;
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:com.umeng.ufp.core.domain.protobuf.AdSlotEntry)
     }
     
@@ -1468,7 +1546,7 @@ public final class AdSlotProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\023ad_slot_entry.proto\022\"com.umeng.ufp.cor" +
-      "e.domain.protobuf\"\277\004\n\013AdSlotEntry\022\n\n\002id\030" +
+      "e.domain.protobuf\"\341\004\n\013AdSlotEntry\022\n\n\002id\030" +
       "\001 \001(\005\022\016\n\006app_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\024\n\014l" +
       "anding_type\030\004 \001(\t\022\024\n\014landing_size\030\005 \001(\t\022" +
       "\026\n\016landing_images\030\006 \001(\t\022\020\n\010platform\030\007 \001(" +
@@ -1482,9 +1560,10 @@ public final class AdSlotProtos {
       "\n\006appkey\030\026 \001(\t\022\023\n\013uads_enable\030\027 \001(\010\022\024\n\014u" +
       "ads_percent\030\030 \001(\005\022\020\n\010uads_key\030\031 \001(\t\022\021\n\tu" +
       "ads_key2\030\032 \001(\t\022\020\n\010opensize\030\033 \001(\t\022\025\n\rpush" +
-      "_strategy\030\034 \001(\t\022\022\n\nenable_new\030\035 \001(\tB2\n\"c" +
-      "om.umeng.ufp.core.domain.protobufB\014AdSlo" +
-      "tProtos"
+      "_strategy\030\034 \001(\t\022\022\n\nenable_new\030\035 \001(\t\022\020\n\010i" +
+      "nterval\030\036 \001(\005\022\016\n\006filter\030\037 \001(\005B2\n\"com.ume" +
+      "ng.ufp.core.domain.protobufB\014AdSlotProto" +
+      "s"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1496,7 +1575,7 @@ public final class AdSlotProtos {
           internal_static_com_umeng_ufp_core_domain_protobuf_AdSlotEntry_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_umeng_ufp_core_domain_protobuf_AdSlotEntry_descriptor,
-              new java.lang.String[] { "Id", "AppId", "Name", "LandingType", "LandingSize", "LandingImages", "Platform", "Device", "Channels", "Areas", "TextSize", "DisplayStrategy", "Timeslots", "Template", "AnimIn", "EnablePreload", "EnablePage", "Status", "AdNetworkStrategy", "XpEnable", "XpPercent", "Appkey", "UadsEnable", "UadsPercent", "UadsKey", "UadsKey2", "Opensize", "PushStrategy", "EnableNew", },
+              new java.lang.String[] { "Id", "AppId", "Name", "LandingType", "LandingSize", "LandingImages", "Platform", "Device", "Channels", "Areas", "TextSize", "DisplayStrategy", "Timeslots", "Template", "AnimIn", "EnablePreload", "EnablePage", "Status", "AdNetworkStrategy", "XpEnable", "XpPercent", "Appkey", "UadsEnable", "UadsPercent", "UadsKey", "UadsKey2", "Opensize", "PushStrategy", "EnableNew", "Interval", "Filter", },
               com.umeng.ufp.core.domain.protobuf.AdSlotProtos.AdSlotEntry.class,
               com.umeng.ufp.core.domain.protobuf.AdSlotProtos.AdSlotEntry.Builder.class);
           return null;

@@ -33,4 +33,6 @@ message AdSlotEntry {
     optional string opensize = 27;
     optional string push_strategy = 28;
     optional string enable_new = 29;
+    optional int32 interval = 30;
+    optional int32 filter = 31;
 }
