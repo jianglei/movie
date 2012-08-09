@@ -270,9 +270,9 @@ function landingTypeChange(){
     }else if(landingType == 'banner'){
         // $('.banner_options').removeClass('hd');
         $('#anim_in li.ios_only').toggleClass('hd',platform=='android');
-        $('.banner_options,.preload_ad').toggleClass('hd',platform=='iOS');
+        $('.banner_options').toggleClass('hd',platform=='iOS');
     }
-    $('.filter_app').toggleClass('hd',platform=='iOS');
+    $('.filter_app,.preload_ad').toggleClass('hd',platform=='iOS');
     $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
         var landingTypeCol = {
@@ -693,7 +693,7 @@ function validateStepTwo(){
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
             (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
-            (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
+            (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||$("input[name='platform']")=='iOS'||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
