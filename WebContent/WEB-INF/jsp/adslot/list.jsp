@@ -403,7 +403,7 @@
                             <!--						<th></th>-->
                             <td colspan="2" style="border: 1px dashed #5A9EE6;display:none;padding-bottom:10px; border-collapse: separate;">
                                 <table class="pnl_pro" style="border-collapse: separate;">
-    								<tr>
+    								<tr class="preload_ad">
                                         <th>是否缓存广告：</th>
                                         <td>
                                             <input type="radio" name="enablePreload"  val="yes" id="adcache_yes"/><label for="adcache_yes">是</label>
