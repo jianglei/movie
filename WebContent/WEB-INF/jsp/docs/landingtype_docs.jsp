@@ -80,7 +80,7 @@
                 即一些新闻应用，或者某些其它应用，会有一些轮播大图的呈现需求，类似搜狐新闻，网易新闻等。现在实现方式是，app写轮播和大图的框架，从服务器端调取相应的大图内容。
             </p>
             <div class="img_galary">
-                <img src="/images/doc/image018.jpg" width=200 />
+                <img src="/imgs/doc/image018.png" width=300 />
             </div>
             
         </li>

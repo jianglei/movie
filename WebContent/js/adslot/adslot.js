@@ -263,15 +263,13 @@ function landingTypeChange(){
     landingType = $('input[name=landingType]').val() ;
     //根据平台显示不同的选项(基于所有landingType);
     
-    $('.push_options').addClass('hd');
-    $('.banner_options').addClass('hd');
-    if(landingType == 'push'){
-        $('.push_options').removeClass('hd');
-    }else if(landingType == 'banner'){
+    $('.push_options').toggleClass('hd',landingType != 'push');
+    // $('.banner_options').addClass('hd');
+    // if(landingType == 'banner'){
         // $('.banner_options').removeClass('hd');
-        $('#anim_in li.ios_only').toggleClass('hd',platform=='android');
-        $('.banner_options').toggleClass('hd',platform=='iOS');
-    }
+    $('.banner_options').toggleClass('hd',landingType != 'banner'||platform=='iOS');
+    $('#anim_in li.ios_only,.ios_tips').toggleClass('hd',platform=='android');
+    // }
     $('.filter_app,.preload_ad').toggleClass('hd',platform=='iOS');
     $('.new_ad_tips')[!!~$.inArray(landingType,['embed','custom'])?'show':'hide']();
     if(landingType!==''&&platform!==''){
@@ -384,7 +382,7 @@ function getADSlot() {
 function initMsg(adslot) {
     $(".step2").hide();
     $(".step1").show();
-    $('.push_options').hide();
+    // $('.push_options').hide();
     //		$(".special").hide();
     if ($("table.pnl_pro").is(':visible')) {
         $("table.pnl_pro").closest('td').hide();
