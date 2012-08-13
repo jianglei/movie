@@ -150,7 +150,7 @@
                                 <input type="hidden" name="platform" value=""/>
                             </td>
                         </tr>
-                        <tr class="push_options">
+                        <tr class="push_options hd">
                             <th><span class="f_req">*</span>弹窗大小：</th>
                             <td>
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
