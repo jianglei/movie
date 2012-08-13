@@ -382,7 +382,7 @@ function getADSlot() {
 function initMsg(adslot) {
     $(".step2").hide();
     $(".step1").show();
-    // $('.push_options').hide();
+    $('.push_options').addClass('hd');
     //		$(".special").hide();
     if ($("table.pnl_pro").is(':visible')) {
         $("table.pnl_pro").closest('td').hide();
