@@ -98,13 +98,13 @@
         <h2 class="c_title">合作伙伴</h2>
         <div class="scroller">
             <ul id="scroller">
+                <li class="x1518" title="1518"><a target="_blank" href="http://www.1518.com/"></a></li>
                 <li class="qiyi" title="爱奇艺视频"><a target="_blank" href="http://www.iqiyi.com/"></a></li>
-                <li class="dianxin" title="点心"><a target="_blank" href="http://www.dianxinos.com/"></a></li>
                 <li class="moji" title="墨迹天气"><a target="_blank" href="http://www.mojichina.com/"></a></li>
-                <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
+                <li class="dianxin" title="点心"><a target="_blank" href="http://www.dianxinos.com/"></a></li>
                 <li class="jianwang" title="指阅"><a target="_blank" href="http://www.zhiyue.me/"></a></li>
                 <li class="camera360" title="camara269"><a target="_blank" href="http://www.camera360.us/"></a></li>
-                <li class="x1518" title="1518"><a target="_blank" href="http://www.1518.com/"></a></li>
+                <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
                 <li class="baofeng" title="暴风影音"><a target="_blank" href="http://www.baofeng.com/"></a></li>
             </ul>
         </div>
