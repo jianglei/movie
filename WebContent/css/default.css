@@ -1380,30 +1380,33 @@ marquee p {
 }
 .cooperation ul li a{
     float:left;
-    background:url(../imgs/cooperation.jpg) no-repeat;
+    background:url(../imgs/cooperation.jpg) no-repeat ;
     width:156px;
     height:72px;
 }
-.cooperation ul li.dianxin a{
+.cooperation ul li.qiyi a{
     background-position:-156px 0;
+}
+.cooperation ul li.dianxin a{
+    background-position:-468px 0;
 }
 .cooperation ul li.moji a{
     background-position:-312px 0;
 }
 .cooperation ul li.meituxiuxiu a{
-    background-position:-468px 0;
+    background-position:-945px 0;
 }
 .cooperation ul li.jianwang a{
-    background-position:-630px 0;
+    background-position:-625px 0;
 }
 .cooperation ul li.camera360 a{
     background-position:-785px 0;
 }
 .cooperation ul li.x1518 a{
-    background-position:-940px 0;
+    background-position:0 0;
 }
 .cooperation ul li.baofeng a{
-    background-position:-1095px 0;
+    background-position:-1110px 0;
 }
 .cooperation .c_title{
     color:#6367AA;

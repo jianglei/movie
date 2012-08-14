@@ -13,7 +13,7 @@
 <link href="/css/base${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
 <link href="/css/layout${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
 <link href="/css/style${build}.css?${constantVersion}" type="text/css" rel="stylesheet" />
-<link href="/js/plugin/myCarousel/jMyCarousel.css?${constantVersion}" type="text/css" rel="stylesheet" />
+<link href="/js/plugin/simplyscroll/jquery.simplyscroll.min.css?${constantVersion}" type="text/css" rel="stylesheet" />
 </head>
 <body class="login" style="overflow:auto;"  onload="document.getElementById('name').focus();">
 <!-- 独立头部 start -->
@@ -96,15 +96,15 @@
     <!-- login end -->
     <div class="cooperation">
         <h2 class="c_title">合作伙伴</h2>
-        <div class="jMyCarousel">
-            <ul>
+        <div class="scroller">
+            <ul id="scroller">
+                <li class="x1518" title="1518"><a target="_blank" href="http://www.1518.com/"></a></li>
                 <li class="qiyi" title="爱奇艺视频"><a target="_blank" href="http://www.iqiyi.com/"></a></li>
-                <li class="dianxin" title="点心"><a target="_blank" href="http://www.dianxinos.com/"></a></li>
                 <li class="moji" title="墨迹天气"><a target="_blank" href="http://www.mojichina.com/"></a></li>
-                <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
+                <li class="dianxin" title="点心"><a target="_blank" href="http://www.dianxinos.com/"></a></li>
                 <li class="jianwang" title="指阅"><a target="_blank" href="http://www.zhiyue.me/"></a></li>
                 <li class="camera360" title="camara269"><a target="_blank" href="http://www.camera360.us/"></a></li>
-                <li class="x1518" title="1518"><a target="_blank" href="http://www.1518.com/"></a></li>
+                <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
                 <li class="baofeng" title="暴风影音"><a target="_blank" href="http://www.baofeng.com/"></a></li>
             </ul>
         </div>
@@ -116,7 +116,7 @@
 <script type="text/javascript" src="/js/libs/base64${build}.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/jquery.md5${build}.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/flux.min.js?${constantVersion}"></script> 
-<script type="text/javascript" src="/js/plugin/myCarousel/jMyCarousel.pack.js?${constantVersion}"></script> 
+<script type="text/javascript" src="/js/plugin/simplyscroll/jquery.simplyscroll.min.js?${constantVersion}"></script> 
 <script type="text/javascript" src="/js/libs/util${build}.js?${constantVersion}"></script> 
 <script type="text/javascript">
 function beforeSubmit(){
@@ -143,11 +143,12 @@ function beforeSubmit(){
 $(document).ready(function(){
   
     window.myFlux = new flux.slider('.banner_slider',{transitions:[flux.browser.supports3d?'blinds3d':'blinds','blocks','blocks2','blinds','tiles3d'],delay:6000});
-    $(".jMyCarousel").jMyCarousel({
-        visible: '100%',
+    $("#scroller").simplyScroll({
         auto:true,
-        speed:800,
-        evtStop:'mouseup'
+        speed:2,
+        autoMode:'loop',
+        pauseOnHover:true,
+        startOnLoad:true
     });
 	var logincookie = GetCookie('cas_login_name');
 	var pwdcookie = GetCookie('cas_login_pwd');
