@@ -76,9 +76,11 @@ CREATE TABLE `ad_slot` (
   `display_strategy` varchar(32) DEFAULT NULL,
   `anim_in` varchar(32) DEFAULT '0',
   `template` varchar(64) DEFAULT 'applist',
-  `opensize` enum('none','100','80','60') DEFAULT 'none',
+  `opensize` enum('none','100','80','60','messagebox') DEFAULT 'none',
   `push_strategy` enum('none','onceperday','whenadchange','nolimit') DEFAULT 'none',
-  `enable_page` enum('yes','no') DEFAULT 'no',
+  `enable_new` enum('yes','no') DEFAULT 'no' COMMENT '是否提示新广告',,
+  `interval` int(10) DEFAULT '15' COMMENT '轮播时间',,
+  `filter` int(10) DEFAULT '1' COMMENT '是否过滤已安装app',,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40336 DEFAULT CHARSET=utf8
 

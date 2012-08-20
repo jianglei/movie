@@ -67,6 +67,7 @@ public class AdSlotConstants {
 		public final static String HUNDRED = "100";
 		public final static String EIGHTY = "80";
 		public final static String SIXTY = "60";
+		public final static String MESSAGEBOX = "messagebox";
 	}
 	
     public static Set<String> landingTypeSet = new HashSet<String>();
@@ -124,6 +125,7 @@ public class AdSlotConstants {
     	opensizeSet.add(AdSlotConstants.Opensize.HUNDRED);
     	opensizeSet.add(AdSlotConstants.Opensize.EIGHTY);
     	opensizeSet.add(AdSlotConstants.Opensize.SIXTY);
+    	opensizeSet.add(AdSlotConstants.Opensize.MESSAGEBOX);
     }
     
     public static Set<String> pushStrategySet = new HashSet<String>();
