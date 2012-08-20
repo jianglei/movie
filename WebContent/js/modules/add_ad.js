@@ -537,7 +537,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
                         slots += '/></td><td width="95">' + that.adSlotPage[i].name + '</td><td width="60" class="entryType" entryType="'+ that.adSlotPage[i].landing_type +'">' +
                          adSlotLandingTypeMap[that.adSlotPage[i].landing_type] + '</td><td width="80">' + 
                             (that.adSlotPage[i].app_name!=undefined?that.adSlotPage[i].app_name:'-') + '</td><td width="60" class="platform" template="'+ that.adSlotPage[i].template +'">' + 
-                            that.adSlotPage[i].platform + '</td><td width="60" class="landing_size textSizeAdSlot" textSizeAdSlot="'+ 
+                            that.adSlotPage[i].platform + '</td><td width="60" class="landing_size textSizeAdSlot opensize" opensize="'+ (that.adSlotPage[i].opensize||"") +'" textSizeAdSlot="'+ 
                             (that.adSlotPage[i].text_size!=undefined?that.adSlotPage[i].text_size:'') +'" >' +(that.adSlotPage[i].landing_type!='text'? that.adSlotPage[i].landing_size:'-') + '</td></tr>';
                 }
                 $("#list_adslot").html("").append(slots);
@@ -689,15 +689,21 @@ initMsgAd2:function (data) {
              'bigimage':{adType:[true,true],adStyle:[false,true,false]},
              'embed':{adType:[true,true],adStyle:[true,false,false]},
              'wap':{adType:[true,true],adStyle:[true,true,false]},
-             'push':{adType:[true,true],adStyle:[true,true,false]},
+             'push':{adType:[true,true],adStyle:[true,true,true]},
              'text':{adType:[true,false],adStyle:[false,false,true]}
          };
          that.isTextLandingType = false;
          var adType = [true,true],adStyle=[true,true,true];
+         var opensize = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.opensize').attr('opensize');
             // nowEntryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType');
-            adType = landingTypeAdStyleList[that.entryType].adType;
-            adStyle = landingTypeAdStyleList[that.entryType].adStyle;
-          
+             if(that.entryType=='push'&&opensize=='messagebox'){
+                adType=[true,false];
+                adStyle = [false,false,true];
+             }else{
+                adType = landingTypeAdStyleList[that.entryType].adType;
+                adStyle = landingTypeAdStyleList[that.entryType].adStyle;
+             }
+        
         
             $('.ui_radio_form').each(function(i,e){
              if(!adStyle[i]){
@@ -897,7 +903,7 @@ changeFormStyle:function (){
                 banner:{size:'202x55'},
                 wap:{standard:'202x55',image:{applist:'424x380',horizon_bigimage:'424x380',vertical_bigimage:'380x424'}},
                 embed:{size:'202x55'},
-                push:{standard:'202x55',image:{applist:'424x380',horizon_bigimage:'424x380',vertical_bigimage:'380x424'}},
+                push:{size:'-',standard:'202x55',image:{applist:'424x380',horizon_bigimage:'424x380',vertical_bigimage:'380x424'}},
                 bigimage:{size:'800x250'},
                 custom:{size:'202x55'},
                 text:{size:'-'}
@@ -907,17 +913,18 @@ changeFormStyle:function (){
                 // wap:{size:{standard:'320x50',image:'480x320'}},
                 wap:{standard:'320x50',image:{applist:'480x320',horizon_bigimage:'480x320',vertical_bigimage:'320x480'}},
                 embed:{size:'320x50'},
-                push:{standard:'320x50',image:{applist:'480x320',horizon_bigimage:'480x320',vertical_bigimage:'320x480'}},
+                push:{size:'-',standard:'320x50',image:{applist:'480x320',horizon_bigimage:'480x320',vertical_bigimage:'320x480'}},
                 bigimage:{size:'640x320'},
                 custom:{size:'320x50'},
                 text:{size:'-'}
             }
             
         } ,
+         opensize = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.opensize').attr('opensize'),
          displayType = $("input[name='displayType']").val();
          // entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType'),
          // template = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.platform').attr('template');
-        if(that.entryType=='wap'||that.entryType=='push'){
+        if(that.entryType=='wap'||(that.entryType=='push'&&opensize!='messagebox')){
             if(displayType == 'image'){
                 var nowSize = adLandingSizeMap[that.platform][that.entryType][displayType][that.template];
                 $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);

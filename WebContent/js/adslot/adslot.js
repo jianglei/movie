@@ -321,7 +321,7 @@ function getADSlot() {
         landingSize : $("input[name='landingSize']").val(),
         displayStrategy:$("input[name='displayStrategy']").val(),
         
-        // textSize:$("input[name='textSizeAdSlot']").val(),
+        textSize:$("input[name='textSizeAdSlot']").val(),
         appName : $("input[name='appName']").val()!='不设置'?$("input[name='appName']").val():'',
         timeslots : $("input[name='timeslots']").val()};
 
@@ -619,11 +619,12 @@ function showMsg(adslot, callback) {
                 $('#upload_rukou_pic').show();
 
             }
-            if(landingType=='wap'||landingType=='push'){
+            if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='messagebox')){
                 $('.ui_radio_wapTemplate').closest('tr').show();
             }
-            if(landingType=='text'){
+            if(landingType=='text'||$('#opensize').val()=='messagebox'){
                 $('.landingSize').closest('tr').hide();
+                $('.pushStrategyOptions').toggleClass('hd',landingType!='push');
                 $('#displayStrategy,#textSizeAdSlot').closest('tr').show();
             }else{
                 $('.landingSize').closest('tr').show();
@@ -690,13 +691,14 @@ function validateStepTwo(){
      //((landingType!="custom"&&landingType!="wap")||((landingType=="custom"||landingType=="wap")&&
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
-            (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
+            ($('.template_options').is(':hidden')||verify_null($('#template'),'',true))&&
             (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||$("input[name='platform']").val()=='iOS'||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
-            ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
+            ($('.pushStrategyOptions').is(':hidden')||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
             ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
-            ($("input[name='landingType']").val()!='text'||(verify_null($("input[name='displayStrategy']"))&&verify_null($("input[name='textSizeAdSlot']"))));
+            ($('#displayStrategy').is(':hidden')||verify_null($("input[name='displayStrategy']")))&&
+            ($('#textSizeAdSlot').is(':hidden')||verify_null($("input[name='textSizeAdSlot']")));
 
 }
 /* 编辑广告位

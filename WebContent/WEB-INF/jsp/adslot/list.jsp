@@ -154,9 +154,9 @@
                             <th><span class="f_req">*</span>弹窗大小：</th>
                             <td>
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
-                                <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a>
+                                <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a><br/>
                                 <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
-                                <!-- <a class="ui_radio ui_radio_push" ><span val="60">信息提示框</span></a> -->
+                                <a class="ui_radio ui_radio_push" ><span val="messagebox">信息提示框</span></a>
                                 <!-- <a href="">点击查看介绍&nbsp;&gt;&gt;</a> -->
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>
@@ -239,7 +239,7 @@
                                 </form>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="template_options">
                             <th><span class="f_req">*</span>选择模板：</th>
                             <td>
                                 <a class="ui_radio  ui_radio_wapTemplate"  fortab=".v_tmpl_list" ><span class="">竖屏模板</span></a> 
@@ -319,7 +319,7 @@
                                 <input name="anim_in" type="hidden" value=""/>
                             </td>
                         </tr>
-                        <tr class="push_options">
+                        <tr class="push_options pushStrategyOptions">
                             <th><span class="f_req">*</span>推送策略：</th>
                             <td>
                                 <div class="ui_select" id="pushStrategy" style="z-index:3;"> 
