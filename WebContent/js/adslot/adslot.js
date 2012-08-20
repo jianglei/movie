@@ -353,7 +353,9 @@ function getADSlot() {
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
-    if($('.accesstype_list').is(':visible')){
+    adslot.uadsEnable = 0;
+    adslot.xpEnable = 0;
+    // if($('.accesstype_list').is(':visible')){
         if($('#ui_radio_jiaohuan').prop('checked')){
             adslot.xpEnable = 1;
             adslot.xpPercent = $('#xppercent').val();
@@ -368,10 +370,10 @@ function getADSlot() {
         }else{
            adslot.uadsEnable = 0;
         }
-    }else{
-        adslot.uadsEnable = 0;
-        adslot.xpEnable = 0;
-    }
+    // }else{
+        // adslot.uadsEnable = 0;
+        // adslot.xpEnable = 0;
+    // }
     return adslot;
 }
 
