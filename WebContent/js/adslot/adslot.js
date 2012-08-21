@@ -333,6 +333,8 @@ function getADSlot() {
     }
     if($("input[name='landingSize']").closest('tr').is(':visible')){
          adslot.landingSize =$("input[name='landingSize']").val();
+    }else{
+         $("input[name='landingSize']").val(adslot.landingSize );
     }
     if(adslot.landingType =='wap'){
         adslot.template = $('#template').val();
@@ -728,7 +730,7 @@ function editAdSlot(id,event) {
             showMsg(adslot, function() {
                 var obj = evenObj.parent().parent().find("td:eq(0)");
                 obj.append("<div class='loading_row'><div class='txt'>正在刷新数据&nbsp;&nbsp;&nbsp;<img src='images/loading_m.gif' /></div></div>");
-                updateItem(evenObj.parent().parent(), $("input[name='name']").val(), $("input[name='appName']").val(), $("input[name='landingType']").val(), $("input[name='landingSize']").val());
+                updateItem(evenObj.parent().parent());
                 $.unblockUI({
                     onUnblock:function(){
                         adSlotDialogId ='';
@@ -750,7 +752,7 @@ function editAdSlot(id,event) {
  * obj 需要刷新的行
  * adslot ADSlot数据对象
  */
-function updateItem(obj, name, appName, landingType, landingSize) {
+function updateItem(obj) {
     var landingArray = {
         bigimage:'轮播大图',
         embed:'内嵌入口',
@@ -761,6 +763,11 @@ function updateItem(obj, name, appName, landingType, landingSize) {
         push:'全屏广告'
 
     };
+    var name, appName, landingType, landingSize;
+    name= $("input[name='name']").val();
+    appName =  $("input[name='appName']").val();
+    landingType =  $("input[name='landingType']").val();
+    landingSize = $("input[name='landingSize']").val();
     setTimeout(function() {
 
         obj.find(".tb_name").text(name);
