@@ -336,7 +336,7 @@ function getADSlot() {
     }else{
          $("input[name='landingSize']").val(adslot.landingSize );
     }
-    if(adslot.landingType =='wap'){
+    if(!!~$.inArray(adslot.landingType,['wap','custom'])){
         adslot.template = $('#template').val();
     }else if (adslot.landingType =='bigimage'){
         adslot.template = 'vertical_bigimage';
@@ -358,7 +358,9 @@ function getADSlot() {
     adslot.channels = $("input[name='adslotChannels']").val();
     adslot.landingImages = $('#landing_images').val();
     adslot.adNetworkStrategy = $('#accesstype').val();
-    if($('.accesstype_list').is(':visible')){
+    adslot.uadsEnable = 0;
+    adslot.xpEnable = 0;
+    // if($('.accesstype_list').is(':visible')){
         if($('#ui_radio_jiaohuan').prop('checked')){
             adslot.xpEnable = 1;
             adslot.xpPercent = $('#xppercent').val();
@@ -373,10 +375,10 @@ function getADSlot() {
         }else{
            adslot.uadsEnable = 0;
         }
-    }else{
-        adslot.uadsEnable = 0;
-        adslot.xpEnable = 0;
-    }
+    // }else{
+        // adslot.uadsEnable = 0;
+        // adslot.xpEnable = 0;
+    // }
     return adslot;
 }
 
@@ -624,8 +626,15 @@ function showMsg(adslot, callback) {
                 $('#upload_rukou_pic').show();
 
             }
-            if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='messagebox')){
+            if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='messagebox')||landingType=="custom"){
                 $('.ui_radio_wapTemplate').closest('tr').show();
+                if(landingType=="custom"){
+                    $('.template_options .custom_hide').hide();
+                    $('.template_options .custom_show').show();
+                }else{
+                    $('.template_options .custom_hide').show();
+                    $('.template_options .custom_show').hide();
+                }
             }
             if(landingType=='text'||(landingType=='push'&&$('#opensize').val()=='messagebox')){
                 $('.landingSize').closest('tr').hide();
