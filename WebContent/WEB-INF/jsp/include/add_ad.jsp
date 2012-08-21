@@ -330,7 +330,7 @@
                     <input name="width" id="ad_form_width" type="hidden" value="480" /> 
                     <input name="height" id="ad_form_height" type="hidden" value="75" />
                 </form>
-                <tr class="10100 10010 type_switch">
+                <tr class="10100 10010 10001 type_switch">
                     <th><span class="f_req">*</span>网站名称：</th>
                     <td>
                         <input type="text" class="input_text sub previewName" name="webname"  placeholder="不能多于20字" title="不能多于20字" verify="adWords"    forshow="name_show"  style="width: 300px;" />
@@ -342,7 +342,7 @@
                     <th><span class="f_req">*</span>网站简介：</th> 
                     <td class="f_req"><textarea placeholder="不能多于20字" title="不能多于20字" style="width: 310px; height: 50px;" rows=" " verify="adWords"  forshow="des_show"  cols=" " name="webdes" id="webdes" class="input_textarea previewDes"></textarea></td>
                 </tr> -->
-                <tr class="01100 01010 10001 type_switch">
+                <tr class="01100 01010  type_switch">
                     <th><span class="f_req">*</span>软件名称：</th>
                     <td><input type="text" class="input_text sub previewName" name="appname"  placeholder="不能多于20字" title="不能多于20字" verify="adWords"  forshow="name_show" style="width: 300px;" /></td>
                 </tr>
