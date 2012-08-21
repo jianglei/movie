@@ -318,7 +318,7 @@ function getADSlot() {
         landingType : $("input[name='landingType']").val(),
         device : $("input[name='device']").val(),
         platform : $("input[name='platform']").val(),
-        landingSize : $("input[name='landingSize']").val(),
+        landingSize : '-',
         displayStrategy:$("input[name='displayStrategy']").val(),
         
         textSize:$("input[name='textSizeAdSlot']").val(),
@@ -330,6 +330,9 @@ function getADSlot() {
             adslot.appId = apps[i].id;
             break;
         }
+    }
+    if($("input[name='landingSize']").closest('tr').is(':visible')){
+         adslot.landingSize =$("input[name='landingSize']").val();
     }
     if(adslot.landingType =='wap'){
         adslot.template = $('#template').val();
@@ -622,7 +625,7 @@ function showMsg(adslot, callback) {
             if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='messagebox')){
                 $('.ui_radio_wapTemplate').closest('tr').show();
             }
-            if(landingType=='text'||$('#opensize').val()=='messagebox'){
+            if(landingType=='text'||(landingType=='push'&&$('#opensize').val()=='messagebox')){
                 $('.landingSize').closest('tr').hide();
                 $('.pushStrategyOptions').toggleClass('hd',landingType!='push');
                 $('#displayStrategy,#textSizeAdSlot').closest('tr').show();
