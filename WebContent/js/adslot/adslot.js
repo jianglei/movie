@@ -331,7 +331,7 @@ function getADSlot() {
             break;
         }
     }
-    if(adslot.landingType =='wap'){
+    if(!!~$.inArray(adslot.landingType,['wap','custom'])){
         adslot.template = $('#template').val();
     }else if (adslot.landingType =='bigimage'){
         adslot.template = 'vertical_bigimage';
@@ -621,8 +621,15 @@ function showMsg(adslot, callback) {
                 $('#upload_rukou_pic').show();
 
             }
-            if(landingType=='wap'||landingType=='push'){
+            if(landingType=='wap'||landingType=='push'||landingType=="custom"){
                 $('.ui_radio_wapTemplate').closest('tr').show();
+                if(landingType=="custom"){
+                    $('.template_options .custom_hide').hide();
+                    $('.template_options .custom_show').show();
+                }else{
+                    $('.template_options .custom_hide').show();
+                    $('.template_options .custom_show').hide();
+                }
             }
             if(landingType=='text'){
                 $('.landingSize').closest('tr').hide();
