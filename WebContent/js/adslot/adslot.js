@@ -437,6 +437,7 @@ function initMsg(adslot) {
     }
     //wap 模板
     $('#template').val('');
+    $('.tmpl_list :radio').prop('checked',false);
     $('.ui_radio_wapTemplate').removeClass('ui_radio_checked');
     var tmpl = {
         v:['applist','vertical_bigimage'],
@@ -614,6 +615,7 @@ function showMsg(adslot, callback) {
         if (validateStepOne()) {
             $(".step1").hide();
             $(".step2").show();
+
             $('.ui_radio_wapTemplate').closest('tr').hide();
             if (landingType!='custom'&&landingType!='wap'){
                 $('#upload_rukou_pic').hide();
@@ -699,8 +701,8 @@ function validateStepTwo(){
      //((landingType!="custom"&&landingType!="wap")||((landingType=="custom"||landingType=="wap")&&
             //verify_null($("input[name='landingImages']"), "",true)))&&
      return verify_null($("input[name='timeslots']"), "",true)&&
-            (!($.inArray($("input[name='landingType']").val(),['wap','push'])>-1)||verify_null($('#template'),'',true))&&
-            (!($.inArray($("input[name='landingType']").val(),['banner'])>-1)||$("input[name='platform']").val()=='iOS'||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
+            (!~$.inArray($("input[name='landingType']").val(),['wap','push','custom'])||verify_null($('#template'),'',true))&&
+            (!~$.inArray($("input[name='landingType']").val(),['banner'])||$("input[name='platform']").val()=='iOS'||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($("input[name='landingType']").val()!="push"||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
