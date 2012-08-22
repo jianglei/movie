@@ -51,6 +51,7 @@ public class AdSlotConstants {
 	
 	public class Template {
 	    public final static String APPLIST = "applist";
+	    public final static String ICONLIST = "iconlist";
 	    public final static String HORIZON_BIGIMAGE = "horizon_bigimage";
 	    public final static String VERTICAL_BIGIMAGE = "vertical_bigimage";
 	}
@@ -89,6 +90,7 @@ public class AdSlotConstants {
     public static Set<String> templateSet = new HashSet<String>();
     static {
     	templateSet.add(AdSlotConstants.Template.APPLIST);
+    	templateSet.add(AdSlotConstants.Template.ICONLIST);
     	templateSet.add(AdSlotConstants.Template.HORIZON_BIGIMAGE);
     	templateSet.add(AdSlotConstants.Template.VERTICAL_BIGIMAGE);
     }
