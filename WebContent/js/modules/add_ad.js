@@ -696,7 +696,7 @@ initMsgAd2:function (data) {
          var adType = [true,true],adStyle=[true,true,true];
          var opensize = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.opensize').attr('opensize');
             // nowEntryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType');
-             if(that.entryType=='push'&&opensize=='messagebox'){
+             if(that.entryType=='push'&&opensize=='4'){
                 adType=[true,false];
                 adStyle = [false,false,true];
              }else{
@@ -924,7 +924,7 @@ changeFormStyle:function (){
          displayType = $("input[name='displayType']").val();
          // entryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType'),
          // template = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.platform').attr('template');
-        if(that.entryType=='wap'||(that.entryType=='push'&&opensize!='messagebox')){
+        if(that.entryType=='wap'||(that.entryType=='push'&&opensize!='4')){
             if(displayType == 'image'){
                 var nowSize = adLandingSizeMap[that.platform][that.entryType][displayType][that.template];
                 $('.ui_select_landingSize span.text').text(nowSize).attr('title',nowSize);
