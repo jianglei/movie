@@ -68,7 +68,7 @@ public class AdSlotConstants {
 		public final static String HUNDRED = "100";
 		public final static String EIGHTY = "80";
 		public final static String SIXTY = "60";
-		public final static String MESSAGEBOX = "messagebox";
+		public final static String MESSAGEBOX = "4";
 	}
 	
     public static Set<String> landingTypeSet = new HashSet<String>();
