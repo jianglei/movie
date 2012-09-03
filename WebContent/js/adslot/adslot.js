@@ -628,7 +628,7 @@ function showMsg(adslot, callback) {
                 $('#upload_rukou_pic').show();
 
             }
-            if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='messagebox')||landingType=="custom"){
+            if(landingType=='wap'||(landingType=='push'&&$('#opensize').val()!='4')||landingType=="custom"){
                 $('.ui_radio_wapTemplate').closest('tr').show();
                 if(landingType=="custom"){
                     $('.template_options .custom_hide').hide();
@@ -638,7 +638,7 @@ function showMsg(adslot, callback) {
                     $('.template_options .custom_show').hide();
                 }
             }
-            if(landingType=='text'||(landingType=='push'&&$('#opensize').val()=='messagebox')){
+            if(landingType=='text'||(landingType=='push'&&$('#opensize').val()=='4')){
                 $('.landingSize').closest('tr').hide();
                 $('.pushStrategyOptions').toggleClass('hd',landingType!='push');
                 $('#displayStrategy,#textSizeAdSlot').closest('tr').show();

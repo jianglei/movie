@@ -156,7 +156,7 @@
                                 <a class="ui_radio ui_radio_push" ><span val="100">全屏</span></a> 
                                 <a class="ui_radio ui_radio_push" ><span val="80">80%屏幕</span></a><br/>
                                 <a class="ui_radio ui_radio_push" ><span val="60">60%屏幕</span></a>
-                                <a class="ui_radio ui_radio_push" ><span val="messagebox">信息提示框</span></a>
+                                <a class="ui_radio ui_radio_push" ><span val="4">信息提示框</span></a>
                                 <!-- <a href="">点击查看介绍&nbsp;&gt;&gt;</a> -->
                                 <input type="hidden" name="opensize" id="opensize" value=""/>
                             </td>
