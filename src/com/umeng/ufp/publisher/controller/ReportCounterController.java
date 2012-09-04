@@ -109,7 +109,7 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 				        	AdSlot adSlot = adSlotService.getById(adSlotId);
 				        	try{
 			    	    		if(adSlot.getXpEnable() && adSlot.getAppkey() != null 
-			    	    				&& tempAppkeyMap.containsKey(adSlot.getAppkey())) {
+			    	    				&& !tempAppkeyMap.containsKey(adSlot.getAppkey())) {
 			    	    			reportList = getXPReportList(reportList, adSlot.getAppkey(), startDate, endDate);
 			    	    			tempAppkeyMap.put(adSlot.getAppkey(), null);	
 			    	    		}
