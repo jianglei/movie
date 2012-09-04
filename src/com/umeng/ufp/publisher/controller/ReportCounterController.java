@@ -104,11 +104,15 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 	    			
 	    			
 	    			if(category != null && category.equals(Constants.CATEGORY_XP)) {
+	    				Map<String,String> tempAppkeyMap = new HashMap<String,String>();
 	    				for(Integer adSlotId:adSlotIds){
 				        	AdSlot adSlot = adSlotService.getById(adSlotId);
 				        	try{
-			    	    		if(adSlot.getXpEnable() && adSlot.getAppkey() != null) 
+			    	    		if(adSlot.getXpEnable() && adSlot.getAppkey() != null 
+			    	    				&& !tempAppkeyMap.containsKey(adSlot.getAppkey())) {
 			    	    			reportList = getXPReportList(reportList, adSlot.getAppkey(), startDate, endDate);
+			    	    			tempAppkeyMap.put(adSlot.getAppkey(), null);	
+			    	    		}
 				        	} catch (Exception e) {
 				        		resultParams.put("status", "failed");
 				        		resultParams.put("message", e.getMessage());
