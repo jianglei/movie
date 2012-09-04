@@ -100,8 +100,26 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 	    			startDate = (String)date.get("startDate");
 	    			endDate = (String)date.get("endDate");
 	    			reportList = reportCounterService.findByTotal(adSlotIds, startDate, endDate, category);
+	    			reportList = autoPadding(reportList, startDate, endDate);
+	    			
+	    			
+	    			if(category != null && category.equals(Constants.CATEGORY_XP)) {
+	    				for(Integer adSlotId:adSlotIds){
+				        	AdSlot adSlot = adSlotService.getById(adSlotId);
+				        	try{
+			    	    		if(adSlot.getXpEnable() && adSlot.getAppkey() != null) 
+			    	    			reportList = getXPReportList(reportList, adSlot.getAppkey(), startDate, endDate);
+				        	} catch (Exception e) {
+				        		resultParams.put("status", "failed");
+				        		resultParams.put("message", e.getMessage());
+				        		return resultParams;
+				        	}
+	    				
+	    				}
+	    			}
+	    			
 	    			sumCounter = summary(reportList);
-	    	    	reportList = autoPadding(reportList, startDate, endDate);	
+	    	    		
 	    		}
 	    		resultParams.put("status", "ok");
 	        	resultParams.put("summary", sumCounter);
