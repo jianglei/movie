@@ -36,7 +36,7 @@ window.AddAd.prototype={
         });
         //关闭已有广告弹出层
         $('.close_adlist').click(function(){
-            //$('#adListForUseContainer').fadeOut(200); 
+            //$('#adListForUseContainer').fadeOut(200);
             $('.msg_ad').unblock({onUnblock:function(){
                 that.adSlotExistDialogId = '';
                 $('body').css({'overflow-y':'auto'});
@@ -53,7 +53,7 @@ window.AddAd.prototype={
              if(checkedAd.length>0){
                  $.ajax({
                         type: "get",
-                        url: "/ad/edit2/" + checkedAd.val(), 
+                        url: "/ad/edit2/" + checkedAd.val(),
                         data:{rnd:Math.random()},
                         beforeSend: function(XMLHttpRequest){
                         },
@@ -630,7 +630,9 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
  * ad2 AD2数据对象
  */
 initMsgAd2:function (data) {
-         var that = this;
+        var that = this;
+        $('#loadingStatus').remove();
+        uploadFileWait = false;
         $('.msg_ad').unblock({onUnblock:function(){
             that.adSlotExistDialogId = '';
             // $('body').css({'overflow-y':'auto'});
@@ -689,7 +691,7 @@ initMsgAd2:function (data) {
              'bigimage':{adType:[true,true],adStyle:[false,true,false]},
              'embed':{adType:[true,true],adStyle:[true,false,false]},
              'wap':{adType:[true,true],adStyle:[true,true,false]},
-             'push':{adType:[true,true],adStyle:[true,true,true]},
+             'push':{adType:[true,true],adStyle:[true,true,false]},
              'text':{adType:[true,false],adStyle:[false,false,true]}
          };
          that.isTextLandingType = false;

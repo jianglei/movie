@@ -2,6 +2,7 @@
 /WebContent/WEB-INF/lib
 /WebContent/WEB-INF/work
 /WebContent/public/uploads/
+/WebContent/.sass*
 /deploy/war
 /src_stat/code/*.pyc
 /src_stat/code/ufp_config.py

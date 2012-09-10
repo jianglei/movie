@@ -214,23 +214,24 @@ function changeUploadStyle(obj){
 }
 
 function upload(obj,uploadType,feedback,callback,form,landingSize){
+    function beginUpload(){
+        uploadFileWait = true;
+        var old_action = $(form).attr('action');
+        $(form+'_uploadType').val(uploadType);
+        $(form+'_fileObject').val(obj.id);
+        $(form+'_feedback').val(feedback);
+        $(form+'_callback').val(callback);
+        $(form).attr('target', "uploadFrame");
+        $(form).attr('method', "post");
+        // console.log($(form).attr('target'));
+        $(form).attr('action', "/upload/uploadFile");
+        $(form).submit();
+        $(form).attr('target',"_self");
+        $(form).attr('action', old_action);
 
+    }
     if(obj){
         if(verify_file($(obj),$(obj).attr('title'),$(obj).attr('rule'),false,true)){
-            function beginUpload(){
-                uploadFileWait = true;
-                var old_action = $(form).attr('action');
-                $(form+'_uploadType').val(uploadType);
-                $(form+'_fileObject').val(obj.id);
-                $(form+'_feedback').val(feedback);
-                $(form+'_callback').val(callback);
-                $(form).attr('target', "uploadFrame");
-                $(form).attr('action', "/upload/uploadFile");
-                $(form).submit();
-                $(form).attr('target',"_self");
-                $(form).attr('action', old_action);
-
-            }
             $(obj).parent().append('<img id="loadingStatus" src="/images/roller.gif" width="25" height="25"/>');
             
             if(landingSize){
