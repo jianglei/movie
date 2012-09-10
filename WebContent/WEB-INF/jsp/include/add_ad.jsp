@@ -277,7 +277,7 @@
                     <!--						<td><a href="#">形式预览&nbsp;&gt;&gt;</a></td>-->
                 </tr>
 
-                <tr class="10100 10010 10001 type_switch ios">
+                <tr class="10100 10010 10001  type_switch ios">
                     <th><span class="f_req">*</span><span class="iosOrAndroidName">网址：</span></th>
                     <td>
                         <input type="text" class="input_text" name="weburl" verify="url" title="网址不能为空!" class="sub" style="width: 300px;" value="http://"/>
@@ -286,7 +286,7 @@
                 </tr>
 
                 <form name="form" method="post" action="/ad/save"  onsubmit="javascript: return true;" id="ad_form"   enctype="multipart/form-data">
-                    <tr class="01010 01100 type_switch android">
+                    <tr class="01010 01100 01001 type_switch android">
                         <th><span class="f_req">*</span>上传apk：</th>
                         <td style="display:block">
                             <input title="不能为空!类型(.apk)"  rule="apk" type="file" feedback="url" name="apkFile" id="apkFile" filesize="50000"  filetype="apk"   /> 
@@ -342,7 +342,7 @@
                     <th><span class="f_req">*</span>网站简介：</th> 
                     <td class="f_req"><textarea placeholder="不能多于20字" title="不能多于20字" style="width: 310px; height: 50px;" rows=" " verify="adWords"  forshow="des_show"  cols=" " name="webdes" id="webdes" class="input_textarea previewDes"></textarea></td>
                 </tr> -->
-                <tr class="01100 01010  type_switch">
+                <tr class="01100 01010 01001 type_switch">
                     <th><span class="f_req">*</span>软件名称：</th>
                     <td><input type="text" class="input_text sub previewName" name="appname"  placeholder="不能多于20字" title="不能多于20字" verify="adWords"  forshow="name_show" style="width: 300px;" /></td>
                 </tr>
@@ -361,7 +361,7 @@
                         <input type="hidden" name="textFont" value="" />
                     </td>
                 </tr>-->
-                <tr class="10001 type_switch">
+                <tr class="10001 01001 type_switch">
                     <th><span class="f_req">*</span>文字大小：</th>
                     <td>
                         <div class="ui_select ui_select_textSize" style="z-index: 2;">
@@ -376,7 +376,7 @@
                         <input type="hidden" name="textSize" value="" />
                     </td>
                 </tr>
-                <tr class="10001 type_switch">
+                <tr class="10001 01001 type_switch">
                     <th><span class="f_req">*</span>颜色：</th>
                     <td>
                         <div class="ui_select_textColor" style="z-index: 1;">

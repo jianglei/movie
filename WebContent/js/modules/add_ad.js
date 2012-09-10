@@ -641,8 +641,8 @@ initMsgAd2:function (data) {
         adjustMsg();
         
         $(".err").remove();
-        $(".ui_radio_type").removeClass('ui_radio_checked');
-        $(".ui_radio_form").removeClass('ui_radio_checked');
+        // $(".ui_radio_type").removeClass('ui_radio_checked');
+        // $(".ui_radio_form").removeClass('ui_radio_checked');
         // $(".tb_form").find(".ui_radio_type:eq(1)").addClass('ui_radio_checked');
         // $(".tb_form").find(".ui_radio_form:eq(0)").addClass('ui_radio_checked');
         $("input[name='appname']").val('');
@@ -697,7 +697,7 @@ initMsgAd2:function (data) {
          var opensize = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.opensize').attr('opensize');
             // nowEntryType = $("input[name='record_adslot']:checked").eq(0).closest('tr').find('td.entryType').attr('entryType');
              if(that.entryType=='push'&&opensize=='4'){
-                adType=[true,false];
+                // adType=[true,false];
                 adStyle = [false,false,true];
              }else{
                 adType = landingTypeAdStyleList[that.entryType].adType;
