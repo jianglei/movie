@@ -222,8 +222,6 @@ function upload(obj,uploadType,feedback,callback,form,landingSize){
         $(form+'_feedback').val(feedback);
         $(form+'_callback').val(callback);
         $(form).attr('target', "uploadFrame");
-        $(form).attr('method', "post");
-        // console.log($(form).attr('target'));
         $(form).attr('action', "/upload/uploadFile");
         $(form).submit();
         $(form).attr('target',"_self");
