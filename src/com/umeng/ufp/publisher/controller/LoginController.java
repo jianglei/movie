@@ -44,8 +44,10 @@ public class LoginController extends BaseController<User, Integer> {
     
     @ResponseBody
     @RequestMapping(value = "/doAjax")
-    public String doAjax(HttpServletRequest req, HttpServletResponse res, Model model) throws IOException {
-        return "{status:\"login\"}";
+    public Map<String,String> doAjax(HttpServletRequest req, HttpServletResponse res, Model model) throws IOException {
+    	HashMap<String,String> resultMap = new HashMap<String,String>();
+    	resultMap.put("status", "login");
+        return resultMap;
     }
     
     @RequestMapping(value = "/doLogin")
