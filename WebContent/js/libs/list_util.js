@@ -232,7 +232,7 @@ function upload(obj,uploadType,feedback,callback,form,landingSize){
         if(verify_file($(obj),$(obj).attr('title'),$(obj).attr('rule'),false,true)){
             $(obj).parent().append('<img id="loadingStatus" src="/images/roller.gif" width="25" height="25"/>');
             
-            if(landingSize){
+            if(landingSize && landingSize != '-'){ //landingsize 为'-' 会造成后台bug 所以要判断(因为之前没有文字链上传文件的逻辑)
                 var size = landingSize.split('x');
                 $(form+'_width').val(size[0]);
                 $(form+'_height').val(size[1]);
