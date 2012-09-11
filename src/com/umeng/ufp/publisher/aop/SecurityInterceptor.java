@@ -51,6 +51,7 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 			}else{
 				String data = "{\"status\",\"login\"}";
 		    	response.setStatus(200);
+		    	response.setContentType("application/json;charset=UTF-8");
 		    	OutputStream out = response.getOutputStream();
 		    	out.write(data.getBytes("UTF-8"));
 				return false;
