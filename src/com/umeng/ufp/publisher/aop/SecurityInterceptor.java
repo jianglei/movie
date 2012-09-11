@@ -43,8 +43,14 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 			if(StringUtil.isNotEmpty(querystr)){
 				returl +="?"+querystr;
 			}
-			response.sendRedirect("/login?returl=" + URLEncoder.encode(returl, "UTF-8"));
-			return false;
+			if(request.getHeader("X-Requested-With") == null){
+				response.sendRedirect("/login?returl=" + URLEncoder.encode(returl, "UTF-8"));
+				return false;
+			}else{
+				response.sendRedirect("/login/doAjax");
+				return false;
+			}
+			
 		}
 		return super.preHandle(request, response, handler);
 	}

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.umeng.core.utils.StringUtil;
 import com.umeng.ufp.core.domain.User;
@@ -39,6 +40,12 @@ public class LoginController extends BaseController<User, Integer> {
     	    return doLogin(model, user, returl);
     	}
         return "login";
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/doAjax")
+    public String doAjax(HttpServletRequest req, HttpServletResponse res, Model model) throws IOException {
+        return "{status:\"login\"}";
     }
     
     @RequestMapping(value = "/doLogin")
