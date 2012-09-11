@@ -49,7 +49,6 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 				response.sendRedirect("/login?returl=" + URLEncoder.encode(returl, "UTF-8"));
 				return false;
 			}else{
-
 				String data = "{\"status\",\"login\"}";
 		    	response.setStatus(200);
 		    	OutputStream out = response.getOutputStream();
