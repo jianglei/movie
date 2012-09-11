@@ -236,6 +236,7 @@ function initCodeList(){
             $('#get_code #choose_adslot_item').append('<tr id="loading_row_init"><td colspan="4">加载中请稍等!</td></tr>');
         },
         success: function(data, textStatus){
+            loginValidate(data);
             if(!data.adSlotPage){$('#loading_row_init td').text('没有记录！');return;}
             var list = data.adSlotPage.result,elem="";
             for(var i = 0,len = list.length;i<len;i++){
@@ -672,6 +673,7 @@ function showMsg(adslot, callback) {
                    
                 },
                 success: function(data, textStatus,xhr){
+                    loginValidate(data);
                     if (data["status"] == "ok") {
                         callback();
                     }else{
@@ -735,6 +737,7 @@ function editAdSlot(id,event) {
 	
         },
         success: function(data, textStatus){
+            loginValidate(data);
             if(currentDialogId != adSlotDialogId ) return;
             var adslot = data.adSlot;
             apps = data.appPage.result;
@@ -805,6 +808,7 @@ function loadList(page, status) {
             //showMask();
         },
         success: function(data, textStatus){
+            loginValidate(data);
             var list = data;
             var adSlots = list.adSlotPage.result;
             //apps = list.appPage.result;

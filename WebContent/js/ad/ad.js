@@ -18,6 +18,7 @@ function loadList(page, status) {
         beforeSend: function(XMLHttpRequest){
         },
         success: function(data, textStatus){
+            loginValidate(data);
             var list = data;
             var adPage = list.adPage.result;
             var totalPages = list.adPage.totalPages;
@@ -141,7 +142,8 @@ function updatePrior(id, url){
         type: "GET",
         url: url,
         data:"rnd="+Math.random(),
-        success: function(msg){
+        success: function(data){
+            loginValidate(data);
             $("#td_level_" + id + ".level .pnl").hide();
             $(".prior_img_" + id).removeClass('i1 i2 i3');
             $(".prior_img_" + id).addClass('i' + $('#prior_input_' + id).val());
