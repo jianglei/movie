@@ -150,12 +150,10 @@ window.AdList.prototype = {
                     // $(that.param.listContainer).text("");
                 },
                 success: function(data, textStatus){
+                    loginValidate(data);
                     if(data[that.param.resultBody]){
                         that.tmplList(data[that.param.resultBody]);
-                        
                     }
-                        
-
                 },
                 complete: function(XMLHttpRequest, textStatus){
                 },
@@ -167,7 +165,7 @@ window.AdList.prototype = {
     },
    showPrior: function (input,adId) {
         var that = this;
-	$(".level .pnl").hide();
+        $(".level .pnl").hide();
         var nowPanel = $("#" + input + ".level .pnl");
         if(nowPanel.next('span').hasClass('i1')){
             nowPanel.find('li').eq(0).find('input:radio').trigger('click');
@@ -176,13 +174,13 @@ window.AdList.prototype = {
         }else{
             nowPanel.find('li').eq(2).find('input:radio').trigger('click');
         }
-	nowPanel.show();
-	nowPanel.find(".btn_cancel").unbind('click').click(function() {
-		$(".level .pnl").hide();
-	});
+        nowPanel.show();
+    	nowPanel.find(".btn_cancel").unbind('click').click(function() {
+    		$(".level .pnl").hide();
+    	});
         nowPanel.find(".btn_save").unbind('click').click(function() {
-		that.updatePrior('',adId,'/ad/prior?prior='+$("#prior_input_"+adId).val()+'&id='+adId);
-	});
+    		that.updatePrior('',adId,'/ad/prior?prior='+$("#prior_input_"+adId).val()+'&id='+adId);
+        });
     },
 
     updatePrior:function (ad_slot_id, ad_id, url){
@@ -192,7 +190,8 @@ window.AdList.prototype = {
             type: "GET",
             url: url,
             data: "",
-            success: function(msg){
+            success: function(data){
+                    loginValidate(data);
                     $("#td_level_" + ad_id + ".level .pnl").hide();
                     $(".prior_img_" + ad_id).removeClass('i1 i2 i3');
                     $(".prior_img_" + ad_id).addClass('i' + $('#prior_input_' + ad_id).val());

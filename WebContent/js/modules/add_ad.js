@@ -58,6 +58,7 @@ window.AddAd.prototype={
                         beforeSend: function(XMLHttpRequest){
                         },
                         success: function(data, textStatus){
+                            loginValidate(data);
                             that.initMsgAd2(data);
                         },
                         complete: function(XMLHttpRequest, textStatus){
@@ -268,6 +269,7 @@ window.AddAd.prototype={
 			dataType: "json",
             data:"rnd="+Math.random(),
 			success: function(data, textStatus){
+                loginValidate(data);
                 if(currentDialogId != that.adDialogId) return;
 				that.adSlotPage = data.adSlotPage.result;
 				that.adOrderPage = data.adOrderPage.result;
@@ -1059,6 +1061,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                 });
                             },
                             success: function(data, textStatus){
+                                loginValidate(data);
                                 if( currentDialogId != that.adSlotExistDialogId) return;
                                 that.initExistAdList(data);
                             },
@@ -1096,6 +1099,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                                         beforeSend: function(XMLHttpRequest){
                                         },
                                         success: function(data, textStatus){
+                                            loginValidate(data);
                                             if( currentDialogId != that.adDialogId) return;
                                                 that.initMsgAd2(data);
                                         },
@@ -1129,6 +1133,7 @@ showMsg:function (ad1, callback,hasAdSlot,adOrderId,event) {
                             beforeSend: function(XMLHttpRequest){
                             },
                             success: function(data, textStatus){
+                                loginValidate(data);
                                     if (data["status"] == "ok") {
                                         callback();
                                     }else{
@@ -1242,6 +1247,7 @@ editAD:function (id,event) {
                 beforeSend: function(XMLHttpRequest){
                 },
                 success: function(data, textStatus){
+                    loginValidate(data);
                         if(currentDialogId != that.adDialogId) return;
                         that.adSlotPage = data.adSlotPage.result;
                         that.adOrderPage = data.adOrderPage.result;

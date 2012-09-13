@@ -192,6 +192,7 @@ window.Report.prototype = {
                     
                 },
                 success: function(data, textStatus){
+                  loginValidate(data);
                     if(data[that.param.resultInterface]!==undefined&&data[that.param.resultInterface].result.length > 0){
                         that.tmplList(data[that.param.resultInterface].result);
                     }else{
@@ -227,6 +228,7 @@ window.Report.prototype = {
                   $('#chart1').text('加载中！');
                 },
                 success: function(data, textStatus){
+                  loginValidate(data);
                   if(nowToken!=that.currentToken) return;
                   if(data.status == 'failed'){
                     $(that.param.dataContainer).find("td.wait").html("加载失败！");

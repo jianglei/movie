@@ -12,6 +12,12 @@ function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
 
     $("#loading_row_init").remove();
 }
+function loginValidate(data){
+    if(data.status == 'login') {
+        location.pathname = '/login';
+        return false;
+    }
+}
 /*
  *自适应浮动层高度
  */

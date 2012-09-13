@@ -91,6 +91,7 @@ pageEncoding="utf-8"%>
                    id:$('#userid').val()
                },
                function(data){
+                loginValidate(data);
                  if(data.status =='ok'){
                      alert('自定义成功!');
                  }else{
