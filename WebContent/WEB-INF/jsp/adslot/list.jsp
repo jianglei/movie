@@ -450,12 +450,12 @@
                                                 <div >
                                                     <input type="checkbox" id="ui_radio_jiaohuan" style="vertical-align:middle;"/><label for="ui_radio_jiaohuan">友盟交换网络</label>
                                                     <label>流量占比:&nbsp;&nbsp;</label><input type="text" class="input_text" id="xppercent" style="width:30px;"/>
-                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="appkey" type="text"/>
+                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="appkey" type="text" placeholder="请输入24位正确key"/>
                                                 </div>
                                                 <div>
                                                     <input type="checkbox" id="ui_radio_uads" style="vertical-align:middle;"/><label for="ui_radio_uads">友盟广告网络</label>
                                                     <label>流量占比:&nbsp;&nbsp;</label><input type="text" class="input_text" id="uadsPercent" style="width:30px;"/>
-                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="uadsKey" type="text"/>
+                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="uadsKey" type="text" placeholder="请输入24位正确key"/>
                                                 </div>
                                             </div>
                                         </td>

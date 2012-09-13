@@ -713,8 +713,8 @@ function validateStepTwo(){
             (!~$.inArray($("input[name='landingType']").val(),['banner'])||$("input[name='platform']").val()=='iOS'||(verify_null($('#interval'),'',false,null,{digits:true,max:100,min:1})&&verify_null($('input[name="anim_in"]'),'',false)))&&
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($('.pushStrategyOptions').is(':hidden')||verify_null($('input[name="pushStrategy"]'),true))&&
-            ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{maxLength:30})))&&
-            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{maxLength:30})))&&
+            ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{fixLength:24})))&&
+            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{fixLength:24})))&&
             ($('#displayStrategy').is(':hidden')||verify_null($("input[name='displayStrategy']")))&&
             ($('#textSizeAdSlot').is(':hidden')||verify_null($("input[name='textSizeAdSlot']")));
 
