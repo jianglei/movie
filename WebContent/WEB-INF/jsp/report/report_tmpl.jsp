@@ -4,6 +4,7 @@
 <script src="/js/libs/highcharts.js?${constantVersion}" type="text/javascript"></script>
 <script src="/js/libs/tmpl.min.js?${constantVersion}" type="text/javascript"></script>
 <script src="/js/report/report${build}.js?${constantVersion}" type="text/javascript"></script>
+<script src="/js/libs/list_util${build}.js?${constantVersion}" type="text/javascript"></script>
 <script type="text/x-jquery-tmpl" id="tmplData">
     <tr><td class="\${$item.getClass()}">\${date}</td>
     <td class="center">￥\${$item.round($data.avgPrice)}</td>
