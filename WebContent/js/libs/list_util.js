@@ -12,6 +12,12 @@ function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
 
     $("#loading_row_init").remove();
 }
+function loginValidate(data){
+    if(data.status == 'login') {
+        location.pathname = '/login';
+        return false;
+    }
+}
 /*
  *自适应浮动层高度
  */
@@ -214,26 +220,25 @@ function changeUploadStyle(obj){
 }
 
 function upload(obj,uploadType,feedback,callback,form,landingSize){
+    function beginUpload(){
+        uploadFileWait = true;
+        var old_action = $(form).attr('action');
+        $(form+'_uploadType').val(uploadType);
+        $(form+'_fileObject').val(obj.id);
+        $(form+'_feedback').val(feedback);
+        $(form+'_callback').val(callback);
+        $(form).attr('target', "uploadFrame");
+        $(form).attr('action', "/upload/uploadFile");
+        $(form).submit();
+        $(form).attr('target',"_self");
+        $(form).attr('action', old_action);
 
+    }
     if(obj){
         if(verify_file($(obj),$(obj).attr('title'),$(obj).attr('rule'),false,true)){
-            function beginUpload(){
-                uploadFileWait = true;
-                var old_action = $(form).attr('action');
-                $(form+'_uploadType').val(uploadType);
-                $(form+'_fileObject').val(obj.id);
-                $(form+'_feedback').val(feedback);
-                $(form+'_callback').val(callback);
-                $(form).attr('target', "uploadFrame");
-                $(form).attr('action', "/upload/uploadFile");
-                $(form).submit();
-                $(form).attr('target',"_self");
-                $(form).attr('action', old_action);
-
-            }
             $(obj).parent().append('<img id="loadingStatus" src="/images/roller.gif" width="25" height="25"/>');
             
-            if(landingSize){
+            if(landingSize && landingSize != '-'){ //landingsize 为'-' 会造成后台bug 所以要判断(因为之前没有文字链上传文件的逻辑)
                 var size = landingSize.split('x');
                 $(form+'_width').val(size[0]);
                 $(form+'_height').val(size[1]);

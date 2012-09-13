@@ -149,7 +149,7 @@ hr {
 
 .btn_use_pastad {
 	display:block;
-	width:121px;
+	width:119px;
 	height:27px;
 	border:none;
 	cursor:pointer;
@@ -208,7 +208,7 @@ hr {
 	clear: both;
 }
 .hd{
-	display: none;
+	display:none;
 }
 .tips{
 	color:grey;

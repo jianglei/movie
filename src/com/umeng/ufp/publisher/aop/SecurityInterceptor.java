@@ -1,6 +1,8 @@
 package com.umeng.ufp.publisher.aop;
 
+import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,8 +45,18 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 			if(StringUtil.isNotEmpty(querystr)){
 				returl +="?"+querystr;
 			}
-			response.sendRedirect("/login?returl=" + URLEncoder.encode(returl, "UTF-8"));
-			return false;
+			if(request.getHeader("X-Requested-With") == null){
+				response.sendRedirect("/login?returl=" + URLEncoder.encode(returl, "UTF-8"));
+				return false;
+			}else{
+				String data = "{\"status\":\"login\"}";
+		    	response.setStatus(200);
+		    	response.setContentType("application/json;charset=UTF-8");
+		    	OutputStream out = response.getOutputStream();
+		    	out.write(data.getBytes("UTF-8"));
+				return false;
+			}
+			
 		}
 		return super.preHandle(request, response, handler);
 	}

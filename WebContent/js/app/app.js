@@ -15,36 +15,8 @@ $(function() {
             });
             loadList(1);
         });
-        // $(".btn_save").unbind("click").click(function() {
-        //     if (verify_null($("input[name='name']"), "应用名称不能为空！") &&
-        //         verify_null($("input[name='platform']"), "平台不能为空！", true)) {
-        //         var name = $("input[name='name']").val();
-        //         var platform = $("input[name='platform']").val();
-        //         var description = $("textarea[name='description']").val();
-        //         $.ajax({
-        //             type: "get",
-        //             url: "/app/save?name=" + name + "&platform=" + platform + "&description=" + description,
-        //             data:"rnd="+Math.random(),
-        //             dataType: "json",
-        //             beforeSend: function(XMLHttpRequest){
-        //             },
-        //             success: function(data, textStatus){
-        //                 if (data["status"] == "ok") {
-                            
-        //                 }
-        //             },
-        //             complete: function(XMLHttpRequest, textStatus){
-        //             },
-        //             error: function(){
-        //             }
-        //         });
-        //     }
-        // });
+       
     });
-    
-    // $(window).resize(function(){
-    //     adjustMsg();
-    // });
 });
     
 /* 清除列表项 */
@@ -69,8 +41,8 @@ function loadList(page, status) {
         beforeSend: function(XMLHttpRequest){
         },
         success: function(data, textStatus){
+            loginValidate(data);
             var list = data;
-           
             var apps = list.appPage.result;
             var totalPages = list.appPage.totalPages;
             var pageNo = list.appPage.pageNo;
@@ -187,6 +159,7 @@ function initMsg(app,callback,id) {
                 beforeSend: function(XMLHttpRequest){
                 },
                 success: function(data, textStatus){
+                    loginValidate(data);
                     if (data["status"] == "ok") {
                         callback();
                     }
@@ -200,6 +173,7 @@ function initMsg(app,callback,id) {
                     });
                 }
             });
+            loginValidate(data);
         }
     }
     $(".btn_save").unbind('click').click(function() {
@@ -225,6 +199,7 @@ function editApp(id,event) {
             
         },
         success: function(data, textStatus){
+            loginValidate(data);
             if(currentDialogId != appDialogId) return;
             
 
@@ -250,6 +225,7 @@ function editApp(id,event) {
             
         }
     });
+loginValidate(data);
 }
 
 function showMask() {

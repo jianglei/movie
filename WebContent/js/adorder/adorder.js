@@ -104,6 +104,7 @@ function loadList(page, status) {
         beforeSend: function(XMLHttpRequest){
         },
         success: function(data, textStatus){
+            loginValidate(data);
             var list = data.adOrderPage;
             var adOrders = list.result;
             var totalPages = list.totalPages;
@@ -283,6 +284,7 @@ function showMsg(adorder, callback) {
                 beforeSend: function(XMLHttpRequest){
                 },
                 success: function(data, textStatus){
+                    loginValidate(data);
                     if (data["status"] == "ok") {
                         //没有返回ok？？暂时写到complete处理
                     }
@@ -321,6 +323,7 @@ function editAdOrder(id,event) {
 	
         },
         success: function(data, textStatus){
+            loginValidate(data);
             if(currentDialogId != adOrderDialogId) return;
             var adorder = new ADOrder(data.adOrder.id, data.adOrder.name, data.adOrder.customer, data.adOrder.startTime, data.adOrder.endTime,data.adOrder.comments);
             showMsg(adorder, function() {

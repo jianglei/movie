@@ -51,6 +51,7 @@ public class AdSlotConstants {
 	
 	public class Template {
 	    public final static String APPLIST = "applist";
+	    public final static String ICONLIST = "iconlist";
 	    public final static String HORIZON_BIGIMAGE = "horizon_bigimage";
 	    public final static String VERTICAL_BIGIMAGE = "vertical_bigimage";
 	}
@@ -67,6 +68,7 @@ public class AdSlotConstants {
 		public final static String HUNDRED = "100";
 		public final static String EIGHTY = "80";
 		public final static String SIXTY = "60";
+		public final static String MESSAGEBOX = "4";
 	}
 	
     public static Set<String> landingTypeSet = new HashSet<String>();
@@ -89,6 +91,7 @@ public class AdSlotConstants {
     public static Set<String> templateSet = new HashSet<String>();
     static {
     	templateSet.add(AdSlotConstants.Template.APPLIST);
+    	templateSet.add(AdSlotConstants.Template.ICONLIST);
     	templateSet.add(AdSlotConstants.Template.HORIZON_BIGIMAGE);
     	templateSet.add(AdSlotConstants.Template.VERTICAL_BIGIMAGE);
     }
@@ -124,6 +127,7 @@ public class AdSlotConstants {
     	opensizeSet.add(AdSlotConstants.Opensize.HUNDRED);
     	opensizeSet.add(AdSlotConstants.Opensize.EIGHTY);
     	opensizeSet.add(AdSlotConstants.Opensize.SIXTY);
+    	opensizeSet.add(AdSlotConstants.Opensize.MESSAGEBOX);
     }
     
     public static Set<String> pushStrategySet = new HashSet<String>();

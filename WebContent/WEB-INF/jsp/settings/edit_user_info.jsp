@@ -185,6 +185,7 @@
             if($('#form_pro').is(':visible')){
                 options = {
                     success:function(data){
+                        loginValidate(data);
                         if(data.status == 'ok'){
                             $('table.tb_form_info tr').each(function(){
                                 var index = $(this).index();
@@ -206,6 +207,7 @@
                 }
                 options = {
                     success:function(data){
+                        loginValidate(data);
                         if(data.status =='ok'){
                             alert('修改密码成功!');
                             setTimeout($.unblockUI,100);
