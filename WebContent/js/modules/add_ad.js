@@ -161,17 +161,18 @@ window.AddAd.prototype={
 	//选择开始时间
 	$('#datepicker_ad_start').datetimepicker({
 		dateFormat: 'yy-mm-dd',
-                timeFormat:'hh:mm',
-                changeYear:true,
-                changeMonth:true,
-                monthNamesShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
-                dayNames:['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
-                dayNamesMin:['日','一','二','三','四','五','六'],
-                timeText:'时间',
-                hourText:'时',
-                minuteText:'分',
-                currentText:'现在',
-                closeText:'确定',
+        timeFormat:'hh:mm',
+        changeYear:true,
+        changeMonth:true,
+        monthNamesShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+        dayNames:['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+        dayNamesMin:['日','一','二','三','四','五','六'],
+        timeText:'时间',
+        hourText:'时',
+        minuteText:'分',
+        currentText:'现在',
+        closeText:'确定',
+        maxDate :'+1y',
 		onClose: function(dateText, inst) {
 			// var endDateTextBox = $('#datepicker_ad_end');
 			// if (endDateTextBox.val() !== '') {
@@ -193,51 +194,51 @@ window.AddAd.prototype={
 	
 	//选择结束日期
 	$('#datepicker_ad_end').datetimepicker({
-	            dateFormat: 'yy-mm-dd',
-                timeFormat:'hh:mm',
-                changeYear:true,
-                changeMonth:true,
-                monthNamesShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
-                dayNames:['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
-                dayNamesMin:['日','一','二','三','四','五','六'],
-                timeText:'时间',
-                hourText:'时',
-                minuteText:'分',
-                currentText:'现在',
-                closeText:'确定',
-                beforeShow: function( input ) {
-                    //添加不设置button
-                    setTimeout(function() {
-                        var buttonPane = $( input )
-                            .datepicker( "widget" )
-                            .find( ".ui-datepicker-buttonpane" );
-                            buttonPane.find('.ui-datepicker-clear').remove();
-                        $( "<button>", {
-                            text: "不设置",
-                            click: function() {
-                               $('#datepicker_ad_end').val('').datepicker( "hide" ).blur();
-                            }
-                        }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
-                    }, 1 );
-                },
-                onChangeMonthYear: function( input ) {
-                    //添加不设置button
-                    setTimeout(function() {
-                        var buttonPane = $( input )
-                            .datepicker( "widget" )
-                            .find( ".ui-datepicker-buttonpane" );
-                            buttonPane.find('.ui-datepicker-clear').remove();
-                        $( "<button>", {
-                            text: "不设置",
-                            click: function() {
-                                $('#datepicker_ad_end').val('').datepicker( "hide" ).blur();
-                            }
-                        }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
-                    }, 1 );
-                },
+        dateFormat: 'yy-mm-dd',
+        timeFormat:'hh:mm',
+        changeYear:true,
+        changeMonth:true,
+        monthNamesShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+        dayNames:['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+        dayNamesMin:['日','一','二','三','四','五','六'],
+        timeText:'时间',
+        hourText:'时',
+        minuteText:'分',
+        currentText:'现在',
+        closeText:'确定',
+        beforeShow: function( input ) {
+            //添加不设置button
+            setTimeout(function() {
+                var buttonPane = $( input )
+                    .datepicker( "widget" )
+                    .find( ".ui-datepicker-buttonpane" );
+                    buttonPane.find('.ui-datepicker-clear').remove();
+                $( "<button>", {
+                    text: "不设置",
+                    click: function() {
+                       $('#datepicker_ad_end').val('').datepicker( "hide" ).blur();
+                    }
+                }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+            }, 1 );
+        },
+        onChangeMonthYear: function( input ) {
+            //添加不设置button
+            setTimeout(function() {
+                var buttonPane = $( input )
+                    .datepicker( "widget" )
+                    .find( ".ui-datepicker-buttonpane" );
+                    buttonPane.find('.ui-datepicker-clear').remove();
+                $( "<button>", {
+                    text: "不设置",
+                    click: function() {
+                        $('#datepicker_ad_end').val('').datepicker( "hide" ).blur();
+                    }
+                }).appendTo( buttonPane ).addClass("ui-datepicker-clear ui-state-default ui-priority-primary ui-corner-all");
+            }, 1 );
+        },
 		onClose: function(dateText, inst) {
 			var startDateTextBox = $('#datepicker_ad_start');
-			if (startDateTextBox.val() != '') {
+			if (startDateTextBox.val() !== '') {
 				var testStartDate = new Date(startDateTextBox.val());
 				var testEndDate = new Date(dateText);
 				if (testStartDate > testEndDate)
@@ -246,10 +247,10 @@ window.AddAd.prototype={
 			else {
 				startDateTextBox.val(dateText);
 			}
-                        $(this).blur();
+            $(this).blur();
 		},
 		onSelect: function (input){
-                        var end = $(this).datetimepicker('getDate');
+            var end = $(this).datetimepicker('getDate');
 			$('#datepicker_ad_start').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
 			
 		}
@@ -522,7 +523,7 @@ initMsgAd1:function (ad,hasAdSlot,adOrderId,event) {
         (function(){
             var len = that.adSlotPage.length;
             if(len >0 ){
-                var  adSlotLandingTypeMap = {
+                var adSlotLandingTypeMap = {
                     bigimage:'轮播大图',
                     embed:'内嵌入口',
                     banner:'横幅',
@@ -694,7 +695,7 @@ initMsgAd2:function (data) {
              'embed':{adType:[true,true],adStyle:[true,false,false]},
              'wap':{adType:[true,true],adStyle:[true,true,false]},
              'push':{adType:[true,true],adStyle:[true,true,false]},
-             'text':{adType:[true,false],adStyle:[false,false,true]}
+             'text':{adType:[true,true],adStyle:[false,false,true]}
          };
          that.isTextLandingType = false;
          var adType = [true,true],adStyle=[true,true,true];
