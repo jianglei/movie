@@ -106,6 +106,8 @@
                 <li class="camera360" title="camara269"><a target="_blank" href="http://www.camera360.us/"></a></li>
                 <li class="meituxiuxiu" title="美图秀秀"><a target="_blank" href="http://xiuxiu.meitu.com/"></a></li>
                 <li class="baofeng" title="暴风影音"><a target="_blank" href="http://www.baofeng.com/"></a></li>
+                <li class="yy" title="YY 语音"><a target="_blank" href="http://3g.yy.com/"></a></li>
+                <li class="forgame" title="ForGame"><a target="_blank" href="http://www.forgame.com/"></a></li>
             </ul>
         </div>
     </div>

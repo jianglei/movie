@@ -1409,6 +1409,12 @@ marquee p {
 .cooperation ul li.baofeng a{
     background-position:-1110px 0;
 }
+.cooperation ul li.yy a{
+    background-position:-1266px 0;
+}
+.cooperation ul li.forgame a{
+    background-position:-1425px 0;
+}
 .cooperation .c_title{
     color:#6367AA;
     margin-bottom:10px;
