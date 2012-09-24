@@ -499,13 +499,19 @@ $(function() {
         { name:'订单投放完成',query:'adorder_finish'},//6
         { name:'尚未投放',query:'ready'},//7
         { name:'订单尚未投放',query:'adorder_ready'},//8
+        { name:'iOS',query:'iOS'},//9
+        { name:'Android',query:'android'}//10
         ],
         str = "";
         url_status = "";
         $(this).closest('.state').find(".state_panel li").not(':last').find("input[type='checkbox']:checked").each(function() {
             empty = 0;
             str += '<span class="'+$(this).siblings('label').attr('class')+'">'+status[$(this).val()].name+'</span>';
-            url_status += ("&status=" +($(this).attr('pausetype')?($(this).attr('pausetype')+'_'):'')+ status[$(this).val()].query);
+            if($(this).siblings('label').hasClass('platform')){
+                url_status += "&platform=" + status[$(this).val()].query;
+            }else{
+                url_status += ("&status=" +($(this).attr('pausetype')?($(this).attr('pausetype')+'_'):'')+ status[$(this).val()].query);
+            }
 
         });
         if (empty == 1) {

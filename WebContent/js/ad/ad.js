@@ -40,7 +40,7 @@ function loadList(page, status) {
                 odd = !odd;
                 elem += '<td class="chk pos_rel" style="display:block"><input type="checkbox" name="record_ch" value="' + adPage[i].id + '"/></td>';
                 elem += '<td class="edit_btn" title="'+adPage[i].name+'"><a href="javascript:void(0)" adpage_id="'+ adPage[i].id +'" class="tb_adname">' + adPage[i].name + '</a></td>';
-                
+                elem += '<td class=" platform" platform="'+ adPage[i].platform +'"><img src="/imgs/'+adPage[i].platform + '.gif"/></td>';
                 elem += '<td class="tb_ad_slot_name" title="'+(adPage[i].ad_slot_name?adPage[i].ad_slot_name:'-')+'">'+(adPage[i].ad_slot_name?adPage[i].ad_slot_name:'-')+'</td>';
                 
                 elem += '<td>' + (adPage[i].start_time? formatdate(new Date(adPage[i].start_time), "yyyy-MM-dd HH:mm"):"-") + '</td>';

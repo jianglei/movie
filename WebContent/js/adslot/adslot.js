@@ -829,6 +829,7 @@ function loadList(page, status) {
                 odd = !odd;
                 elem += '<td class="chk pos_rel" style="display:block;"><input type="checkbox" name="record_ch" value="' + adSlots[i].id + '"/></td>';
                 elem += '<td><a href="javascript:void(0)" onclick="editAdSlot(' + adSlots[i].id + ',event)" class="tb_name">' + adSlots[i].name + '</a></td>';
+                elem += '<td id="td_status_' + adSlots[i].id + '" class=" platform" platform="'+ adSlots[i].platform +'"><img src="/imgs/'+adSlots[i].platform + '.gif"/></td>';
                 elem += '<td id="td_status_' + adSlots[i].id + '" class=" status" status="'+ adSlots[i].status +'">';
                 if (adSlots[i].status=="normal")
                     elem += '<img src="images/icon_state_normal.gif" width="16" height="16" alt="正常" />正常';

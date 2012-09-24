@@ -11,13 +11,13 @@ window.Report.prototype = {
         var that = this;
         var selTitle = {list:'',adorder:'选择订单:',adslot:'选择广告位:',ad:'选择广告:',app:'选择应用:'};
         
-        if(that.param.name=='list'){$('div.sel_wrap,div.sel_title').hide();}
+        if(!!~$.inArray(that.param.name,['list','platform'])){$('div.sel_wrap,div.sel_title').hide();}
         if(that.param.name=='ad'){$('.output_csv').show();}
 
         if(selTitle[that.param.name]){$('div.sel_title1').text(selTitle[that.param.name]);}
         $('.sel_wrap').click(function(){
             $(this).find('.pop_menu').slideToggle(300,function(){
-                 $(".con",this).next().toggleClass("arrow_up");
+              $(".con",this).next().toggleClass("arrow_up");
             });
         });
         //选择广告位,广告,应用,订单
@@ -27,16 +27,27 @@ window.Report.prototype = {
             that.getPostData();
             that.loadData($(this).find("a").attr('id'),that.param.data);
         });
+        if(that.param.name == 'platform'){
+          $('div.sel_wrap3,div.sel_title3').show();
+          $(".sel_wrap3").delegate("li","click",function() {
+            $(".sel_wrap3 .con").text($(this).text()).attr('title',$(this).text()).attr('platform',$(this).find("a").attr('platform'));
+            that.param.data.platform = $(".sel_wrap3 .con").attr('platform');
+            that.currentToken = that.getToken();
+            that.getPostData();
+            that.loadData(null,that.param.data);
+                
+          });
+        }
         if(!!~$.inArray(that.param.name,['app','adslot','list'])){
 
           $('div.sel_wrap2,div.sel_title2').show();
           $(".sel_wrap2").delegate("li","click",function() {
-	            $(".sel_wrap2 .con").text($(this).text()).attr('title',$(this).text()).attr('category',$(this).find("a").attr('category'));
-	            that.currentToken = that.getToken();
-	            that.getPostData();
-	            that.loadData($(".sel_wrap1 .con").attr('a_id'),that.param.data);
+            $(".sel_wrap2 .con").text($(this).text()).attr('title',$(this).text()).attr('category',$(this).find("a").attr('category'));
+            that.currentToken = that.getToken();
+            that.getPostData();
+            that.loadData($(".sel_wrap1 .con").attr('a_id'),that.param.data);
                 
-        	});
+          });
         }
         
         //今日 昨日 ...链接

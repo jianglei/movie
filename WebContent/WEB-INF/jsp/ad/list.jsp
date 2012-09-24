@@ -55,6 +55,7 @@
                             <tr class="tit">
                                 <th width="40"><input type="checkbox" name=" "  onclick="checkAll(this, 'record_ch');" /></th>
                                 <th>广告名</th>
+                                <th width="50">平台</th>
                                 <th width="130">所属广告位</th>
                                 <th width="155">开始日期</th>
                                 <th width="155">结束日期</th>
@@ -63,7 +64,7 @@
                                 <th class="last" width="100">操作</th>
                             </tr>
                             <tr id="loading_row_init">
-                                <td colspan="8">加载中...</td>
+                                <td colspan="9">加载中...</td>
                             </tr>
                         </table>
                     </div>

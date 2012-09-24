@@ -374,7 +374,12 @@ a.view_icon:hover{
     background:url("../images/icon_state_pause.gif") center left no-repeat;
 
 }
-
+.platform_ios{
+    background:url("../imgs/iOS.gif") center left no-repeat;
+}
+.platform_android{
+    background:url("../imgs/android.gif") center left no-repeat;
+}
 .panel_table .state .complete {
     background:url("../images/icon_state_complete.gif") center left no-repeat;
 }

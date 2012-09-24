@@ -72,7 +72,8 @@ margin-left: auto;">
 			<li><a href="/report/adslot">广告位报表</a><span></span></li>
 			<li><a href="/report/adorder">订单报表</a><span></span></li>
 			<li><a href="/report/ad">广告报表</a><span></span></li>
-			<li><a href="/report/app" style="background-image: none">应用报表</a><span></span></li>
+			<li><a href="/report/app">应用报表</a><span></span></li>
+			<li><a href="/report/platform" style="background-image: none">平台报表</a><span></span></li>
 		</ul>
 	</div>
 </div>

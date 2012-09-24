@@ -47,6 +47,8 @@
                                     <li><input type="checkbox" value="0" id="status_normal"/><label for="status_normal" class="filter normal">正常</label></li>
                                     <li><input type="checkbox" value="2" id="status_pause" /><label for="status_pause" class="filter pause">暂停</label></li>
     								<li><input type="checkbox" value="1" id="app_pause" /><label for="app_pause" class="filter pause">应用暂停</label></li>
+                                    <li><input type="checkbox" value="9" id="platform_ios" /><label for="platform_ios" class="filter platform_ios">iOS</label></li>
+                                    <li><input type="checkbox" value="10" id="platform_android" /><label for="platform_android" class="filter platform_android">Android</label></li>
                                     <!--								<li><input type="checkbox" value="3" id="status_complete"/><label for="status_complete" class="filter complete">订单完成</label></li>-->
                                     <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
@@ -64,6 +66,7 @@
                             <tr class="tit">
                                 <th width="35"><input type="checkbox" name=" " onclick="checkAll(this, 'record_ch');"/></th>
                                 <th width="200">广告位名称</th>
+                                <th width="50">平台</th>
                                 <th width="100">状态</th>
                                 <th>所属应用</th>
                                 <th width="120">入口类型</th>
@@ -71,7 +74,7 @@
                                 <th width="180" class="last">操作</th>
                             </tr>
                             <tr id="loading_row_init">
-                                <td colspan="7">加载中...</td>
+                                <td colspan="8">加载中...</td>
                             </tr>
                         </table>
                     </div>
@@ -549,7 +552,7 @@
         <%@include file="../include/add_ad.jsp"%>
         <script src="/js/libs/jquery.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/libs/jquery-ui-1.8.16.custom.min.js?${constantVersion}" type="text/javascript" ></script>
-        <script src="/js/libs/jquery-ui-timepicker-addon${build}.js?${constantVersion}" type="text/javascript"></script>
+        <script src="/js/libs/jquery-ui-timepicker-addon.min.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/modules/iColorPicker${build}.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/modules/fontPicker${build}.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/brush/shCore${build}.js?${constantVersion}" type="text/javascript"></script>
