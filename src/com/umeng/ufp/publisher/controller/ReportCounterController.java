@@ -77,6 +77,14 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
         return "report/adorder";
     }
     
+    @RequestMapping(value = "platform")
+    public String platformList(HttpServletRequest request, 
+    		HttpServletResponse response, 
+    		Model model) {
+        
+        return "report/platform";
+    }
+    
     
     @RequestMapping(value = "total")
     @ResponseBody

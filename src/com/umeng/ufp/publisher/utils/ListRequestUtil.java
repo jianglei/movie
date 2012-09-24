@@ -42,6 +42,11 @@ public class ListRequestUtil {
 
         	params.put("status", status);
         }
+        String[] platform = request.getParameterValues("platform");
+        //当前只有两种类型的平台，如果两种平台都传入，就不需要这个过滤条件了
+        if(platform!=null && platform.length == 1 ){
+        	params.put("platform", platform[0]);
+        }
         return params;
     }    
     public static Map<String, Object> getDateRangeParams(HttpServletRequest request){
