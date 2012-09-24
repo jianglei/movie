@@ -86,6 +86,7 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
     		@RequestParam(value="startDate", required = false) String startDate,
     		@RequestParam(value="endDate", required = false) String endDate,
     		@RequestParam(value="category", required = false) String category,
+    		@RequestParam(value="platform", required = false) String platform,
     		Model model) {
     	User user = getLoginUser(request);
     	
@@ -99,7 +100,7 @@ public class ReportCounterController extends BaseController<ReportCounter, Integ
 	    			Map<String, Object> date = getDate(startDate, endDate, period);
 	    			startDate = (String)date.get("startDate");
 	    			endDate = (String)date.get("endDate");
-	    			reportList = reportCounterService.findByTotal(adSlotIds, startDate, endDate, category);
+	    			reportList = reportCounterService.findByTotal(adSlotIds, startDate, endDate, category, platform);
 	    			reportList = autoPadding(reportList, startDate, endDate);
 	    			
 	    			
