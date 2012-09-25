@@ -5,9 +5,9 @@
     addAd.region.initUI();
     $(':checkbox').prop('checked',false);
 });
-/*  
+/*
  * 加载列表
- * page 页码	
+ * page 页码
  */
 function loadList(page, status) {
     $.ajax({

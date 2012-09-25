@@ -37,6 +37,8 @@
                                     <li><input type="checkbox" value="6" id="status_adorder_complete" /><label for="status_adorder_complete" class="filter complete">订单投放完成</label></li>
                                     <li><input type="checkbox" value="7" id="status_ready"/><label for="status_ready" class="filter ready">尚未投放</label></li>
                                     <li><input type="checkbox" value="8" id="status_adorder_ready" /><label for="status_adorder_ready" class="filter ready">订单尚未投放</label></li>
+                                     <li><input type="checkbox" value="9" id="platform_ios" /><label for="platform_ios" class="filter platform_ios platform">iOS</label></li>
+                                    <li><input type="checkbox" value="10" id="platform_android" /><label for="platform_android" class="filter platform_android platform">Android</label></li>
                                     <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
                                 <div class="opr">

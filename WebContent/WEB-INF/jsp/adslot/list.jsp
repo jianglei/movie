@@ -47,8 +47,8 @@
                                     <li><input type="checkbox" value="0" id="status_normal"/><label for="status_normal" class="filter normal">正常</label></li>
                                     <li><input type="checkbox" value="2" id="status_pause" /><label for="status_pause" class="filter pause">暂停</label></li>
     								<li><input type="checkbox" value="1" id="app_pause" /><label for="app_pause" class="filter pause">应用暂停</label></li>
-                                    <li><input type="checkbox" value="9" id="platform_ios" /><label for="platform_ios" class="filter platform_ios">iOS</label></li>
-                                    <li><input type="checkbox" value="10" id="platform_android" /><label for="platform_android" class="filter platform_android">Android</label></li>
+                                    <li><input type="checkbox" value="9" id="platform_ios" /><label for="platform_ios" class="filter platform_ios platform">iOS</label></li>
+                                    <li><input type="checkbox" value="10" id="platform_android" /><label for="platform_android" class="filter platform_android platform">Android</label></li>
                                     <!--								<li><input type="checkbox" value="3" id="status_complete"/><label for="status_complete" class="filter complete">订单完成</label></li>-->
                                     <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
