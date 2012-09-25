@@ -120,6 +120,9 @@
 	        <if test="userId != null and userId != ''">
             	and ad.user_id = #{userId}
             </if>
+            <if test="platform != null and platform != ''">
+            	and ad.platform = #{platform}
+            </if>
 		</where>
 		order by id desc
 	     <if test="limit != null and limit !=''">
