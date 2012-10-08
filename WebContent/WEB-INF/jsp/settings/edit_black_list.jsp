@@ -42,6 +42,7 @@ pageEncoding="utf-8"%>
     </body>
 </html>
 <script type="text/javascript" src="/js/libs/jquery-1.6.1.min.js?${constantVersion}"></script>
+<script type="text/javascript" src="/js/libs/list_util.js?${constantVersion}"></script>
 <script type="text/javascript">
     $(function(){
         $('.btn_save').click(function(){
