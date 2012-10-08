@@ -155,6 +155,7 @@
 <script type="text/javascript" src="/js/libs/jquery.validate.min.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/jquery.form.js?${constantVersion}"></script>
 <script type="text/javascript" src="/js/libs/jquery.md5.js?${constantVersion}"></script>
+<script type="text/javascript" src="/js/libs/list_util.js?${constantVersion}"></script>
 <script type="text/javascript">
     $(function(){
         var options;
