@@ -189,6 +189,9 @@
                     #{adid}
                 </foreach>
             </if>
+            <if test="platform != null and platform != ''">
+            	and ad.platform = #{platform}
+            </if>
         </where>
         
 	</select>
