@@ -1,13 +1,43 @@
 var url_status,uploadFileHd,uploadFileWait;
 function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
-    var pager = "";
-    for (var i = 1; i <= totalPages; i++) {
-        if (i == pageNo) pager += '<span>' + i + '</span>';
-        else pager += '<a page="'+ i +'" class="pageChange">' + i  + '</a>';
+     function genPagin(totalPages,current){
+        var str="",lowPageNo,upPageNo,viewCount = 3;
+        //分页显示...逻辑
+        lowPageNo = current - viewCount;
+        upPageNo = current + viewCount;
+        if(lowPageNo<1){
+            upPageNo = upPageNo-lowPageNo+1;
+        }
+        if(upPageNo>totalPages){
+            lowPageNo = lowPageNo - upPageNo+totalPages;
+        }
+        for(var i = 0;i<totalPages;i++){
+            if(i===0||i==totalPages-1||(i+1>=lowPageNo&&i+1<=upPageNo)){
+                str += '<a class="'+(i+1==current?'current':'')+'" p="'+(i+1)+'">'+(i+1)+'</a>';
+            }else if(i==totalPages-2){
+                if(upPageNo<totalPages-2){
+                    str += '<a class="dot" p="'+(i+1)+'">...</a>';
+                }else{
+                    str += '<a  p="'+(i+1)+'">'+(i+1)+'</a>';
+                }
+            }else if(i==1){
+                if(lowPageNo>3){
+                    str += '<a class="dot" p="'+(i+1)+'">...</a>';
+                }else{
+                    str += '<a  p="'+(i+1)+'">'+(i+1)+'</a>';
+                }
+            }
+        }
+        return str;
     }
+    var pager = genPagin(totalPages,pageNo);
+    // for (var i = 1; i <= totalPages; i++) {
+    //     if (i == pageNo) pager += '<span>' + i + '</span>';
+    //     else pager += '<a page="'+ i +'" class="pageChange">' + i  + '</a>';
+    // }
     pagerContainer = (pagerContainer&&pagerContainer!=='')?pagerContainer:'#pager';
-    $(pagerContainer).html("").append(pager).find('.pageChange').unbind('click').click(function(){
-        callback($(this).attr('page'),url_status);
+    $(pagerContainer).html("").append(pager).find('a:not(.current)').unbind('click').click(function(){
+        callback($(this).attr('p'),url_status);
     });
 
     $("#loading_row_init").remove();
