@@ -27,7 +27,7 @@ body{
 .adList{
     table-layout:fixed;
 }
-.adList tr td{
+.adList tr td:nth-of-type(2),.adList tr td:nth-of-type(4){
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
