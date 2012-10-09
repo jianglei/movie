@@ -487,9 +487,9 @@ $(function() {
     //
     $('#container').delegate(".btn_change_state",'click',function(e) {
         e.stopPropagation();
-        var  empty = 1,
+        // var  empty = 1,
         //4种筛选状态
-        status = [
+        var status = [
         { name:'正常', query:'normal'}, //0
         { name:'应用暂停',query:'app_pause'}, //1
         { name:'暂停', query:'pause'}, //2
@@ -503,10 +503,12 @@ $(function() {
         { name:'Android',query:'android'}//10
         ],
         str = "";
+        count = 0;
         url_status = "";
         $(this).closest('.state').find(".state_panel li").not(':last').find("input[type='checkbox']:checked").each(function() {
-            empty = 0;
-            str += '<span class="'+$(this).siblings('label').attr('class')+'">'+status[$(this).val()].name+'</span>';
+            // empty = 0;
+            count++;
+            // str += '<span class="'+$(this).siblings('label').attr('class')+'">'+status[$(this).val()].name+'</span>';
             if($(this).siblings('label').hasClass('platform')){
                 url_status += "&platform=" + status[$(this).val()].query;
             }else{
@@ -514,9 +516,11 @@ $(function() {
             }
 
         });
-        if (empty == 1) {
+        if (count === 0) {
             str = '<span class="none">未筛选</span>';
             url_status='';
+        }else{
+            str = '<span class="none">'+ count +'个筛选条件 </span>';
         }
         $(this).closest('.state').find(".state_info").html(str);
         $(this).closest('.state').removeClass("show");
