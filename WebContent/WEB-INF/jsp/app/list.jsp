@@ -37,7 +37,7 @@
                                 <!--								<li><input type="checkbox" value="1" id="status_top"/><label for="status_top" class="filter top">到达预算</label></li>-->
                                 <li><input type="checkbox" value="2" id="status_pause" /><label for="status_pause" class="filter pause">暂停</label></li>
                                 <!--                                                                <li><input type="checkbox" value="3" id="status_complete"/><label for="status_complete" class="filter complete">订单完成</label></li>-->
-                                <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
+                                <li class="bp"><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                             </ul>
                             <div class="opr"><span class="btn_change_state"><a href="#">确定</a></span></div>
                         </div>
