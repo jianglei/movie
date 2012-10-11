@@ -114,6 +114,9 @@
 		             </choose>
 		        </foreach>      
 		    </if>
+		    <if test="platform != null and platform != ''">
+            	 and platform = #{platform}
+            </if>
 	        <if test="userId != null and userId != ''">
             	 and user_id = #{userId}
             </if> 
@@ -152,6 +155,9 @@
             <if test="userId != null and userId != ''">
             	and user_id = #{userId}
             </if> 
+            <if test="platform != null and platform != ''">
+            	 and platform = #{platform}
+            </if>
             <if test="status != null and status != ''">
 		         and
 				<foreach item="s" collection="status" open="(" close=")"

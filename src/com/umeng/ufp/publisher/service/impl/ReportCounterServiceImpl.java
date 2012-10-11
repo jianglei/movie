@@ -24,12 +24,13 @@ public class ReportCounterServiceImpl extends EntityDaoImpl<ReportCounter, Integ
 	
 	
 	
-	public List<ReportCounter> findByTotal(List<Integer> adSlotIds, String startDate, String endDate, String category) {
+	public List<ReportCounter> findByTotal(List<Integer> adSlotIds, String startDate, String endDate, String category, String platform) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("adSlotIds", adSlotIds);
 		param.put("startDate", startDate);
 		param.put("endDate", endDate);
 		param.put("category", category);
+		param.put("platform", platform);
 		return super.find(param);
 	}
 

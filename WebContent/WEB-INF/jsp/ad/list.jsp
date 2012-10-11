@@ -25,7 +25,7 @@
                 <div class="panel_table">
                     <div class="part_operation">
                         <div class="state">
-                            <a href="#" class="state_filter">状态筛选</a>
+                            <a href="#" class="state_filter">状态与平台筛选</a>
                             <span class="state_info"><span	class="none">未筛选</span></span>
                             <div class="state_panel" style="display: none;">
                                 <ul>
@@ -37,7 +37,9 @@
                                     <li><input type="checkbox" value="6" id="status_adorder_complete" /><label for="status_adorder_complete" class="filter complete">订单投放完成</label></li>
                                     <li><input type="checkbox" value="7" id="status_ready"/><label for="status_ready" class="filter ready">尚未投放</label></li>
                                     <li><input type="checkbox" value="8" id="status_adorder_ready" /><label for="status_adorder_ready" class="filter ready">订单尚未投放</label></li>
-                                    <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
+                                     <li class="bp"><input type="checkbox" value="9" id="platform_ios" /><label for="platform_ios" class="filter platform_ios platform">iOS</label></li>
+                                    <li><input type="checkbox" value="10" id="platform_android" /><label for="platform_android" class="filter platform_android platform">Android</label></li>
+                                    <li class="bp"><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
                                 <div class="opr">
                                     <span class="btn_change_state"><a href="#">确定</a></span>
@@ -55,6 +57,7 @@
                             <tr class="tit">
                                 <th width="40"><input type="checkbox" name=" "  onclick="checkAll(this, 'record_ch');" /></th>
                                 <th>广告名</th>
+                                <th width="50">平台</th>
                                 <th width="130">所属广告位</th>
                                 <th width="155">开始日期</th>
                                 <th width="155">结束日期</th>
@@ -63,7 +66,7 @@
                                 <th class="last" width="100">操作</th>
                             </tr>
                             <tr id="loading_row_init">
-                                <td colspan="8">加载中...</td>
+                                <td colspan="9">加载中...</td>
                             </tr>
                         </table>
                     </div>

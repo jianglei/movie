@@ -74,6 +74,11 @@
                 	</if>
                   )
             </if>
+            <if test="platform != null and platform != ''">
+                  and ad_slot_id in (
+                  	select id from ad_slot where platform = #{platform}
+                  )
+            </if>
             <if test="adOrderId != null and adOrderId != ''">
             	  and ad_id in (
             	  	select id from ad where ad_order_id = #{adOrderId}

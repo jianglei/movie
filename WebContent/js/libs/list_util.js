@@ -1,13 +1,43 @@
 var url_status,uploadFileHd,uploadFileWait;
 function pageAnchorsGenerate(totalPages,pageNo,pagerContainer,callback){
-    var pager = "";
-    for (var i = 1; i <= totalPages; i++) {
-        if (i == pageNo) pager += '<span>' + i + '</span>';
-        else pager += '<a page="'+ i +'" class="pageChange">' + i  + '</a>';
+     function genPagin(totalPages,current){
+        var str="",lowPageNo,upPageNo,viewCount = 3;
+        //分页显示...逻辑
+        lowPageNo = current - viewCount;
+        upPageNo = current + viewCount;
+        if(lowPageNo<1){
+            upPageNo = upPageNo-lowPageNo+1;
+        }
+        if(upPageNo>totalPages){
+            lowPageNo = lowPageNo - upPageNo+totalPages;
+        }
+        for(var i = 0;i<totalPages;i++){
+            if(i===0||i==totalPages-1||(i+1>=lowPageNo&&i+1<=upPageNo)){
+                str += '<a class="'+(i+1==current?'current':'')+'" p="'+(i+1)+'">'+(i+1)+'</a>';
+            }else if(i==totalPages-2){
+                if(upPageNo<totalPages-2){
+                    str += '<a class="dot" p="'+(i+1)+'">...</a>';
+                }else{
+                    str += '<a  p="'+(i+1)+'">'+(i+1)+'</a>';
+                }
+            }else if(i==1){
+                if(lowPageNo>3){
+                    str += '<a class="dot" p="'+(i+1)+'">...</a>';
+                }else{
+                    str += '<a  p="'+(i+1)+'">'+(i+1)+'</a>';
+                }
+            }
+        }
+        return str;
     }
+    var pager = genPagin(totalPages,pageNo);
+    // for (var i = 1; i <= totalPages; i++) {
+    //     if (i == pageNo) pager += '<span>' + i + '</span>';
+    //     else pager += '<a page="'+ i +'" class="pageChange">' + i  + '</a>';
+    // }
     pagerContainer = (pagerContainer&&pagerContainer!=='')?pagerContainer:'#pager';
-    $(pagerContainer).html("").append(pager).find('.pageChange').unbind('click').click(function(){
-        callback($(this).attr('page'),url_status);
+    $(pagerContainer).html("").append(pager).find('a:not(.current)').unbind('click').click(function(){
+        callback($(this).attr('p'),url_status);
     });
 
     $("#loading_row_init").remove();
@@ -487,9 +517,9 @@ $(function() {
     //
     $('#container').delegate(".btn_change_state",'click',function(e) {
         e.stopPropagation();
-        var  empty = 1,
+        // var  empty = 1,
         //4种筛选状态
-        status = [
+        var status = [
         { name:'正常', query:'normal'}, //0
         { name:'应用暂停',query:'app_pause'}, //1
         { name:'暂停', query:'pause'}, //2
@@ -499,18 +529,28 @@ $(function() {
         { name:'订单投放完成',query:'adorder_finish'},//6
         { name:'尚未投放',query:'ready'},//7
         { name:'订单尚未投放',query:'adorder_ready'},//8
+        { name:'iOS',query:'iOS'},//9
+        { name:'Android',query:'android'}//10
         ],
         str = "";
+        count = 0;
         url_status = "";
         $(this).closest('.state').find(".state_panel li").not(':last').find("input[type='checkbox']:checked").each(function() {
-            empty = 0;
-            str += '<span class="'+$(this).siblings('label').attr('class')+'">'+status[$(this).val()].name+'</span>';
-            url_status += ("&status=" +($(this).attr('pausetype')?($(this).attr('pausetype')+'_'):'')+ status[$(this).val()].query);
+            // empty = 0;
+            count++;
+            // str += '<span class="'+$(this).siblings('label').attr('class')+'">'+status[$(this).val()].name+'</span>';
+            if($(this).siblings('label').hasClass('platform')){
+                url_status += "&platform=" + status[$(this).val()].query;
+            }else{
+                url_status += ("&status=" +($(this).attr('pausetype')?($(this).attr('pausetype')+'_'):'')+ status[$(this).val()].query);
+            }
 
         });
-        if (empty == 1) {
+        if (count === 0) {
             str = '<span class="none">未筛选</span>';
             url_status='';
+        }else{
+            str = '<span class="none">'+ count +'个筛选条件 </span>';
         }
         $(this).closest('.state').find(".state_info").html(str);
         $(this).closest('.state').removeClass("show");

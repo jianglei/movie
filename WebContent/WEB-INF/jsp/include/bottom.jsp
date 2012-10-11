@@ -7,7 +7,7 @@
     menus = {
                 adslot:["/adslot","/app"], //广告位
                 ad:["/ad","/adorder"],//广告
-                report:["/report","/report/adslot","/report/adorder","/report/ad","/report/app"],//报表
+                report:["/report","/report/adslot","/report/adorder","/report/ad","/report/app","/report/platform"],//报表
                 settings:["/settings", '/settings/edit_logo','/settings/edit_black_list']//设置
             };
     out:

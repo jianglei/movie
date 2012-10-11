@@ -42,7 +42,7 @@
                                     <li><input type="checkbox" value="2" id="status_pause" /><label for="status_pause" class="filter pause">暂停</label></li>
                                     <li><input type="checkbox" value="5" id="status_complete"/><label for="status_complete" class="filter complete">投放完成</label></li>
                                     <li><input type="checkbox" value="7" id="status_ready"/><label for="status_ready" class="filter ready">尚未投放</label></li>
-                                    <li><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
+                                    <li class="bp"><input type="checkbox" value="all" id="status_all" /><label for="status_all" class="filter nofilter">&nbsp;&nbsp;不筛选</label></li>
                                 </ul>
                                 <div class="opr">
                                     <span class="btn_change_state"><a href="#">确定</a></span>

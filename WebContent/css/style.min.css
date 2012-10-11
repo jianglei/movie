@@ -1,5 +1,5 @@
 body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 0 0}.output_csv a{text-decoration:underline}.csv_choose li{float:left;line-height:2em}
-#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td:nth-child(2),.adList tr td:nth-child(3){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td:nth-of-type(2),.adList tr td:nth-of-type(4){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 *:focus{outline:0}a.changeIcon{margin-right:10px}a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select_textColor img{width:25px;height:20px}
 .list_order{margin-right:24px;float:right}.ui-datepicker-title{font-weight:normal}.ui-widget-header{background:#6cbf0a;border:0}.ui-datepicker .ui-datepicker-title select.ui-datepicker-month{font-size:.86em}
 .icon_return{background:url(../images/umengADsystem_icon.gif) 0 -200px no-repeat;padding-left:15px;margin:0 10px}.icon_modify{background:url(../images/icon_modify.png) 0 0 no-repeat;padding-left:20px;color:#000}
@@ -28,12 +28,13 @@ body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 
 .panel_table .state .filter{display:inline-block;margin-left:5px;padding-left:20px;padding-right:10px}.panel_table .state .none{display:inline-block;margin-left:2px;padding-right:10px}
 .panel_table .state .normal{background:url("../images/icon_state_normal.gif") center left no-repeat}.panel_table .state .top,.limit{background:url("../images/icon_state_top.gif") center left no-repeat}
 .panel_table .state .nofilter{background:url("../images/icon_nopercent.png") center left no-repeat}.panel_table .state .pause,.panel_table .state .app_pause,.panel_table .state .adorder_pause{background:url("../images/icon_state_pause.gif") center left no-repeat}
+.platform_ios{background:url("../imgs/iOS.gif") center left no-repeat}.platform_android{background:url("../imgs/android.gif") center left no-repeat}
 .panel_table .state .complete{background:url("../images/icon_state_complete.gif") center left no-repeat}.panel_table .state .ready{background:url("../images/icon_state_abled.gif") center left no-repeat}
-.panel_table .state_panel{border:1px solid #ccc;border-right:0;position:absolute;right:0;top:30px;background-color:#fff;padding:0 10px;z-index:999}.state_panel ul li label{cursor:pointer;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
-.panel_table .opr .btn_change_state{display:block;width:88px;height:27px;background:url("../images/btn_change_state.png") no-repeat;margin:0 auto}.panel_table .btn_change_state a{width:88px;height:27px;display:block;text-indent:-10000px}
-.panel_table .opr{width:100%;border-top:1px solid #ccc;padding:6px 0;text-align:center}.panel_table .txt{height:30px;line-height:30px;padding-left:10px}
-.panel_table .right_other{float:right;margin-top:5px;margin-right:20px}.panel_table .right_other label{margin-right:10px}.panel_table .right_extra{float:right;margin-top:7px}
-.panel_table .part_table th{height:29px;text-align:center;background:url(../images/panel_table.gif) right -50px no-repeat;color:#000;font-weight:normal;font-size:12px;line-height:29px;text-shadow:1px 1px #fff}
+.panel_table .state_panel{border:1px solid #ccc;position:absolute;right:-1px;top:30px;background-color:#fff;padding:0 10px;z-index:999}.state_panel ul li label{cursor:pointer;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
+.panel_table .opr .btn_change_state{display:block;width:88px;height:27px;background:url("../images/btn_change_state.png") no-repeat;margin:0 auto}
+.panel_table .btn_change_state a{width:88px;height:27px;display:block;text-indent:-10000px}.panel_table .opr{width:100%;border-top:1px solid #ccc;padding:6px 0;text-align:center}
+.panel_table .txt{height:30px;line-height:30px;padding-left:10px}.panel_table .right_other{float:right;margin-top:5px;margin-right:20px}.panel_table .right_other label{margin-right:10px}
+.panel_table .right_extra{float:right;margin-top:7px}.panel_table .part_table th{height:29px;text-align:center;background:url(../images/panel_table.gif) right -50px no-repeat;color:#000;font-weight:normal;font-size:12px;line-height:29px;text-shadow:1px 1px #fff}
 .panel_table .part_table th.last{background-position:left -50px}.panel_table .part_table td{text-align:left;padding:5px 15px;background:#fff}.panel_table .part_table td.center{text-align:center}
 .panel_table .part_table td.chk{padding:7px;text-align:center}.panel_table .part_table td .hasmargin{margin-right:10px}.panel_table .part_table td img{margin-right:3px}
 .panel_table .part_table td.tb_inner{background-color:#efefef;padding:8px}.panel_table .part_table .transbg td{background:#f1faff}.panel_table .part_table .hightlight td{background:orange}
@@ -74,7 +75,7 @@ body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 
 .level .i3{background:url('../images/icon_level_3.png') no-repeat}.level .lvl a{display:block;width:31px;height:22px}.level .btn_save{width:67px;height:30px;display:inline-block;background:url('../images/btn_level_opr.png') no-repeat}
 .level .btn_cancel{width:67px;height:30px;display:inline-block;background:url('../images/btn_level_opr.png') 0 -28px no-repeat}.level .btn_save a,.level .btn_cancel a{width:67px;height:30px;display:block;text-indent:-10000px}
 #pager{padding-top:6px;padding-right:10px}#pager a,.pager a{padding:1px 6px;margin-left:5px;border:1px solid #cdcdcd;color:gray}#pager a:hover,.pager a:hover{text-decoration:none;border:1px solid gray;color:#fff;background-color:#435c9c}
-#pager span,.pager span{padding:1px 6px;margin-left:5px;border:1px solid gray;color:#fff;background-color:#435c9c}.f_csv{padding-top:6px;padding-left:10px}
+#pager span,.pager span,#pager a.current,.pager a.current{padding:1px 6px;margin-left:5px;border:1px solid gray;color:#fff;background-color:#435c9c}.f_csv{padding-top:6px;padding-left:10px}
 .preview{width:322px;height:51px;border:1px solid #d5d5d5;box-shadow:0 0 5px rgba(0,0,0,.15);display:inline-block;float:left;position:relative}.preview_del{display:inline-block;float:left;margin-top:35px;padding-left:18px;background:url('../images/icon_del.png') no-repeat}
 #des_show{bottom:0;color:grey;display:block;font-size:12px;left:55px;max-width:260px;overflow:hidden;position:absolute;text-overflow:ellipsis;white-space:nowrap;top:25px}
 .name_show{font-size:14px;left:55px;position:absolute;top:5px;text-overflow:ellipsis;max-width:260px;overflow:hidden;display:block;white-space:nowrap}

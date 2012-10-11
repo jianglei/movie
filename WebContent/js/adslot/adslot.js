@@ -782,12 +782,14 @@ function updateItem(obj) {
     appName =  $("input[name='appName']").val();
     landingType =  $("input[name='landingType']").val();
     landingSize = $("input[name='landingSize']").val();
+    platform = $("input[name='platform']").val();
     setTimeout(function() {
 
         obj.find(".tb_name").text(name);
         obj.find(".tb_appName").text((appName!==''&&appName!=='不设置')?appName:'-');
         obj.find(".tb_landingType").text(landingArray[landingType]);
         obj.find(".tb_landingSize").text(landingSize);
+        obj.find(".tb_platform").html('<img src="/imgs/'+ platform +'.gif">');
         $(".loading_row").remove();
     }, 1000);
 }
@@ -829,6 +831,7 @@ function loadList(page, status) {
                 odd = !odd;
                 elem += '<td class="chk pos_rel" style="display:block;"><input type="checkbox" name="record_ch" value="' + adSlots[i].id + '"/></td>';
                 elem += '<td><a href="javascript:void(0)" onclick="editAdSlot(' + adSlots[i].id + ',event)" class="tb_name">' + adSlots[i].name + '</a></td>';
+                elem += '<td class="tb_platform" platform="'+ adSlots[i].platform +'"><img src="/imgs/'+adSlots[i].platform + '.gif"/></td>';
                 elem += '<td id="td_status_' + adSlots[i].id + '" class=" status" status="'+ adSlots[i].status +'">';
                 if (adSlots[i].status=="normal")
                     elem += '<img src="images/icon_state_normal.gif" width="16" height="16" alt="正常" />正常';

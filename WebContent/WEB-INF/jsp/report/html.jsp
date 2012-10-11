@@ -34,14 +34,26 @@
         <span class="arrow_down" ></span>
         <div class="pop_menu">
             <ul>
-                <li><a title="汇总" category="" href="#">汇总</a></li>
-                <li><a title="自销广告" category="1" href="#">自销广告</a></li>
-                <li><a title="友盟广告" category="2" href="#">友盟广告</a></li>
-                <li><a title="友盟交换" category="0" href="#">友盟交换</a></li>
+                <li><a title="汇总" category="" href="###">汇总</a></li>
+                <li><a title="自销广告" category="1" href="###">自销广告</a></li>
+                <li><a title="友盟广告" category="2" href="###">友盟广告</a></li>
+                <li><a title="友盟交换" category="0" href="###">友盟交换</a></li>
             </ul>
         </div>
     </div>
     <div class="sel_title sel_title2" style="display:none">选择接入网络：</div>
+    <div class="sel_wrap sel_wrap3" style="display:none">
+        <span class="left"></span>
+        <span class="con" category="">Android</span>
+        <span class="arrow_down" ></span>
+        <div class="pop_menu">
+            <ul>
+                <li><a title="Android平台" platform="android" href="###">Android</a></li>
+                <li><a title="iOS广告" platform="iOS" href="###">iOS</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sel_title sel_title3" style="display:none">选择平台：</div>
     <div class="output_csv fr hd"><a>导出所有广告数据</a></div>
     <div class="clear"></div>
     <div class="panel_dashboard panel_dashboard1" style="">

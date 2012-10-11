@@ -1,11 +1,11 @@
 
-db_ufp.ip=10.18.102.235
+db_ufp.ip=10.18.103.235
 db_ufp.port=3306
 db_ufp.db=ufp
 db_ufp.username=ufp
 db_ufp.password=ufp
 
-db_ufp_log.ip=10.18.102.235
+db_ufp_log.ip=10.18.103.235
 db_ufp_log.port=3306
 db_ufp_log.db=ufp_log
 db_ufp_log.username=ufp

@@ -27,7 +27,7 @@ body{
 .adList{
     table-layout:fixed;
 }
-.adList tr td:nth-child(2),.adList tr td:nth-child(3){
+.adList tr td:nth-of-type(2),.adList tr td:nth-of-type(4){
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -374,7 +374,12 @@ a.view_icon:hover{
     background:url("../images/icon_state_pause.gif") center left no-repeat;
 
 }
-
+.platform_ios{
+    background:url("../imgs/iOS.gif") center left no-repeat;
+}
+.platform_android{
+    background:url("../imgs/android.gif") center left no-repeat;
+}
 .panel_table .state .complete {
     background:url("../images/icon_state_complete.gif") center left no-repeat;
 }
@@ -384,9 +389,9 @@ a.view_icon:hover{
 
 .panel_table .state_panel {
     border:1px solid #ccc;
-    border-right:0;
+    /*border-right:0;*/
     position:absolute; 
-    right:0;
+    right:-1px;
     top:30px;
     background-color:#fff;
     padding:0 10px;
@@ -1052,7 +1057,7 @@ a.view_icon:hover{
     background-color:#435C9C;
 }
 
-#pager span,.pager span {
+#pager span,.pager span,#pager a.current,.pager a.current {
     padding:1px 6px;
     margin-left:5px;
     border:1px solid gray;
