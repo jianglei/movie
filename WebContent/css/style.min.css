@@ -1,5 +1,5 @@
 body{overflow-y:auto}#chart1{height:100%;width:100%}.output_csv{margin:10px 5px 0 0}.output_csv a{text-decoration:underline}.csv_choose li{float:left;line-height:2em}
-#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#blacklist{border:1px solid #999;padding:10px;width:400px;letter-spacing:2px}.adList{table-layout:fixed}.adList tr td:nth-of-type(2),.adList tr td:nth-of-type(4){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 *:focus{outline:0}a.changeIcon{margin-right:10px}a.view_icon:hover{color:#039}#cus_start_time,#cus_end_time{width:90px}.ui_select_textColor img{width:25px;height:20px}
 .list_order{margin-right:24px;float:right}.ui-datepicker-title{font-weight:normal}.ui-widget-header{background:#6cbf0a;border:0}.ui-datepicker .ui-datepicker-title select.ui-datepicker-month{font-size:.86em}
 .icon_return{background:url(../images/umengADsystem_icon.gif) 0 -200px no-repeat;padding-left:15px;margin:0 10px}.icon_modify{background:url(../images/icon_modify.png) 0 0 no-repeat;padding-left:20px;color:#000}
