@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReportCounter {
     private String date = null;
     private Integer adId = null;
-    private Integer adSlotId = null;
+    private String adSlotId = null;
     private String category = null;
     private Integer impression = 0;
     private Integer download = 0;
@@ -50,10 +50,10 @@ public class ReportCounter {
 	public void setAdId(Integer adId) {
 		this.adId = adId;
 	}
-	public Integer getAdSlotId() {
+	public String getAdSlotId() {
 		return adSlotId;
 	}
-	public void setAdSlotId(Integer adSlotId) {
+	public void setAdSlotId(String adSlotId) {
 		this.adSlotId = adSlotId;
 	}
 	public Integer getImpression() {
