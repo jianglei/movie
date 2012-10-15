@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class ReportCounter {
     private String date = null;
-    private Integer adId = null;
-    private String adSlotId = null;
+    private String adId = null;
+    private Integer adSlotId = null;
     private String category = null;
     private Integer impression = 0;
     private Integer download = 0;
@@ -44,16 +44,16 @@ public class ReportCounter {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Integer getAdId() {
+	public String getAdId() {
 		return adId;
 	}
-	public void setAdId(Integer adId) {
+	public void setAdId(String adId) {
 		this.adId = adId;
 	}
-	public String getAdSlotId() {
+	public Integer getAdSlotId() {
 		return adSlotId;
 	}
-	public void setAdSlotId(String adSlotId) {
+	public void setAdSlotId(Integer adSlotId) {
 		this.adSlotId = adSlotId;
 	}
 	public Integer getImpression() {
