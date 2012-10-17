@@ -4,7 +4,7 @@
   <resultMap id="ReportCounter-RESULT" type="com.umeng.ufp.core.domain.ReportCounter">
     <result column="date" jdbcType="VARCHAR" property="date" />
     <result column="ad_id" jdbcType="VARCHAR" property="adId" />
-    <result column="ad_slot_id" jdbcType="INTEGER" property="adSlotId" />
+    <result column="ad_slot_id" jdbcType="VARCHAR" property="adSlotId" />
     <result column="category" jdbcType="VARCHAR" property="category" />
     <result column="impression" jdbcType="INTEGER" property="impression" />
     <result column="download" jdbcType="INTEGER" property="download" />
