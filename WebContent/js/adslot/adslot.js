@@ -714,7 +714,7 @@ function validateStepTwo(){
             verify_null($("input[name='adslotareas']"), "",true)&&
             ($('.pushStrategyOptions').is(':hidden')||verify_null($('input[name="pushStrategy"]'),true))&&
             ($('#ui_radio_jiaohuan').prop('checked')===false||(verify_null($("#xppercent"), "",false,$("#appkey"),{num:true,max:100,min:0})&&verify_null($("#appkey"), "",false,$("#appkey"),{fixLength:24})))&&
-            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{fixLength:24})))&&
+            ($('#ui_radio_uads').prop('checked')===false||(verify_null($("#uadsPercent"), "",false,$("#uadsKey"),{num:true,max:100,min:0})&&verify_null($("#uadsKey"), "",false,$("#uadsKey"),{fixLength:[16,24]})))&&
             ($('#displayStrategy').is(':hidden')||verify_null($("input[name='displayStrategy']")))&&
             ($('#textSizeAdSlot').is(':hidden')||verify_null($("input[name='textSizeAdSlot']")));
 

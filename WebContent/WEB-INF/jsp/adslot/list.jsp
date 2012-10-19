@@ -458,7 +458,7 @@
                                                 <div>
                                                     <input type="checkbox" id="ui_radio_uads" style="vertical-align:middle;"/><label for="ui_radio_uads">友盟广告网络</label>
                                                     <label>流量占比:&nbsp;&nbsp;</label><input type="text" class="input_text" id="uadsPercent" style="width:30px;"/>
-                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="uadsKey" type="text" placeholder="请输入24位正确key"/>
+                                                    <label>%&nbsp;&nbsp;appkey:&nbsp;&nbsp;</label><input style="width:180px;" class="input_text" id="uadsKey" type="text" placeholder="请输入16位或24位正确key"/>
                                                 </div>
                                             </div>
                                         </td>
