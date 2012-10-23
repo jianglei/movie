@@ -385,7 +385,7 @@ function verify_null(obj, msg, newline,errPrevObj,params) {
             return value.length >= minLength?{pass:true}:{pass:false,msg:'长度不能小于 ' + minLength};
         },
         fixLength:function(value,fixLength){
-            if($.type(fixLength) == 'string'){
+            if($.type(fixLength) == 'number'){
                 return value.length == fixLength?{pass:true}:{pass:false,msg:'固定长度为 ' + fixLength};
             }else if($.type(fixLength) == 'array'){
                 return !!~$.inArray(value.length ,fixLength)?{pass:true}:{pass:false,msg:'固定长度为 ' + fixLength};
