@@ -78,6 +78,9 @@
        <if test="nickname != null and nickname != ''">
                ,nickname = #{nickname}
        </if>
+       <if test="email != null and email != ''">
+               ,email = #{email}
+       </if>
        <if test="phone != null and phone != ''">
                ,phone = #{phone}
        </if>    
