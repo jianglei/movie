@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuxianmeihao.core.domain.Creatives">
+  <resultMap id="Creatives-RESULT" type="com.wuxianmeihao.core.domain.Creatives">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column = "is_del" jdbcType="INTEGER" property="isDel" /> 
+    <result column = "status" jdbcType="INTEGER" property="status" />   
+    <result column = "name" jdbcType="VARCHAR" property="name" />    
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="click_url" jdbcType="VARCHAR" property="clickUrl" />
+    <result column="ad_desc" jdbcType="VARCHAR" property="adDesc" />   
+  </resultMap>
+
+  
+	<sql id="select">
+		select *
+		from
+		creatives
+	</sql>
+
+	<select id="Creatives.get" resultMap="Creatives-RESULT" parameterType="int">
+		<include refid="select" />
+		<where>
+		   id=#{id}
+		</where> 
+	</select>
+	<select id="Creatives.getMapById" resultType="java.util.HashMap" parameterType="int">
+		<include refid="select" />
+		where id=#{id}
+	</select>
+  
+	<select id="Creatives.find" resultMap="Creatives-RESULT" parameterType="java.util.Map">
+        <include refid="select" />
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+            <if test="id != null and id != ''">
+                  id = #{id}
+            </if>
+        </where>    
+    </select>
+	
+	<select id="Creatives.listQueryPage" resultType="java.util.HashMap" parameterType="java.util.Map">
+		select id, status, name, pic, click_url, ad_desc
+		from creatives
+		<where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+			
+			<if test="id != null and id != ''">
+				and creatives.id = #{id}
+			</if>
+			
+			<if test="status != null and status != ''">
+				and creatives.status = #{status}
+			</if>
+		</where>
+		order by id desc
+	     <if test="limit != null and limit !=''">
+		     limit
+		     <if test="offset != null and offset !=''">
+		         #{offset},
+		     </if>
+		     #{limit}
+		 </if>
+	</select>
+
+	<select id="Creatives.listQueryPagecount" resultType="java.lang.Integer" parameterType="java.util.Map">
+   		<![CDATA[
+        select count(id)
+        from creatives
+        ]]>
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+            
+        </where>
+        
+	</select>
+  
+	<insert id="Creatives.insert" parameterType="com.wuxianmeihao.core.domain.Creatives" useGeneratedKeys="true" keyProperty="id">
+	    insert into creatives(name,status,pic,click_url,ad_desc) values(#{name},#{status},#{pic},#{clickUrl},#{adDesc})
+	</insert>
+	<update id="Creatives.update" parameterType="com.wuxianmeihao.core.domain.Creatives">
+	    update creatives set name = #{name}, status= #{status},is_del = #{isDel}
+	    ,pic= #{pic}, click_url= #{clickUrl}, ad_desc= #{adDesc}
+	   
+	    <where>
+	    	id = #{id} and <![CDATA[!(is_del & 1)]]>
+	    </where>
+	</update>
+	<update id="Creatives.updateByMap" parameterType="java.util.Map">
+        update creatives
+        set set name = #{name}
+	    ,pic= #{pic}, click_url= #{clickUrl}, ad_desc= #{adDesc}, status = #{status}  
+	    <where>
+	    	id = #{id} and <![CDATA[!(is_del & 1)]]>
+	    </where>
+    </update>
+    <select id="Creatives.findIds" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select id
+        from creatives
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+       </where>     
+    </select> 
+    <delete id="Creatives.delete" parameterType="java.util.Map">
+		update creatives 
+			 set is_del = 1
+		<where>
+			<!-- !(state & 1( means that not delete -->
+        	 <![CDATA[!(is_del & 1)]]>
+			 <if test="id != null and id != ''"> 
+			 	and id = #{id}
+			 </if>
+		</where> 
+	</delete>
+
+</mapper>

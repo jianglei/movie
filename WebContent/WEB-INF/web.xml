@@ -16,7 +16,7 @@
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
+			<param-value>GBK</param-value>
 		</init-param>
 		<init-param>
 			<param-name>forceEncoding</param-name>
@@ -97,7 +97,7 @@
 			<display-name>JSPConfiguration</display-name>
 			<url-pattern>*.jsp</url-pattern>
 			<el-ignored>false</el-ignored>
-			<page-encoding>utf-8</page-encoding>
+			<page-encoding>GBK</page-encoding>
 			<scripting-invalid>false</scripting-invalid>
 		</jsp-property-group>
 	</jsp-config>

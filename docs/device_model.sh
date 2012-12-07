@@ -1,1 +1,0 @@
-/usr/bin/mysql -hunode18-ct-db7 -uufp -pufp -e"use ufp;create table if not exists device_model (device varchar(64), type varchar(64), standard varchar(64), company varchar(64), resolution varchar(64)); load data local infile 'mobile.txt' into table device_model character set utf8 fields terminated by ';' (device, type, standard, company, resolution)"

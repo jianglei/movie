@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuxianmeihao.core.domain.MovieGroup">
+  <resultMap id="MovieGroup-RESULT" type="com.wuxianmeihao.core.domain.MovieGroup">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column = "is_del" jdbcType="INTEGER" property="isDel" /> 
+    <result column = "pic_url" jdbcType="VARCHAR" property="picUrl" />   
+    <result column = "name" jdbcType="VARCHAR" property="name" />    
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="actorList" jdbcType="VARCHAR" property="actorList" />   
+    <result column = "remark" jdbcType="VARCHAR" property="remark" />   
+    <result column = "director" jdbcType="VARCHAR" property="director" />    
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="lastUpdateTime" jdbcType="VARCHAR" property="lastUpdateTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />   
+    <result column = "language" jdbcType="VARCHAR" property="language" />   
+    <result column = "release_time" jdbcType="VARCHAR" property="releaseTime" />    
+ 
+  </resultMap>
+
+  
+	<sql id="select">
+		select *
+		from
+		movie_group
+	</sql>
+
+	<select id="MovieGroup.get" resultMap="MovieGroup-RESULT" parameterType="int">
+		<include refid="select" />
+		<where>
+		   id=#{id}
+		</where> 
+	</select>
+	<select id="MovieGroup.getMapById" resultType="java.util.HashMap" parameterType="int">
+		<include refid="select" />
+		where id=#{id}
+	</select>
+  
+	<select id="MovieGroup.find" resultMap="MovieGroup-RESULT" parameterType="java.util.Map">
+        <include refid="select" />
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+            <if test="id != null and id != ''">
+                and  id = #{id}
+            </if>
+        </where>    
+    </select>
+    
+    <select id="MovieGroup.findUnique" resultMap="MovieGroup-RESULT" parameterType="java.util.Map">
+        <include refid="select" />
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+            <if test="name != null and name != ''">
+                  <![CDATA[ and `name` = #{name}]]>
+            </if>
+        </where>    
+    </select>
+    
+     <select id="MovieGroup.getList" resultType="java.util.HashMap" parameterType="java.util.Map">
+        select * from movie
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+            
+            and movie_group_id = #{id}
+        </where>    
+        order by id
+    </select>
+	
+	<select id="MovieGroup.listQueryPage" resultType="java.util.HashMap" parameterType="java.util.Map">
+		select *
+		from movie_group
+		<where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+			
+			<if test="id != null and id != ''">
+				and movie_group.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				and movie_group.name like #{name}
+			</if>
+			<if test="category != null and category != ''">
+				and category = #{category}
+			</if>
+			<if test="area != null and area != ''">
+				and area = #{area}
+			</if>
+			<if test="releaseTime != null and releaseTime != ''">
+				and release_time like #{releaseTime}
+			</if>
+		</where>
+		order by id desc
+	     <if test="limit != null and limit !=''">
+		     limit
+		     <if test="offset != null and offset !=''">
+		         #{offset},
+		     </if>
+		     #{limit}
+		 </if>
+	</select>
+
+	<select id="MovieGroup.listQueryPagecount" resultType="java.lang.Integer" parameterType="java.util.Map">
+   		<![CDATA[
+        select count(*)
+		from movie_group
+        ]]>
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+			
+			<if test="id != null and id != ''">
+				and movie_group.id = #{id}
+			</if>
+			<if test="name != null and name != ''">
+				and movie_group.name like #{name} 
+			</if>
+			<if test="category != null and category != ''">
+				and category = #{category}
+			</if>
+			<if test="area != null and area != ''">
+				and area = #{area}
+			</if>
+			<if test="releaseTime != null and releaseTime != ''">
+				and release_time like #{releaseTime}
+			</if>
+		</where>
+        
+	</select>
+  
+	<insert id="MovieGroup.insert" parameterType="com.wuxianmeihao.core.domain.MovieGroup" useGeneratedKeys="true" keyProperty="id">
+	    insert into movie_group(
+	    category,   description,    pic_url,  `name`,   actor_list,   remark, 
+	    director,   area,   last_update_time, status,
+	    language,   release_time) 
+	    values(
+	    #{category},#{description}, #{picUrl},#{name},#{actorList},#{remark}, 
+	    #{director},#{area},#{lastUpdateTime},#{status},
+	    #{language},#{releaseTime})
+	</insert>
+	<update id="MovieGroup.update" parameterType="com.wuxianmeihao.core.domain.MovieGroup">
+	    update movie_group set category = #{category}, description= #{description},is_del = #{isDel}
+	    ,pic_url= #{picUrl}, name= #{name}, actor_list= #{actorList}, remark= #{remark}, director= #{director}, area= #{area}
+	    ,last_update_time= #{lastUpdateTime}, status= #{status}, language= #{language}, release_time= #{releaseTime}
+	    <where>
+	    	id = #{id} and <![CDATA[!(is_del & 1)]]>
+	    </where>
+	</update>
+	<update id="MovieGroup.updateByMap" parameterType="java.util.Map">
+        update creatives
+        set set name = #{name}
+	    ,pic= #{pic}, click_url= #{clickUrl}, ad_desc= #{adDesc}, status = #{status}  
+	    <where>
+	    	id = #{id} and <![CDATA[!(is_del & 1)]]>
+	    </where>
+    </update>
+    <select id="MovieGroup.findIds" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select id
+        from creatives
+        <where>
+			<!-- !(state & 1( means that not delete -->
+        	<![CDATA[!(is_del & 1)]]>
+       </where>     
+    </select> 
+    <delete id="MovieGroup.delete" parameterType="java.util.Map">
+		update creatives 
+			 set is_del = 1
+		<where>
+			<!-- !(state & 1( means that not delete -->
+        	 <![CDATA[!(is_del & 1)]]>
+			 <if test="id != null and id != ''"> 
+			 	and id = #{id}
+			 </if>
+		</where> 
+	</delete>
+
+</mapper>

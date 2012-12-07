@@ -1,2 +1,0 @@
-ul{counter-reset:section;list-style-type:none}li{counter-increment:section}li h4:before,li h5:before,li h6:before{content:counters(section,".") " "}
-.listDoc{line-height:1.8em;font-size:13px}.listDoc h4{font-size:14px}.listDoc p{text-indent:1em}.listDoc dd{padding-left:1em}

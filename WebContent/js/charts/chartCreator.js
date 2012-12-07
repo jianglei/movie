@@ -1,12 +1,12 @@
 function createPieChart(title, dataArr, container){
     if(typeof dataArr != 'object'){
-        alert('æ•°æ®ä¸å­˜åœ¨');
+        alert('Êı¾İ²»´æÔÚ');
         return;
     }
     if(typeof container == 'undefined'){
 		container = $('#container');
 		if(container.size() == 0){
-			alert('å›¾è¡¨å®¹å™¨ä¸å­˜åœ¨');
+			alert('Í¼±íÈİÆ÷²»´æÔÚ');
 			return;
 		}
 	}
@@ -84,13 +84,13 @@ function createPieChart(title, dataArr, container){
 
 function createMultiLineChart(title, dataGroup, container){
     if(typeof dataGroup != 'object'){
-        alert('æ•°æ®ä¸å­˜åœ¨');
+        alert('Êı¾İ²»´æÔÚ');
         return;
     }
     if(typeof container == 'undefined'){
 		container = $('#container');
 		if(container.size() == 0){
-			alert('å›¾è¡¨å®¹å™¨ä¸å­˜åœ¨');
+			alert('Í¼±íÈİÆ÷²»´æÔÚ');
 			return;
 		}
 	}
@@ -193,13 +193,13 @@ function createMultiLineChart(title, dataGroup, container){
 }
 function createMultiBarChart(title, dataGroup, container){
     if(typeof dataGroup != 'object'){
-        alert('æ•°æ®ä¸å­˜åœ¨');
+        alert('Êı¾İ²»´æÔÚ');
         return;
     }
     if(typeof container == 'undefined'){
 		container = $('#container');
 		if(container.size() == 0){
-			alert('å›¾è¡¨å®¹å™¨ä¸å­˜åœ¨');
+			alert('Í¼±íÈİÆ÷²»´æÔÚ');
 			return;
 		}
 	}
@@ -293,13 +293,13 @@ function createMultiBarChart(title, dataGroup, container){
 }
 function createBarChart(title, dataArr, container, yAxisText){
     if(typeof dataArr != 'object'){
-        alert('æ•°æ®ä¸å­˜åœ¨');
+        alert('Êı¾İ²»´æÔÚ');
         return;
     }
     if(typeof container == 'undefined'){
 		container = $('#container');
 		if(container.size() == 0){
-			alert('å›¾è¡¨å®¹å™¨ä¸å­˜åœ¨');
+			alert('Í¼±íÈİÆ÷²»´æÔÚ');
 			return;
 		}
 	}

@@ -18,9 +18,9 @@
 	<!-- Configures Connection -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://${db_ufp.ip}:${db_ufp.port}/${db_ufp.db}?useUnicode=true&amp;characterEncoding=UTF8" />
-        <property name="username" value="${db_ufp.username}" />
-        <property name="password" value="${db_ufp.password}" />
+        <property name="url" value="jdbc:mysql://${db_ad.ip}:${db_ad.port}/${db_ad.db}?useUnicode=true&amp;characterEncoding=gbk" />
+        <property name="username" value="${db_ad.username}" />
+        <property name="password" value="${db_ad.password}" />
 		<property name="validationQuery">
 			<value>SELECT 1</value>
 		</property>
@@ -33,7 +33,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="mapperLocations" value="classpath:com/umeng/ufp/core/domain/*.xml" />
+        <property name="mapperLocations" value="classpath:com/wuxianmeihao/core/domain/*.xml" />
     </bean>
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg ref="sqlSessionFactory" />

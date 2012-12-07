@@ -1,4 +1,4 @@
-function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
+function loadMap(){ //ĞèÒªÈ«¾Ö±äÁ¿dataKeyList
     window.$numTrim = function(str){
         var trimStr = $.trim(str);
         if('' == trimStr){
@@ -6,10 +6,10 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
         }
         return trimStr;
     };
-    //åˆå§‹åŒ–dataMapStatus
+    //³õÊ¼»¯dataMapStatus
     var totalLineNum = $('div.report table tr:visible').size()-2;
     window.dataMapStatus = {
-        maxSize: -1,	//ç»Ÿè®¡çš„æ¨å¹¿ç±»åˆ«æ•°,-1è¡¨ç¤ºç»Ÿè®¡å…¨éƒ¨
+        maxSize: -1,	//Í³¼ÆµÄÍÆ¹ãÀà±ğÊı,-1±íÊ¾Í³¼ÆÈ«²¿
         isFull: false,
         totalLineNum: totalLineNum,
         countedLineNum: 0,
@@ -17,7 +17,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
     };
     window.statisticDataFromPage = {};
     window.dataMap = new Map();
-    //ç¡®å®šæ‰€éœ€çš„æ•°æ®åœ¨è¡¨æ ¼ä¸­æ‰€å¤„çš„åˆ—åºæ•°
+    //È·¶¨ËùĞèµÄÊı¾İÔÚ±í¸ñÖĞËù´¦µÄÁĞĞòÊı
     $('div.report th:visible').each(function(index){
         for(var dataKey in dataKeyList ){
             if($.trim($(this).text()) == dataKeyList[dataKey].name){
@@ -26,7 +26,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
             }
         }
     });
-    //if(dataKeyList['date'].index < 0)ï¼Œåˆ™ä¸å­˜åœ¨dateåˆ—
+    //if(dataKeyList['date'].index < 0)£¬Ôò²»´æÔÚdateÁĞ
     $('div.report table tr:last').each(function(){
         $(this).children('td:visible').each(function(index){
             for(var dataKey in dataKeyList){
@@ -49,7 +49,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
             if('date' == dataKey){
                 continue;
             }
-            //è¡¨æ ¼æœ€ä¸‹ä¸€è¡Œçš„åˆè®¡æ•°æ®é›†
+            //±í¸ñ×îÏÂÒ»ĞĞµÄºÏ¼ÆÊı¾İ¼¯
             statisticDataFromPage[dataKey] = {};
             if('ctr' == dataKey ){
                 statisticDataFromPage[dataKey].avg = dataKeyList[dataKey].tempStore;
@@ -63,7 +63,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
             }
         }
     });
-    //è·å–è¡¨æ ¼ä¸­çš„æ•°æ®è¡Œ
+    //»ñÈ¡±í¸ñÖĞµÄÊı¾İĞĞ
     $('div.report table tr').each(function(){
         if(dataMapStatus.isFull){
             return false;
@@ -72,7 +72,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
             return true;
         }
         var key = '';
-        //è·å–å½“å‰è¡Œä¸­æ¯åˆ—çš„æ•°æ®
+        //»ñÈ¡µ±Ç°ĞĞÖĞÃ¿ÁĞµÄÊı¾İ
         $(this).children('td:visible').each(function(index){
             for(var dataKey in dataKeyList){
                 if(index == dataKeyList[dataKey].index){
@@ -91,7 +91,7 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
                 return true;
             }
         });
-        //æ’å…¥åˆè®¡æ•°æ®
+        //²åÈëºÏ¼ÆÊı¾İ
         if(dataKeyList['date'].index > -1 && !/[\d+-]+\d/.test(dataKeyList['date'].tempStore)){
             return false;
         }
@@ -101,11 +101,11 @@ function loadMap(){ //éœ€è¦å…¨å±€å˜é‡dataKeyList
         if(key.length > 1){
             key = key.substring(1);
         }else{
-            key = 'ç»Ÿè®¡ç»“æœ';
+            key = 'Í³¼Æ½á¹û';
         }
         dataMapStatus.countedLineNum++;
         
-        //å‘å¯¹åº”çš„æ¨å¹¿ç±»åˆ«æ’å…¥å½“å‰è¡Œçš„æ•°æ®
+        //Ïò¶ÔÓ¦µÄÍÆ¹ãÀà±ğ²åÈëµ±Ç°ĞĞµÄÊı¾İ
         var dataGroup = dataMap.get(key);
         if(typeof dataGroup == 'undefined'){
             if(dataMapStatus.maxSize > 0 && dataMap.size() >= dataMapStatus.maxSize){
@@ -135,20 +135,20 @@ function sortMapData(){
         return false;
     }
     if(dataMap.size() > 1){
-        //å¯¹ä¸åŒæ¨å¹¿ç±»åˆ«è¿›è¡Œå¾ªç¯
+        //¶Ô²»Í¬ÍÆ¹ãÀà±ğ½øĞĞÑ­»·
         var keys = dataMap.keys();
         for(var i=0; i<keys.length; i++){
             var key = keys[i];
             var dataGroup = dataMap.get(key);
-            //å¯¹åŒä¸€æ¨å¹¿ç±»åˆ«å†…ä¸åŒçš„æ•°æ®æŒ‡æ ‡è¿›è¡Œå¾ªç¯
-            for(var dataKey in dataGroup){  //dataGroupçš„dataKeyä¸dataKeyListä¸€è‡´(å‰è€…æ ¹æ®åè€…ç”Ÿæˆ)
+            //¶ÔÍ¬Ò»ÍÆ¹ãÀà±ğÄÚ²»Í¬µÄÊı¾İÖ¸±ê½øĞĞÑ­»·
+            for(var dataKey in dataGroup){  //dataGroupµÄdataKeyÓëdataKeyListÒ»ÖÂ(Ç°Õß¸ù¾İºóÕßÉú³É)
                 if(typeof dataGroup[dataKey].data == 'undefined'){
                     continue;
                 }
                 if(dataKey == 'date'){
                     continue;
                 }
-                if('ctr' == dataKey){   //è¿™ä¸ªæŒ‡æ ‡ä¸éœ€è¦sum
+                if('ctr' == dataKey){   //Õâ¸öÖ¸±ê²»ĞèÒªsum
                     dataGroup[dataKey].sum = -1;
                 }else{
                     var sum = 0;
@@ -157,7 +157,7 @@ function sortMapData(){
                     }
                     dataGroup[dataKey].sum = sum;
                 }
-                //æ±‚å„é¡¹æŒ‡æ ‡çš„ç»Ÿè®¡å¹³å‡å€¼
+                //Çó¸÷ÏîÖ¸±êµÄÍ³¼ÆÆ½¾ùÖµ
                 if('ctr' == dataKey){//ctr=click/pv
                 	var avgVal = dataGroup['click'].sum/dataGroup['pv'].sum;
                 	dataGroup[dataKey].avg = avgVal == Infinity? 0: avgVal;
@@ -179,7 +179,7 @@ function sortMapData(){
                 }
             }
         }
-        //åˆå§‹åŒ–æ’åºåçš„ç»“æœé›†
+        //³õÊ¼»¯ÅÅĞòºóµÄ½á¹û¼¯
         window.sortedDataResults = {
             dispNum: 15
         };
@@ -187,7 +187,7 @@ function sortMapData(){
             if('date' == dataKey){
                 continue;
             }
-            //ä»¥highchartsæ‰€éœ€çš„æ•°æ®æ ¼å¼ç”¨æ¥å¡«è£…å„ç§æ¨å¹¿ç±»åˆ«çš„å½“å‰ç»Ÿè®¡æŒ‡æ ‡(sum or avg)ï¼Œå¹¶æ’åº
+            //ÒÔhighchartsËùĞèµÄÊı¾İ¸ñÊ½ÓÃÀ´Ìî×°¸÷ÖÖÍÆ¹ãÀà±ğµÄµ±Ç°Í³¼ÆÖ¸±ê(sum or avg)£¬²¢ÅÅĞò
             var sortedArr = new Array();    
             for(var i=0; i<keys.length; i++){
                 var key = keys[i];
@@ -206,7 +206,7 @@ function sortMapData(){
             sortedArr = sortedArr.splice(0,sortedDataResults.dispNum);
             //if(dataMapStatus.isOtherNeeded){
                 if(dataMap.size() > sortedDataResults.dispNum){
-                    var dispSum = 0;    //é¥¼å›¾å±•ç¤ºçš„æ±‚å’Œæ•°æ®çš„ç´¯åŠ 
+                    var dispSum = 0;    //±ıÍ¼Õ¹Ê¾µÄÇóºÍÊı¾İµÄÀÛ¼Ó
                     for(var i=0; i<sortedDataResults.dispNum; i++){
                         if(typeof sortedArr[i][1] != 'number'){
                             continue;
@@ -219,11 +219,11 @@ function sortMapData(){
                     var otherSum = statisticDataFromPage[dataKey].sum - dispSum;
                     statisticDataFromPage[dataKey].otherSum = otherSum;
                     if('avgClickPrice' == dataKey){
-                        sortedArr.push(['å…¶ä»–',statisticDataFromPage['consume'].otherSum/statisticDataFromPage['click'].otherSum]);
+                        sortedArr.push(['ÆäËû',statisticDataFromPage['consume'].otherSum/statisticDataFromPage['click'].otherSum]);
                     }else if ('ctr' == dataKey){
-                        sortedArr.push(['å…¶ä»–',statisticDataFromPage['click'].otherSum/statisticDataFromPage['pv'].otherSum]);
+                        sortedArr.push(['ÆäËû',statisticDataFromPage['click'].otherSum/statisticDataFromPage['pv'].otherSum]);
                     }else{
-                        sortedArr.push(['å…¶ä»–',otherSum]);    //å†™æˆäºŒç»´æ•°ç»„æ˜¯ä¸ºäº†é€‚åº”pie chartçš„dataçš„æ ¼å¼
+                        sortedArr.push(['ÆäËû',otherSum]);    //Ğ´³É¶şÎ¬Êı×éÊÇÎªÁËÊÊÓ¦pie chartµÄdataµÄ¸ñÊ½
                     }
                 }
             //}

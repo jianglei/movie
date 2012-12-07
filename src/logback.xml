@@ -3,7 +3,7 @@
     <property name="LOG_HOME" value="./log" />  
       
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">  
-        <Encoding>UTF-8</Encoding>  
+        <Encoding>GBK</Encoding>  
         <layout class="ch.qos.logback.classic.PatternLayout">  
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-2level %logger{100} - %msg%n  
             </pattern>  
@@ -12,7 +12,7 @@
       
     <appender name="FILE"  
         class="ch.qos.logback.core.rolling.RollingFileAppender">  
-        <Encoding>UTF-8</Encoding>  
+        <Encoding>GBK</Encoding>  
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
             <FileNamePattern>${LOG_HOME}/java_info.%d{yyyy-MM-dd}.log</FileNamePattern>  
             <MaxHistory>30</MaxHistory>  
