@@ -27,7 +27,7 @@ import com.wuxianmeihao.utils.PictureUtil;
 import com.wuxianmeihao.utils.StringUtil;
 
 @Controller
-// ÉùÃ÷¸ÃÀàÎª¿ØÖÆÆ÷Àà
+// å£°æ˜è¯¥ç±»ä¸ºæ§åˆ¶å™¨ç±»
 @RequestMapping(value = "/upload")
 public class FileUploadController extends MultiActionController {
 
@@ -46,11 +46,11 @@ public class FileUploadController extends MultiActionController {
 	}
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	// ½«ÎÄ¼şÉÏ´«ÇëÇóÓ³Éäµ½¸Ã·½·¨
+	// å°†æ–‡ä»¶ä¸Šä¼ è¯·æ±‚æ˜ å°„åˆ°è¯¥æ–¹æ³•
 	public String handleFormUpload(
 			HttpServletRequest request,
 			HttpServletResponse response,
-		    Model model) { // ÇëÇó²ÎÊıÒ»¶¨ÒªÓëformÖĞµÄ²ÎÊıÃû¶ÔÓ¦
+		    Model model) { // è¯·æ±‚å‚æ•°ä¸€å®šè¦ä¸formä¸­çš„å‚æ•°åå¯¹åº”
 		
 		String uploadType = "pic";
 		String fileObject = "banner_File";
@@ -60,51 +60,51 @@ public class FileUploadController extends MultiActionController {
 	    model.addAttribute("uploadType", uploadType);
 	    model.addAttribute("feedback", multipartRequest.getParameter("feedback"));
 	    
-		// ÔÚÉÏ´«¹ı³ÌÖĞ³öÏÖÎÊÌâÊ±·µ»Ø¿Í»§¶ËµÄĞÅÏ¢
+		// åœ¨ä¸Šä¼ è¿‡ç¨‹ä¸­å‡ºç°é—®é¢˜æ—¶è¿”å›å®¢æˆ·ç«¯çš„ä¿¡æ¯
 		String message = "";
 
 		if (!((mFile == null) || mFile.isEmpty())) {
 		    String fileName = mFile.getFileItem().getName();
 
-            // ¼ì²éÎÄ¼şÀàĞÍ
+            // æ£€æŸ¥æ–‡ä»¶ç±»å‹
             message = checkType(fileName, uploadType);
             if (StringUtil.isNotEmpty(message)) {
                 return uploadAssert(model, message);
             }
 
-            //String localPath = fileConfig.getFilePath();//±¾µØ±£´æÂ·¾¶
+            //String localPath = fileConfig.getFilePath();//æœ¬åœ°ä¿å­˜è·¯å¾„
             String localPath = this.getClass().getClassLoader().getResource("/").getPath()+"../../"+"uploadFloder";
             System.out.println(localPath);
 
-            // Éú³ÉÎÄ¼şÃûÍ¬Ê±´´½¨²»´æÔÚµÄÄ¿Â¼
+            // ç”Ÿæˆæ–‡ä»¶ååŒæ—¶åˆ›å»ºä¸å­˜åœ¨çš„ç›®å½•
             String fileRealName = getRealFileName(fileName, localPath);
 
-            // ´´½¨ÎÄ¼ş
+            // åˆ›å»ºæ–‡ä»¶
             File file = new File(localPath + "/" + fileRealName);
 
             try {
-                // ½«ÉÏ´«µÄÎÄ¼şĞ´ÈëĞÂ½¨µÄÎÄ¼şÖĞ
+                // å°†ä¸Šä¼ çš„æ–‡ä»¶å†™å…¥æ–°å»ºçš„æ–‡ä»¶ä¸­
                 mFile.getFileItem().write(file);
                 
-                // ¼ì²éÍ¼Æ¬ÎÄ¼şµÄ¸ß¶ÈºÍ¿í¶È
+                // æ£€æŸ¥å›¾ç‰‡æ–‡ä»¶çš„é«˜åº¦å’Œå®½åº¦
 //                message = this.checkPicSize(uploadType, file, width, height);
                 
                
             } catch (Exception e) {
                 e.printStackTrace();
-                message = "ÔÚ·şÎñÆ÷ÉÏ´´½¨ÎÄ¼şÊ§°Ü";
+                message = "åœ¨æœåŠ¡å™¨ä¸Šåˆ›å»ºæ–‡ä»¶å¤±è´¥";
                 return uploadAssert(model, message);
             }
             String url = ("" + fileRealName);
             model.addAttribute("url", url.replace("\\\\", "/"));
         } else {
-            message = "ÎÄ¼ş²»ÄÜÎª¿Õ";
+            message = "æ–‡ä»¶ä¸èƒ½ä¸ºç©º";
         }
         return uploadAssert(model, message);
     }
 
     /**
-     * ¶ÔÎÄ¼şÃû½øĞĞĞŞ¸Ä
+     * å¯¹æ–‡ä»¶åè¿›è¡Œä¿®æ”¹
      * 
      * @param fileName
      * @return
@@ -120,7 +120,7 @@ public class FileUploadController extends MultiActionController {
     }
 
     /**
-     * ¼ì²éÉÏ´«ÎÄ¼şÀàĞÍ
+     * æ£€æŸ¥ä¸Šä¼ æ–‡ä»¶ç±»å‹
      * 
      * @param fileName
      * @param type
@@ -129,27 +129,27 @@ public class FileUploadController extends MultiActionController {
     private String checkType(String fileName, String type) {
         String[] fileNameArray = fileName.split("\\.");
         if (fileNameArray.length < 2) {
-            return "ÉÏ´«ÎÄ¼şÀàĞÍ´íÎó£¬ÇëÖØĞÂÑ¡ÔñÎÄ¼şÉÏ´«";
+            return "ä¸Šä¼ æ–‡ä»¶ç±»å‹é”™è¯¯ï¼Œè¯·é‡æ–°é€‰æ‹©æ–‡ä»¶ä¸Šä¼ ";
         }
         String fileExt = "."+fileNameArray[fileNameArray.length-1];
         if (type.equals("pic")) {
             try {
                 if (!FileUtil.checkPicType(fileExt)) {
-                    return "ÉÏ´«ÎÄ¼ş²»ÊÇÍ¼Æ¬ÀàĞÍ£¬ÇëÖØĞÂÑ¡ÔñÎÄ¼şÉÏ´«!";
+                    return "ä¸Šä¼ æ–‡ä»¶ä¸æ˜¯å›¾ç‰‡ç±»å‹ï¼Œè¯·é‡æ–°é€‰æ‹©æ–‡ä»¶ä¸Šä¼ !";
                 }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
         } else if (type.equals("apk")) {
             if (!FileUtil.checkPicType(fileExt, new String[] { ".apk" })) {
-                return "ÉÏ´«ÎÄ¼ş²»ÊÇapkÀàĞÍ£¬ÇëÖØĞÂÑ¡ÔñÎÄ¼şÉÏ´«!";
+                return "ä¸Šä¼ æ–‡ä»¶ä¸æ˜¯apkç±»å‹ï¼Œè¯·é‡æ–°é€‰æ‹©æ–‡ä»¶ä¸Šä¼ !";
             }
         }
         return "";
     }
 
     /**
-     * ¶¨ÒåÌø×ªÒ³Ãæ
+     * å®šä¹‰è·³è½¬é¡µé¢
      * 
      * @param model
      * @param message
@@ -160,14 +160,14 @@ public class FileUploadController extends MultiActionController {
             model.addAttribute("message", message);
             model.addAttribute("submitFlag", "false");
         }else{
-            model.addAttribute("message", "ÉÏ´«³É¹¦!");
+            model.addAttribute("message", "ä¸Šä¼ æˆåŠŸ!");
             model.addAttribute("submitFlag", "true");
         }
         return "/ad/frame";
     }
 
     /**
-     * ¼ì²éÍ¼Æ¬µÄ¸ßºÍ¿í,Èç¹û²»·ûºÏÒªÇóÔò½«¸ÃÍ¼Æ¬ÖØÖÃ´óĞ¡
+     * æ£€æŸ¥å›¾ç‰‡çš„é«˜å’Œå®½,å¦‚æœä¸ç¬¦åˆè¦æ±‚åˆ™å°†è¯¥å›¾ç‰‡é‡ç½®å¤§å°
      * 
      * @param type
      * @param file
@@ -185,7 +185,7 @@ public class FileUploadController extends MultiActionController {
                             file.getPath().replace("\\", "\\\\"), width, height,
                             true);
                 }
-                return "Í¼Æ¬µÄ¿í¶È»ò¸ß¶È²»·ûºÏÒªÇó";
+                return "å›¾ç‰‡çš„å®½åº¦æˆ–é«˜åº¦ä¸ç¬¦åˆè¦æ±‚";
             }
         }
         return "";
