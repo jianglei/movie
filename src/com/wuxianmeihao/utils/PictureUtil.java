@@ -13,7 +13,7 @@ public class PictureUtil {
                 return line.replaceAll("\"", "");
             }
         } catch (IOException e) {
-            throw new RuntimeException("��ȡͼƬ��Сʱ�����쳣", e);
+            throw new RuntimeException("获取图片大小时发生异常", e);
         }
         return "0x0";
     }
@@ -44,12 +44,12 @@ public class PictureUtil {
                 process = Runtime.getRuntime().exec("cp " + filename + " " + aimfilename);
             }
         } catch (IOException e) {
-            throw new RuntimeException("ͼƬת���쳣", e);
+            throw new RuntimeException("图片转换异常", e);
         }
         try {
             process.waitFor();
         } catch (InterruptedException e) {
-            throw new RuntimeException("ͼƬת���쳣", e);
+            throw new RuntimeException("图片转换异常", e);
         }
     }
     
@@ -58,12 +58,12 @@ public class PictureUtil {
         try {
             process = Runtime.getRuntime().exec("jpegoptim -m80 --strip-all " + fileName);
         } catch (IOException e) {
-            throw new RuntimeException("ͼƬѹ���쳣", e);
+            throw new RuntimeException("图片压缩异常", e);
         }
         try {
             process.waitFor();
         } catch (InterruptedException e) {
-            throw new RuntimeException("ͼƬѹ���쳣", e);
+            throw new RuntimeException("图片压缩异常", e);
         }
     }
 }
