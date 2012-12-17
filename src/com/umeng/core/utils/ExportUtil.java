@@ -10,62 +10,62 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 /**
- * µ¼³öCSVÎÄ¼ş¹¤¾ßÀà
+ * å¯¼å‡ºCSVæ–‡ä»¶å·¥å…·ç±»
  * @author hyeang
  *
  */
 public class ExportUtil {
     private static enum DataField{
-        name("Ãû³Æ"){
+        name("åç§°"){
             public String getValue(Map<String, Object> values){
                 String value=(String)values.get(this.name());
                 if(value!=null && value.contains(",")){
-                    value=value.replaceAll(",", "£¬");
+                    value=value.replaceAll(",", "ï¼Œ");
                 }
                 return value;
             };
         },
-        status("×´Ì¬"){
+        status("çŠ¶æ€"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if("false".equals(String.valueOf(value)) || "0".equals(String.valueOf(value))){
-                    return "ÓĞĞ§";
+                    return "æœ‰æ•ˆ";
                 }else{
-                    return "ÔİÍ£";
+                    return "æš‚åœ";
                 }         
             };
         },
-        default_price("³ö¼Û"){
+        default_price("å‡ºä»·"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         },        
-        price("³ö¼Û"){
+        price("å‡ºä»·"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         }, 
-        daily_budget("Ô¤Ëã"){
+        daily_budget("é¢„ç®—"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         },
-        ppc("Æ½¾ùµã»÷¼Û¸ñ"){
+        ppc("å¹³å‡ç‚¹å‡»ä»·æ ¼"){
             public String getValue(Map<String, Object> values){
                 Double value=(Double)values.get(this.name());;
                 if(value==null){
@@ -77,7 +77,7 @@ public class ExportUtil {
                     }
                 }
                 if(value!=null){
-                    return "£¤"+nf.format(value);
+                    return "ï¿¥"+nf.format(value);
                 }else{
                     return "-";
                 }        
@@ -95,15 +95,15 @@ public class ExportUtil {
                     }
                 }
                 if(value!=null){
-                    return "£¤"+nf.format(value);
+                    return "ï¿¥"+nf.format(value);
                 }else{
                     return "-";
                 }        
             };
         },        
-        show("Õ¹Ê¾´ÎÊı"),
-        click("µã»÷´ÎÊı"),      
-        ctr("µã»÷ÂÊ"){
+        show("å±•ç¤ºæ¬¡æ•°"),
+        click("ç‚¹å‡»æ¬¡æ•°"),      
+        ctr("ç‚¹å‡»ç‡"){
             public String getValue(Map<String, Object> values){
                 Double value=(Double)values.get(this.name());;
                 if(value==null){
@@ -120,51 +120,51 @@ public class ExportUtil {
                 }        
             };
         },
-        consume("Ïû·Ñ"){
+        consume("æ¶ˆè´¹"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         },
-        income("ÊÕÈë"){
+        income("æ”¶å…¥"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         },
-        date("ÈÕÆÚ"){
+        date("æ—¥æœŸ"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 return df.format((Date)value);
             };
         },       
-        startDate("¿ªÊ¼ÈÕÆÚ"){
+        startDate("å¼€å§‹æ—¥æœŸ"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 return df.format((Date)value);
             };
         },       
-        endDate("½áÊøÈÕÆÚ"){
+        endDate("ç»“æŸæ—¥æœŸ"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 return df.format((Date)value);
             };
         },
-        create_time("ÈÕÆÚ"){
+        create_time("æ—¥æœŸ"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 return df.format((Date)value);
             };
         },    
-        charge_in("´æÈë"){
+        charge_in("å­˜å…¥"){
             public String getValue(Map<String, Object> values){
                 Object amount=values.get("charge_amount");
                 Integer type=(Integer)values.get("type");
@@ -172,14 +172,14 @@ public class ExportUtil {
                     return "-";
                 }else{
                     if(type.intValue()==100 || type.intValue()==101){
-                        return "£¤"+nf.format(((Long)amount)/1000000.0);
+                        return "ï¿¥"+nf.format(((Long)amount)/1000000.0);
                     }else{
                         return "-";
                     }
                 }
             };
         },       
-        charge_out("ÏûºÄ"){
+        charge_out("æ¶ˆè€—"){
             public String getValue(Map<String, Object> values){
                 Object amount=values.get("charge_amount");
                 Integer type=(Integer)values.get("type");
@@ -189,28 +189,28 @@ public class ExportUtil {
                     if(type.intValue()==100 || type.intValue()==101){
                         return "-";
                     }else{
-                        return "£¤"+nf.format(((Long)amount)/1000000.0);
+                        return "ï¿¥"+nf.format(((Long)amount)/1000000.0);
                     }
                 }      
             };
         },  
-        balance("Óà¶î"){
+        balance("ä½™é¢"){
             public String getValue(Map<String, Object> values){
                 Object value=values.get(this.name());
                 if(value!=null){
-                    return "£¤"+nf.format(((Long)value)/1000000.0);
+                    return "ï¿¥"+nf.format(((Long)value)/1000000.0);
                 }else{
                     return "-";
                 }        
             };
         },        
-        type("ÀàĞÍ"){
+        type("ç±»å‹"){
             public String getValue(Map<String, Object> values){
                 Integer type=(Integer)values.get("type");
                 if(type.intValue()==100 || type.intValue()==101){
-                    return "´æÈë";
+                    return "å­˜å…¥";
                 }else{
-                    return "ÏûºÄ";
+                    return "æ¶ˆè€—";
                 }      
             };
         },
@@ -218,18 +218,18 @@ public class ExportUtil {
             public String getValue(Map<String, Object> values){
             	String value=(String)values.get(this.name());
                 if(value!=null && value.contains(",")){
-                    value=value.replaceAll(",", "£¬");
+                    value=value.replaceAll(",", "ï¼Œ");
                 }
                 return value;
             };
         },
-        priority("ÓÅÏÈ¼¶"){
+        priority("ä¼˜å…ˆçº§"){
             public String getValue(Map<String, Object> values){
                 Integer type=(Integer)values.get("type");
                 if(type.intValue()==100 || type.intValue()==101){
-                    return "´æÈë";
+                    return "å­˜å…¥";
                 }else{
-                    return "ÏûºÄ";
+                    return "æ¶ˆè€—";
                 }      
             };
         };  
@@ -253,7 +253,7 @@ public class ExportUtil {
         };
     }
 	/**
-	 * ½«Êı¾İÒÔCSV¸ñÊ½Ğ´ÈëresponseµÄOutputStream
+	 * å°†æ•°æ®ä»¥CSVæ ¼å¼å†™å…¥responseçš„OutputStream
 	 * @param response
 	 * @param data
 	 * @param columnNames
@@ -261,12 +261,12 @@ public class ExportUtil {
 	 * @throws IOException
 	 */
 	public static void writeCsvOutput(HttpServletResponse response, List<Map<String, Object>> data, List<String> columnNames, String fileName) throws IOException{
-		// ÏàÓ¦ÄÚÈİÀàĞÍ
+		// ç›¸åº”å†…å®¹ç±»å‹
 		response.setContentType("text/csv;charset=gbk");
-		// ÉèÖÃÏÂÔØÎÄ¼şÃû
+		// è®¾ç½®ä¸‹è½½æ–‡ä»¶å
 //		fileName = new String(fileName.getBytes(), "ISO8859-1");
 		response.setHeader("Content-Disposition", "attachment;filename="+ fileName);
-		// Êä³öCSVÊı¾İÄÚÈİ
+		// è¾“å‡ºCSVæ•°æ®å†…å®¹
 		if (data != null && data.size() > 0) {
 		    PrintWriter writer=response.getWriter();
 //			out.write(new   byte []{( byte ) 0xEF ,( byte ) 0xBB ,( byte ) 0xBF });  
@@ -300,7 +300,7 @@ public class ExportUtil {
 	}
 	
 	/**
-	 * ½«Êı¾İÒÔCSV¸ñÊ½Ğ´ÈëresponseµÄOutputStream
+	 * å°†æ•°æ®ä»¥CSVæ ¼å¼å†™å…¥responseçš„OutputStream
 	 * @param response
 	 * @param data
 	 * @param columnNames
@@ -308,12 +308,12 @@ public class ExportUtil {
 	 * @throws IOException
 	 */
 	public static void writeCsv(HttpServletResponse response, List<String> dateList, Map<String, List<Object>> contentMap, String fileName) throws IOException{
-		// ÏàÓ¦ÄÚÈİÀàĞÍ
+		// ç›¸åº”å†…å®¹ç±»å‹
 		response.setContentType("text/csv;charset=gbk");
-		// ÉèÖÃÏÂÔØÎÄ¼şÃû
+		// è®¾ç½®ä¸‹è½½æ–‡ä»¶å
 //		fileName = new String(fileName.getBytes(), "ISO8859-1");
 		response.setHeader("Content-Disposition", "attachment;filename="+ fileName);
-		// Êä³öCSVÊı¾İÄÚÈİ
+		// è¾“å‡ºCSVæ•°æ®å†…å®¹
 		if ((contentMap!= null && contentMap.size() > 0) && (dateList != null && dateList.size() > 0)) {
 		    PrintWriter writer=response.getWriter();
 //			out.write(new   byte []{( byte ) 0xEF ,( byte ) 0xBB ,( byte ) 0xBF });  
@@ -345,7 +345,7 @@ public class ExportUtil {
 	}
 	
 	/**
-	 * »ñÈ¡ÇëÇóCSVÏÂÔØµÄÈ±Ê¡url(ÔÚÇëÇó²éÑ¯Êı¾İµÄurlµÄpathÄ©Î²¼Ó"_CSV")
+	 * è·å–è¯·æ±‚CSVä¸‹è½½çš„ç¼ºçœurl(åœ¨è¯·æ±‚æŸ¥è¯¢æ•°æ®çš„urlçš„pathæœ«å°¾åŠ "_CSV")
 	 * @param requestUrl
 	 * @return
 	 */
