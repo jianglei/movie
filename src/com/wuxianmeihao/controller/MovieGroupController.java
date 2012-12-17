@@ -45,14 +45,14 @@ public class MovieGroupController extends MultiActionController {
 		try {
 			String category = request.getParameter("category");
 	    	if(!StringUtil.isEmpty(category)){
-	    		queryParma.put("category", new String(category.getBytes("ISO-8859-1"),"gbk"));
+	    		queryParma.put("category", new String(category.getBytes("ISO-8859-1"),"utf-8"));
 	    	}
 			String	name = request.getParameter("name");
 			if(!StringUtil.isEmpty(name)){
-	    		queryParma.put("name","%" +  new String(name.getBytes("ISO-8859-1"),"gbk") + "%");
+	    		queryParma.put("name","%" +  new String(name.getBytes("ISO-8859-1"),"utf-8") + "%");
 	    	}
 		} catch (UnsupportedEncodingException e) {
-			System.out.println("◊™ªª¥ÌŒÛ");
+			System.out.println("ËΩ¨Êç¢ÈîôËØØ");
 		}
     	
     	String releaseTime = request.getParameter("releaseTime");
@@ -113,13 +113,13 @@ public class MovieGroupController extends MultiActionController {
  	        while((s = x.readLine()) != null){
  	        	sb.append(s);
  	        }
- 	        if(!sb.toString().split("“≥¥Œ:")[1].startsWith(""+i+"/")){
+ 	        if(!sb.toString().split("È°µÊ¨°:")[1].startsWith(""+i+"/")){
  	        	return true;
  	        }
  	        String[] movieUrlArray = sb.toString().split("<a href=\"/");
  	        List<String> movieUrlList = new ArrayList<String>();
  	        for(String movieUrl : movieUrlArray){
- 	        	if(movieUrl.startsWith("detail") && movieUrl.contains("µ„ª˜Ω¯»Î")){
+ 	        	if(movieUrl.startsWith("detail") && movieUrl.contains("ÁÇπÂáªËøõÂÖ•")){
  	        		movieUrlList.add(movieUrl.substring(0, movieUrl.indexOf("\"")));
  	        	}
  	        }
@@ -140,22 +140,22 @@ public class MovieGroupController extends MultiActionController {
 		 	        
 		 	        System.out.println(fullHtml);
 		 	        
-			        mg.setPicUrl(getLastUrlValue(fullHtml,"<!--”∞∆¨Õº∆¨ø™ º¥˙¬Î-->","<!--”∞∆¨Õº∆¨Ω· ¯¥˙¬Î-->"));
+			        mg.setPicUrl(getLastUrlValue(fullHtml,"<!--ÂΩ±ÁâáÂõæÁâáÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÂõæÁâáÁªìÊùü‰ª£Á†Å-->"));
 			        
-			        mg.setName(getLastValueWithMarks(fullHtml,"<!--”∞∆¨√˚≥∆ø™ º¥˙¬Î-->","<!--”∞∆¨√˚≥∆Ω· ¯¥˙¬Î-->"));
-			        mg.setActorList(getLastValueWithMarks(fullHtml,"<!--”∞∆¨—›‘±ø™ º¥˙¬Î-->","<!--”∞∆¨—›‘±Ω· ¯¥˙¬Î-->"));
-			        mg.setDirector(getLastValueWithMarks(fullHtml,"<!--”∞∆¨µº—›ø™ º-->","<!--”∞∆¨µº—›Ω· ¯-->"));
-			        mg.setRemark(getLastValueWithMarks(fullHtml,"<!--”∞∆¨±∏◊¢ø™ º¥˙¬Î-->","<!--”∞∆¨±∏◊¢Ω· ¯¥˙¬Î-->"));
-			        mg.setCategory(getLastValueWithMarks(fullHtml,"<!--”∞∆¨¿‡–Õø™ º¥˙¬Î-->","<!--”∞∆¨¿‡–ÕΩ· ¯¥˙¬Î-->"));
-			        mg.setArea(getLastValueWithMarks(fullHtml,"<!--”∞∆¨µÿ«¯ø™ º¥˙¬Î-->","<!--”∞∆¨µÿ«¯Ω· ¯¥˙¬Î-->"));
-			        mg.setLastUpdateTime(getLastValueWithMarks(fullHtml,"<!--”∞∆¨∏¸–¬ ±º‰ø™ º¥˙¬Î-->","<!--”∞∆¨∏¸–¬ ±º‰Ω· ¯¥˙¬Î-->"));
-			        mg.setStatus(getLastValueWithMarks(fullHtml,"<!--”∞∆¨◊¥Ã¨ø™ º¥˙¬Î-->","<!--”∞∆¨◊¥Ã¨Ω· ¯¥˙¬Î-->"));
-			        mg.setLanguage(getLastValueWithMarks(fullHtml,"<!--”∞∆¨”Ô—‘ø™ º¥˙¬Î-->","<!--”∞∆¨”Ô—‘Ω· ¯¥˙¬Î-->"));
-			        mg.setReleaseTime(getLastValueWithMarks(fullHtml,"<!--…œ”≥»’∆⁄ø™ º¥˙¬Î-->","<!--…œ”≥»’∆⁄Ω· ¯¥˙¬Î-->"));
+			        mg.setName(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÂêçÁß∞ÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÂêçÁß∞ÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setActorList(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÊºîÂëòÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÊºîÂëòÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setDirector(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÂØºÊºîÂºÄÂßã-->","<!--ÂΩ±ÁâáÂØºÊºîÁªìÊùü-->"));
+			        mg.setRemark(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÂ§áÊ≥®ÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÂ§áÊ≥®ÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setCategory(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÁ±ªÂûãÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÁ±ªÂûãÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setArea(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÂú∞Âå∫ÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÂú∞Âå∫ÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setLastUpdateTime(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÊõ¥Êñ∞Êó∂Èó¥ÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÊõ¥Êñ∞Êó∂Èó¥ÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setStatus(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáÁä∂ÊÄÅÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáÁä∂ÊÄÅÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setLanguage(getLastValueWithMarks(fullHtml,"<!--ÂΩ±ÁâáËØ≠Ë®ÄÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±ÁâáËØ≠Ë®ÄÁªìÊùü‰ª£Á†Å-->"));
+			        mg.setReleaseTime(getLastValueWithMarks(fullHtml,"<!--‰∏äÊò†Êó•ÊúüÂºÄÂßã‰ª£Á†Å-->","<!--‰∏äÊò†Êó•ÊúüÁªìÊùü‰ª£Á†Å-->"));
 			        
-			        mg.setDescription(getLastValueWithMarks(fullHtml,"<!--”∞∆¨ΩÈ…‹ø™ º¥˙¬Î-->","<!--”∞∆¨ΩÈ…‹Ω· ¯¥˙¬Î-->"));
+			        mg.setDescription(getLastValueWithMarks(fullHtml,"<!--ÂΩ±Áâá‰ªãÁªçÂºÄÂßã‰ª£Á†Å-->","<!--ÂΩ±Áâá‰ªãÁªçÁªìÊùü‰ª£Á†Å-->"));
 			        
-			        String moviesHtml = getLastValueWithOutMarks(fullHtml,"<!--≤•∑≈¡–±Ìø™ º¥˙¬Î-->","<!--≤•∑≈¡–±ÌΩ· ¯¥˙¬Î-->");
+			        String moviesHtml = getLastValueWithOutMarks(fullHtml,"<!--Êí≠ÊîæÂàóË°®ÂºÄÂßã‰ª£Á†Å-->","<!--Êí≠ÊîæÂàóË°®ÁªìÊùü‰ª£Á†Å-->");
 		 	        String[] moviesArray = moviesHtml.split("value=");
 		 	        Movie movie;
 		 	        List<Movie> movieList = new ArrayList<Movie>();
@@ -174,7 +174,7 @@ public class MovieGroupController extends MultiActionController {
 		 	        System.out.println("-----end--------"+mg.getName());
 		 	        count ++;
 		 	        if(count%100 == 0 && count/100 > 0){
-		 	        	System.out.println("“—æ≠≤Â»Î¡À"+count+"ÃıµÁ”∞");
+		 	        	System.out.println("Â∑≤ÁªèÊèíÂÖ•‰∫Ü"+count+"Êù°ÁîµÂΩ±");
 		 	        }
  	        	}catch (Exception e) {
  	        		list.add(detailInfo);

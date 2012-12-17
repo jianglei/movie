@@ -537,7 +537,7 @@
                     </tr>
                     <tr>
                         <td class='c_adslot_body' height="302">
-                           <%@include file="getcode.jsp"%>
+                           
                         </td>
                     </tr>
                     <!-- <tr class="border_top">
@@ -566,7 +566,7 @@
         <script src="/js/modules/adlist${build}.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/modules/timeChoose${build}.js?${constantVersion}" type="text/javascript"></script>
         <script src="/js/adslot/adslot${build}.js?${constantVersion}" type="text/javascript"></script>
-        <%@include file="../adorder/adlist.jsp"%>
+       
         <div id="uploadDiv" style="display: none">
             <iframe id="uploadFrame" name="uploadFrame"></iframe>
         </div>

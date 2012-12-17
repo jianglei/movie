@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class StringUtil {
 
     /**
-     * ´¦Àí×Ö·û´®
+     * å¤„ç†å­—ç¬¦ä¸²
      * 
      * @param str
      * @return "" || str
@@ -20,7 +20,7 @@ public class StringUtil {
         if (str == null) {
             return "";
         } else {
-            return str.trim().replaceAll("[%&'',£¬£»¡¯¡£¡®¡¢;=?]*", "");
+            return str.trim().replaceAll("[%&'',ï¼Œï¼›â€™ã€‚â€˜ã€;=?]*", "");
         }
     }
 
@@ -49,13 +49,13 @@ public class StringUtil {
     }
 
     /**
-     * Çå³ıµôËùÓĞÌØÊâ×Ö·û
+     * æ¸…é™¤æ‰æ‰€æœ‰ç‰¹æ®Šå­—ç¬¦
      * 
      * @param str
      * @return
      */
     public static String stringFilter(String str) {
-        String regEx = "[`~!@$%^&*()+=|{}':;',\\[\\].<>¡¶¡·/?~£¡@£¤%¡­¡­&*£¨£©¡ª¡ª+|{}¡¾¡¿¡®£»£º\"¡±¡°¡¯¡££¬¡¢£¿]";
+        String regEx = "[`~!@$%^&*()+=|{}':;',\\[\\].<>ã€Šã€‹/?~ï¼@ï¿¥%â€¦â€¦&*ï¼ˆï¼‰â€”â€”+|{}ã€ã€‘â€˜ï¼›ï¼š\"â€â€œâ€™ã€‚ï¼Œã€ï¼Ÿ]";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
@@ -81,7 +81,7 @@ public class StringUtil {
 	private final static String[] PRE_ZERO = { "", "0", "00", "000", "0000", "00000", "000000", "0000000" };
 
 	/**
-	 * ±È½ÏÁ½¸ö×Ö·û´®ÊÇ·ñÏàµÈ£¬Èç¹ûÁ½¸ö×Ö·û´´¶¼ÊÇ¿Õ£¬ÔòÒ²ÏàµÈ
+	 * æ¯”è¾ƒä¸¤ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ç›¸ç­‰ï¼Œå¦‚æœä¸¤ä¸ªå­—ç¬¦åˆ›éƒ½æ˜¯ç©ºï¼Œåˆ™ä¹Ÿç›¸ç­‰
 	 * 
 	 * @param	s1
 	 * @param	s2
@@ -99,7 +99,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ·µ»ØÒì³£µÄ¶ÑÕ»ĞÅÏ¢
+	 * è¿”å›å¼‚å¸¸çš„å †æ ˆä¿¡æ¯
 	 */
 	public static String throwableToString(Throwable t) {
 		if (t == null) return "";
@@ -110,7 +110,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½âÎö IP µØÖ·Îª³¤ÕûÊı
+	 * è§£æ IP åœ°å€ä¸ºé•¿æ•´æ•°
 	 */
 	public static long ip2number(String strIP) {
 		if (strIP != null) {
@@ -137,7 +137,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ×ª»¯16½øÖÆ×Ö·û´®ÎªÕûÊı
+	 * è½¬åŒ–16è¿›åˆ¶å­—ç¬¦ä¸²ä¸ºæ•´æ•°
 	 */
 	public static int hex2int(String s) {
 		int iResult = 0;
@@ -154,7 +154,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸ñÊ½»¯ÕûÊıÎª16½øÖÆ×Ö·û´®
+	 * æ ¼å¼åŒ–æ•´æ•°ä¸º16è¿›åˆ¶å­—ç¬¦ä¸²
 	 */
 	public static String int2dec(int i, int digit) {
 		String s = String.valueOf(i);
@@ -169,7 +169,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸ñÊ½»¯ÕûÊıÎª16½øÖÆ×Ö·û´®
+	 * æ ¼å¼åŒ–æ•´æ•°ä¸º16è¿›åˆ¶å­—ç¬¦ä¸²
 	 */
 	public static String int2hex(int j) {
 		char[] buf = new char[8];
@@ -181,10 +181,10 @@ public class StringUtil {
 	}
 
 	/**
-	 * ×ª»»×Ö½ÚÎª16½øÖÆµÄÎÄ±¾ÃèÊöĞÎÊ½
+	 * è½¬æ¢å­—èŠ‚ä¸º16è¿›åˆ¶çš„æ–‡æœ¬æè¿°å½¢å¼
 	 * 
-	 * @param	b	Ö¸¶¨µÄ×Ö½Ú
-	 * @return	×ª»¯½á¹û
+	 * @param	b	æŒ‡å®šçš„å­—èŠ‚
+	 * @return	è½¬åŒ–ç»“æœ
 	 */
 	public final static String byte2Hex(byte b) {
 		char[] out = new char[2];
@@ -194,15 +194,15 @@ public class StringUtil {
 	}
 
 	/**
-	 * °ÑÊäÈëµÄ×Ö½ÚÊ÷×é£¬Öğ×Ö½Ú×ª»¯ÎªÆä16½øÖÆµÄÎÄ±¾ÃèÊöĞÎÊ½
+	 * æŠŠè¾“å…¥çš„å­—èŠ‚æ ‘ç»„ï¼Œé€å­—èŠ‚è½¬åŒ–ä¸ºå…¶16è¿›åˆ¶çš„æ–‡æœ¬æè¿°å½¢å¼
 	 * 
 	 * @param buf
-	 *            ÊäÈëµÄ×Ö½ÚÊ÷×é
+	 *            è¾“å…¥çš„å­—èŠ‚æ ‘ç»„
 	 * @param off
-	 *            ĞèÒª×ª»¯µÄ¿ªÊ¼Î»ÖÃ
+	 *            éœ€è¦è½¬åŒ–çš„å¼€å§‹ä½ç½®
 	 * @param len
-	 *            ĞèÒª×ª»¯µÄ½áÊøÎ»ÖÃ
-	 * @return ×ª»¯½á¹û
+	 *            éœ€è¦è½¬åŒ–çš„ç»“æŸä½ç½®
+	 * @return è½¬åŒ–ç»“æœ
 	 */
 	public final static String bytesToHex(byte[] buf, int off, int len) {
 		char[] out = new char[len * 2];
@@ -294,7 +294,7 @@ public class StringUtil {
 		xlstInvalidChars[127] = true;
 	}
 
-	/** É¾µôxlst²»Ö§³ÖµÄ×Ö·û£¬È»ºó·µ»ØÔ­ÎÄ */
+	/** åˆ æ‰xlstä¸æ”¯æŒçš„å­—ç¬¦ï¼Œç„¶åè¿”å›åŸæ–‡ */
 	public static String getXSLTFreeText(String text) {
 		if (isEmpty(text)) return null;
 
@@ -314,19 +314,19 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½«URLµØÖ·ÖĞ¸ø¶¨µÄÒ»¸ö²ÎÊıÈ¥µô¡£
+	 * å°†URLåœ°å€ä¸­ç»™å®šçš„ä¸€ä¸ªå‚æ•°å»æ‰ã€‚
 	 * 
 	 * @param queryString
-	 *            ½«Òª´¦ÀíµÄURLµØÖ·
+	 *            å°†è¦å¤„ç†çš„URLåœ°å€
 	 * @param toescape
-	 *            ÒªÉ¾µôµÄ²ÎÊıÃû³Æ¡£
+	 *            è¦åˆ æ‰çš„å‚æ•°åç§°ã€‚
 	 */
 	public static String getSubQueryString(String queryString, String toescape) {
 		// String queryString = request.getQueryString() ;
 		if (queryString == null) return "";
 
 		int pos = queryString.indexOf(toescape);
-		if (pos < 0) return queryString; // ²»´æÔÚĞèÒªµÄÊı
+		if (pos < 0) return queryString; // ä¸å­˜åœ¨éœ€è¦çš„æ•°
 
 		StringBuffer sb = new StringBuffer(128);
 		int total = queryString.length();
@@ -355,7 +355,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * °Ñnull±ä³É""<br>
+	 * æŠŠnullå˜æˆ""<br>
 	 */
 	public static String dealNull(String str) {
 		String returnstr = null;
@@ -375,29 +375,29 @@ public class StringUtil {
 	}
 
 	/**
-	 * °Ñstring×ª»»³Éint
+	 * æŠŠstringè½¬æ¢æˆint
 	 * 
 	 * @param s
-	 *            Òª×ª»»³ÉintµÄString
-	 * @return Èç¹û×ª»»Ê§°Ü£¬·µ»Ø-1
+	 *            è¦è½¬æ¢æˆintçš„String
+	 * @return å¦‚æœè½¬æ¢å¤±è´¥ï¼Œè¿”å›-1
 	 */
 	public static int toInt(String s) {
 		return toInt(s, -1);
 	}
 
 	/**
-	 * °ÑstringÊı×é×ª»»³ÉintÊı×é
+	 * æŠŠstringæ•°ç»„è½¬æ¢æˆintæ•°ç»„
 	 * 
 	 * @param s
-	 *            Òª×ª»»³ÉintµÄStringÊı×é
-	 * @return Èç¹û×ª»»Ê§°Ü£¬·µ»Ønull
+	 *            è¦è½¬æ¢æˆintçš„Stringæ•°ç»„
+	 * @return å¦‚æœè½¬æ¢å¤±è´¥ï¼Œè¿”å›null
 	 */
 	public static int[] toIntArray(String[] strArray) {
 
 		if (null == strArray || strArray.length <= 0) return null;
 
 		int[] intArray = new int[strArray.length];
-		for (int i = 0; i < strArray.length; i++) // Í¬Ê±·â¶à¸ö°æ
+		for (int i = 0; i < strArray.length; i++) // åŒæ—¶å°å¤šä¸ªç‰ˆ
 		{
 			int j = 0;
 			try {
@@ -410,31 +410,31 @@ public class StringUtil {
 		return intArray;
 	}
 
-	//¹ıÂËhtml×Ö·û£¬²¢½«<>Ìæ»»³É&lt;&gt;£¬Ôö¼Ó¶Ô&#NN;¸ñÊ½×Ö·ûµÄÇåÀí
-	//Èç¹û×Ö·û´®Îªnull£¬Ôò·µ»Ø¿Õ×Ö·û´®""
+	//è¿‡æ»¤htmlå­—ç¬¦ï¼Œå¹¶å°†<>æ›¿æ¢æˆ&lt;&gt;ï¼Œå¢åŠ å¯¹&#NN;æ ¼å¼å­—ç¬¦çš„æ¸…ç†
+	//å¦‚æœå­—ç¬¦ä¸²ä¸ºnullï¼Œåˆ™è¿”å›ç©ºå­—ç¬¦ä¸²""
 	public static String filterInput(String str) {
 		return filterInput(str, false);
 	}
 
-	//¹ıÂËhtml×Ö·û£¬²¢½«<>Ìæ»»³É&lt;&gt;£¬Ôö¼Ó¶Ô&#NN;¸ñÊ½×Ö·ûµÄÇåÀí
-	//Èç¹û×Ö·û´®Îªnull£¬Ôò·µ»Ø¿Õ×Ö·û´®""
+	//è¿‡æ»¤htmlå­—ç¬¦ï¼Œå¹¶å°†<>æ›¿æ¢æˆ&lt;&gt;ï¼Œå¢åŠ å¯¹&#NN;æ ¼å¼å­—ç¬¦çš„æ¸…ç†
+	//å¦‚æœå­—ç¬¦ä¸²ä¸ºnullï¼Œåˆ™è¿”å›ç©ºå­—ç¬¦ä¸²""
 	public static String filterInput(String str, boolean half2full) {
 		if (isEmpty(str)) {
 			return "";
 		}
-		//Ó¦¸ÃÖ»¹ıÂË¶ÔÓ¦<>µÄ&#×Ö·û£¬ÒÔ¼°¿ªÊ¼ºÍ½áÊøµÄ¿Õ¸ñ //replaceFirst("^[¡¡ ]+", "").replaceFirst("[¡¡ ]+$", "").
+		//åº”è¯¥åªè¿‡æ»¤å¯¹åº”<>çš„&#å­—ç¬¦ï¼Œä»¥åŠå¼€å§‹å’Œç»“æŸçš„ç©ºæ ¼ //replaceFirst("^[ã€€ ]+", "").replaceFirst("[ã€€ ]+$", "").
 		String res = str.trim().replaceAll("&nbsp;", " ").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(
 				">", "&gt;").replace("\"", "&quot;").replaceAll("(\\ue40a|\\ue40b)", "");
 		return res;
 		//"&#(?i)(60|62|074|076|x3c|x3e)(?-i);", "");.replaceAll("<[^>]*>", "")
-	} //¹ıÂËhtml×Ö·û£¬²¢½«<>Ìæ»»³É&lt;&gt;£¬Ôö¼Ó¶Ô&#NN;¸ñÊ½×Ö·ûµÄÇåÀí
+	} //è¿‡æ»¤htmlå­—ç¬¦ï¼Œå¹¶å°†<>æ›¿æ¢æˆ&lt;&gt;ï¼Œå¢åŠ å¯¹&#NN;æ ¼å¼å­—ç¬¦çš„æ¸…ç†
 
-	//·´Ïò¹ıÂË×Ö·û´®
+	//åå‘è¿‡æ»¤å­—ç¬¦ä¸²
 	public static String unfilterInput(String str) {
 		if (isEmpty(str)) {
 			return "";
 		}
-		//Ó¦¸ÃÖ»¹ıÂË¶ÔÓ¦<>µÄ&#×Ö·û£¬ÒÔ¼°¿ªÊ¼ºÍ½áÊøµÄ¿Õ¸ñ
+		//åº”è¯¥åªè¿‡æ»¤å¯¹åº”<>çš„&#å­—ç¬¦ï¼Œä»¥åŠå¼€å§‹å’Œç»“æŸçš„ç©ºæ ¼
 		String res = str.replaceAll("&amp;", "&");
 		return res;
 	}
@@ -442,10 +442,10 @@ public class StringUtil {
 	/**
 	 * String2Alpha
 	 */
-	// ×ÖÄ¸ZÊ¹ÓÃÁËÁ½¸ö±êÇ©£¬ÕâÀïÓĞ£²£·¸öÖµ
-	// i, u, v¶¼²»×öÉùÄ¸, ¸úËæÇ°ÃæµÄ×ÖÄ¸
-	private static char[] chartable = { '°¡', '°Å', '²Á', '´î', '¶ê', '·¢', '¸Á', '¹ş', '¹ş', '»÷', '¿¦', 'À¬', 'Âè', 'ÄÃ', 'Å¶', 'Å¾',
-			'ÆÚ', 'È»', 'Èö', 'Ëú', 'Ëú', 'Ëú', 'ÍÚ', 'Îô', 'Ñ¹', 'ÔÑ', '×ù' };
+	// å­—æ¯Zä½¿ç”¨äº†ä¸¤ä¸ªæ ‡ç­¾ï¼Œè¿™é‡Œæœ‰ï¼’ï¼—ä¸ªå€¼
+	// i, u, véƒ½ä¸åšå£°æ¯, è·Ÿéšå‰é¢çš„å­—æ¯
+	private static char[] chartable = { 'å•Š', 'èŠ­', 'æ“¦', 'æ­', 'è›¾', 'å‘', 'å™¶', 'å“ˆ', 'å“ˆ', 'å‡»', 'å–€', 'åƒ', 'å¦ˆ', 'æ‹¿', 'å“¦', 'å•ª',
+			'æœŸ', 'ç„¶', 'æ’’', 'å¡Œ', 'å¡Œ', 'å¡Œ', 'æŒ–', 'æ˜”', 'å‹', 'åŒ', 'åº§' };
 
 	public static char[] alphatable = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 
@@ -453,16 +453,16 @@ public class StringUtil {
 
 	private static int[] table = new int[27];
 
-	// ³õÊ¼»¯
+	// åˆå§‹åŒ–
 	static {
 		for (int i = 0; i < 27; ++i) {
 			table[i] = gbValue(chartable[i]);
 		}
 	}
 
-	// Ö÷º¯Êı,ÊäÈë×Ö·û,µÃµ½ËûµÄÉùÄ¸,
-	// Ó¢ÎÄ×ÖÄ¸·µ»Ø¶ÔÓ¦µÄ´óĞ´×ÖÄ¸
-	// ÆäËû·Ç¼òÌåºº×Ö·µ»Ø '0'
+	// ä¸»å‡½æ•°,è¾“å…¥å­—ç¬¦,å¾—åˆ°ä»–çš„å£°æ¯,
+	// è‹±æ–‡å­—æ¯è¿”å›å¯¹åº”çš„å¤§å†™å­—æ¯
+	// å…¶ä»–éç®€ä½“æ±‰å­—è¿”å› '0'
 
 	private static char Char2Alpha(char ch) {
 
@@ -483,7 +483,7 @@ public class StringUtil {
 			return alphatable[i];
 	}
 
-	// ¸ù¾İÒ»¸ö°üº¬ºº×ÖµÄ×Ö·û´®·µ»ØÒ»¸öºº×ÖÆ´ÒôÊ××ÖÄ¸µÄ×Ö·û´®
+	// æ ¹æ®ä¸€ä¸ªåŒ…å«æ±‰å­—çš„å­—ç¬¦ä¸²è¿”å›ä¸€ä¸ªæ±‰å­—æ‹¼éŸ³é¦–å­—æ¯çš„å­—ç¬¦ä¸²
 	public static String String2Alpha(String SourceStr) {
 		String Result = "";
 		try {
@@ -500,7 +500,7 @@ public class StringUtil {
 
 		int j = i + 1;
 
-		// ×ÖÄ¸ZÊ¹ÓÃÁËÁ½¸ö±êÇ©
+		// å­—æ¯Zä½¿ç”¨äº†ä¸¤ä¸ªæ ‡ç­¾
 		while (j < 26 && (table[j] == table[i]))
 			++j;
 
@@ -511,7 +511,7 @@ public class StringUtil {
 
 	}
 
-	// È¡³öºº×ÖµÄ±àÂë
+	// å–å‡ºæ±‰å­—çš„ç¼–ç 
 	private static int gbValue(char ch) {
 		String str = new String();
 		str += ch;
@@ -526,7 +526,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ·µ»ØÌØ¶¨³¤¶ÈµÄ×Ö·û´®
+	 * è¿”å›ç‰¹å®šé•¿åº¦çš„å­—ç¬¦ä¸²
 	 * @param str
 	 * @param len
 	 * @return
@@ -537,9 +537,9 @@ public class StringUtil {
 		return str.substring(0, len);
 	}
 	/**
-	 * ¸ù¾İchar´óÓÚ256À´ÅĞ¶Ï³¤¶È
+	 * æ ¹æ®charå¤§äº256æ¥åˆ¤æ–­é•¿åº¦
 	 * @param str
-	 * @param len ÖĞÎÄ×Ö·û³¤¶È
+	 * @param len ä¸­æ–‡å­—ç¬¦é•¿åº¦
 	 * @return
 	 */
 	@Deprecated
@@ -560,9 +560,9 @@ public class StringUtil {
 		return str.substring(0, i);
 	}
 	/**
-	 * ¸ù¾İstringµÄlength()ºÍgetBytes().lengthÀ´ÅĞ¶Ï³¤¶È
+	 * æ ¹æ®stringçš„length()å’ŒgetBytes().lengthæ¥åˆ¤æ–­é•¿åº¦
 	 * @param str
-	 * @param len Ó¢ÎÄ×Ö·û³¤¶È
+	 * @param len è‹±æ–‡å­—ç¬¦é•¿åº¦
 	 * @return
 	 */
 	public static String subStringCN(String str, int len) {
@@ -582,7 +582,7 @@ public class StringUtil {
 						res = str.substring(0,i-j-1);
 					}
 					else {
-						res += "¡­";
+						res += "â€¦";
 						break;
 					}
 				}
@@ -595,9 +595,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * È¥µôÊ×Î²¿Õ¸ñ,°üÀ¨¿Õ¸ñ/È«½Ç¿Õ¸ñ/tab.
+	 * å»æ‰é¦–å°¾ç©ºæ ¼,åŒ…æ‹¬ç©ºæ ¼/å…¨è§’ç©ºæ ¼/tab.
 	 * @param title
-	 * @return ¹ıÂËºóµÄ×Ö·û´®
+	 * @return è¿‡æ»¤åçš„å­—ç¬¦ä¸²
 	 */
 	public static String trim(String title) {
 		if(title == null){
@@ -663,17 +663,17 @@ public class StringUtil {
 			return null;
 		}
 		str = filterNonXmlChar(str);
-		str = str.replaceAll("(&nbsp;|¡¡)+", " ");
-		//<br>Ìæ»»Îª¿Õ¸ñ
+		str = str.replaceAll("(&nbsp;|ã€€)+", " ");
+		//<br>æ›¿æ¢ä¸ºç©ºæ ¼
 		str = str.replaceAll("(?i)< *br */? *>", " ");
 
-		//È¥³ıËùÓĞhtml tag
+		//å»é™¤æ‰€æœ‰html tag
 		str = str.replaceAll("(?i)< *(script|object).*?/", "</");
 		str = str.replaceAll("<.*?>", "");
 		
-		//È¥³ı»Ø³µÓëÖÆ±í·û
+		//å»é™¤å›è½¦ä¸åˆ¶è¡¨ç¬¦
 		str = str.replaceAll("(\r|\n|\t)", " ");
-		//¶à¸ö¿Õ¸ñÌæ»»ÎªÒ»¸ö¿Õ¸ñ
+		//å¤šä¸ªç©ºæ ¼æ›¿æ¢ä¸ºä¸€ä¸ªç©ºæ ¼
 		str = str.replaceAll(" +", " ");
 		return str;
 	}
@@ -693,7 +693,7 @@ public class StringUtil {
 	}
 	
 	public static void main(String[] args) {
-		String s = "ÖĞ¹ú´ò232";
+		String s = "ä¸­å›½æ‰“232";
 		System.out.println(subStringCN(s, 3));
 		System.out.println(subStringCN2(s, 6));
 	}
