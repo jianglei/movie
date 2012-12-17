@@ -1,18 +1,17 @@
-<project name="ufp-umeng" default="deploy-dev" basedir="./">
-
+<project name="movie" default="deploy-dev" basedir="./">
 	<description>Builds, tests, and runs the project.</description>
  	
-	<property name="resin" location="../resin-umeng" />
-	<property name="project" location="~/apps/ufp-umeng/"/>
-	<property name="lib" location="../umeng-core/lib" />
-	<property name="libdev" location="../umeng-core/lib-dev" />
+	<property name="resin" location="../resin-movie" />
+	<property name="project" location="~/apps/movie/"/>
+	<property name="lib" location="../movie/lib" />
+	<property name="libdev" location="../movie/lib-dev" />
 	<property name="src" location="src" />	
 	<property name="dist" location="deploy/war" />
 	<property name="WebContent" location="WebContent" />
 	<property name="build" location="${WebContent}/WEB-INF/classes" />
-	<property name="umeng-core.jar" location="../umeng-core/deploy/umeng-core.jar" />
+	<!-- <property name="umeng-core.jar" location="../umeng-core/deploy/umeng-core.jar" /> -->
 
-	<property name="production" location="../ufp-umeng-deploy" />
+	<property name="production" location="../movie-deploy" />
 	<property name="shared" location="${production}/shared" />
 	<property name="uploads" location="${shared}/uploads" />
 	<property name="config" location="${shared}/config" />
@@ -28,7 +27,7 @@
 			<include name="*.jar"/>
 			<include name="*.zip"/>
 		</fileset>
-		<filelist files="${umeng-core.jar}"/>
+		<!-- <filelist files="${umeng-core.jar}"/> -->
 	</path>
 	
 	<target name="init">
@@ -42,12 +41,12 @@
 		<exec executable="git">
 			<arg value="pull"/>
 			<arg value="origin"/>
-			<arg value="stable"/>
+			<arg value="master"/>
 		</exec>	
 	</target>
 
 	<target name="compile" depends="init">
-		<javac srcdir="${src}" destdir="${build}" encoding="GBK" debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
+		<javac  encoding="UTF-8" srcdir="${src}" destdir="${build}"  debug="on" debuglevel="lines,vars,source" target="1.6" source="1.6">
 			<classpath refid="project.classpath"></classpath>
 		</javac>
 		
@@ -65,7 +64,7 @@
 		<copy todir="${WebContent}/WEB-INF/lib/" overwrite="true">
 			<fileset dir="${lib}" includes="**" />
 		</copy>
-		<copy todir="${WebContent}/WEB-INF/lib/" file="${umeng-core.jar}" overwrite="true"/>
+		<!-- <copy todir="${WebContent}/WEB-INF/lib/" file="${umeng-core.jar}" overwrite="true"/> -->
 	</target>
 	<target name="deploy" depends="compile">
 		<antcall target="deploy-dev" />
@@ -130,11 +129,6 @@
 			<arg value="-s"/>
 			<arg value="${db_config}"/>	
 			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/jdbc.properties"/>
-		</exec>
-	    	<exec executable="ln">
-			<arg value="-s"/>
-			<arg value="${rabbitmq_config}"/>	
-			<arg value="${resin}/webapps/ROOT/WEB-INF/classes/rabbitmq.properties"/>
 		</exec>
 
 		<antcall target="stop" />
