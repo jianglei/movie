@@ -8,7 +8,7 @@ import java.util.regex.*;
 public class StringUtil {
 
     /**
-     * ´¦Àí×Ö·û´®
+     * å¤„ç†å­—ç¬¦ä¸²
      * 
      * @param str
      * @return "" || str
@@ -17,7 +17,7 @@ public class StringUtil {
         if (str == null) {
             return "";
         } else {
-            return str.trim().replaceAll("[%&'',£¬£»¡¯¡£¡®¡¢;=?]*", "");
+            return str.trim().replaceAll("[%&'',ï¼Œï¼›â€™ã€‚â€˜ã€;=?]*", "");
         }
     }
 
@@ -46,13 +46,13 @@ public class StringUtil {
     }
 
     /**
-     * Çå³ıµôËùÓĞÌØÊâ×Ö·û
+     * æ¸…é™¤æ‰æ‰€æœ‰ç‰¹æ®Šå­—ç¬¦
      * 
      * @param str
      * @return
      */
     public static String stringFilter(String str) {
-        String regEx = "[`~!@$%^&*()+=|{}':;',\\[\\].<>¡¶¡·/?~£¡@£¤%¡­¡­&*£¨£©¡ª¡ª+|{}¡¾¡¿¡®£»£º\"¡±¡°¡¯¡££¬¡¢£¿]";
+        String regEx = "[`~!@$%^&*()+=|{}':;',\\[\\].<>ã€Šã€‹/?~ï¼@ï¿¥%â€¦â€¦&*ï¼ˆï¼‰â€”â€”+|{}ã€ã€‘â€˜ï¼›ï¼š\"â€â€œâ€™ã€‚ï¼Œã€ï¼Ÿ]";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
