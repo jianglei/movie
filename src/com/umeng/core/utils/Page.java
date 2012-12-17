@@ -10,43 +10,43 @@ import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Óë¾ßÌåORMÊµÏÖÎŞ¹ØµÄ·ÖÒ³²ÎÊı¼°²éÑ¯½á¹û·â×°.
+ * ä¸å…·ä½“ORMå®ç°æ— å…³çš„åˆ†é¡µå‚æ•°åŠæŸ¥è¯¢ç»“æœå°è£….
  * 
  * @param <T>
- *            PageÖĞ¼ÇÂ¼µÄÀàĞÍ.
+ *            Pageä¸­è®°å½•çš„ç±»å‹.
  * 
  */
 public class Page<T> implements Iterable<T> {
 	/**
-	 * ¹«¹²³£Á¿ 
+	 * å…¬å…±å¸¸é‡ 
 	 */
     public static final String ASC = "asc";
     public static final String DESC = "desc";
     /**
-     * Ä¬ÈÏÖµ
+     * é»˜è®¤å€¼
      */
 	public static final int defaultPageSize=5;
 	
 	/**
-	 * ·ÖÒ³²éÑ¯²ÎÊı
+	 * åˆ†é¡µæŸ¥è¯¢å‚æ•°
 	 */
-    public int pageNo = 1;                //µ±Ç°Ò³
-    public int pageSize = 0;             //Ò»Ò³ÄÚ¼ÇÂ¼Êı
-    protected String orderBy = null;      //ÅÅĞòÁĞ
-    protected String order = null;        //ÕıĞòORÄæĞò
-    private String requestUrl;            //²éÑ¯ÇëÇóµÄurl(²»°üº¬²éÑ¯²ÎÊı£©
-    private Map<String, Object> param = new HashMap<String, Object>(); //²éÑ¯²ÎÊı£¨²»°üÀ¨·ÖÒ³Ïà¹Ø²ÎÊı£©
+    public int pageNo = 1;                //å½“å‰é¡µ
+    public int pageSize = 0;             //ä¸€é¡µå†…è®°å½•æ•°
+    protected String orderBy = null;      //æ’åºåˆ—
+    protected String order = null;        //æ­£åºORé€†åº
+    private String requestUrl;            //æŸ¥è¯¢è¯·æ±‚çš„url(ä¸åŒ…å«æŸ¥è¯¢å‚æ•°ï¼‰
+    private Map<String, Object> param = new HashMap<String, Object>(); //æŸ¥è¯¢å‚æ•°ï¼ˆä¸åŒ…æ‹¬åˆ†é¡µç›¸å…³å‚æ•°ï¼‰
     
     /**
-     * ²éÑ¯½á¹ûÊı¾İ 
+     * æŸ¥è¯¢ç»“æœæ•°æ® 
      */
-    public long totalItems = 0;                   //×Ü¼ÇÂ¼Êı
-    public List<T> result = new ArrayList<T>();    //µ±Ç°Ò³Êı¾İ
-    public long totalPages = 0;                    //×ÜÒ³Êı
+    public long totalItems = 0;                   //æ€»è®°å½•æ•°
+    public List<T> result = new ArrayList<T>();    //å½“å‰é¡µæ•°æ®
+    public long totalPages = 0;                    //æ€»é¡µæ•°
     
 
     
-    // -- ¹¹Ôìº¯Êı --//
+    // -- æ„é€ å‡½æ•° --//
     public Page() {
     }
 
@@ -59,7 +59,7 @@ public class Page<T> implements Iterable<T> {
         setPageSize(pageSize);
     }
 
-    /** Ä¬ÈÏÎªidµ¹ĞòµÄ¹¹Ôì·½·¨ */
+    /** é»˜è®¤ä¸ºidå€’åºçš„æ„é€ æ–¹æ³• */
     public Page(int pageNo, int pageSize, Map<String, Object> param) {
         setPageNo(pageNo);
         setPageSize(pageSize);
@@ -69,18 +69,18 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * ¼ò±ãµÄÉú³ÉPage
+     * ç®€ä¾¿çš„ç”ŸæˆPage
      * 
      * @param pageNo
-     *            µ±Ç°Ò³
+     *            å½“å‰é¡µ
      * @param pageSize
-     *            Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ
+     *            æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡
      * @param param
-     *            ²éÑ¯²ÎÊı
+     *            æŸ¥è¯¢å‚æ•°
      * @param orderBy
-     *            ¸ù¾İÄÄÁĞÅÅĞò
+     *            æ ¹æ®å“ªåˆ—æ’åº
      * @param order
-     *            ÕıĞò»¹ÊÇµ¹Ğò
+     *            æ­£åºè¿˜æ˜¯å€’åº
      */
     public Page(int pageNo, int pageSize, Map<String, Object> param, String orderBy, String order) {
         setPageNo(pageNo);
@@ -91,36 +91,36 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * ¸ù¾İpageNoºÍpageSize¼ÆËãµ±Ç°Ò³µÚÒ»Ìõ¼ÇÂ¼ÔÚ×Ü½á¹û¼¯ÖĞµÄÎ»ÖÃ,ĞòºÅ´Ó0¿ªÊ¼. ÓÃÓÚMysql,Hibernate.
+     * æ ¹æ®pageNoå’ŒpageSizeè®¡ç®—å½“å‰é¡µç¬¬ä¸€æ¡è®°å½•åœ¨æ€»ç»“æœé›†ä¸­çš„ä½ç½®,åºå·ä»0å¼€å§‹. ç”¨äºMysql,Hibernate.
      */
     public int getOffset() {
         return ((pageNo - 1) * pageSize);
     }
 
     /**
-     * »ñµÃÅÅĞò·½Ïò, ÎŞÄ¬ÈÏÖµ.
+     * è·å¾—æ’åºæ–¹å‘, æ— é»˜è®¤å€¼.
      */
     public String getOrder() {
         return order;
     }
 
     /**
-     * »ñµÃÅÅĞò×Ö¶Î,ÎŞÄ¬ÈÏÖµ. ¶à¸öÅÅĞò×Ö¶ÎÊ±ÓÃ','·Ö¸ô.
+     * è·å¾—æ’åºå­—æ®µ,æ— é»˜è®¤å€¼. å¤šä¸ªæ’åºå­—æ®µæ—¶ç”¨','åˆ†éš”.
      */
     public String getOrderBy() {
         return orderBy;
     }
 
-    // -- ·ÖÒ³²ÎÊı·ÃÎÊº¯Êı --//
+    // -- åˆ†é¡µå‚æ•°è®¿é—®å‡½æ•° --//
     /**
-     * »ñµÃµ±Ç°Ò³µÄÒ³ºÅ,ĞòºÅ´Ó1¿ªÊ¼,Ä¬ÈÏÎª1.
+     * è·å¾—å½“å‰é¡µçš„é¡µå·,åºå·ä»1å¼€å§‹,é»˜è®¤ä¸º1.
      */
     public int getPageNo() {
         return pageNo;
     }
 
     /**
-     * »ñµÃÃ¿Ò³µÄ¼ÇÂ¼ÊıÁ¿, Ä¬ÈÏÎª-1.
+     * è·å¾—æ¯é¡µçš„è®°å½•æ•°é‡, é»˜è®¤ä¸º-1.
      */
     public int getPageSize() {
         return pageSize;
@@ -134,21 +134,21 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * »ñµÃÒ³ÄÚµÄ¼ÇÂ¼ÁĞ±í.
+     * è·å¾—é¡µå†…çš„è®°å½•åˆ—è¡¨.
      */
     public List<T> getResult() {
         return result;
     }
 
     /**
-     * »ñµÃ×Ü¼ÇÂ¼Êı, Ä¬ÈÏÖµÎª-1.
+     * è·å¾—æ€»è®°å½•æ•°, é»˜è®¤å€¼ä¸º-1.
      */
     public long getTotalItems() {
         return totalItems;
     }
 
     /**
-     * ¸ù¾İpageSizeÓëtotalItems¼ÆËã×ÜÒ³Êı, Ä¬ÈÏÖµÎª-1.
+     * æ ¹æ®pageSizeä¸totalItemsè®¡ç®—æ€»é¡µæ•°, é»˜è®¤å€¼ä¸º-1.
      */
     public long getTotalPages() {
         if (totalItems < 0) {
@@ -163,14 +163,14 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * ÊÇ·ñÒÑÉèÖÃÅÅĞò×Ö¶Î,ÎŞÄ¬ÈÏÖµ.
+     * æ˜¯å¦å·²è®¾ç½®æ’åºå­—æ®µ,æ— é»˜è®¤å€¼.
      */
     public boolean isOrderBySetted() {
         return (StringUtils.isNotBlank(orderBy) && StringUtils.isNotBlank(order));
     }
 
     /**
-     * ÊµÏÖIterable½Ó¿Ú,¿ÉÒÔfor(Object item : page)±éÀúÊ¹ÓÃ
+     * å®ç°Iterableæ¥å£,å¯ä»¥for(Object item : page)éå†ä½¿ç”¨
      */
     @SuppressWarnings("unchecked")
     public Iterator<T> iterator() {
@@ -178,19 +178,19 @@ public class Page<T> implements Iterable<T> {
     }
     
     /**
-     * ÉèÖÃÅÅĞò·½Ê½Ïò.
+     * è®¾ç½®æ’åºæ–¹å¼å‘.
      * 
      * @param order
-     *            ¿ÉÑ¡ÖµÎªdesc»òasc,¶à¸öÅÅĞò×Ö¶ÎÊ±ÓÃ','·Ö¸ô.
+     *            å¯é€‰å€¼ä¸ºdescæˆ–asc,å¤šä¸ªæ’åºå­—æ®µæ—¶ç”¨','åˆ†éš”.
      */
     public void setOrder(final String order) {
         String lowcaseOrder = StringUtils.lowerCase(order);
 
-        // ¼ì²éorder×Ö·û´®µÄºÏ·¨Öµ
+        // æ£€æŸ¥orderå­—ç¬¦ä¸²çš„åˆæ³•å€¼
         String[] orders = StringUtils.split(lowcaseOrder, ',');
         for (String orderStr : orders) {
             if (!StringUtils.equals(DESC, orderStr) && !StringUtils.equals(ASC, orderStr)) {
-                throw new IllegalArgumentException("ÅÅĞò·½Ïò" + orderStr + "²»ÊÇºÏ·¨Öµ");
+                throw new IllegalArgumentException("æ’åºæ–¹å‘" + orderStr + "ä¸æ˜¯åˆæ³•å€¼");
             }
         }
 
@@ -198,14 +198,14 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * ÉèÖÃÅÅĞò×Ö¶Î,¶à¸öÅÅĞò×Ö¶ÎÊ±ÓÃ','·Ö¸ô.
+     * è®¾ç½®æ’åºå­—æ®µ,å¤šä¸ªæ’åºå­—æ®µæ—¶ç”¨','åˆ†éš”.
      */
     public void setOrderBy(final String orderBy) {
         this.orderBy = orderBy;
     }
 
     /**
-     * ÉèÖÃµ±Ç°Ò³µÄÒ³ºÅ,ĞòºÅ´Ó1¿ªÊ¼,µÍÓÚ1Ê±×Ô¶¯µ÷ÕûÎª1.
+     * è®¾ç½®å½“å‰é¡µçš„é¡µå·,åºå·ä»1å¼€å§‹,ä½äº1æ—¶è‡ªåŠ¨è°ƒæ•´ä¸º1.
      */
     public void setPageNo(final int pageNo) {
         this.pageNo = pageNo;
@@ -216,7 +216,7 @@ public class Page<T> implements Iterable<T> {
     }
 
     /**
-     * ÉèÖÃÃ¿Ò³µÄ¼ÇÂ¼ÊıÁ¿.
+     * è®¾ç½®æ¯é¡µçš„è®°å½•æ•°é‡.
      */
     public void setPageSize(final int pageSize) {
         this.pageSize = pageSize;
@@ -226,14 +226,14 @@ public class Page<T> implements Iterable<T> {
         this.param = param;
     }
     /**
-     * »ñÈ¡²éÑ¯ÇëÇóµÄURL£¨×¢ÒâÃ»ÓĞ°üº¬²éÑ¯²ÎÊı£¬Èç¹ûĞèÒª°üº¬²éÑ¯²ÎÊı£¬¿ÉÒÔÊ¹ÓÃgetCompleteRequestUrl()£©
+     * è·å–æŸ¥è¯¢è¯·æ±‚çš„URLï¼ˆæ³¨æ„æ²¡æœ‰åŒ…å«æŸ¥è¯¢å‚æ•°ï¼Œå¦‚æœéœ€è¦åŒ…å«æŸ¥è¯¢å‚æ•°ï¼Œå¯ä»¥ä½¿ç”¨getCompleteRequestUrl()ï¼‰
      * @return
      */
     public String getRequestUrl() {
 		return requestUrl;
 	}
     /**
-     * »ñÈ¡²éÑ¯ÇëÇóµÄURL,°üº¬ÁË²éÑ¯²ÎÊı
+     * è·å–æŸ¥è¯¢è¯·æ±‚çš„URL,åŒ…å«äº†æŸ¥è¯¢å‚æ•°
      * @return
      */
     public String getCompleteRequestUrl() {
@@ -264,14 +264,14 @@ public class Page<T> implements Iterable<T> {
 	}
 
 	/**
-     * ÉèÖÃÒ³ÄÚµÄ¼ÇÂ¼ÁĞ±í.
+     * è®¾ç½®é¡µå†…çš„è®°å½•åˆ—è¡¨.
      */
     public void setResult(final List<T> result) {
         this.result = result;
     }
 
     /**
-     * ÉèÖÃ×Ü¼ÇÂ¼Êı.
+     * è®¾ç½®æ€»è®°å½•æ•°.
      */
     public void setTotalItems(final long totalItems) {
         this.totalItems = totalItems;

@@ -26,7 +26,7 @@ public class FileUtil {
         return isExtLegal;
     }
 
-    // ÎÄ¼şºó×ºÃû¸Ä³Éjpg
+    // æ–‡ä»¶åç¼€åæ”¹æˆjpg
     public static String fileNameConvertToJpg(String fileName) {
         if (fileName.toLowerCase().endsWith(".jpg")) {
             return fileName;
@@ -53,7 +53,7 @@ public class FileUtil {
                 break;
             } else {
                 if (i == 2) {
-                    throw new RuntimeException("ÎÄ¼şÃûÁ¬ĞøÖØ¸´³¬¹ı3´Î£¬Ò²Ì«µ¹Ã¹ÁË");
+                    throw new RuntimeException("æ–‡ä»¶åè¿ç»­é‡å¤è¶…è¿‡3æ¬¡ï¼Œä¹Ÿå¤ªå€’éœ‰äº†");
                 } else {
                     fileName = ObjectId.get().toString() + fileExt;
                     fullPathFileName = finalPath + fileName;
@@ -69,7 +69,7 @@ public class FileUtil {
         if (f.exists()) {
             return f.length();
         } else {
-            throw new Exception("ÎÄ¼ş²»´æÔÚ");
+            throw new Exception("æ–‡ä»¶ä¸å­˜åœ¨");
         }
     }
 }
