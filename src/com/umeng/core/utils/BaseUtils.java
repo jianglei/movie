@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.util.Assert;
 
 /**
- * Ìá¹©Ò»Ğ©¹«ÓÃµÄ·½·¨
+ * æä¾›ä¸€äº›å…¬ç”¨çš„æ–¹æ³•
  * remove to StringUtil, RequestUtil...
  * 
  */
@@ -53,7 +53,7 @@ public class BaseUtils {
     }
 
     /**
-     * ÖĞÎÄ²ÎÊı½âÂë
+     * ä¸­æ–‡å‚æ•°è§£ç 
      * 
      * @param str
      * @return
@@ -80,7 +80,7 @@ public class BaseUtils {
     }
 
     /**
-     * »ñÈ¡Ö¸¶¨µÄcookieÄÚÈİ
+     * è·å–æŒ‡å®šçš„cookieå†…å®¹
      * 
      * @param cookies
      * @param name
@@ -108,7 +108,7 @@ public class BaseUtils {
     }
 
     /**
-     * »ñÈ¡ip
+     * è·å–ip
      * 
      * @param req
      * @return
@@ -151,7 +151,7 @@ public class BaseUtils {
     }
 
     /**
-     * ÅĞ¶Ï1¸öcharÊÇ·ñÊÇÊı×Ö»òÕßĞ¡Êıµã
+     * åˆ¤æ–­1ä¸ªcharæ˜¯å¦æ˜¯æ•°å­—æˆ–è€…å°æ•°ç‚¹
      * 
      * @param c
      * @return
@@ -166,14 +166,14 @@ public class BaseUtils {
     }
 
     /**
-     * ÅĞ¶Ï1¸öcharÊÇ·ñÊÇ±êµã·ûºÅ
+     * åˆ¤æ–­1ä¸ªcharæ˜¯å¦æ˜¯æ ‡ç‚¹ç¬¦å·
      * 
      * @param c
      * @return
      */
     public static boolean isSymbol(char c) {
-        if (c == ',' || c == '.' || c == '?' || c == '!' || c == '"' || c == ';' || c == '£¬'
-                || c == '¡£' || c == '£¿' || c == '£¡' || c == '¡°' || c == '£»') {
+        if (c == ',' || c == '.' || c == '?' || c == '!' || c == '"' || c == ';' || c == 'ï¼Œ'
+                || c == 'ã€‚' || c == 'ï¼Ÿ' || c == 'ï¼' || c == 'â€œ' || c == 'ï¼›') {
             return true;
         } else {
             return false;
@@ -193,7 +193,7 @@ public class BaseUtils {
     }
 
     /**
-     * jsonÊä³ö
+     * jsonè¾“å‡º
      * 
      * @param res
      * @param content
