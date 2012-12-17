@@ -23,72 +23,72 @@ public class getResource {
 	        	sb.append(s);
 	        }
 	        System.out.println(sb.toString());
-	        System.out.println(sb.toString().split("Ò³´Î:")[1]);
-//	        String[] movieUrlArray = sb.toString().split("<a href=\"/");
-//	        List<String> movieUrlList = new ArrayList<String>();
-//	        int m = 0;
-//	        for(String movieUrl : movieUrlArray){
-//	        	if(movieUrl.startsWith("detail") && movieUrl.contains("µã»÷½øÈë")){
-//	        		movieUrlList.add(movieUrl.substring(0, movieUrl.indexOf("\"")));
-//	        		m++;
-//	        	}
-//	        }
-//	        
-//	        URL url = new URL("http://www.bdzy.cc/detail/?16546.html");
-//	        x = new BufferedReader(new InputStreamReader(url.openStream(),"gbk"));
-//	        StringBuffer sbDetail = new StringBuffer();
-//	        while((s = x.readLine()) != null){
-//	        	sbDetail.append(s);
-//	        }
-//	        String fullHtml = sbDetail.toString();
-//	        System.out.println(fullHtml);
-//	        
-//	        MovieGroup mg = new MovieGroup();
-//	        
-//	        mg.setPicUrl(getLastUrlValue(fullHtml,"<!--Ó°Æ¬Í¼Æ¬¿ªÊ¼´úÂë-->","<!--Ó°Æ¬Í¼Æ¬½áÊø´úÂë-->"));
-//	        
-//	        mg.setName(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬Ãû³Æ¿ªÊ¼´úÂë-->","<!--Ó°Æ¬Ãû³Æ½áÊø´úÂë-->"));
-//	        mg.setActorList(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬ÑÝÔ±¿ªÊ¼´úÂë-->","<!--Ó°Æ¬ÑÝÔ±½áÊø´úÂë-->"));
-//	        mg.setDirector(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬µ¼ÑÝ¿ªÊ¼-->","<!--Ó°Æ¬µ¼ÑÝ½áÊø-->"));
-//	        mg.setRemark(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬±¸×¢¿ªÊ¼´úÂë-->","<!--Ó°Æ¬±¸×¢½áÊø´úÂë-->"));
-//	        mg.setCategory(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬ÀàÐÍ¿ªÊ¼´úÂë-->","<!--Ó°Æ¬ÀàÐÍ½áÊø´úÂë-->"));
-//	        mg.setArea(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬µØÇø¿ªÊ¼´úÂë-->","<!--Ó°Æ¬µØÇø½áÊø´úÂë-->"));
-//	        mg.setLastUpdateTime(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬¸üÐÂÊ±¼ä¿ªÊ¼´úÂë-->","<!--Ó°Æ¬¸üÐÂÊ±¼ä½áÊø´úÂë-->"));
-//	        mg.setStatus(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬×´Ì¬¿ªÊ¼´úÂë-->","<!--Ó°Æ¬×´Ì¬½áÊø´úÂë-->"));
-//	        mg.setLanguage(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬ÓïÑÔ¿ªÊ¼´úÂë-->","<!--Ó°Æ¬ÓïÑÔ½áÊø´úÂë-->"));
-//	        mg.setReleaseTime(getLastValueWithMarks(fullHtml,"<!--ÉÏÓ³ÈÕÆÚ¿ªÊ¼´úÂë-->","<!--ÉÏÓ³ÈÕÆÚ½áÊø´úÂë-->"));
-//	        
-//	        mg.setDescription(getLastValueWithMarks(fullHtml,"<!--Ó°Æ¬½éÉÜ¿ªÊ¼´úÂë-->","<!--Ó°Æ¬½éÉÜ½áÊø´úÂë-->"));
-//	        
-//	        String moviesHtml = getLastValueWithOutMarks(fullHtml,"<!--²¥·ÅÁÐ±í¿ªÊ¼´úÂë-->","<!--²¥·ÅÁÐ±í½áÊø´úÂë-->");
-////	        System.out.println(moviesHtml);
-//	        String[] moviesArray = moviesHtml.split("value=");
-//	        Movie movie;
-//	        
-//	        for(String strMovie : moviesArray){
-//	        	if(strMovie.contains("bdhd:")){
-//	        		
-//	        		strMovie = strMovie.replaceAll("'", "").replaceAll("\"", "").replaceAll("\\[", "|");
-//		        	movie = new Movie();
-//		        	movie.setUrl(strMovie.substring(0, strMovie.indexOf("checked")).trim());
-//		        	movie.setName(movie.getUrl().substring(movie.getUrl().lastIndexOf("|"), movie.getUrl().lastIndexOf(".")).replace("|", ""));
-//		        	System.out.println(movie.getName());
-//		        	System.out.println(movie.getUrl());
-//	        	}
-//	        }
-//	        
-//	        System.out.println(mg.getPicUrl());
-//	        System.out.println(mg.getName());
-//	        System.out.println(mg.getActorList());
-//	        System.out.println(mg.getDirector());
-//	        System.out.println(mg.getRemark());
-//	        System.out.println(mg.getCategory());
-//	        System.out.println(mg.getArea());
-//	        System.out.println(mg.getLastUpdateTime());
-//	        System.out.println(mg.getStatus());
-//	        System.out.println(mg.getLanguage());
-//	        System.out.println(mg.getReleaseTime());
-//	        System.out.println(mg.getDescription());
+	        System.out.println(sb.toString().split("é¡µæ¬¡:")[1]);
+	        String[] movieUrlArray = sb.toString().split("<a href=\"/");
+	        List<String> movieUrlList = new ArrayList<String>();
+	        int m = 0;
+	        for(String movieUrl : movieUrlArray){
+	        	if(movieUrl.startsWith("detail") && movieUrl.contains("ç‚¹å‡»è¿›å…¥")){
+	        		movieUrlList.add(movieUrl.substring(0, movieUrl.indexOf("\"")));
+	        		m++;
+	        	}
+	        }
+	        
+	        URL url = new URL("http://www.bdzy.cc/detail/?16546.html");
+	        x = new BufferedReader(new InputStreamReader(url.openStream(),"gbk"));
+	        StringBuffer sbDetail = new StringBuffer();
+	        while((s = x.readLine()) != null){
+	        	sbDetail.append(s);
+	        }
+	        String fullHtml = sbDetail.toString();
+	        System.out.println(fullHtml);
+	        
+	        MovieGroup mg = new MovieGroup();
+	        
+	        mg.setPicUrl(getLastUrlValue(fullHtml,"<!--å½±ç‰‡å›¾ç‰‡å¼€å§‹ä»£ç -->","<!--å½±ç‰‡å›¾ç‰‡ç»“æŸä»£ç -->"));
+	        
+	        mg.setName(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡åç§°å¼€å§‹ä»£ç -->","<!--å½±ç‰‡åç§°ç»“æŸä»£ç -->"));
+	        mg.setActorList(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡æ¼”å‘˜å¼€å§‹ä»£ç -->","<!--å½±ç‰‡æ¼”å‘˜ç»“æŸä»£ç -->"));
+	        mg.setDirector(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡å¯¼æ¼”å¼€å§‹-->","<!--å½±ç‰‡å¯¼æ¼”ç»“æŸ-->"));
+	        mg.setRemark(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡å¤‡æ³¨å¼€å§‹ä»£ç -->","<!--å½±ç‰‡å¤‡æ³¨ç»“æŸä»£ç -->"));
+	        mg.setCategory(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡ç±»åž‹å¼€å§‹ä»£ç -->","<!--å½±ç‰‡ç±»åž‹ç»“æŸä»£ç -->"));
+	        mg.setArea(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡åœ°åŒºå¼€å§‹ä»£ç -->","<!--å½±ç‰‡åœ°åŒºç»“æŸä»£ç -->"));
+	        mg.setLastUpdateTime(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡æ›´æ–°æ—¶é—´å¼€å§‹ä»£ç -->","<!--å½±ç‰‡æ›´æ–°æ—¶é—´ç»“æŸä»£ç -->"));
+	        mg.setStatus(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡çŠ¶æ€å¼€å§‹ä»£ç -->","<!--å½±ç‰‡çŠ¶æ€ç»“æŸä»£ç -->"));
+	        mg.setLanguage(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡è¯­è¨€å¼€å§‹ä»£ç -->","<!--å½±ç‰‡è¯­è¨€ç»“æŸä»£ç -->"));
+	        mg.setReleaseTime(getLastValueWithMarks(fullHtml,"<!--ä¸Šæ˜ æ—¥æœŸå¼€å§‹ä»£ç -->","<!--ä¸Šæ˜ æ—¥æœŸç»“æŸä»£ç -->"));
+	        
+	        mg.setDescription(getLastValueWithMarks(fullHtml,"<!--å½±ç‰‡ä»‹ç»å¼€å§‹ä»£ç -->","<!--å½±ç‰‡ä»‹ç»ç»“æŸä»£ç -->"));
+	        
+	        String moviesHtml = getLastValueWithOutMarks(fullHtml,"<!--æ’­æ”¾åˆ—è¡¨å¼€å§‹ä»£ç -->","<!--æ’­æ”¾åˆ—è¡¨ç»“æŸä»£ç -->");
+//	        System.out.println(moviesHtml);
+	        String[] moviesArray = moviesHtml.split("value=");
+	        Movie movie;
+	        
+	        for(String strMovie : moviesArray){
+	        	if(strMovie.contains("bdhd:")){
+	        		
+	        		strMovie = strMovie.replaceAll("'", "").replaceAll("\"", "").replaceAll("\\[", "|");
+		        	movie = new Movie();
+		        	movie.setUrl(strMovie.substring(0, strMovie.indexOf("checked")).trim());
+		        	movie.setName(movie.getUrl().substring(movie.getUrl().lastIndexOf("|"), movie.getUrl().lastIndexOf(".")).replace("|", ""));
+		        	System.out.println(movie.getName());
+		        	System.out.println(movie.getUrl());
+	        	}
+	        }
+	        
+	        System.out.println(mg.getPicUrl());
+	        System.out.println(mg.getName());
+	        System.out.println(mg.getActorList());
+	        System.out.println(mg.getDirector());
+	        System.out.println(mg.getRemark());
+	        System.out.println(mg.getCategory());
+	        System.out.println(mg.getArea());
+	        System.out.println(mg.getLastUpdateTime());
+	        System.out.println(mg.getStatus());
+	        System.out.println(mg.getLanguage());
+	        System.out.println(mg.getReleaseTime());
+	        System.out.println(mg.getDescription());
 	        
 	        
 	        
