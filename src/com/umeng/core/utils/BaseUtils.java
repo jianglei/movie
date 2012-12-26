@@ -242,6 +242,22 @@ public class BaseUtils {
         }
         return listids;
     }
+    
+    public static List<String> str2strArray(String str) {
+    	String s_str = str;
+        if (str.endsWith(",")) {
+            s_str = s_str.substring(0, s_str.length() - 1);
+        }
+        if (str.startsWith(",")) {
+            s_str = s_str.substring(1, s_str.length());
+        }
+        String[] str_ids = s_str.split(",");
+        List<String> listids = new ArrayList<String>(str_ids.length);
+        for (String id : str_ids) {
+            listids.add(id.trim());
+        }
+        return listids;
+    }
 
     public static String toEscapeSign(String str) {
         return str.replace("+", "{plus}").replace("&", "{and}");

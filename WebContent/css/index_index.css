@@ -90,10 +90,11 @@
 	height:39px; line-height:39px; padding-left:20px;
 	color:#5b5c5c; font-weight:bold;
 }
-.sections .sl .tit1{background:url(subtit.png) no-repeat 0 -83px;height:40px; line-height:40px; padding-left:20px;color:#5b5c5c; font-weight:bold;}
-.sections .sl .tit1 .titleft{ float:left; width:450px; float:left;}
-.sections .sl .tit1 .titright{ float:right; width:200px; margin-right:20px; text-align:right;}
-.sections .sl .tit1 .titright a{ margin-left:10px;}
+.sections .sl .tit1{
+	background:url(subtit.png) no-repeat 0 -83px;
+	height:40px; line-height:40px; padding-left:20px;
+	color:#5b5c5c; font-weight:bold;
+}
 .sections .sl .con{
 	clear:both;
 	border:1px solid #c2dceb; border-top:0; padding:10px 8px;
@@ -207,17 +208,17 @@ ul.piclist .btn1{ background:url(star.png) no-repeat -57px 0;}
 .sections .sl .tit3 a{ display:block; float:right; padding-right:14px; background:url(pl.gif) no-repeat 0 8px; padding-left:20px; font-weight:bold;}
 .sections .sl .tit3 b{ float:left;}
 
-.sections .sl .con3{ background:url(subtit.png) no-repeat left bottom; padding-bottom:6px; height:193px; overflow:hidden; position:relative; z-index:3;}
-.hddown {clear:both;border:1px solid #c2dceb; border-top:0; border-bottom:0;width:696px;background:#FFF; height:195px; overflow-x:hidden; overflow-y:auto;position:relative; z-index:1;}
+.sections .sl .con3{ background:url(subtit.png) no-repeat left bottom; padding-bottom:6px;}
+.hddown {clear:both;border:1px solid #c2dceb; border-top:0; border-bottom:0;width:696px; display:inline-block; background:#FFF; height:195px; overflow-x:hidden; overflow-y:auto;}
 .hddown dl {height:39px;line-heighT:39px;border-bottom:1px solid #deecf4;font-size:14px;}
 .hddown dt,.hddown dd {float:left}
 .hddown dt {width:230px;padding-left:12px;color:#43667c; height:39px; padding-right:14px; overflow:hidden; white-space:nowrap;}
-.hddown dd {widtH:94px;text-align:center;position:relative; z-index:0;}
-.hddown dd.mdown{ position:relative; z-index:0;}
+.hddown dd {widtH:94px;text-align:center}
+.hddown dd.mdown{ position:relative;}
 .hddown dd input{ display:none;}
 .hddown .s {color:#636363; width:140px; text-align:left;}
 
-.hddown .mline {height:39px;line-heighT:39px;border-bottom:1px solid #deecf4;font-size:14px; position:relative; z-index:2;}
+.hddown .mline {height:39px;line-heighT:39px;border-bottom:1px solid #deecf4;font-size:14px;}
 .hddown .mtitle,.hddown .msize,.hddown  .mxunlei,.hddown .mdown,.hddown .mkankan {float:left}
 .hddown .mtitle {width:254px;padding-left:12px;color:#43667c}
 .hddown .msize,.hddown  .mxunlei,.hddown .mdown,.hddown .mkankan {widtH:91px;text-align:center}
@@ -231,9 +232,9 @@ ul.piclist .btn1{ background:url(star.png) no-repeat -57px 0;}
 	border:1px solid #c2dceb; border-top:0; padding:10px 0;
 	width:696px; display:inline-block;
 }
-ul.pdown{ padding-left:2px; width:694px; overflow:hidden; /*height:120px; overflow-x:hidden; overflow-y:auto;*/}
-ul.pdown li{ float:left; height:40px; overflow:hidden;*width:169px;_width:168px;}
-ul.pdown a{ display:block; width:160px;*width:159px;_width:158px; height:30px; overflow:hidden; background:#e9f5fa; text-align:center; line-height:30px; overflow:hidden; color:#0071bc; margin-bottom:10px; float:left; margin-left:10px;*margin-left:11px;_margin-left:10px;}
+ul.pdown{ padding-left:2px; width:694px;}
+ul.pdown li{ float:left; height:40px; overflow:hidden;_width:168px;}
+ul.pdown a{ display:block; width:160px;_width:158px; height:30px; overflow:hidden; background:#e9f5fa; text-align:center; line-height:30px; overflow:hidden; color:#0071bc; margin-bottom:10px; float:left; margin-left:10px;}
 ul.pdown a:hover{ color:#f00;}
 
 ul.downurl{}
@@ -312,10 +313,10 @@ ul.pics li {float:left;width:86px;padding:16px 13px 0; height:180px; overflow:hi
 .up{ display:block;}
 
 .vkfsearch ul{ background:none; padding:5px; width:238px; border-bottom:0;}
-.vkfsearch li{ width:59px; float:left; margin-bottom:3px;}
-.vkfsearch li, .vkfsearch li a{word-wrap: break-word;}
-.vkfsearch li a{ padding:5px;}
-.vkfsearch li.curr a{ background-color:#26B3E9;color:#fff;}
+.vkfsearch li, .vkfsearch li a{ float:left;}
+.vkfsearch li a{ float:left; padding:5px;}
+.vkfsearch li.curr{ background-color:#26B3E9;}
+.vkfsearch li.curr a{ color:#fff;}
 .vkfsearch h3{ border-left:1px solid #C2DCEB; border-right:1px solid #C2DCEB; font-weight:bold; font-size:14px; padding-left:10px;}
 .vkfsearch ul.b{border-bottom:1px solid #C2DCEB}
 

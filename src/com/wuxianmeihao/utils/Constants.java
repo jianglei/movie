@@ -8,8 +8,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.wuxianmeihao.core.domain.constants.AdContentConstants;
-
 
 /**
  * @author ke
@@ -105,6 +103,69 @@ public class Constants {
     static {
     	paltformSet.add(Constants.Platform.IOS);
     	paltformSet.add(Constants.Platform.ANDROID);
+    }
+    
+    public class Category {
+		
+		public final static String ZYJM = "综艺节目"; 
+		public final static String XGDSJ = "香港电视剧"; 
+		public final static String OMDSJ = "欧美电视剧"; 
+		public final static String GCDSJ = "国产电视剧"; 
+		public final static String HGDSJ = "韩国电视剧"; 
+		public final static String RBDSJ = "日本电视剧"; 
+		public final static String HWDSJ = "海外电视剧"; 
+		public final static String KTDM = "卡通动漫"; 
+		public final static String KBDY = "恐怖片";
+		public final static String JQDY = "剧情片";
+		public final static String DZDY = "动作片";
+		public final static String XJDY = "喜剧片";
+		public final static String JLDY = "纪录片";
+		public final static String AQDY = "爱情片";
+		public final static String KHDY = "科幻片";
+		public final static String ZZDY = "战争片";
+	}
+    
+    public final static Set<String> ZYSet =  new HashSet<String>();
+    static {
+    	ZYSet.add(Constants.Category.ZYJM);
+    }
+    public final static Set<String> DSJSet =  new HashSet<String>();
+    static {
+    	DSJSet.add(Constants.Category.XGDSJ);
+    	DSJSet.add(Constants.Category.OMDSJ);
+    	DSJSet.add(Constants.Category.GCDSJ);
+    	DSJSet.add(Constants.Category.HGDSJ);
+    	DSJSet.add(Constants.Category.RBDSJ);
+    	DSJSet.add(Constants.Category.HWDSJ);
+    }
+    public final static Set<String> DMSet =  new HashSet<String>();
+    static {
+    	DMSet.add(Constants.Category.KTDM);
+    }
+    public final static Set<String> DYSet =  new HashSet<String>();
+    static {
+    	DYSet.add(Constants.Category.KBDY);
+    	DYSet.add(Constants.Category.JQDY);
+    	DYSet.add(Constants.Category.DZDY);
+    	DYSet.add(Constants.Category.XJDY);
+    	DYSet.add(Constants.Category.JLDY);
+    	DYSet.add(Constants.Category.AQDY);
+    	DYSet.add(Constants.Category.KHDY);
+    	DYSet.add(Constants.Category.ZZDY);
+    }
+    
+    public class Category_type {
+		public final static String ZY = "zongyi"; 
+		public final static String DSJ = "dianshiju"; 
+		public final static String DM = "dongman"; 
+		public final static String DY = "dianying"; 
+    }
+    public final static Map<String,Set<String>> CategoryTypeMap =  new HashMap<String,Set<String>>();
+    static {
+    	CategoryTypeMap.put(Category_type.ZY,ZYSet);
+    	CategoryTypeMap.put(Category_type.DSJ,DSJSet);
+    	CategoryTypeMap.put(Category_type.DM,DMSet);
+    	CategoryTypeMap.put(Category_type.DY,DYSet);
     }
     
 }
