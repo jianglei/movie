@@ -1,6 +1,6 @@
 /************************************
  * @website                         *
- * @author£ºhttp://web.admin5.com   *
+ * @authorï¼šhttp://web.admin5.com   *
  ************************************/
  @import url(basenew.css);
  @import url(resetnew.css);
@@ -120,7 +120,7 @@ ul.news_list li em{ float:right;}
 
 .about{ width:620px; margin:0 auto;}
 .about .title{ border-bottom:1px solid #ddd; text-align:center; padding-bottom:20px;}
-.about .title h1{ font-size:24px; font-family:"Î¢ÈíÑÅºÚ"; font-weight:bold; color:#31a3e4; height:30px; line-height:30px; width:620px; overflow:hidden; padding:14px 0;}
+.about .title h1{ font-size:24px; font-family:"å¾®è½¯é›…é»‘"; font-weight:bold; color:#31a3e4; height:30px; line-height:30px; width:620px; overflow:hidden; padding:14px 0;}
 .about .title em{ padding-right:16px;}
 #endtext {padding:10px 0 20px;line-height:26px;font-size:14px;color:#555555}
 .next{ color:#636363; font-size:14px;}
@@ -179,7 +179,7 @@ ul.piclist .btn1{ background:url(star.png) no-repeat -57px 0;}
 #playinfo .img{ float:left; width:154px; height:214px; overflow:hidden; padding:3px; border:1px solid #ddd;}
 #playinfo .info{ width:468px; padding-left:20px; float:left;}
 #playinfo .pfen{ height:28px; line-height:28px;}
-#playinfo .pfen h1{ font-size:20px; font-family:"Î¢ÈíÑÅºÚ"; color:#0071bc; font-weight:bold; float:left; padding-right:10px;}
+#playinfo .pfen h1{ font-size:20px; font-family:"å¾®è½¯é›…é»‘"; color:#0071bc; font-weight:bold; float:left; padding-right:10px;}
 #playinfo .pfen .star{ background:url(star.png) no-repeat 0 -36px; height:28px; width:118px; overflow:hidden; float:left;}
 #playinfo .pfen .star div{ background:url(star.png) no-repeat 0 -62px; height:28px; overflow:hidden;}
 #playinfo .pfen .starscore{height:28px; width:197px; overflow:hidden; float:left;}
@@ -273,7 +273,7 @@ ul.pics li {float:left;width:86px;padding:16px 13px 0; height:180px; overflow:hi
 .comment dl dt em .fd { background-position:0 -32px}
 .comment dl dd {line-height:22px;color:#555555; padding:4px 0;}
 
-/* ÆÀÂÛ */
+/* è¯„è®º */
 #comment {padding:8px;border:1px solid #e1e1e1;margin-top:10px;}
 #comment h3 {border-bottom:1px solid #e1e1e1;heighT:40px;line-height:40px}
 #comment h3 em {font-size:14px;font-weight:bold;font-style:normal;color:#4D7A13}
@@ -291,7 +291,7 @@ ul.pics li {float:left;width:86px;padding:16px 13px 0; height:180px; overflow:hi
 #comment .sub p .key {width:44px;border:1px solid #ccc;heighT:17px;}
 #comment .plsub {float:right;widtH:100px;height:33px;background:url(star.png) no-repeat 0 -116px;border:none;cursor: pointer;vertical-align:middle}
 
-/****** ´ò·Ö *****/
+/****** æ‰“åˆ† *****/
 .star1 .grade dl{clear:both; overflow:hidden;border:1px solid #c2dceb; border-top:0;display:inline-block; width:228px;padding:10px 0;padding-left:20px; height:22px; line-height:22px;}
 .star1 .grade dt{ float:left;}
 .star1 .grade dt b{ font-family:Arial; font-size:24px; color:#f60; padding-right:4px;}

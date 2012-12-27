@@ -81,15 +81,15 @@ public class MovieGroupController extends MultiActionController {
     	return "/movieGroup/main";
     }  
     
-    @RequestMapping(value = "/main")
+    @RequestMapping(value = "/main2")
     @ResponseBody
-    public Object indexForMain(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public Object indexForMain2(HttpServletRequest request, HttpServletResponse response, Model model) {
     	Map<String,Object> queryParma = new HashMap<String,Object>();
     	
 		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap.entrySet().iterator();
     	while(it.hasNext()){
     		Page<Map<String, Object>> page = new Page<Map<String,Object>>();
-        	page.setPageSize(10);
+        	page.setPageSize(8);
         	page.setPageNo(1); 
     		Entry<String, Set<String>> e = it.next();
     		String value = e.getValue().toString();
@@ -99,8 +99,44 @@ public class MovieGroupController extends MultiActionController {
         	model.addAttribute(e.getKey(), page);
     	}
     	
+    	Page<Map<String, Object>> page_new = new Page<Map<String,Object>>();
+    	page_new.setPageSize(14);
+    	page_new.setPageNo(1); 
+    	page_new.setOrderBy("last_update_time");
+    	page_new.setOrder("asc");
+    	movieGroupService.getMovieGroupListByPage(page_new);
+    	model.addAttribute("new", page_new);
     	
     	return model;
+    }  
+    
+	@RequestMapping(value = "/main")
+    public String indexForMain(HttpServletRequest request, HttpServletResponse response, Model model) {
+    	Map<String,Object> queryParma = new HashMap<String,Object>();
+    	
+		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap.entrySet().iterator();
+    	while(it.hasNext()){
+    		Page<Map<String, Object>> page = new Page<Map<String,Object>>();
+        	page.setPageSize(8);
+        	page.setPageNo(1); 
+    		Entry<String, Set<String>> e = it.next();
+    		String value = e.getValue().toString();
+    		queryParma.put("categorys", BaseUtils.str2strArray(value.substring(1, value.length()-1)));
+    		page.setParam(queryParma);   
+        	movieGroupService.getMovieGroupListByPage(page);
+        	model.addAttribute(e.getKey(), page);
+    	}
+    	
+    	Page<Map<String, Object>> page_new = new Page<Map<String,Object>>();
+    	page_new.setPageSize(14);
+    	page_new.setPageNo(1); 
+    	page_new.setOrderBy("last_update_time");
+    	page_new.setOrder("asc");
+    	movieGroupService.getMovieGroupListByPage(page_new);
+    	model.addAttribute("new", page_new);
+    	
+    	
+    	return "/movieGroup/index";
     }  
     
     @RequestMapping(value = "/detail")

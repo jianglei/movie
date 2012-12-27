@@ -25,7 +25,7 @@ import org.springframework.util.Assert;
  * remove to StringUtil, RequestUtil...
  * 
  */
-@Deprecated
+
 public class BaseUtils {
 
     public static final int DEFAULT_COOKIE_TIME = 30 * 24 * 60 * 60;
