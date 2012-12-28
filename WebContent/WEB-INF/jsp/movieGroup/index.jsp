@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script src="/js/main.js" async="" mod_name="inf-main"></script>
+<script src="/js/main.js"></script>
 
 <title>迅播影院-Gvod Player-Gvod电影-迅雷电影</title>
 <meta name="keywords" content="迅播影院,3D电影,3D电视片源,高清电影下载,迅播播放器,迅雷看看,免费Gvod电影,kankan,百度影音"/>
@@ -14,7 +14,7 @@
 <meta name="googlebot" content="index,follow"/>
 <link href="/css/index.css" rel="stylesheet" type="text/css"/>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
-<script>var sitePath=''</script>
+<script>var sitePath='';</script>
 <script src="/js/common.js"></script>
 <script src="/js/function.js"></script>
 <script src="/js/tab.js" type="text/javascript"></script>
@@ -32,23 +32,25 @@
     <a href="http://www.2tu.cc/TvHot.html">电视热播</a> - <a href="http://www.2tu.cc/gbook.asp">留言求片</a> - 
     <a href="http://www.2tu.cc/google.xml">GOOGLE地图</a> - <a href="http://www.2tu.cc/baidu.xml">百度地图</a> - 
     <a href="http://www.2tu.cc/rss.xml">RSS订阅</a> - <a href="http://www.2tu.cc/shorturl.asp">
-    <font color="red">将迅播放到桌面</font></a> </p>
+    <font color="red">将迅播放到桌面</font></a> 
       -->
+      </p>
   </div>
 </div>
 <div id="header">
   <div class="divauto">
-    <div><h2 class="logo"><a href="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/迅播影院-Gvod Player-Gvod电影-迅雷电影下载.htm" title="迅雷电影下载" target="_self"><img src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/logo.png" width="230" height="60" class="png"></a></h2></div>
+    <div><h2 class="logo"><a href="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/迅播影院-Gvod Player-Gvod电影-迅雷电影下载.htm" title="迅雷电影下载" target="_self"><img src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/logo.png" width="230" height="60" class="png"/></a></h2></div>
     <div class="search">
       <div class="search_box">
         <form name="formsearch" id="formsearch" action="/movieGroup/index" method="post" target="_self">
-          <input type="text" class="search_text" name="name" value="请输入您要搜索的电影/电视剧" onblur="if(this.value=='')this.value='请输入您要搜索的电影/电视剧'" onfocus="if(this.value=='请输入您要搜索的电影/电视剧')this.value=''">
-          <input type="submit" class="search_btn" value="">
+          <input type="text" class="search_text" name="name" value="请输入您要搜索的电影/电视剧" onblur="if(this.value=='')this.value='请输入您要搜索的电影/电视剧'" onfocus="if(this.value=='请输入您要搜索的电影/电视剧')this.value=''"/>
+          <input type="submit" class="search_btn" value=""/>
         </form>
       </div>
     </div>
   </div>
-  <div class="nav"> <span class="nav_l"></span> <span class="nav_m">
+  <div class="nav"> <span class="nav_l"></span> 
+  <span class="nav_m">
     <div class="menu">
       <ul>
         <li><a href="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/迅播影院-Gvod Player-Gvod电影-迅雷电影下载.htm" target="_self">首页</a></li>
@@ -61,19 +63,22 @@
         
         <li><a href="http://www.2tu.cc/GvodHtml/8.html" target="_self">综艺片</a></li>
         
-        <li><a href="http://www.2tu.cc/GvodHtml/21.html" target="_self">3D电影</a></li>
-        
-        <li><a href="http://www.2tu.cc/GvodHtml/18.html" target="_self">影视预告</a></li>
         
       </ul>
-      <div class="nav_db" id="play_history"><a target="_self" href="javascript:;" id="skf" onmouseover="showTop();" class="blink">点播记录</a></div>
+      <!-- <div class="nav_db" id="play_history"><a target="_self" href="javascript:;" id="skf" onmouseover="showTop();" class="blink">点播记录</a></div> -->
     </div>
-    <p><b>热门分类：</b><a href="http://www.2tu.cc/GvodHtml/1.html" target="_self">动作片</a><a href="http://www.2tu.cc/GvodHtml/2.html" target="_self">喜剧片</a><a href="http://www.2tu.cc/GvodHtml/3.html" target="_self">爱情片</a><a href="http://www.2tu.cc/GvodHtml/4.html" target="_self">科幻片</a><a href="http://www.2tu.cc/GvodHtml/5.html" target="_self">恐怖片</a><a href="http://www.2tu.cc/GvodHtml/6.html" target="_self">剧情片</a><a href="http://www.2tu.cc/GvodHtml/13.html" target="_self">战争片</a><a href="http://www.2tu.cc/GvodHtml/14.html" target="_self">其它片</a><a href="http://www.2tu.cc/GvodHtml/9.html" target="_self">国产剧</a><a href="http://www.2tu.cc/GvodHtml/10.html" target="_self">港台剧</a><a href="http://www.2tu.cc/GvodHtml/11.html" target="_self">欧美剧</a><a href="http://www.2tu.cc/GvodHtml/12.html" target="_self">日韩剧</a><a href="http://www.2tu.cc/GvodHtml/17.html" target="_self">新马泰</a></p>
-    </span> <span class="nav_r"></span> </div>
+    <p>
+    	<b>热门分类：</b><a href="http://www.2tu.cc/GvodHtml/1.html" target="_self">动作片</a><a href="http://www.2tu.cc/GvodHtml/2.html" target="_self">喜剧片</a><a href="http://www.2tu.cc/GvodHtml/3.html" target="_self">爱情片</a><a href="http://www.2tu.cc/GvodHtml/4.html" target="_self">科幻片</a><a href="http://www.2tu.cc/GvodHtml/5.html" target="_self">恐怖片</a><a href="http://www.2tu.cc/GvodHtml/6.html" target="_self">剧情片</a><a href="http://www.2tu.cc/GvodHtml/13.html" target="_self">战争片</a><a href="http://www.2tu.cc/GvodHtml/14.html" target="_self">其它片</a><a href="http://www.2tu.cc/GvodHtml/9.html" target="_self">国产剧</a><a href="http://www.2tu.cc/GvodHtml/10.html" target="_self">港台剧</a><a href="http://www.2tu.cc/GvodHtml/11.html" target="_self">欧美剧</a><a href="http://www.2tu.cc/GvodHtml/12.html" target="_self">日韩剧</a><a href="http://www.2tu.cc/GvodHtml/17.html" target="_self">新马泰</a>
+    </p>
+    </span> 
+    <span class="nav_r"></span> 
+  </div>
+  <!-- 
   <div onmouseout="hideTop();" onmouseover="showTop();" id="List_top_2" style="display: block;" class="histroydrop">
     <div class="histroydrop_tt"> <span onclick="setEmpty()">清空观看记录</span>|<span onclick="hideTop()" class="red">关闭</span> </div>
     <div class="histroydrop_con" id="histroydrop_con"><div id="view_history" class="view_history"><center>您的观看历史为空。</center></div></div>
   </div> 
+   -->
 </div>
 <div class="ad960" id="index01"><script type="text/javascript" language="javascript" src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/index01.js"></script><iframe src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/8200_1426.htm" width="960" height="90" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe>
 </div>
@@ -87,7 +92,9 @@
                 </div>
                 <ul> 
         <c:forEach items="${new.result}" var="movie" varStatus="status">
+        	<c:if test="${status.index < 14 }">
         	<li><p><a href="http://www.2tu.cc/Html/GP13777.html">${fn:substring(movie.name, 0, 7)}</a>${movie.category }</p>${fn:substring(movie.last_update_time, 5, 9)}</li>
+        	</c:if>
         </c:forEach>
       
       
@@ -162,12 +169,15 @@
         </div>
         <div class="bot"></div>
     </div>
-    <div class="ad960"><script type="text/javascript" language="javascript" src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/index02.js"></script><script type="text/javascript">
-alimama_pid="mm_16021781_2735106_9750910";
+    <div class="ad960"><script type="text/javascript" language="javascript" src="/js/index02.js"></script><script type="text/javascript">
+alimama_pid="mm_34345258_0_0";
 alimama_width=950;
 alimama_height=90;
 </script>
-<script src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/inf.js" type="text/javascript"></script><iframe style="width: 950px; height: 90px; border: 0px;" id="tanx-a-mm_16021781_2735106_9750910" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/alimama(1).htm"></iframe>
+<!--
+<script src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/inf.js" type="text/javascript"></script>
+<iframe style="width: 950px; height: 90px; border: 0px;" id="tanx-a-mm_16021781_2735106_9750910" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/alimama(1).htm"></iframe>
+  -->
 </div>
 	<div class="section1 mt10">
     	<div class="news_top">
