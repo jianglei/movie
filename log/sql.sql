@@ -1,0 +1,1 @@
+UPDATE movie_group SET pic_url = CONCAT('http://pic2',SUBSTR(pic_url,12)) WHERE pic_url LIKE "http://pic1%";

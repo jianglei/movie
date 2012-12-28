@@ -5,8 +5,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import com.umeng.core.utils.BaseUtils;
 import com.umeng.core.utils.Page;
 import com.umeng.core.utils.StringUtil;
 import com.wuxianmeihao.core.domain.Movie;
 import com.wuxianmeihao.core.domain.MovieGroup;
 import com.wuxianmeihao.service.MovieGroupService;
+import com.wuxianmeihao.utils.Constants;
 
 @Controller
 @RequestMapping(value = "/movieGroup")
@@ -34,22 +39,28 @@ public class MovieGroupController extends MultiActionController {
     private List<String> list = new ArrayList<String>();
     
     @RequestMapping(value = "/index")
-    @ResponseBody
-    public Object index(HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
     	Map<String,Object> queryParma = new HashMap<String,Object>();
     	String pageNo = request.getParameter("pageNo");
     	if(pageNo!=null){
     		queryParma.put("pageNo", pageNo);
+    	}else{
+    		queryParma.put("pageNo", 1);
     	}
     	
 		try {
 			String category = request.getParameter("category");
 	    	if(!StringUtil.isEmpty(category)){
-	    		queryParma.put("category", new String(category.getBytes("ISO-8859-1"),"utf-8"));
+	    		category = new String(category.getBytes("ISO-8859-1"),"utf-8");
+	    		queryParma.put("category", category);
+	    		model.addAttribute("category", category);
 	    	}
+	    	
 			String	name = request.getParameter("name");
 			if(!StringUtil.isEmpty(name)){
-	    		queryParma.put("name","%" +  new String(name.getBytes("ISO-8859-1"),"utf-8") + "%");
+				name = new String(name.getBytes("ISO-8859-1"),"utf-8");
+	    		queryParma.put("name","%" +  name + "%");
+	    		model.addAttribute("name", name);
 	    	}
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("转换错误");
@@ -66,10 +77,69 @@ public class MovieGroupController extends MultiActionController {
     	page.setPageSize(10);
     	page.setPageNo(Integer.parseInt(queryParma.get("pageNo").toString()));
     	movieGroupService.getMovieGroupListByPage(page);
-    	return page;
+    	model.addAttribute("page", page);
+    	return "/movieGroup/main";
     }  
     
-    @RequestMapping(value = "/list")
+    @RequestMapping(value = "/main2")
+    @ResponseBody
+    public Object indexForMain2(HttpServletRequest request, HttpServletResponse response, Model model) {
+    	Map<String,Object> queryParma = new HashMap<String,Object>();
+    	
+		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap.entrySet().iterator();
+    	while(it.hasNext()){
+    		Page<Map<String, Object>> page = new Page<Map<String,Object>>();
+        	page.setPageSize(8);
+        	page.setPageNo(1); 
+    		Entry<String, Set<String>> e = it.next();
+    		String value = e.getValue().toString();
+    		queryParma.put("categorys", BaseUtils.str2strArray(value.substring(1, value.length()-1)));
+    		page.setParam(queryParma);   
+        	movieGroupService.getMovieGroupListByPage(page);
+        	model.addAttribute(e.getKey(), page);
+    	}
+    	
+    	Page<Map<String, Object>> page_new = new Page<Map<String,Object>>();
+    	page_new.setPageSize(14);
+    	page_new.setPageNo(1); 
+    	page_new.setOrderBy("last_update_time");
+    	page_new.setOrder("asc");
+    	movieGroupService.getMovieGroupListByPage(page_new);
+    	model.addAttribute("new", page_new);
+    	
+    	return model;
+    }  
+    
+	@RequestMapping(value = "/main")
+    public String indexForMain(HttpServletRequest request, HttpServletResponse response, Model model) {
+    	Map<String,Object> queryParma = new HashMap<String,Object>();
+    	
+		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap.entrySet().iterator();
+    	while(it.hasNext()){
+    		Page<Map<String, Object>> page = new Page<Map<String,Object>>();
+        	page.setPageSize(8);
+        	page.setPageNo(1); 
+    		Entry<String, Set<String>> e = it.next();
+    		String value = e.getValue().toString();
+    		queryParma.put("categorys", BaseUtils.str2strArray(value.substring(1, value.length()-1)));
+    		page.setParam(queryParma);   
+        	movieGroupService.getMovieGroupListByPage(page);
+        	model.addAttribute(e.getKey(), page);
+    	}
+    	
+    	Page<Map<String, Object>> page_new = new Page<Map<String,Object>>();
+    	page_new.setPageSize(14);
+    	page_new.setPageNo(1); 
+    	page_new.setOrderBy("last_update_time");
+    	page_new.setOrder("asc");
+    	movieGroupService.getMovieGroupListByPage(page_new);
+    	model.addAttribute("new", page_new);
+    	
+    	
+    	return "/movieGroup/index";
+    }  
+    
+    @RequestMapping(value = "/detail")
     @ResponseBody
     public Object getMovieList(HttpServletRequest request, HttpServletResponse response, Model model) {
     	try{
