@@ -86,6 +86,12 @@
 			<if test="category != null and category != ''">
 				and category = #{category}
 			</if>
+			<if test="categorys != null and categorys != ''">
+				and category in 
+                <foreach item="categoryType" collection="categorys" open="(" close=")" separator=",">
+                    #{categoryType}
+                </foreach>
+			</if>
 			<if test="area != null and area != ''">
 				and area = #{area}
 			</if>
@@ -93,7 +99,18 @@
 				and release_time like #{releaseTime}
 			</if>
 		</where>
-		order by id desc
+		<if test="orderBy != null and orderBy != ''">
+			order by ${orderBy}
+		</if>
+		<if test="orderBy == null or orderBy == ''">
+			order by id 
+		</if>
+		<if test="order != null and order != ''">
+			${order}
+		</if>
+		<if test="order == null or order == ''">
+			desc 
+		</if>
 	     <if test="limit != null and limit !=''">
 		     limit
 		     <if test="offset != null and offset !=''">
@@ -126,6 +143,12 @@
 			</if>
 			<if test="releaseTime != null and releaseTime != ''">
 				and release_time like #{releaseTime}
+			</if>
+			<if test="categorys != null and categorys != ''">
+				and category in 
+                <foreach item="categoryType" collection="categorys" open="(" close=")" separator=",">
+                    #{categoryType}
+                </foreach>
 			</if>
 		</where>
         

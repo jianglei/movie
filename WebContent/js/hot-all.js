@@ -1,0 +1,1 @@
+document.writeln("<a href=\"\/search.asp?searchword=生化危机\">生化危机5<\/a><a href=\"\/search.asp?searchword=谍影重重\">谍影重重4<\/a><a href=\"\/search.asp?searchword=行尸走肉\">行尸走肉<\/a><a href=\"\/search.asp?searchword=大太监\">大太监<\/a><a href=\"\/search.asp?searchword=破釜沉舟\">破釜沉舟<\/a>")
