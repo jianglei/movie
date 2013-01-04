@@ -117,7 +117,7 @@ public class MovieGroupController extends MultiActionController {
 		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap.entrySet().iterator();
     	while(it.hasNext()){
     		Page<Map<String, Object>> page = new Page<Map<String,Object>>();
-        	page.setPageSize(8);
+        	page.setPageSize(12);
         	page.setPageNo(1); 
     		Entry<String, Set<String>> e = it.next();
     		String value = e.getValue().toString();
