@@ -8,7 +8,7 @@
     <result column = "name" jdbcType="VARCHAR" property="name" />    
     <result column="category" jdbcType="VARCHAR" property="category" />
     <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="actorList" jdbcType="VARCHAR" property="actorList" />   
+    <result column="actor_list" jdbcType="VARCHAR" property="actorList" />   
     <result column = "remark" jdbcType="VARCHAR" property="remark" />   
     <result column = "director" jdbcType="VARCHAR" property="director" />    
     <result column="area" jdbcType="VARCHAR" property="area" />

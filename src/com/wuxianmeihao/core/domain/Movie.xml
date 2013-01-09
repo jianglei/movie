@@ -34,7 +34,10 @@
 			<!-- !(state & 1( means that not delete -->
         	<![CDATA[!(is_del & 1)]]>
             <if test="id != null and id != ''">
-                  id = #{id}
+                 and id = #{id}
+            </if>
+             <if test="movieGroupId != null and movieGroupId != ''">
+                 and  movie_group_id = #{movieGroupId}
             </if>
         </where>    
     </select>
