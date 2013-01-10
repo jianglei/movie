@@ -16,40 +16,40 @@
 			<div class="tit1 c5b5c5c">
 				<div class="titleft">
 							当前位置:
-					<a href="/">首页</a>
-					&nbsp;&nbsp;»&nbsp;&nbsp;
-					<a href="/GvodHtml/15.html">电影</a>
-					&nbsp;&nbsp;»&nbsp;&nbsp;
+					
 					<a href="/GvodHtml/1.html">${name}</a>
 				</div>
+				<!-- 
 				<div class="titright">
 					<a target="_self" href="/mscoref/1.html">按评分</a>
 					<a target="_self" href="/click/1.html">按热度</a>
 					<a class="red" target="_self" href="/GvodHtml/1.html">按更新</a>
 				</div>
+				 -->
 			</div>
 			<div class="con">
 				<ul class="piclist">
 				  <c:forEach items="${category.result}" var="movie" varStatus="status">
 		                  <li>
-							<a class="i" href="/movieGroup/movieDetail?id=${movie.id}">
+							<a class="i" href="/movie/movieDetail?id=${movie.id}">
 							<img alt="${movie.name }" src="${movie.pic_url }">
+							<!--
 							<em class="green_score">
 								<em class="fenshu">
 								6
 								<sup>.5</sup>
 								</em>
 							</em>
-							<em class="v">${movie.category}</em>
+							<em class="v">${movie.category}</em>  -->
 							</a>
 							<div class="info">
 								<h1 class="c0071bc">
-								<a href="/movieGroup/movieDetail?id=${movie.id}">${movie.name }</a>
+								<a href="/movie/movieDetail?id=${movie.id}">${fn:substring(movie.name, 0, 10)}</a>
 								<em>${fn:substring(movie.release_time, 0, 4)}</em>
 								</h1>
-								<div class="star">
-								<p class="sar sar3"></p>
-								</div>
+								<!-- <div class="star">
+								 <p class="sar sar3"></p>
+								</div>-->
 								<p>主演：${movie.actor_list }</p>
 								<p>
 								<b>状态：${movie.status}</b>
@@ -60,11 +60,12 @@
 								<b>更新：${movie.last_update_time}</b>
 								</p>
 								<span class="btn">
-								<a href="/movieGroup/movieDetail?id=${movie.id}">观看</a>
+								<a href="/movie/movieDetail?id=${movie.id}">观看</a>
 								</span>
+								<!-- 
 								<span class="btn1">
 								<a href="/Html/GP14213.html#down">下载</a>
-								</span>
+								</span> -->
 							</div>
 					   </li>
                   </c:forEach>
@@ -85,7 +86,7 @@
 					<a href="javascript:gotoPage(${category.totalPages})" target="_self">尾页</a>
 					<span>
 						<input type="input" size="4" name="page">
-						<input class="btn" type="button" onclick="getPageGoUrl(222,'page','/movieGroup/category?pageNo=<page>')" value="跳转">
+						<input class="btn" type="button" onclick="getPageGoUrl(222,'page','/movie/category?pageNo=<page>')" value="跳转">
 					</span>
 				</div>
 			</div>
@@ -100,6 +101,7 @@
 						<a target="_self" href="javascript:gotoYear(${year})">${year}</a>
 					</c:forEach>
 					</dd>
+				<!--  
 				<dt>按地区：</dt>
 					<dd class="pl2">
 						<a target="_self" href="javascript:gotoArea('大陆')">大陆</a>
@@ -110,6 +112,7 @@
 						<a target="_self" href="javascript:gotoArea('欧美')">欧美</a>
 						<a target="_self" href="javascript:gotoArea('其它')">其它</a>
 					</dd>
+				-->
 				</dl>
 			</div>
 			<div class="box mt10 newr1">
@@ -118,10 +121,14 @@
 				 <c:forEach items="${category.result}" var="movie" varStatus="status" begin="1" end="14" step="1" >
 					<li>
 						<p>
-						<a href="/movieGroup/movieDetail?id=${movie.id}">${movie.name}</a>
-						1280-高清
+						<a href="/movie/movieDetail?id=${movie.id}">${movie.name}</a>
 						</p>
+						<c:if test="${movie.release_time == 0 }">
+						-
+						</c:if>
+						<c:if test="${movie.release_time != 0 }">
 						${movie.release_time}
+						</c:if>
 					</li>
 				 </c:forEach>
 				</ul>

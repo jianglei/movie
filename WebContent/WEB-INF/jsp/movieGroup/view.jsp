@@ -115,7 +115,7 @@
 				<ul class="pics plist1">
 				<c:forEach items="${pageSuggest.result}" var="movie" varStatus="status" begin="1" end="12" step="1">
 					<li>
-						<a class="i" href="/movieGroup/movieDetail?id=${movie.id}">
+						<a class="i" href="/movie/movieDetail?id=${movie.id}">
 						<img alt="${movie.name}" src="${movie.pic_url}">
 						${movie.name}
 						</a>
@@ -140,7 +140,7 @@
 			<c:forEach items="${pageSuggest.result}" var="movie" varStatus="status" begin="1" end="15" step="1" >
 					<li>
 						<p>
-						<a href="/movieGroup/movieDetail?id=${movie.id}">${movie.name}</a>
+						<a href="/movie/movieDetail?id=${movie.id}">${movie.name}</a>
 						</p>
 						${movie.release_time}
 					</li>

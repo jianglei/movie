@@ -27,7 +27,7 @@
     <p class="left">欢迎来到迅播影院，我们为大家免费提供好看的电影</p>
     <p class="right">
     <a href="javascript:void(0);" onclick="setHome(this,'http://www.xhzxgc.com')">设为首页</a> - 
-    <a href="javascript:void(0)" onclick="addFavorite('http://www.xhzxgc.com','迅播影院');">加入收藏</a> - 
+    <a href="javascript:void(0)" onclick="addFavorite('http://www.xhzxgc.com','迅播影院');">加入收藏</a>
     <!--
     <a href="http://www.2tu.cc/TvHot.html">电视热播</a> - <a href="http://www.2tu.cc/gbook.asp">留言求片</a> - 
     <a href="http://www.2tu.cc/google.xml">GOOGLE地图</a> - <a href="http://www.2tu.cc/baidu.xml">百度地图</a> - 
@@ -39,11 +39,13 @@
 </div>
 <div id="header">
   <div class="divauto">
-    <div><h2 class="logo"><a href="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/迅播影院-Gvod Player-Gvod电影-迅雷电影下载.htm" title="迅雷电影下载" target="_self"><img src="./迅播影院-Gvod Player-Gvod电影-迅雷电影下载_files/logo.png" width="230" height="60" class="png"/></a></h2></div>
+    <div><h2 class="logo"><a href="/movie" title="迅播电影" target="_self"><img src="/images/logo.png" width="230" height="60" class="png"/></a></h2></div>
     <div class="search">
       <div class="search_box">
-        <form name="formsearch" id="formsearch" action="/movieGroup/index" method="post" target="_self">
-          <input type="text" class="search_text" name="name" value="请输入您要搜索的电影/电视剧" onblur="if(this.value=='')this.value='请输入您要搜索的电影/电视剧'" onfocus="if(this.value=='请输入您要搜索的电影/电视剧')this.value=''"/>
+        <form name="formsearch" id="formsearch" action="/movie/category" method="post" target="_self">
+          <input type="text" class="search_text" name="name" 
+          		<c:if test="${search_name == '' }"></c:if>${search_name}
+          		value="请输入您要搜索的电影/电视剧" onblur="if(this.value=='')this.value='请输入您要搜索的电影/电视剧'" onfocus="if(this.value=='请输入您要搜索的电影/电视剧')this.value=''"/>
           <input type="submit" class="search_btn" value=""/>
         </form>
       </div>
@@ -53,15 +55,15 @@
   <span class="nav_m">
     <div class="menu">
       <ul>
-        <li><a href="/movieGroup/main" target="_self">首页</a></li>
+        <li><a href="/movie/main" target="_self">首页</a></li>
         
-        <li><a href="/movieGroup/category" target="_self">电影</a></li>
+        <li><a href="/movie/category" target="_self">电影</a></li>
         
-        <li><a href="/movieGroup/category" target="_self">电视</a></li>
+        <li><a href="/movie/category" target="_self">电视</a></li>
         
-        <li><a href="/movieGroup/category" target="_self">动画片</a></li>
+        <li><a href="/movie/category" target="_self">动画片</a></li>
         
-        <li><a href="/movieGroup/category" target="_self">综艺片</a></li>
+        <li><a href="/movie/category" target="_self">综艺片</a></li>
         
         
       </ul>
@@ -69,22 +71,22 @@
     </div>
     <p>
     	<b>热门分类:</b>
-    	<a href="/movieGroup/category?category=8" target="_self">恐怖片</a>
-    	<a href="/movieGroup/category?category=9" target="_self">剧情片</a>
-    	<a href="/movieGroup/category?category=10" target="_self">动作片</a>
-    	<a href="/movieGroup/category?category=11" target="_self">喜剧片</a>
-    	<a href="/movieGroup/category?category=12" target="_self">纪录片</a>
-    	<a href="/movieGroup/category?category=13" target="_self">爱情片</a>
-    	<a href="/movieGroup/category?category=14" target="_self">科幻片</a>
-    	<a href="/movieGroup/category?category=15" target="_self">战争片</a>
-    	<a href="/movieGroup/category?category=0" target="_self">综艺节目</a>
-    	<a href="/movieGroup/category?category=7" target="_self">卡通动漫</a>
-    	<a href="/movieGroup/category?category=1" target="_self">香港剧</a>
-    	<a href="/movieGroup/category?category=2" target="_self">欧美剧</a>
-    	<a href="/movieGroup/category?category=3" target="_self">国产剧</a>
-    	<a href="/movieGroup/category?category=4" target="_self">韩国剧</a>
-    	<a href="/movieGroup/category?category=5" target="_self">日本剧</a>
-    	<a href="/movieGroup/category?category=6" target="_self">海外剧</a>
+    	<a href="/movie/category?category=8" target="_self">恐怖片</a>
+    	<a href="/movie/category?category=9" target="_self">剧情片</a>
+    	<a href="/movie/category?category=10" target="_self">动作片</a>
+    	<a href="/movie/category?category=11" target="_self">喜剧片</a>
+    	<a href="/movie/category?category=12" target="_self">纪录片</a>
+    	<a href="/movie/category?category=13" target="_self">爱情片</a>
+    	<a href="/movie/category?category=14" target="_self">科幻片</a>
+    	<a href="/movie/category?category=15" target="_self">战争片</a>
+    	<a href="/movie/category?category=0" target="_self">综艺节目</a>
+    	<a href="/movie/category?category=7" target="_self">卡通动漫</a>
+    	<a href="/movie/category?category=1" target="_self">香港剧</a>
+    	<a href="/movie/category?category=2" target="_self">欧美剧</a>
+    	<a href="/movie/category?category=3" target="_self">国产剧</a>
+    	<a href="/movie/category?category=4" target="_self">韩国剧</a>
+    	<a href="/movie/category?category=5" target="_self">日本剧</a>
+    	<a href="/movie/category?category=6" target="_self">海外剧</a>
     </p>
     </span> 
     <span class="nav_r"></span> 
@@ -96,3 +98,11 @@
   </div> 
    -->
 </div>
+    <div class="ad960">
+		<script type="text/javascript">
+		alimama_pid="mm_34345258_3449822_11208812";
+		alimama_width=950;
+		alimama_height=90;
+		</script>
+		<script src="http://a.alimama.cn/inf.js" type="text/javascript"></script>
+	</div>

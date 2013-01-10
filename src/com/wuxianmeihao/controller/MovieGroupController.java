@@ -33,7 +33,7 @@ import com.wuxianmeihao.utils.Constants;
 import com.wuxianmeihao.utils.categoryUtil;
 
 @Controller
-@RequestMapping(value = "/movieGroup")
+@RequestMapping(value = "/movie")
 public class MovieGroupController extends MultiActionController {
 
 	@Resource
@@ -44,47 +44,44 @@ public class MovieGroupController extends MultiActionController {
 
 	private List<String> list = new ArrayList<String>();
 
-	@RequestMapping(value = "/index")
+	@RequestMapping
 	public String index(HttpServletRequest request,
 			HttpServletResponse response, Model model) {
 		Map<String, Object> queryParma = new HashMap<String, Object>();
-		String pageNo = request.getParameter("pageNo");
-		if (pageNo != null) {
-			queryParma.put("pageNo", pageNo);
-		} else {
-			queryParma.put("pageNo", 1);
+
+		Iterator<Entry<String, Set<String>>> it = Constants.CategoryTypeMap
+				.entrySet().iterator();
+		while (it.hasNext()) {
+			Page<Map<String, Object>> page = new Page<Map<String, Object>>();
+			page.setPageSize(12);
+			page.setPageNo(1);
+			Entry<String, Set<String>> e = it.next();
+			String value = e.getValue().toString();
+			queryParma.put("categorys", BaseUtils.str2strArray(value.substring(
+					1, value.length() - 1)));
+			page.setParam(queryParma);
+			movieGroupService.getMovieGroupListByPage(page);
+			model.addAttribute(e.getKey(), page);
+			
+			Page<Map<String, Object>> page_each_new = new Page<Map<String, Object>>();
+			page_each_new.setPageSize(14);
+			page_each_new.setPageNo(1);
+			page_each_new.setOrderBy("last_update_time");
+			page_each_new.setOrder("asc");
+			page_each_new.setParam(queryParma);
+			movieGroupService.getMovieGroupListByPage(page_each_new);
+			model.addAttribute(e.getKey()+"_new", page_each_new);
 		}
 
-		try {
-			String category = request.getParameter("category");
-			if (!StringUtil.isEmpty(category)) {
-				category = new String(category.getBytes("ISO-8859-1"), "utf-8");
-				queryParma.put("category", category);
-				model.addAttribute("category", category);
-			}
+		Page<Map<String, Object>> page_new = new Page<Map<String, Object>>();
+		page_new.setPageSize(14);
+		page_new.setPageNo(1);
+		page_new.setOrderBy("last_update_time");
+		page_new.setOrder("asc");
+		movieGroupService.getMovieGroupListByPage(page_new);
+		model.addAttribute("new", page_new);
 
-			String name = request.getParameter("name");
-			if (!StringUtil.isEmpty(name)) {
-				name = new String(name.getBytes("ISO-8859-1"), "utf-8");
-				queryParma.put("name", "%" + name + "%");
-				model.addAttribute("name", name);
-			}
-		} catch (UnsupportedEncodingException e) {
-			System.out.println("转换错误");
-		}
-
-		String releaseTime = request.getParameter("releaseTime");
-		if (releaseTime != null) {
-			queryParma.put("releaseTime", "%" + releaseTime + "%");
-		}
-
-		Page<Map<String, Object>> page = new Page<Map<String, Object>>();
-		page.setParam(queryParma);
-		page.setPageSize(10);
-		page.setPageNo(Integer.parseInt(queryParma.get("pageNo").toString()));
-		movieGroupService.getMovieGroupListByPage(page);
-		model.addAttribute("page", page);
-		return "/movieGroup/main";
+		return "/movieGroup/index";
 	}
 
 	@RequestMapping(value = "/main2")
@@ -300,10 +297,18 @@ public class MovieGroupController extends MultiActionController {
 		Integer category = 1;
 		if (null != request.getParameter("pageNo"))
 			pageNo = Integer.parseInt(request.getParameter("pageNo"));
-		if (null != request.getParameter("category"))
-			category = Integer.parseInt(request.getParameter("category"));
+		
 		String year = request.getParameter("year");
 		String area = request.getParameter("area");
+		
+		String name = null;
+		if(null != request.getParameter("name")){
+			name = request.getParameter("name");
+			category = null;
+		}else{
+			if (null != request.getParameter("category"))
+				category = Integer.parseInt(request.getParameter("category"));
+		}
 
 		Page<Map<String, Object>> page_category = new Page<Map<String, Object>>();
 		page_category.setPageSize(18);
@@ -312,7 +317,13 @@ public class MovieGroupController extends MultiActionController {
 		page_category.setOrder("asc");
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("category", categoryUtil.getCategory(category));
+		if(category != null){
+			param.put("category", categoryUtil.getCategory(category));
+		}
+		if(name != null){
+			param.put("name", "%"+name+"%");
+			System.out.println(name);
+		}
 		param.put("releaseTime", year);
 		param.put("area", area);
 
@@ -320,6 +331,7 @@ public class MovieGroupController extends MultiActionController {
 		movieGroupService.getMovieGroupListByPage(page_category);
 		model.addAttribute("category", page_category);
 		model.addAttribute("name", categoryUtil.getCategory(category));
+		model.addAttribute("search_name", name);
 		return "/movieGroup/search";
 	}
 

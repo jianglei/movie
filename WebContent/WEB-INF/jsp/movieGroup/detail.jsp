@@ -25,13 +25,14 @@
 					</div>
 					<div class="info">
 					<div class="pfen">
-						<h1>评分</h1>
+						<!--  <h1>评分</h1>-->
 						<div class="starscore">
 							<input id="MARK_B1" type="hidden" value="30" name="MARK_B1">
 							<input id="MARK_B2" type="hidden" value="7.6" name="MARK_B2">
 							<input id="MARK_B3" type="hidden" value="228" name="MARK_B3">
-							<div id="filmStar" class="starA fl">
-								<div id="start" class="starB s7">
+							<div id="filmStar" >
+							<!--  -->
+								<div id="start" >
 								</div>
 								<div id="starTC" class="starC">
 								<a onmousemove="startm(1)" onmouseout="kaifach()" onclick="OnStar(14225,1)" href="javascript:;"></a>
@@ -46,10 +47,12 @@
 								<a onmousemove="startm(10)" onmouseout="kaifach()" onclick="OnStar(14225,10)" href="javascript:;"></a>
 								</div>
 							</div>
-							<span id="filmStarScore" class="no c1">
+							<!--
+							<span id="filmStarScore" class="no c1"/>
 							<em>分</em>
+							-->
 						</div>
-						<p id="filmStarScoreTip">比较精彩</p>
+						<!--<p id="filmStarScoreTip">比较精彩</p>-->
 					</div>
 					<script type="text/javascript">
 						markVideo(14225,30,0,228,5,0);
@@ -136,7 +139,7 @@
 				<ul class="pdown">
 				     <c:forEach items="${movies}" var="movie" varStatus="status">
 						<li>
-							<a target="_blank" href="/movieGroup/view?id=${movie.id}" title="${movie.name}">${movie.name}</a>
+							<a target="_blank" href="/movie/view?id=${movie.id}" title="${movie.name}">${movie.name}</a>
 						</li>
 					</c:forEach>
 				</ul>
@@ -207,10 +210,15 @@
 				<c:forEach items="${pageSuggest.result}" var="movie" varStatus="status" begin="1" end="14" step="1" >
 					<li>
 						<p>
-						<a href="/movieGroup/movieDetail?id=${movie.id}">${movie.name}</a>
-						1280-高清
+						<a href="/movie/movieDetail?id=${movie.id}">${movie.name}</a>
 						</p>
+						<c:if test="${movie.release_time == 0 }">
+						-
+						</c:if>
+						<c:if test="${movie.release_time != 0 }">
 						${movie.release_time}
+						</c:if>
+						
 					</li>
 				 </c:forEach>
 				</ul>

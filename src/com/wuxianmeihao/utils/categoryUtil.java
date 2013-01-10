@@ -14,6 +14,8 @@ public class categoryUtil {
 				categorys = Constants.Category.GCDSJ;
 			} else if (category.equals(Constants.CATEGORY_HGDSJ)) {
 				categorys = Constants.Category.HGDSJ;
+			} else if (category.equals(Constants.CATEGORY_RBDSJ)) {
+				categorys = Constants.Category.RBDSJ;
 			} else if (category.equals(Constants.CATEGORY_HWDSJ)) {
 				categorys = Constants.Category.HWDSJ;
 			} else if (category.equals(Constants.CATEGORY_KTDM)) {
