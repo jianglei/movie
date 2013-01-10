@@ -1,5 +1,5 @@
 document.writeln("<script type=\"text\/javascript\">");
-document.writeln("alimama_pid=\"mm_16021781_2735106_9750910\";");
+document.writeln("alimama_pid=\"mm_34345258_0_0\";");
 document.writeln("alimama_width=950;");
 document.writeln("alimama_height=90;");
 document.writeln("<\/script>");

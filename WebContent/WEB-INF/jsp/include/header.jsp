@@ -2,91 +2,107 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="/WEB-INF/tlds/c.tld" prefix="c"%>
 <%@ taglib prefix="fn" uri="/WEB-INF/tlds/fn.tld"%>
-<link rel="shortcut icon" href="http://www.umeng.com/images/favicon.ico" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script src="/js/main.js"></script>
 
+<title>迅播影院-Gvod Player-Gvod电影-迅雷电影</title>
+<meta name="keywords" content="迅播影院,3D电影,3D电视片源,高清电影下载,迅播播放器,迅雷看看,免费Gvod电影,kankan,百度影音"/>
+<meta name="description" content="迅播影院提供最新最快电影资讯，迅雷看看电影点播以及迅雷电影下载，同时提供百度影音高速观看！"/>
+<meta name="robots" content="index,follow"/>
+<meta name="googlebot" content="index,follow"/>
+<link href="/css/index.css" rel="stylesheet" type="text/css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<script>var sitePath='';</script>
+<script src="/js/common.js"></script>
+<script src="/js/function.js" ></script>
+<script src="/js/tab.js" type="text/javascript"></script>
+
+<base href="." target="_blank"/>
+</head>
+<body>
+<div class="top">
+  <div class="divauto c9c9c9c">
+    <p class="left">欢迎来到迅播影院，我们为大家免费提供好看的电影</p>
+    <p class="right">
+    <a href="javascript:void(0);" onclick="setHome(this,'http://www.xhzxgc.com')">设为首页</a> - 
+    <a href="javascript:void(0)" onclick="addFavorite('http://www.xhzxgc.com','迅播影院');">加入收藏</a>
+    <!--
+    <a href="http://www.2tu.cc/TvHot.html">电视热播</a> - <a href="http://www.2tu.cc/gbook.asp">留言求片</a> - 
+    <a href="http://www.2tu.cc/google.xml">GOOGLE地图</a> - <a href="http://www.2tu.cc/baidu.xml">百度地图</a> - 
+    <a href="http://www.2tu.cc/rss.xml">RSS订阅</a> - <a href="http://www.2tu.cc/shorturl.asp">
+    <font color="red">将迅播放到桌面</font></a> 
+      -->
+      </p>
+  </div>
+</div>
 <div id="header">
-	<div class="con"
-		stype="width: 950px;
-margin: 0 auto;
-margin-top: 0px;
-margin-right: auto;
-margin-bottom: 0px;
-margin-left: auto;">
-
-<c:set var="logoUrl" value="http://www.umeng.com/images/image_updated/logo.png" scope="session" />
-<c:set var="logoName" value="广告管理平台" scope="session" />
-<c:if test="${user != null and user.logoUrl !=null and user.logoUrl!=''}" >
-	<c:set var="logoUrl" value="${user.logoUrl} " scope="session" />
-</c:if>
-<c:if test="${user != null and user.logoName !=null and user.logoName!=''}" >
-	<c:set var="logoName" value="${user.logoName} " scope="session" />
-</c:if>
-                <div class="logo" style=" position: relative;padding:0;line-height:50px;">
-			<img class="logoUrl_show" src='<c:out value="${logoUrl}"/>' style="width:120px; height:45px;"/>
-			<a href="http://ufp.umeng.com"
-				style="height: 32px;  display: inline-block; margin-left:10px;">
-			${user.logoName}广告管理平台
-				</a>
-		</div>
-
-		<c:if test="${user != null}">
-			<div class="opr">
-				欢迎您, ${user.nickname }  | <a href="/login/logout">退出</a>
-			</div>
-		</c:if>
-
-	</div>
+  <div class="divauto">
+    <div><h2 class="logo"><a href="/movie" title="迅播电影" target="_self"><img src="/images/logo.png" width="230" height="60" class="png"/></a></h2></div>
+    <div class="search">
+      <div class="search_box">
+        <form name="formsearch" id="formsearch" action="/movie/category" method="post" target="_self">
+          <input type="text" class="search_text" name="name" 
+          		<c:if test="${search_name == '' }"></c:if>${search_name}
+          		value="请输入您要搜索的电影/电视剧" onblur="if(this.value=='')this.value='请输入您要搜索的电影/电视剧'" onfocus="if(this.value=='请输入您要搜索的电影/电视剧')this.value=''"/>
+          <input type="submit" class="search_btn" value=""/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="nav"> <span class="nav_l"></span> 
+  <span class="nav_m">
+    <div class="menu">
+      <ul>
+        <li><a href="/movie/main" target="_self">首页</a></li>
+        
+        <li><a href="/movie/category" target="_self">电影</a></li>
+        
+        <li><a href="/movie/category" target="_self">电视</a></li>
+        
+        <li><a href="/movie/category" target="_self">动画片</a></li>
+        
+        <li><a href="/movie/category" target="_self">综艺片</a></li>
+        
+        
+      </ul>
+      <!-- <div class="nav_db" id="play_history"><a target="_self" href="javascript:;" id="skf" onmouseover="showTop();" class="blink">点播记录</a></div> -->
+    </div>
+    <p>
+    	<b>热门分类:</b>
+    	<a href="/movie/category?category=8" target="_self">恐怖片</a>
+    	<a href="/movie/category?category=9" target="_self">剧情片</a>
+    	<a href="/movie/category?category=10" target="_self">动作片</a>
+    	<a href="/movie/category?category=11" target="_self">喜剧片</a>
+    	<a href="/movie/category?category=12" target="_self">纪录片</a>
+    	<a href="/movie/category?category=13" target="_self">爱情片</a>
+    	<a href="/movie/category?category=14" target="_self">科幻片</a>
+    	<a href="/movie/category?category=15" target="_self">战争片</a>
+    	<a href="/movie/category?category=0" target="_self">综艺节目</a>
+    	<a href="/movie/category?category=7" target="_self">卡通动漫</a>
+    	<a href="/movie/category?category=1" target="_self">香港剧</a>
+    	<a href="/movie/category?category=2" target="_self">欧美剧</a>
+    	<a href="/movie/category?category=3" target="_self">国产剧</a>
+    	<a href="/movie/category?category=4" target="_self">韩国剧</a>
+    	<a href="/movie/category?category=5" target="_self">日本剧</a>
+    	<a href="/movie/category?category=6" target="_self">海外剧</a>
+    </p>
+    </span> 
+    <span class="nav_r"></span> 
+  </div>
+  <!-- 
+  <div onmouseout="hideTop();" onmouseover="showTop();" id="List_top_2" style="display: block;" class="histroydrop">
+    <div class="histroydrop_tt"> <span onclick="setEmpty()">清空观看记录</span>|<span onclick="hideTop()" class="red">关闭</span> </div>
+    <div class="histroydrop_con" id="histroydrop_con"><div id="view_history" class="view_history"><center>您的观看历史为空。</center></div></div>
+  </div> 
+   -->
 </div>
-<div id="menu">
-	<div class="con">
-		<ul>
-			<li class="position" id="adslot_tab"><a href="/adslot">广告位</a><span></span></li>
-			<li class="ad" id="ad_tab"><a href="/ad">广告</a><span></span></li>
-			<li class="report" id="report_tab"><a href="/report">报表</a><span></span></li>
-			<li class="settings" id="settings_tab"><a href="/settings">设置</a><span></span></li>
-		</ul>
+    <div class="ad960">
+		<script type="text/javascript">
+		alimama_pid="mm_34345258_3449822_11208812";
+		alimama_width=950;
+		alimama_height=90;
+		</script>
+		<script src="http://a.alimama.cn/inf.js" type="text/javascript"></script>
 	</div>
-</div>
-<div class="submenu" id="submenu_adslot" style="display: none">
-	<div class="con">
-		<ul>
-<!--             ***********不要删除span标签****************-->
-			<li id="adslot_tab_adslot" class=""><a href="/adslot">广告位管理</a><span></span></li>
-			<li id="adslot_tab_app" class=""><a href="/app" style="background-image: none">应用</a><span></span></li>
-			<!-- <li id="adslot_tab_overview" class=""><a href="#" style="background-image:none">广告位使用情况</a></li> -->
-		</ul>
-	</div>
-</div>
-<div class="submenu" id="submenu_ad" style="display: none">
-	<div class="con">
-		<ul>
-			<li id="ad_tab_ad" class=""><a href="/ad">广告库</a><span></span></li>
-			<li id="ad_tab_adorder" class=""><a href="/adorder" style="background-image: none">订单</a><span></span></li>
-		</ul>
-	</div>
-</div>
-<div class="submenu" id="submenu_report" style="display: none">
-	<div class="con">
-		<ul>
-			<li><a href="/report">整体效果</a><span></span></li>
-			<li><a href="/report/adslot">广告位报表</a><span></span></li>
-			<li><a href="/report/adorder">订单报表</a><span></span></li>
-			<li><a href="/report/ad">广告报表</a><span></span></li>
-			<li><a href="/report/app">应用报表</a><span></span></li>
-			<li><a href="/report/platform" style="background-image: none">平台报表</a><span></span></li>
-		</ul>
-	</div>
-</div>
-<div class="submenu" id="submenu_settings" style="display: none">
-	<div class="con">
-		<ul>
-			<!-- 			<li><a href="#">管理员设置</a></li> -->
-			<li><a href="/settings">账户信息</a><span></span></li>
-			<li><a href="/settings/edit_logo" >设置Logo</a><span></span></li>
-			<li><a href="/settings/edit_black_list" style="background-image: none">修改黑名单</a><span></span></li> 
-			<!-- 			<li><a href="#">历史操作</a><span></span></li> -->
-			<!-- 			<li><a href="#" style="background-image:none">广告主效果查询账户</a></li> -->
-		</ul>
-	</div>
-</div>
-
