@@ -48,12 +48,12 @@
 				</c:if>
 				<c:if test="${page.totalItems != 0 }">
 					 <div style="width: 95px; margin-top: -20px; position: absolute; background: none repeat scroll 0pt 0pt rgb(0, 166, 252); border-top: medium none; border-right: medium none; font-weight: lighter; border-radius: 0pt 0pt 3px 3px; right: 30px;" class="alert-box">
-					<a style="color:#fff" class="" href="/movieGroup/index?o=year">按发行时间排序</a>
+					<a style="color:#fff" class="" href="/movie/index?o=year">按发行时间排序</a>
 					</div>
 					<c:forEach items="${page.result}" var="movie" varStatus="status">
 						<article class="posts">
 						<h3>
-							<a target="_blank" href="/movieGroup/detail?id=${movie.id}">${movie.name}</a>
+							<a target="_blank" href="/movie/detail?id=${movie.id}">${movie.name}</a>
 						</h3>
 						<div class="postmeta">
 							更新于 <strong>${fn:substring(movie.last_update_time, 0, 10)}</strong>
@@ -63,7 +63,7 @@
 						<div class="row">
 							<div class="three columns">
 								<div class="thumbnail hide-on-phones">
-									<a href="/movieGroup/detail?id=${movie.id}"
+									<a href="/movie/detail?id=${movie.id}"
 										title="${movie.name}"><img height="200"
 										width="150"
 										src="${movie.pic_url}"
@@ -111,7 +111,7 @@
 				            $("#pager").pager({ pagenumber: ${page.pageNo}, pagecount: ${page.totalPages}, buttonClickCallback: PageClick });
 				        });
 					  PageClick = function(pageclickednumber) {
-							location="/movieGroup/index?pageNo="+pageclickednumber;
+							location="/movie/index?pageNo="+pageclickednumber;
 						}
 					</script>
 					<div id="pager" ></div>
