@@ -1,7 +1,7 @@
 <project name="movie" default="deploy-dev" basedir="./">
 	<description>Builds, tests, and runs the project.</description>
  	
-	<property name="resin" location="../resin-movie" />
+	<property name="resin" location="../resin" />
 	<property name="project" location="~/apps/movie/"/>
 	<property name="lib" location="../movie/lib" />
 	<property name="libdev" location="../movie/lib-dev" />
